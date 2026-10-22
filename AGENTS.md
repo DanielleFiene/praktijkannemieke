@@ -42,7 +42,7 @@ WordPress-restjes (`wp-json`, `et-cache`, dubbele bestanden) verwijderen zodra n
 2. Relatieve paden + `%3F`-bestandsnamen opschonen — **gedaan**
 3. Nieuwe mappenstructuur, WP-restjes verwijderen — **gedaan** (`assets/`, `wp-json`/`feed`/`comments`/`site/` weg; Divi tijdelijk onder `assets/wp/`)
 4. Semantische HTML — **gedaan** (skip-link, `<main>`, nav ARIA, credits-meta, footer Tiki-tekst, `humans.txt`, `a11y.css`; één `h1` per pagina volgt in stap 5/6)
-5. CSS herschrijven (screenshots gelijk)
+5. CSS herschrijven (screenshots gelijk) — **bezig** (eerst proxima-nova + Open Sans lokaal, dan Typekit/Divi eruit; `scripts/remove-typekit.mjs` wacht op font-pariteit)
 6. Minimale vanilla JS
 7. Afbeeldingen/fonts optimaliseren
 8. SEO + structured data + llms.txt

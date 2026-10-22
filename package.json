@@ -15,7 +15,8 @@
     "test:lighthouse": "playwright test tests/lighthouse.spec.js",
     "paths:fix": "node scripts/sanitize-filenames.mjs && node scripts/make-paths-relative.mjs",
     "migrate:assets": "node scripts/migrate-to-assets.mjs",
-    "semantic:html": "node scripts/apply-semantic-html.mjs"
+    "semantic:html": "node scripts/apply-semantic-html.mjs",
+    "docs:links": "node scripts/fix-doc-links.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0",
