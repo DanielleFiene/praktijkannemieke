@@ -1,3 +1,6 @@
+scripts/.filename-renames.json
+scripts/.divi-asset-renames.json
+
 node_modules/
 test-results/
 playwright-report/

@@ -75,7 +75,7 @@ function fixDiviCssRelativeUrls() {
 
 function fixChildThemeFontPaths() {
   const childDir = path.join(root, 'assets', 'css', 'divi', 'themes', 'Divi_child');
-  for (const file of ['style.css.ver-4.27.9.css', 'style.css.ver-7.1.3.css']) {
+  for (const file of ['style.css']) {
     const p = path.join(childDir, file);
     if (!fs.existsSync(p)) continue;
     let css = fs.readFileSync(p, 'utf8');
@@ -161,14 +161,6 @@ function cleanHtml(file) {
   }
 
   const prefix = file === path.join(root, 'index.html') ? '' : '../';
-  const legacy = `${prefix}assets/css/legacy-globals.css`;
-  if (!html.includes('legacy-globals.css')) {
-    html = html.replace(
-      /(<link rel="stylesheet" href="[^"]*a11y\.css" \/>)/,
-      `$1\n<link rel="stylesheet" href="${legacy}" />`
-    );
-  }
-
   if (html !== before) {
     fs.writeFileSync(file, html);
     console.log('Cleaned', rel);
