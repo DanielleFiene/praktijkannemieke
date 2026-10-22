@@ -28,7 +28,9 @@ const JQUERY_HEAD = new RegExp(
 
 const IE_BLOCK = /<!--\[if[\s\S]*?<!\[endif\]-->\s*/gi;
 
-const YOAST_COMMENTS = /<!--\s*This site is optimized with the Yoast[\s\S]*?<!--\s*\/ Yoast SEO plugin\.\s*-->\s*/i;
+const YOAST_COMMENT_OPEN =
+	/<!--\s*This site is optimized with the Yoast SEO plugin[^>]*-->\s*/i;
+const YOAST_COMMENT_CLOSE = /<!--\s*\/ Yoast SEO plugin\.\s*-->\s*/i;
 
 const DIVI_GENERATOR = /<meta content="Divi Child[^"]*" name="generator"\s*\/>\s*/i;
 
@@ -48,7 +50,8 @@ for (const file of listSiteHtmlFiles()) {
 	let next = html;
 
 	next = next.replace(IE_BLOCK, '');
-	next = next.replace(YOAST_COMMENTS, '');
+	next = next.replace(YOAST_COMMENT_OPEN, '');
+	next = next.replace(YOAST_COMMENT_CLOSE, '');
 	next = next.replace(DIVI_GENERATOR, '');
 	next = next.replace(JQUERY_HEAD, '');
 	next = next.replace(JS_CLASS_SCRIPT, '');
