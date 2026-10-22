@@ -69,13 +69,37 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 	}
 }
 
-/* WCAG 2.2 contrast – Wie/footer; NEI-titel blijft Divi-mint (#c1dfe0) */
-#Wie h2 span,
-#Wie h3,
-#Wie h3 span,
-#Wie h3 strong,
-#Wie h3 em {
-	color: #1a1a1a !important;
+/* Wie-sectie: witte kopjes + intro; lijsttekst zwart (zoals ontwerp) */
+#Wie h2,
+#Wie h2 span {
+	color: #ffffff !important;
+}
+
+#Wie .et_pb_text_6 h3,
+#Wie .et_pb_text_7 h3 {
+	font-family: proxima-nova, "Open Sans", Arial, sans-serif !important;
+	font-size: 1rem;
+	font-weight: 700;
+	font-style: italic;
+	line-height: 1.5;
+	color: #ffffff !important;
+}
+
+#Wie .et_pb_text_6 h3 strong,
+#Wie .et_pb_text_7 h3 strong,
+#Wie .et_pb_text_6 h3 em,
+#Wie .et_pb_text_7 h3 em,
+#Wie .et_pb_text_6 h3 span,
+#Wie .et_pb_text_7 h3 span {
+	font-family: inherit !important;
+	font-weight: inherit;
+	font-style: inherit;
+	color: #ffffff !important;
+}
+
+#Wie .et_pb_text_6 p,
+#Wie .et_pb_text_7 p {
+	color: #000000;
 }
 
 #footer-bottom .blauw,
