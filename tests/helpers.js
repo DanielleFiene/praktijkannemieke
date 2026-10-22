@@ -5,7 +5,10 @@
 async function waitForPageStable(page) {
   await page.waitForLoadState('domcontentloaded');
   await page.evaluate(() => document.fonts?.ready);
-  await page.waitForTimeout(500);
+  await page
+    .waitForLoadState('networkidle', { timeout: 8000 })
+    .catch(() => undefined);
+  await page.waitForTimeout(600);
 }
 
 /**

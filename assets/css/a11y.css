@@ -125,3 +125,17 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 .aligncenter {
 	clear: both;
 }
+
+/* Privacy: titel in mint-header gecentreerd */
+#post-227 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container.center {
+	justify-content: center;
+}
+#post-227 .et_pb_fullwidth_header_0 .header-content-container,
+#post-227 .et_pb_fullwidth_header_0 .header-content,
+#post-227 .et_pb_fullwidth_header_0 .et_pb_header_content_wrapper {
+	width: 100%;
+	max-width: 100%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
