@@ -1,0 +1,3 @@
+Contact: mailto:info@dfdigital.eu
+Preferred-Languages: nl, en
+Canonical: https://www.praktijkannemieke.nl/.well-known/security.txt
