@@ -52,13 +52,18 @@ function transform(html, filePath) {
 		out = out.replace(/<meta charset="UTF-8"\s*\/>/i, `<meta charset="UTF-8" />\n${creditBlock}`);
 	}
 
-	if (!out.includes('assets/css/a11y.css')) {
+	if (!out.includes('assets/css/fonts.css')) {
+		const fontsHref = `${prefix}assets/css/fonts.css`;
 		const a11yHref = `${prefix}assets/css/a11y.css`;
 		out = out.replace(
 			/<link rel='stylesheet' id='child-style-css'/,
-			`<link rel="stylesheet" href="${a11yHref}" />\n<link rel='stylesheet' id='child-style-css'`
+			`<link rel="stylesheet" href="${fontsHref}" />\n<link rel="stylesheet" href="${a11yHref}" />\n<link rel='stylesheet' id='child-style-css'`
 		);
 	}
+	out = out.replace(
+		/<link rel="stylesheet" href="https:\/\/use\.typekit\.net\/gfb8icv\.css">\s*/g,
+		''
+	);
 
 	out = out.replaceAll('href="tel:0031611260440"', 'href="tel:+31611260440"');
 

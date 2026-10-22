@@ -9,3 +9,5 @@ site/
 wp-json/
 feed/
 comments/
+_proxima-extract/
+*.zip

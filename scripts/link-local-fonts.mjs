@@ -1,7 +1,3 @@
-/**
- * Verwijdert Adobe Typekit (proxima-nova). Pas uit na lokale @font-face in assets/css/fonts.css
- * en groene visuele tests — zonder Typekit valt body terug op sans-serif.
- */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -18,14 +14,34 @@ function listSiteHtmlFiles() {
 	return files;
 }
 
+function relPrefix(filePath) {
+	const rel = path.relative(root, path.dirname(filePath));
+	if (!rel || rel === '.') return '';
+	const depth = rel.split(path.sep).filter(Boolean).length;
+	return depth ? '../'.repeat(depth) : '';
+}
+
 const TYPEKIT =
 	/<link rel="stylesheet" href="https:\/\/use\.typekit\.net\/gfb8icv\.css">\s*/g;
 
 for (const file of listSiteHtmlFiles()) {
+	const prefix = relPrefix(file);
 	let html = fs.readFileSync(file, 'utf8');
-	const next = html.replace(TYPEKIT, '');
+	let next = html.replace(TYPEKIT, '');
+
+	const fontsHref = `${prefix}assets/css/fonts.css`;
+	const fontsTag = `<link rel="stylesheet" href="${fontsHref}" />\n`;
+	if (!next.includes('assets/css/fonts.css')) {
+		next = next.replace(
+			/<link rel="stylesheet" href="[^"]*assets\/css\/a11y\.css" \/>\n/,
+			`${fontsTag}<link rel="stylesheet" href="${prefix}assets/css/a11y.css" />\n`
+		);
+	}
+
 	if (next !== html) {
 		fs.writeFileSync(file, next);
-		console.log('Typekit removed:', path.relative(root, file));
+		console.log('Updated', path.relative(root, file));
 	}
 }
+
+console.log('Lokale fonts gekoppeld, Typekit verwijderd.');

@@ -16,13 +16,16 @@
     "paths:fix": "node scripts/sanitize-filenames.mjs && node scripts/make-paths-relative.mjs",
     "migrate:assets": "node scripts/migrate-to-assets.mjs",
     "semantic:html": "node scripts/apply-semantic-html.mjs",
-    "docs:links": "node scripts/fix-doc-links.mjs"
+    "docs:links": "node scripts/fix-doc-links.mjs",
+    "fonts:link": "node scripts/link-local-fonts.mjs",
+    "fonts:woff2": "node scripts/convert-fonts-to-woff2.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0",
     "html-validate": "^9.4.0",
     "lighthouse": "^12.3.0",
     "playwright-lighthouse": "^4.0.0",
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "ttf2woff2": "^8.0.1"
   }
 }
