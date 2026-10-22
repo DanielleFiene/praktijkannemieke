@@ -3,3 +3,9 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
+
+# Oude WordPress-export (niet opnieuw committen)
+site/
+wp-json/
+feed/
+comments/
