@@ -40,9 +40,9 @@ WordPress-restjes (`wp-json`, `et-cache`, dubbele bestanden) verwijderen zodra n
 
 1. Testopzet + referentie-screenshots — **gedaan**
 2. Relatieve paden + `%3F`-bestandsnamen opschonen — **gedaan**
-3. Nieuwe mappenstructuur, WP-restjes verwijderen — **gedaan** (`assets/`, `wp-json`/`feed`/`comments`/`site/` weg; Divi tijdelijk onder `assets/wp/`)
+3. Nieuwe mappenstructuur, WP-restjes verwijderen — **gedaan** (`assets/`, `wp-json`/`feed`/`comments`/`site/` weg; Divi tijdelijk onder `assets/css/divi/`)
 4. Semantische HTML — **gedaan** (skip-link, `<main>`, nav ARIA, credits-meta, footer Tiki-tekst, `humans.txt`, `a11y.css`; één `h1` per pagina volgt in stap 5/6)
-5. CSS herschrijven (screenshots gelijk) — **deels** (lokale fonts; Divi-CSS nog in `assets/wp/`)
+5. CSS herschrijven (screenshots gelijk) — **deels** (lokale fonts; Divi-CSS nog in `assets/css/divi/`)
 6. Minimale vanilla JS — **gedaan** (`assets/js/site.js`; jQuery/Divi-footer verwijderd)
 7. Afbeeldingen/fonts optimaliseren
 8. SEO + structured data + llms.txt

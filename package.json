@@ -20,7 +20,8 @@
     "fonts:link": "node scripts/link-local-fonts.mjs",
     "fonts:woff2": "node scripts/convert-fonts-to-woff2.mjs",
     "clean:head": "node scripts/clean-html-head.mjs",
-    "lighthouse:fix": "node scripts/apply-lighthouse-fixes.mjs"
+    "lighthouse:fix": "node scripts/apply-lighthouse-fixes.mjs",
+    "finalize:site": "node scripts/finalize-static-site.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0",

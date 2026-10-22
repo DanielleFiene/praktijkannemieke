@@ -140,8 +140,8 @@ const docReplacements = [
 function rewriteContent(text) {
   let out = text;
   out = out.replace(/site\/wp-content\/uploads\//g, 'assets/images/');
-  out = out.replace(/site\/wp-content\/et-cache\//g, 'assets/wp/et-cache/');
-  out = out.replace(/site\/wp-content\/themes\//g, 'assets/wp/themes/');
+  out = out.replace(/site\/wp-content\/et-cache\//g, 'assets/css/divi/et-cache/');
+  out = out.replace(/site\/wp-content\/themes\//g, 'assets/css/divi/themes/');
   out = out.replace(/site\/wp-includes\//g, 'assets/wp-includes/');
   out = out.replace(/url\(\.\/fonts\//g, 'url(assets/fonts/');
   out = out.replace(/url\(\.\.\/fonts\//g, 'url(../assets/fonts/');
