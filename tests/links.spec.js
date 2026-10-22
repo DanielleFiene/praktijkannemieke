@@ -37,7 +37,9 @@ test.describe('interne links', () => {
       }
 
       const unexpected = failures.filter(
-        (line) => !line.includes('toestemmingsformulier.docx')
+        (line) =>
+          !line.includes('toestemmingsformulier.docx') &&
+          !line.includes('assets/docs/toestemmingsformulier.docx')
       );
       expect(unexpected, `Kapotte interne links op ${path || 'home'}`).toEqual([]);
     });

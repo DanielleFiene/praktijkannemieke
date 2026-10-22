@@ -39,8 +39,8 @@ WordPress-restjes (`wp-json`, `et-cache`, dubbele bestanden) verwijderen zodra n
 ## Volgorde
 
 1. Testopzet + referentie-screenshots — **gedaan**
-2. Relatieve paden + `%3F`-bestandsnamen opschonen — **in uitvoering**
-3. Nieuwe mappenstructuur, WP-restjes verwijderen
+2. Relatieve paden + `%3F`-bestandsnamen opschonen — **gedaan**
+3. Nieuwe mappenstructuur, WP-restjes verwijderen — **gedaan** (`assets/`, `wp-json`/`feed`/`comments`/`site/` weg; Divi tijdelijk onder `assets/wp/`)
 4. Semantische HTML
 5. CSS herschrijven (screenshots gelijk)
 6. Minimale vanilla JS

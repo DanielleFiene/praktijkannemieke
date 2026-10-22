@@ -1,0 +1,168 @@
+/*
+Theme Name: Divi Child
+Theme URI: http://www.elegantthemes.com/gallery/divi/
+Version: 2.2
+Description: Smart. Flexible. Beautiful. Divi is the most powerful theme in our collection.
+Author: Elegant Themes
+Template: Divi
+Author URI: http://www.elegantthemes.com
+*/
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+#mobile_menu.et_mobile_menu {
+	background-color: #c1dfe0!important;
+}
+
+#footer-info {
+	float:none !important;
+	width: 100%;
+	text-align: center;
+}
+
+#top-menu li {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.nav li {
+	line-height: 1.3em;
+}
+
+header#main-header.et-fixed-header, #main-header{
+	-webkit-box-shadow:none !important;
+	-moz-box-shadow:none !important;
+	box-shadow:none !important;
+}
+
+#page-container #main-header {
+	box-shadow:none !important;
+}
+
+/* Opmaak knop cookiebar */
+.cn-button.bootstrap {
+	background: #ebcbcd;
+}
+
+/* Font  */
+
+h1 {font-family: "jenna_sueregular"}
+h3 {font-family: "jenna_sueregular"}
+
+body {
+	font-family: proxima-nova, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'jenna_sueregular';
+    src: url('../fonts/jennasue/jennasue-webfont.woff2') format('woff2'),
+         url('../fonts/jennasue/jennasue-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+#footer-info a {
+	font-weight: normal !important;
+}
+
+#footer-info a:hover {
+	text-decoration: underline;
+}
+
+#envelop::before {
+	font-family: 'ETmodules';
+	content: "\e076";
+	position: relative;
+	top: 2px;
+	margin-right: 8px;
+}
+
+#mobiel::before {
+	font-family: 'ETmodules';
+	content: "\e00b";
+	position: relative;
+	top: 2px;
+	margin-right: 8px;
+}
+
+#telefoon::before {
+	font-family: 'ETmodules';
+	content: "\e090";
+	position: relative;
+	top: 2px;
+	margin-right: 8px;
+}
+
+.mfp-bottom-bar {
+	display: none;
+}
+
+/* ipad menu landscape */
+@media only screen and ( max-width:1659px ) {
+#et_mobile_nav_menu { 
+	display:block !important; 
+	margin-bottom:20px; 
+	margin-top:6px 
+}
+#top-menu-nav { 
+	display:none; 
+	}
+.et-fixed-header #et_mobile_nav_menu { margin-bottom:0; 
+	}
+}
+
+@media only screen and ( min-width:1660px ) {
+#top-menu {
+	margin-top: -80px;
+	}
+#logo {
+	max-height: 120% !important;	
+	}
+}
+
+@media (max-width: 1200px) {
+ .container.et_menu_container { 
+ width: calc( 100% - 60px);
+ }
+.et_mobile_menu {
+ margin-left: -30px;
+ padding: 5%;
+ width: calc( 100% + 60px);
+}
+.mobile_nav.opened .mobile_menu_bar:before {
+ content: "\4d";
+}
+}
+
+.blauw {
+	color: #c1dfe0;
+}
+
+@media (max-width: 981px) {
+.mobile_menu_bar:before {
+	color: #c1dfe0!important;
+}
+}
+
+#logo {
+	max-height: 90% !important;
+	margin-top: 15px;
+}
+
+.et_header_style_left #et-top-navigation .mobile_menu_bar, .et_header_style_split #et-top-navigation .mobile_menu_bar {
+	padding-top: 10px;
+}
+
+.dtb_mobile .et_mobile_menu li a, .dtb_mobile .dtb-menu .et_mobile_menu li a, .dtb_mobile #et-boc .dtb-menu .et_mobile_menu li a, .et-db #et-boc .et-l .dtb-menu .et_mobile_menu li a {
+	color: #000;
+	letter-spacing: 1px;
+	font-weight: 700;
+}
+
+.dtb_mobile .et_mobile_menu li.cta-item>a, .dtb_mobile .dtb-menu .et_mobile_menu li.cta-item>a {
+	color: #000;
+	letter-spacing: 1px;
+
+}
