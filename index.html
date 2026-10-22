@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="nl-NL">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="nl-NL">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="nl-NL">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="nl-NL">
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+			
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="pingback" href="/site/xmlrpc.php" />
+
+		<!--[if lt IE 9]>
+	<script src="/site/wp-content/themes/Divi/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+	 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><style id="et-divi-open-sans-inline-css">/* Original: https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#038;subset=latin,latin-ext&#038;display=swap *//* User Agent: Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 Daum/4.1 */@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 300;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exQ.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 400;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exQ.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 600;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exQ.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 700;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exQ.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 800;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exQ.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 300;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVc.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 400;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVc.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 600;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVc.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 700;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVc.ttf) format('truetype');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 800;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVc.ttf) format('truetype');}/* User Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0 */@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 300;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4exg.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 400;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4exg.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 600;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4exg.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 700;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4exg.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 800;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4exg.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 300;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVQ.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 400;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVQ.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 600;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVQ.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 700;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVQ.woff) format('woff');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 800;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVQ.woff) format('woff');}/* User Agent: Mozilla/5.0 (Windows NT 6.3; rv:39.0) Gecko/20100101 Firefox/39.0 */@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 300;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk5hkWV4ewA.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 400;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk8ZkWV4ewA.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 600;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkxhjWV4ewA.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 700;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0RkyFjWV4ewA.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: italic;font-weight: 800;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memQYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWq8tWZ0Pw86hd0Rk0ZjWV4ewA.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 300;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsiH0B4uaVI.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 400;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVI.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 600;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsgH1x4uaVI.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 700;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1x4uaVI.woff2) format('woff2');}@font-face {font-family: 'Open Sans';font-style: normal;font-weight: 800;font-stretch: normal;font-display: swap;src: url(/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgshZ1x4uaVI.woff2) format('woff2');}</style><meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<script type="text/javascript">
+			let jqueryParams=[],jQuery=function(r){return jqueryParams=[...jqueryParams,r],jQuery},$=function(r){return jqueryParams=[...jqueryParams,r],$};window.jQuery=jQuery,window.$=jQuery;let customHeadScripts=!1;jQuery.fn=jQuery.prototype={},$.fn=jQuery.prototype={},jQuery.noConflict=function(r){if(window.jQuery)return jQuery=window.jQuery,$=window.jQuery,customHeadScripts=!0,jQuery.noConflict},jQuery.ready=function(r){jqueryParams=[...jqueryParams,r]},$.ready=function(r){jqueryParams=[...jqueryParams,r]},jQuery.load=function(r){jqueryParams=[...jqueryParams,r]},$.load=function(r){jqueryParams=[...jqueryParams,r]},jQuery.fn.ready=function(r){jqueryParams=[...jqueryParams,r]},$.fn.ready=function(r){jqueryParams=[...jqueryParams,r]};</script>
+	<!-- This site is optimized with the Yoast SEO plugin v28.6 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>HOME - Praktijk Annemieke</title>
+	<meta name="description" content="NEI staat voor Neuro Emotionele Integratie, wat wil zeggen dat je oude emoties gaat verwerken. Lees hier wat NEI voor jou kan betekenen." />
+	<link rel="canonical" href="index.html" />
+	<meta property="og:locale" content="nl_NL" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="HOME - Praktijk Annemieke" />
+	<meta property="og:description" content="NEI staat voor Neuro Emotionele Integratie, wat wil zeggen dat je oude emoties gaat verwerken. Lees hier wat NEI voor jou kan betekenen." />
+	<meta property="og:url" content="/" />
+	<meta property="og:site_name" content="Praktijk Annemieke" />
+	<meta property="article:modified_time" content="2024-01-09T16:23:02+00:00" />
+	<meta property="og:image" content="/site/wp-content/uploads/2021/07/logo-annemieke.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/praktijkannemieke.nl\/","url":"https:\/\/praktijkannemieke.nl\/","name":"HOME - Praktijk Annemieke","isPartOf":{"@id":"https:\/\/praktijkannemieke.nl\/#website"},"primaryImageOfPage":{"@id":"https:\/\/praktijkannemieke.nl\/#primaryimage"},"image":{"@id":"https:\/\/praktijkannemieke.nl\/#primaryimage"},"thumbnailUrl":"https:\/\/praktijkannemieke.nl\/site\/wp-content\/uploads\/2021\/07\/logo-annemieke.png","datePublished":"2021-06-24T12:24:02+00:00","dateModified":"2024-01-09T16:23:02+00:00","description":"NEI staat voor Neuro Emotionele Integratie, wat wil zeggen dat je oude emoties gaat verwerken. Lees hier wat NEI voor jou kan betekenen.","breadcrumb":{"@id":"https:\/\/praktijkannemieke.nl\/#breadcrumb"},"inLanguage":"nl-NL","potentialAction":[{"@type":"ReadAction","target":["https:\/\/praktijkannemieke.nl\/"]}]},{"@type":"ImageObject","inLanguage":"nl-NL","@id":"https:\/\/praktijkannemieke.nl\/#primaryimage","url":"https:\/\/praktijkannemieke.nl\/site\/wp-content\/uploads\/2021\/07\/logo-annemieke.png","contentUrl":"https:\/\/praktijkannemieke.nl\/site\/wp-content\/uploads\/2021\/07\/logo-annemieke.png","width":437,"height":323},{"@type":"BreadcrumbList","@id":"https:\/\/praktijkannemieke.nl\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https:\/\/praktijkannemieke.nl\/#website","url":"https:\/\/praktijkannemieke.nl\/","name":"Praktijk Annemieke","description":"Praktijk voor energetisch werk","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/praktijkannemieke.nl\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"nl-NL"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Praktijk Annemieke &raquo; feed" href="feed/index.html.rss" />
+<link rel="alternate" type="application/rss+xml" title="Praktijk Annemieke &raquo; reacties feed" href="comments/feed/index.html.rss" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="wp-json/oembed/1.0/embed%253Furl=https%253A%252F%252Fpraktijkannemieke.nl%252F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="wp-json/oembed/1.0/embed%253Furl=https%253A%252F%252Fpraktijkannemieke.nl%252F&format=xml" />
+<meta content="Divi Child v.2.2" name="generator"/>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:root { --wp--style--global--content-size: 823px;--wp--style--global--wide-size: 1080px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='divi-style-parent-css' href='site/wp-content/themes/Divi/style-static.min.css%253Fver=4.27.9.css' media='all' />
+<link rel='stylesheet' id='divi-style-css' href='site/wp-content/themes/Divi_child/style.css%253Fver=4.27.9.css' media='all' />
+<link rel='stylesheet' id='parent-style-css' href='site/wp-content/themes/Divi/style.css%253Fver=7.1.3.css' media='all' />
+<link rel='stylesheet' id='child-style-css' href='site/wp-content/themes/Divi_child/style.css%253Fver=7.1.3.css' media='all' />
+<link rel="https://api.w.org/" href="wp-json/index.html" /><link rel="alternate" title="JSON" type="application/json" href="wp-json/wp/v2/pages/10" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="site/xmlrpc.php%253Frsd" />
+<meta name="generator" content="WordPress 7.1.3" />
+<link rel='shortlink' href='index.html' />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><link rel="icon" href="site/wp-content/uploads/2023/04/cropped-icon_annemieke-32x32.png" sizes="32x32" />
+<link rel="icon" href="site/wp-content/uploads/2023/04/cropped-icon_annemieke-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="site/wp-content/uploads/2023/04/cropped-icon_annemieke-180x180.png" />
+<meta name="msapplication-TileImage" content="/site/wp-content/uploads/2023/04/cropped-icon_annemieke-270x270.png" />
+<style id="et-critical-inline-css">body,.et_pb_column_1_2 .et_quote_content blockquote cite,.et_pb_column_1_2 .et_link_content a.et_link_main_url,.et_pb_column_1_3 .et_quote_content blockquote cite,.et_pb_column_3_8 .et_quote_content blockquote cite,.et_pb_column_1_4 .et_quote_content blockquote cite,.et_pb_blog_grid .et_quote_content blockquote cite,.et_pb_column_1_3 .et_link_content a.et_link_main_url,.et_pb_column_3_8 .et_link_content a.et_link_main_url,.et_pb_column_1_4 .et_link_content a.et_link_main_url,.et_pb_blog_grid .et_link_content a.et_link_main_url,body .et_pb_bg_layout_light .et_pb_post p,body .et_pb_bg_layout_dark .et_pb_post p{font-size:16px}.et_pb_slide_content,.et_pb_best_value{font-size:18px}body{color:#000000}h1,h2,h3,h4,h5,h6{color:#000000}#et_search_icon:hover,.mobile_menu_bar:before,.mobile_menu_bar:after,.et_toggle_slide_menu:after,.et-social-icon a:hover,.et_pb_sum,.et_pb_pricing li a,.et_pb_pricing_table_button,.et_overlay:before,.entry-summary p.price ins,.et_pb_member_social_links a:hover,.et_pb_widget li a:hover,.et_pb_filterable_portfolio .et_pb_portfolio_filters li a.active,.et_pb_filterable_portfolio .et_pb_portofolio_pagination ul li a.active,.et_pb_gallery .et_pb_gallery_pagination ul li a.active,.wp-pagenavi span.current,.wp-pagenavi a:hover,.nav-single a,.tagged_as a,.posted_in a{color:#ffffff}.et_pb_contact_submit,.et_password_protected_form .et_submit_button,.et_pb_bg_layout_light .et_pb_newsletter_button,.comment-reply-link,.form-submit .et_pb_button,.et_pb_bg_layout_light .et_pb_promo_button,.et_pb_bg_layout_light .et_pb_more_button,.et_pb_contact p input[type="checkbox"]:checked+label i:before,.et_pb_bg_layout_light.et_pb_module.et_pb_button{color:#ffffff}.footer-widget h4{color:#ffffff}.et-search-form,.nav li ul,.et_mobile_menu,.footer-widget li:before,.et_pb_pricing li:before,blockquote{border-color:#ffffff}.et_pb_counter_amount,.et_pb_featured_table .et_pb_pricing_heading,.et_quote_content,.et_link_content,.et_audio_content,.et_pb_post_slider.et_pb_bg_layout_dark,.et_slide_in_menu_container,.et_pb_contact p input[type="radio"]:checked+label i:before{background-color:#ffffff}.container,.et_pb_row,.et_pb_slider .et_pb_container,.et_pb_fullwidth_section .et_pb_title_container,.et_pb_fullwidth_section .et_pb_title_featured_container,.et_pb_fullwidth_header:not(.et_pb_fullscreen) .et_pb_fullwidth_header_container{max-width:1325px}.et_boxed_layout #page-container,.et_boxed_layout.et_non_fixed_nav.et_transparent_nav #page-container #top-header,.et_boxed_layout.et_non_fixed_nav.et_transparent_nav #page-container #main-header,.et_fixed_nav.et_boxed_layout #page-container #top-header,.et_fixed_nav.et_boxed_layout #page-container #main-header,.et_boxed_layout #page-container .container,.et_boxed_layout #page-container .et_pb_row{max-width:1485px}a{color:#000000}#main-header,#main-header .nav li ul,.et-search-form,#main-header .et_mobile_menu{background-color:rgba(255,255,255,0)}#main-header .nav li ul{background-color:#ebcbcd}.nav li ul{border-color:#ebcbcd}.et_secondary_nav_enabled #page-container #top-header{background-color:#ffffff!important}#et-secondary-nav li ul{background-color:#ffffff}.et_header_style_centered .mobile_nav .select_page,.et_header_style_split .mobile_nav .select_page,.et_nav_text_color_light #top-menu>li>a,.et_nav_text_color_dark #top-menu>li>a,#top-menu a,.et_mobile_menu li a,.et_nav_text_color_light .et_mobile_menu li a,.et_nav_text_color_dark .et_mobile_menu li a,#et_search_icon:before,.et_search_form_container input,span.et_close_search_field:after,#et-top-navigation .et-cart-info{color:#ffffff}.et_search_form_container input::-moz-placeholder{color:#ffffff}.et_search_form_container input::-webkit-input-placeholder{color:#ffffff}.et_search_form_container input:-ms-input-placeholder{color:#ffffff}#top-menu li a{font-size:16px}body.et_vertical_nav .container.et_search_form_container .et-search-form input{font-size:16px!important}#top-menu li.current-menu-ancestor>a,#top-menu li.current-menu-item>a,#top-menu li.current_page_item>a{color:#ebcbcd}#main-footer{background-color:#f3f9f9}#main-footer .footer-widget h4,#main-footer .widget_block h1,#main-footer .widget_block h2,#main-footer .widget_block h3,#main-footer .widget_block h4,#main-footer .widget_block h5,#main-footer .widget_block h6{color:#ffffff}.footer-widget li:before{border-color:#ffffff}#footer-widgets .footer-widget li:before{top:10.6px}#footer-bottom{background-color:#ffffff}#footer-info,#footer-info a{color:#000000}#footer-info{font-size:13px}#main-header{box-shadow:none}.et-fixed-header#main-header{box-shadow:none!important}body .et_pb_button{font-size:17px;background-color:#ffffff}body.et_pb_button_helper_class .et_pb_button,body.et_pb_button_helper_class .et_pb_module.et_pb_button{color:#000000}body .et_pb_button:after{font-size:27.2px}body .et_pb_bg_layout_light.et_pb_button:hover,body .et_pb_bg_layout_light .et_pb_button:hover,body .et_pb_button:hover{border-color:rgba(255,255,255,0)!important}@media only screen and (min-width:981px){.et_header_style_left #et-top-navigation,.et_header_style_split #et-top-navigation{padding:111px 0 0 0}.et_header_style_left #et-top-navigation nav>ul>li>a,.et_header_style_split #et-top-navigation nav>ul>li>a{padding-bottom:111px}.et_header_style_split .centered-inline-logo-wrap{width:222px;margin:-222px 0}.et_header_style_split .centered-inline-logo-wrap #logo{max-height:222px}.et_pb_svg_logo.et_header_style_split .centered-inline-logo-wrap #logo{height:222px}.et_header_style_centered #top-menu>li>a{padding-bottom:40px}.et_header_style_slide #et-top-navigation,.et_header_style_fullscreen #et-top-navigation{padding:102px 0 102px 0!important}.et_header_style_centered #main-header .logo_container{height:222px}#logo{max-height:80%}.et_pb_svg_logo #logo{height:80%}.et_header_style_centered.et_hide_primary_logo #main-header:not(.et-fixed-header) .logo_container,.et_header_style_centered.et_hide_fixed_logo #main-header.et-fixed-header .logo_container{height:39.96px}.et_fixed_nav #page-container .et-fixed-header#top-header{background-color:#ffffff!important}.et_fixed_nav #page-container .et-fixed-header#top-header #et-secondary-nav li ul{background-color:#ffffff}.et-fixed-header #top-menu a,.et-fixed-header #et_search_icon:before,.et-fixed-header #et_top_search .et-search-form input,.et-fixed-header .et_search_form_container input,.et-fixed-header .et_close_search_field:after,.et-fixed-header #et-top-navigation .et-cart-info{color:#ffffff!important}.et-fixed-header .et_search_form_container input::-moz-placeholder{color:#ffffff!important}.et-fixed-header .et_search_form_container input::-webkit-input-placeholder{color:#ffffff!important}.et-fixed-header .et_search_form_container input:-ms-input-placeholder{color:#ffffff!important}.et-fixed-header #top-menu li.current-menu-ancestor>a,.et-fixed-header #top-menu li.current-menu-item>a,.et-fixed-header #top-menu li.current_page_item>a{color:#ebcbcd!important}}@media only screen and (min-width:1656px){.et_pb_row{padding:33px 0}.et_pb_section{padding:66px 0}.single.et_pb_pagebuilder_layout.et_full_width_page .et_post_meta_wrapper{padding-top:99px}.et_pb_fullwidth_section{padding:0}}@media only screen and (max-width:980px){#main-header,#main-header .nav li ul,.et-search-form,#main-header .et_mobile_menu{background-color:#ffffff}}</style>
+<link rel="preload" as="style" id="et-core-unified-deferred-10-cached-inline-styles" href="site/wp-content/et-cache/10/et-core-unified-deferred-10.min.css%253Fver=1790950011.css" onload="this.onload=null;this.rel='stylesheet';" /><link rel="stylesheet" href="https://use.typekit.net/gfb8icv.css">
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*wp_block_styles_on_demand_placeholder:6ada1252cde5f*/
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+
+</head>
+<body class="home wp-singular page-template-default page page-id-10 wp-theme-Divi wp-child-theme-Divi_child cookies-not-set et_button_no_icon et_pb_button_helper_class et_transparent_nav et_non_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_pb_footer_columns4 et_cover_background et_pb_gutter et_pb_gutters3 et_pb_pagebuilder_layout et_no_sidebar et_divi_theme et-db">
+	<div id="page-container">
+
+	
+	
+		<header id="main-header" data-height-onload="222">
+			<div class="container clearfix et_menu_container">
+							<div class="logo_container">
+					<span class="logo_helper"></span>
+					<a href="index.html">
+						<img src="site/wp-content/uploads/2021/06/illustratie-1_poster_.png" alt="Praktijk Annemieke" id="logo" data-height-percentage="80" />
+					</a>
+				</div>
+				<div id="et-top-navigation" data-height="222" data-fixed-height="40">
+											<nav id="top-menu-nav">
+						<ul id="top-menu" class="nav"><li id="menu-item-422" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-10 current_page_item menu-item-422"><a href="index.html" aria-current="page">HOME</a></li>
+<li id="menu-item-204" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-204"><a href="/#Nei#Nei">NEI THERAPIE</a></li>
+<li id="menu-item-509" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-509"><a>BEHANDELINGEN</a>
+<ul class="sub-menu">
+	<li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="shambhala-reiki/index.html">shambhala reiki</a></li>
+	<li id="menu-item-304" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-304"><a href="access-bars/index.html">access bars</a></li>
+	<li id="menu-item-511" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-511"><a href="vlindermassage/index.html">vlindermassage</a></li>
+	<li id="menu-item-510" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-510"><a href="magnesiumpakking/index.html">magnesiumpakking</a></li>
+</ul>
+</li>
+<li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="ondersteunende-middelen-2/index.html">ONDERSTEUNENDE MIDDELEN</a></li>
+<li id="menu-item-500" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-500"><a href="tarieven/index.html">TARIEVEN</a></li>
+<li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="over-annemieke/index.html">OVER ANNEMIEKE</a></li>
+<li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="neem-contact-op/index.html">NEEM CONTACT OP</a></li>
+</ul>						</nav>
+					
+					
+					
+					
+					<div id="et_mobile_nav_menu">
+				<div class="mobile_nav closed">
+					<span class="select_page">Selecteer een pagina</span>
+					<span class="mobile_menu_bar mobile_menu_bar_toggle"></span>
+				</div>
+			</div>				</div> <!-- #et-top-navigation -->
+			</div> <!-- .container -->
+			<div class="et_search_outer">
+				<div class="container et_search_form_container">
+					<form role="search" method="get" class="et-search-form" action="index.html">
+					<input type="search" class="et-search-field" placeholder="Zoek &hellip;" value="" name="s" title="Zoek naar:" />					</form>
+					<span class="et_close_search_field"></span>
+				</div>
+			</div>
+		</header> <!-- #main-header -->
+
+		<div id="et-main-area">
+<div id="main-content">
+
+
+			
+				<article id="post-10" class="post-10 page type-page status-publish hentry">
+
+				
+					<div class="entry-content">
+					<div class="et-l et-l--post">
+			<div class="et_builder_inner_content et_pb_gutters3">
+		<div class="et_pb_section et_pb_section_0 et_pb_with_background et_pb_fullwidth_section et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<section class="et_pb_module et_pb_fullwidth_header et_pb_fullwidth_header_0 et_pb_text_align_left et_pb_bg_layout_dark">
+				
+				
+				
+				
+				<div class="et_pb_fullwidth_header_container left">
+					<div class="header-content-container center">
+					<div class="header-content">
+						
+						<h1 class="et_pb_module_header">‘Our life is the creation of our mind’</h1>
+						
+						<div class="et_pb_header_content_wrapper"></div>
+						<a class="et_pb_button et_pb_more_button et_pb_button_one" href="/neem-contact-op/">Neem contact op</a>
+					</div>
+				</div>
+					
+				</div>
+				<div class="et_pb_fullwidth_header_overlay"></div>
+				<div class="et_pb_fullwidth_header_scroll"></div>
+			</section>
+				
+				
+			</div><div class="et_pb_section et_pb_section_1 et_pb_with_background et_pb_fullwidth_section et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<section class="et_pb_module et_pb_fullwidth_header et_pb_fullwidth_header_1 et_pb_text_align_left et_pb_bg_layout_dark">
+				
+				
+				
+				
+				<div class="et_pb_fullwidth_header_container left">
+					<div class="header-content-container center">
+					<div class="header-content">
+						
+						<h1 class="et_pb_module_header">‘Our life is the creation of our mind’</h1>
+						
+						<div class="et_pb_header_content_wrapper"></div>
+						<a class="et_pb_button et_pb_more_button et_pb_button_one" href="/neem-contact-op/">Neem contact op</a>
+					</div>
+				</div>
+					
+				</div>
+				<div class="et_pb_fullwidth_header_overlay"></div>
+				<div class="et_pb_fullwidth_header_scroll"></div>
+			</section>
+				
+				
+			</div><div id="Nei" class="et_pb_section et_pb_section_2 Nei et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_0">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h1 style="text-align: center;">NEI</h1></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_1">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_1  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_1  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h3>Wat is NEI?</h3>
+<p>NEI staat voor Neuro Emotionele Integratie, wat wil zeggen dat je oude emoties gaat verwerken.</p>
+<p>NEI werkt met het onderbewuste. In het onderbewuste liggen alle emoties opgeslagen die ooit zijn gevoeld en ervaren. Die emoties bepalen hoe jij je voelt, hoe je je gedraagt en hoe je functioneert. Als er onverwerkte emoties zijn, zorgen deze voor lichamelijke of geestelijke klachten.</p></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_2  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h3>Wat kan zo’n emotie met je doen?</h3>
+<p>Een onverwerkte emotie vraagt aandacht door prikkels af te geven. Maar in onze maatschappij en ons drukke leven staan we nagenoeg nooit stil bij wat we voelen en wat dat ons wil zeggen. Het gevolg is dat zo’n emotie een steeds sterkere prikkel geeft. En voor de één betekent dat dat er een rugpijn ontstaat, en voor de ander betekent het een naar gevoel, bijvoorbeeld angst of verdriet. Hoe langer we het negeren, hoe sterker de prikkel en dus de klacht wordt.</p></div>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_2 et_pb_column_2  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_3  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h3>Hoe werkt een NEI behandeling?</h3>
+<p>Met behulp van een biotensor, een instrument waarmee ik energie meet, gaan we op zoek naar de onverwerkte emotie die de klacht veroorzaakt.</p>
+<p>Nadat we alles uitgezocht en helder hebben, kan je onderbewuste deze informatie via een effectieve integratietechniek verwerken en een beweging in gang zetten. De emotie is op dat moment ontstoort en past weer bij jouw eigen energie. Vaak al in 1 behandeling.</p>
+<p>Het mooie van NEI is dat je geen lange praatsessies nodig hebt. Je hoeft niet alles opnieuw te beleven of te vertellen. Hierdoor is het een hele vriendelijke behandelmethode, die ook op afstand gedaan kan worden.</p></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_4  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h3>Voor wie is NEI?</h3>
+<p>NEI is voor iedereen. Van baby’s die nog in de baarmoeder zitten, tot het einde van iemands leven en alles daar tussenin. Doordat we in het onderbewuste werken krijgen we de antwoorden die nodig zijn via diverse protocollen. We hoeven dus geen fysieke antwoorden te horen. Daarmee kunnen we bijvoorbeeld een stuitligging van een baby draaien, omdat de baby nog in de baarmoeder kan ‘vertellen’ wat er is. Nadat het gehoord is kan deze in de juiste positie gaan liggen en hoef jij als aanstaande moeder geen pijnlijke versie in het ziekenhuis.</p></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_3 et_pb_fullwidth_section et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<section class="et_pb_module et_pb_fullwidth_header et_pb_fullwidth_header_2 et_pb_text_align_left et_pb_bg_layout_dark">
+				
+				
+				
+				
+				<div class="et_pb_fullwidth_header_container left">
+					<div class="header-content-container center">
+					<div class="header-content">
+						
+						
+						
+						<div class="et_pb_header_content_wrapper"><h1>&#8220;&#8221;Ik geef je de tools om te<br />ontdekken dat alle<br />mogelijkheden in jou<br />zitten&#8221;&#8221;</h1></div>
+						<a class="et_pb_button et_pb_more_button et_pb_button_one" href="/over-annemieke/#Ervaringen#Ervaringen">Lees ervaringen</a>
+					</div>
+				</div>
+					
+				</div>
+				<div class="et_pb_fullwidth_header_overlay"></div>
+				<div class="et_pb_fullwidth_header_scroll"></div>
+			</section>
+				
+				
+			</div><div id="Wie" class="et_pb_section et_pb_section_4 Wie et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_2">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_3  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_5  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h1 id="u5484-2" style="text-align: center;"><span class="H1-Jenna-Sue-56pt-zwart" id="u5484">Voor wie is NEI geschikt</span></h1>
+<h2 id="u5484-4" style="text-align: center;"><span style="color: #ffffff;">NEI is voor iedereen. Een paar voorbeelden waarbij NEI een geschikte <br />behandelmethode is:</span></h2></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_3">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_4  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_6  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h4 id="u88942-2"><strong><span style="color: #ffffff;"><em>Emotionele klachten</em></span></strong></h4>
+<p>(Faal)angst, jaloezie, verdriet, boosheid, neerslachtigheid, enz.</p>
+<h4 id="u88942-7"><em><strong><span style="color: #ffffff;">Fysieke klachten</span></strong></em></h4>
+<p id="u88942-9">Hoofdpijn, rugpijn, buikpijn, oorpijn, schildklier, eczeem, enz.</p>
+<h4 id="u88942-12"><span style="color: #ffffff;"><em><strong>Gewoonten/verslavingen</strong></em></span></h4>
+<p id="u88942-14">Roken, drank, drugs, medicijnen, nagelbijten, enz.</p></div>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_2 et_pb_column_5  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_7  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h4 id="u88941-2"><span style="color: #ffffff;"><em><strong>Maar denk ook aan</strong></em></span></h4>
+<p id="u88941-4">Niet zwanger kunnen worden</p>
+<p id="u88941-6">Allergieën, voedselintolerantie</p>
+<p id="u88941-8">Slapeloosheid, vermoeidheid</p>
+<p id="u88941-10">Gebrek aan zelfvertrouwen</p>
+<p id="u88941-12">Niet lekker in je vel zitten</p>
+<p id="u88941-14">Huilbaby’s</p>
+<p id="u88941-16">Migraine</p>
+<p id="u88941-18">Rouwen</p>
+<p id="u88941-20">Stress</p>
+<p id="u88941-22">ADHD</p></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_6 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_4">
+				<div class="et_pb_column et_pb_column_1_4 et_pb_column_6  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_8  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h3>Annemieke</h3>
+<p><a href="/over-annemieke/">Over Annemieke</a></p>
+<p><a href="/#Wie#Wie">Voor wie</a></p>
+<p><a href="/over-annemieke/#Ervaringen#Ervaringen">Ervaringen</a></p>
+<p><a href="/tarieven/">Tarieven</a></div>
+			</div><div class="et_pb_module et_pb_divider et_pb_divider_0 et_pb_divider_position_ et_pb_space"><div class="et_pb_divider_internal"></div></div><div class="et_pb_module et_pb_text et_pb_text_9  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><p><a href="site/wp-content/uploads/2023/12/Kennismakingsformulier-NEI-coaching-en-therapie.docx" target="_blank" rel="noopener">Kennismakingsformulier (Word)</a></p>
+<p><a href="site/wp-content/uploads/2021/06/betalingsvoorwaarden_annemieke-10-2017.pdf" target="_blank" rel="noopener">Betalingsvoorwaarden (PDF)</a></p></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_10  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><p><span>Belangrijk! Ik ben geen arts en stel geen diagnoses. Samen kijken we welke blokkades er zijn en kunnen we deze opruimen om de balans te herstellen. Altijd vanuit je eigen vraag en met respect voor jouw proces. Je blijft zelf verantwoordelijk voor dit proces én je gezondheid. Ik zal dan ook nooit afraden om een arts of andere hulpverlener te raadplegen. Uiteraard is privacy gegarandeerd.</span></p></div>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_4 et_pb_column_7  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_11  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h3 class="shared_content" data-content-guid="u1890-4_0_content">Wat ik doe</h3>
+<p><a href="/#Nei#Nei">NEI-therapie</a></p>
+<p><a href="/shambhala-reiki/">Shambhala Reiki</a></p>
+<p><a href="/ondersteunende-middelen/">Ondersteunende middelen</a></p>
+<p><a href="/access-bars/">Access Bars</a></p>
+<p><a href="vlindermassage/index.html">Vlindermassage</a></p>
+<p><a href="magnesiumpakking/index.html">Magnesiumpakking</a></div>
+			</div><div class="et_pb_button_module_wrapper et_pb_button_0_wrapper  et_pb_module ">
+				<a class="et_pb_button et_pb_button_0 et_pb_bg_layout_light" href="/neem-contact-op/">NEEM CONTACT OP</a>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_4 et_pb_column_8  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_12  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h3 class="shared_content" data-content-guid="u1890-4_0_content">Werkwijze</h3>
+<p class="body" id="u86998-12"><span class="shared_content" data-content-guid="u86998-12_0_content">Door het<span> </span></span><strong><a class="nonblock" href="site/wp-content/uploads/2023/12/Kennismakingsformulier-NEI-coaching-en-therapie.docx" data-href="upload:U87056" target="_blank" rel="noopener">kennismakingsformulier</a></strong><span class="shared_content" data-content-guid="u86998-12_2_content"><span> </span>in te vullen en dit te mailen naar<span> <span id="u2146-8"><a href="mailto:welkom@praktijkannemieke.nl">welkom@praktijkannemieke.nl</a></span></span></span><span class="shared_content" data-content-guid="u86998-12_4_content">, kan tijdens de eerste afspraak direct worden gestart met de hulpvraag.</span></p>
+<p class="body shared_content" id="u86998-13" data-content-guid="u86998-13_content"> De praktijk wijst uit dat er na enkele afspraken al veel verandert in de situatie. Aan het eind van iedere sessie wordt besproken of een nieuwe afspraak wenselijk is.</p>
+<p class="body shared_content" id="u86998-16" data-content-guid="u86998-16_content"> De praktijk is op alle werkdagen geopend. Avond afspraken kunnen in overleg gepland worden.</p>
+<p class="body shared_content" id="u86998-19" data-content-guid="u86998-19_content"> Lees onze<span> </span><strong><a class="nonblock" href="privacyverklaring/index.html" data-href="page:U204968"><span id="u86998-21">privacyverklaring.</span></a></strong></p></div>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_4 et_pb_column_9  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_13  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><p><img fetchpriority="high" decoding="async" src="site/wp-content/uploads/2021/07/logo-annemieke.png" width="437" height="323" alt="" class="wp-image-409 alignnone size-full" srcset="site/wp-content/uploads/2021/07/logo-annemieke.png 437w, site/wp-content/uploads/2021/07/logo-annemieke-300x222.png 300w" sizes="(max-width: 437px) 100vw, 437px" /></p>
+<p id="u2146-2" style="text-align: center;">Morelstraat 1<br />6658 EP Beneden-Leeuwen</p>
+<p style="text-align: center;"><a href="tel:0031611260440">T. 06 - 112 604 40</a></p>
+<p id="u2146-7" style="text-align: center;"><span><span id="u2146-8"><a href="mailto:welkom@praktijkannemieke.nl">welkom@praktijkannemieke.nl</a><a class="nonblock" target="_blank" rel="noopener"></a></span></span></p></div>
+			</div><ul class="et_pb_module et_pb_social_media_follow et_pb_social_media_follow_0 clearfix  et_pb_text_align_center et_pb_bg_layout_light">
+				
+				
+				
+				
+				<li
+            class='et_pb_social_media_follow_network_0 et_pb_social_icon et_pb_social_network_link  et-social-facebook'><a
+              href='https://www.facebook.com/praktijkannemieke/'
+              class='icon et_pb_with_border'
+              title='Volg op Facebook'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Volgen</span></a></li><li
+            class='et_pb_social_media_follow_network_1 et_pb_social_icon et_pb_social_network_link  et-social-instagram'><a
+              href='https://www.instagram.com/praktijk_annemieke/'
+              class='icon et_pb_with_border'
+              title='Volg op Instagram'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Volgen</span></a></li><li
+            class='et_pb_social_media_follow_network_2 et_pb_social_icon et_pb_social_network_link  et-social-linkedin'><a
+              href='https://www.linkedin.com/in/annemieke-b-974699150/'
+              class='icon et_pb_with_border'
+              title='Volg op LinkedIn'
+               target="_blank"><span
+                class='et_pb_social_media_follow_network_name'
+                aria-hidden='true'
+                >Volgen</span></a></li>
+			</ul><div class="et_pb_module et_pb_text et_pb_text_14  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><p style="text-align: center;"><a href="https://vvnt.nl" target="_blank" rel="noopener"><img decoding="async" src="site/wp-content/uploads/2021/06/logo_vvnt_lid_van.jpg" width="176" height="117" alt="" class="wp-image-91 alignnone size-medium" style="display: block; margin-left: auto; margin-right: auto;" /></a></p>
+<p style="text-align: center;"><a class="nonblock" href="site/wp-content/uploads/2024/01/Informatieverstrekking-WKKGZ-2024.pdf" data-href="upload:U196226" target="_blank" rel="noopener"><span id="u192216-6">Aangesloten bij</span><span id="u192216-7"><span> </span><em><strong>Nibig</strong></em></span></a></p></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_8 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_5">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_10  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_15  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><p><span>Belangrijk! Ik ben geen arts en stel geen diagnoses. Samen kijken we welke blokkades er zijn en kunnen we deze opruimen om de balans te herstellen. Altijd vanuit je eigen vraag en met respect voor jouw proces. Je blijft zelf verantwoordelijk voor dit proces én je gezondheid. Ik zal dan ook nooit afraden om een arts of andere hulpverlener te raadplegen. Uiteraard is privacy gegarandeerd.</span></p></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div>		</div>
+	</div>
+						</div>
+
+				
+				</article>
+
+			
+
+</div>
+
+
+			<footer id="main-footer">
+				
+
+		
+				<div id="footer-bottom">
+					<div class="container clearfix">
+				
+						<p id="footer-info">&copy; 2026   . Annemieke . Alle rechten voorbehouden<br/>
+					<span class="blauw">Website door <a class="blauw" href="https://www.tikimedia.nl" target="_blank">Tiki Media.</a></span></p>
+					</div>	<!-- .container -->
+				</div>
+			</footer> <!-- #main-footer -->
+		</div> <!-- #et-main-area -->
+
+
+	</div> <!-- #page-container -->
+
+	<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/site/wp-*.php","/site/wp-admin/*","/site/wp-content/uploads/*","/site/wp-content/*","/site/wp-content/plugins/*","/site/wp-content/themes/Divi_child/*","/site/wp-content/themes/Divi/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="jquery-core-js" src="site/wp-includes/js/jquery/jquery.min.js%253Fver=3.7.1"></script>
+<script id="jquery-migrate-js" src="site/wp-includes/js/jquery/jquery-migrate.min.js%253Fver=3.4.1"></script>
+<script id="jquery-js-after">
+jqueryParams.length&&$.each(jqueryParams,function(e,r){if("function"==typeof r){var n=String(r);n.replace("$","jQuery");var a=new Function("return "+n)();$(document).ready(a)}});
+//# sourceURL=jquery-js-after
+</script>
+<script id="divi-custom-script-js-extra">
+var DIVI = {"item_count":"%d Item","items_count":"%d Items"};
+var et_builder_utils_params = {"condition":{"diviTheme":true,"extraTheme":false},"scrollLocations":["app","top"],"builderScrollLocations":{"desktop":"app","tablet":"app","phone":"app"},"onloadScrollLocation":"app","builderType":"fe"};
+var et_frontend_scripts = {"builderCssContainerPrefix":"#et-boc","builderCssLayoutPrefix":"#et-boc .et-l"};
+var et_pb_custom = {"ajaxurl":"/site/wp-admin/admin-ajax.php","images_uri":"/site/wp-content/themes/Divi/images","builder_images_uri":"/site/wp-content/themes/Divi/includes/builder/images","et_frontend_nonce":"37dfec7446","subscription_failed":"Kijk dan de onderstaande velden in om ervoor te zorgen u de juiste informatie.","et_ab_log_nonce":"b5c261ab08","fill_message":"Alsjeblieft, vul op de volgende gebieden:","contact_error_message":"Gelieve de volgende fouten te verbeteren:","invalid":"Ongeldig e-mail","captcha":"Captcha","prev":"Vorig","previous":"Vorige","next":"Volgende","wrong_captcha":"U heeft het verkeerde nummer in de captcha ingevoerd.","wrong_checkbox":"Selectievakje","ignore_waypoints":"no","is_divi_theme_used":"1","widget_search_selector":".widget_search","ab_tests":[],"is_ab_testing_active":"","page_id":"10","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"no","is_shortcode_tracking":"","tinymce_uri":"/site/wp-content/themes/Divi/includes/builder/frontend-builder/assets/vendors","accent_color":"#ffffff","waypoints_options":[]};
+var et_pb_box_shadow_elements = [];
+//# sourceURL=divi-custom-script-js-extra
+</script>
+<script id="divi-custom-script-js" src="site/wp-content/themes/Divi/js/scripts.min.js%253Fver=4.27.9"></script>
+<script id="et-core-common-js" src="site/wp-content/themes/Divi/core/admin/js/common.js%253Fver=4.27.9"></script>
+</body>
+</html>
