@@ -2,24 +2,20 @@
 
 ## Privacyverklaring – afgerond (technisch)
 
-- Sectie **Websitebezoek** (geen cookies; hosting/IP; verwerkersovereenkomst).
+- Sectie **Websitebezoek** (geen cookies; geen tracking).
 - **Klacht AP** onder gegevens inzien/aanpassen/verwijderen.
-- Controleer bij de host of de verwerkersovereenkomst daadwerkelijk is afgesloten voordat de site live gaat.
+- Verwerkersovereenkomst-hosting: pas Websitebezoek aan zodra live-hosting en contract bekend zijn.
+- Toestemming: link wijst naar hetzelfde **kennismakingsformulier** als in de footer (geen apart bestand op de site).
 
-## Privacyverklaring – beslissing Annemieke
+## Formulier (Word) – Annemieke
 
-**Formulier vs. verklaring** (kennismakingsformulier `.docx`):
-
-1. **Toestemming** – verklaring noemt een apart toestemmingsformulier; kennismakingsformulier heeft geen toestemmingsvinkje. Optie: korte zin + checkbox onderaan het formulier.
-2. **Kinderen** – formulier vraagt “klas”; verklaring: onder 16 jaar beide ouders. Formulier heeft geen velden voor ouder/voogd.
-3. **Versturen per e-mail** – hoe gevoelige gegevens binnenkomen staat niet in de verklaring; evt. alinea toevoegen na besluit.
-
-Inhoud formulier/verklaring niet verder wijzigen zonder akkoord Annemieke.
+- `assets/docs/Kennismakingsformulier-NEI-coaching-en-therapie.docx`: toestemming + minderjarigen-blok toegevoegd via `npm run docs:patch-formulier`. **In Word even controleren** (opmaak, formulering, handtekeningvelden).
+- Eventueel label in footer later aanpassen (bijv. “Kennismakings- en toestemmingsformulier”); link en bestandsnaam kunnen hetzelfde blijven.
 
 ## Inhoud en ontwerp
 
 Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele keuze → hier noteren vóór wijziging.
 
-## Ontbrekend bestand
+## Opruimen (later)
 
-- `privacyverklaring/assets/toestemmingsformulier.docx` (link in privacyverklaring) ontbreekt in de export. Niet verzinnen; met Annemieke opvragen of pad corrigeren naar `assets/docs/Kennismakingsformulier-NEI-coaching-en-therapie.docx` indien dat hetzelfde document is.
+- **`assets/wp/`**: oude Divi-export (dubbel met `assets/css/divi/`). Veilig verwijderen zodra niets meer naar `assets/wp` verwijst (nu gebruikt de site `assets/css/divi/`, incl. **`et-cache/`** = per-pagina Divi-CSS tot stap 5 klaar is).

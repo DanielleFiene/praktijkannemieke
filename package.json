@@ -23,11 +23,14 @@
     "lighthouse:fix": "node scripts/apply-lighthouse-fixes.mjs",
     "finalize:site": "node scripts/finalize-static-site.mjs",
     "seo:jsonld": "node scripts/fix-json-ld-urls.mjs",
-    "assets:rename": "node scripts/rename-divi-assets.mjs"
+    "assets:rename": "node scripts/rename-divi-assets.mjs",
+    "errors:generate": "node scripts/generate-error-pages.mjs && node scripts/apply-footer-updates.mjs",
+    "docs:patch-formulier": "node scripts/patch-kennismakingsformulier-docx.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0",
     "html-validate": "^9.4.0",
+    "jszip": "^3.10.2",
     "lighthouse": "^12.3.0",
     "playwright-lighthouse": "^4.0.0",
     "serve": "^14.2.4",

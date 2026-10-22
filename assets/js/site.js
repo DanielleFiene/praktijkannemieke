@@ -106,11 +106,19 @@
 		});
 	}
 
+	function initFooterYear() {
+		const year = String(new Date().getFullYear());
+		document.querySelectorAll('.footer-year').forEach((el) => {
+			el.textContent = year;
+		});
+	}
+
 	function init() {
 		document.documentElement.classList.add('js');
 		initMobileNav();
 		initSliders();
 		initAnchors();
+		initFooterYear();
 	}
 
 	if (document.readyState === 'loading') {

@@ -102,9 +102,12 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 	color: #000000;
 }
 
-#footer-bottom .blauw,
-#footer-bottom .blauw a {
+#footer-bottom .blauw {
 	color: #c1dfe0 !important;
+}
+
+#footer-bottom .footer-credit-link {
+	color: #000000 !important;
 }
 
 @media (max-width: 981px) {
@@ -126,9 +129,17 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 	clear: both;
 }
 
-/* Privacy: titel in mint-header gecentreerd */
+/* Privacy + error-pagina’s: titel in mint-header (iets boven visueel midden) */
 #post-227 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container.center {
+	display: flex;
+	align-items: center;
 	justify-content: center;
+	min-height: 550px;
+	padding-top: 0;
+	box-sizing: border-box;
+}
+#post-227 .et_pb_fullwidth_header_0 .header-content {
+	margin-top: -4rem;
 }
 #post-227 .et_pb_fullwidth_header_0 .header-content-container,
 #post-227 .et_pb_fullwidth_header_0 .header-content,
@@ -138,4 +149,40 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/* Footer-widgetblok: verloop wit → mint (i.p.v. vlak grijs) */
+.et_pb_section.et_pb_section_3.et_pb_with_background {
+	background: linear-gradient(180deg, #ffffff 0%, #e5f3f3 42%, #c1dfe0 100%) !important;
+	background-color: transparent !important;
+}
+
+#main-footer {
+	background: linear-gradient(180deg, #e5f3f3 0%, #c1dfe0 100%) !important;
+}
+
+/* Primaire knoppen (footer + error-CTA): zelfde padding/rand/hover als Divi et_pb_button_0 */
+#page-container .et_pb_button_module_wrapper .et_pb_button.et_pb_button_0,
+#page-container .error-page-cta .et_pb_button.et_pb_button_0 {
+	padding: 10px 20px !important;
+	border: 1px solid #f6d9db !important;
+	border-width: 1px !important;
+	font-size: 13px;
+	font-weight: 600 !important;
+	background-color: #ffffff;
+	color: #000000;
+	transition: background-color 300ms ease, border-color 300ms ease;
+}
+#page-container .et_pb_button_module_wrapper .et_pb_button.et_pb_button_0:after,
+#page-container .error-page-cta .et_pb_button.et_pb_button_0:after {
+	display: none !important;
+}
+#page-container .et_pb_button_module_wrapper .et_pb_button.et_pb_button_0:hover,
+#page-container .error-page-cta .et_pb_button.et_pb_button_0:hover {
+	background-color: #ffffff;
+	border-color: rgba(255, 255, 255, 0) !important;
+}
+.et_pb_section_1 .error-page-cta {
+	margin-top: 1.25rem;
+	text-align: center;
 }
