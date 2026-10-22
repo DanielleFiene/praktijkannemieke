@@ -17,7 +17,7 @@ const validator = new HtmlValidate({
 });
 
 function pagePathToFile(pagePath) {
-  if (pagePath === '/') return path.join(siteRoot, 'index.html');
+  if (!pagePath || pagePath === '/') return path.join(siteRoot, 'index.html');
   const segment = pagePath.replace(/^\/|\/$/g, '');
   return path.join(siteRoot, segment, 'index.html');
 }

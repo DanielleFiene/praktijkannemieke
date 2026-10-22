@@ -4,7 +4,7 @@ const { playAudit } = require('playwright-lighthouse');
 const { PAGES } = require('./pages');
 const { waitForPageStable } = require('./helpers');
 
-const minScore = Number(process.env.LIGHTHOUSE_MIN_SCORE || 90);
+const minScore = Number(process.env.LIGHTHOUSE_MIN_SCORE || 95);
 const runLighthouse = process.env.RUN_LIGHTHOUSE === '1' || process.env.RUN_LIGHTHOUSE === 'true';
 
 test.describe('Lighthouse', () => {

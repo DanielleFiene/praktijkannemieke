@@ -4,7 +4,7 @@ const { waitForPageStable } = require('./helpers');
 
 test.describe('mobiel menu', () => {
   test('menu opent en toont navigatie', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('./', { waitUntil: 'domcontentloaded' });
     await waitForPageStable(page);
 
     const menuToggle = page.locator('.mobile_menu_bar');
@@ -17,7 +17,7 @@ test.describe('mobiel menu', () => {
   });
 
   test('NEI THERAPIE in mobiel menu', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    await page.goto('./', { waitUntil: 'domcontentloaded' });
     await waitForPageStable(page);
 
     await page.locator('.mobile_menu_bar').click();

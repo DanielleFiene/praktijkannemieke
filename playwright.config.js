@@ -2,7 +2,9 @@
 const { defineConfig } = require('@playwright/test');
 
 const port = Number(process.env.PORT || 4173);
-const basePath = (process.env.BASE_PATH || '').replace(/\/$/, '');
+const basePath = (
+  process.env.BASE_PATH !== undefined ? process.env.BASE_PATH : '/praktijkannemieke'
+).replace(/\/$/, '');
 const origin = `http://127.0.0.1:${port}`;
 
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
@@ -21,21 +23,22 @@ module.exports = defineConfig({
     },
   },
   use: {
-    baseURL: `${origin}${basePath}`,
+    baseURL: `${origin}${basePath}/`,
     trace: 'on-first-retry',
     locale: 'nl-NL',
     timezoneId: 'Europe/Amsterdam',
   },
   webServer: {
-    command: `npx serve . -l ${port}`,
-    url: `${origin}${basePath || '/'}`,
+    command: `node scripts/static-server.mjs`,
+    env: { PORT: String(port), BASE_PATH: basePath },
+    url: `${origin}${basePath}/`,
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,
   },
   projects: [
     {
       name: 'checks',
-      testMatch: /links\.spec\.js|html-validate\.spec\.js/,
+      testMatch: /links\.spec\.js|html-validate\.spec\.js|a11y\.spec\.js/,
       use: { viewport: { width: 1440, height: 900 } },
     },
     {

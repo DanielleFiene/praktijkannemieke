@@ -3,14 +3,17 @@
   "private": true,
   "description": "Statische site Praktijk Annemieke – tests en tooling",
   "scripts": {
+    "start": "node scripts/static-server.mjs",
     "test": "playwright test",
     "test:update-snapshots": "playwright test tests/visual.spec.js --update-snapshots",
     "test:visual": "playwright test tests/visual.spec.js",
     "test:links": "playwright test tests/links.spec.js",
     "test:navigation": "playwright test tests/navigation-mobile.spec.js tests/navigation-desktop.spec.js",
     "test:external": "playwright test tests/external-requests.spec.js",
+    "test:a11y": "playwright test tests/a11y.spec.js",
     "test:html": "playwright test tests/html-validate.spec.js",
-    "test:lighthouse": "playwright test tests/lighthouse.spec.js"
+    "test:lighthouse": "playwright test tests/lighthouse.spec.js",
+    "paths:fix": "node scripts/sanitize-filenames.mjs && node scripts/make-paths-relative.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0",
