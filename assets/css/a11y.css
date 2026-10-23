@@ -1649,6 +1649,28 @@ a.contact-whatsapp-link:focus-visible::before {
 	background-color: var(--link-hover-color);
 }
 
+#main-header #top-menu > li.menu-item-whatsapp > a.nav-whatsapp-link,
+#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-whatsapp > a.nav-whatsapp-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35em;
+	white-space: nowrap;
+}
+
+#main-header #top-menu > li.menu-item-whatsapp > a.nav-whatsapp-link {
+	color: var(--nav-link-color) !important;
+}
+
+#main-header #top-menu > li.menu-item-whatsapp > a.nav-whatsapp-link:hover,
+#main-header #top-menu > li.menu-item-whatsapp > a.nav-whatsapp-link:focus-visible {
+	color: var(--nav-link-color-active) !important;
+}
+
+#main-header #top-menu > li.menu-item-whatsapp > a.nav-whatsapp-link::before {
+	width: 1.15em;
+	height: 1.15em;
+}
+
 /* Ondersteunende middelen: 3 kolommen + ronde foto’s */
 @media (min-width: 981px) {
 	#post-19 .et_pb_section_2,
