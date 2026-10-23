@@ -350,13 +350,13 @@ body:has(#post-506) {
 	background-color: transparent !important;
 }
 
-/* Ervaringen-sectie: seigaiha-patroon op lichte mint-basis */
-#Ervaringen.et_pb_section {
+/* Ervaringen-sectie: golfpatroon (originele Divi-asset; wint van deferred .et_pb_section_3) */
+#Ervaringen.et_pb_section.et_pb_section_3 {
 	background-color: #e8f2f2 !important;
-	background-image: url('../images/seigaiha.png') !important;
+	background-image: url('../images/2021/06/6-bg_testimonials_section-2.png') !important;
 	background-repeat: repeat;
 	background-position: 0 0;
-	background-size: 120px 120px;
+	background-size: 2100px auto;
 	/* ~15px minder padding boven en onder (totaal ~30px minder sectiehoogte) */
 	padding-block: calc(4.125rem - 0.9375rem) !important;
 }
