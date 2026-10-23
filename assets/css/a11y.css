@@ -15,11 +15,35 @@
 	max-width: 100%;
 	object-fit: contain;
 	vertical-align: middle;
+	transform: translateY(-1rem);
+}
+
+@media (min-width: 981px) {
+	/* Divi zette headerhoogte via JS (data-height-onload); logo niet laten inkrimpen op brede viewports */
+	#main-header[data-height-onload] {
+		min-height: 222px;
+	}
+
+	.et_header_style_left #main-header .logo_container {
+		min-height: 222px;
+	}
+
+	#logo {
+		max-width: none;
+		max-height: 145px !important;
+	}
+}
+
+@media (min-width: 1660px) {
+	#logo {
+		max-height: 145px !important;
+		min-height: 0;
+	}
 }
 
 @media (max-width: 980px) {
 	#logo {
-		margin-top: 6px !important;
+		margin-top: 0 !important;
 		max-height: 100px !important;
 	}
 }
@@ -41,35 +65,16 @@
 	font-size: 1rem;
 }
 
-/* Home hero: witte quote niet over logo/tagline (transparante header) */
+/* Hero-tekst onder het logo (home, Over Annemieke, Neem contact op, Tarieven)
+   Meer/minder ruimte: pas --hero-under-logo-gap* op :root aan (groter = verder onder logo) */
+:root {
+	--hero-under-logo-gap: 13.25rem;
+	--hero-under-logo-gap-wide: 10.75rem;
+	--hero-under-logo-gap-tablet: 7.5rem;
+}
+
 body.home .et_pb_fullwidth_header_0 .header-content,
-body.home .et_pb_fullwidth_header_1 .header-content {
-	box-sizing: border-box;
-}
-
-body.home .et_pb_fullwidth_header_0 .header-content {
-	padding-top: 11rem;
-}
-
-@media (min-width: 1660px) {
-	body.home .et_pb_fullwidth_header_0 .header-content {
-		padding-top: 8.5rem;
-	}
-}
-
-@media (max-width: 980px) {
-	body.home .et_pb_fullwidth_header_0 .header-content {
-		padding-top: 5.25rem;
-	}
-}
-
-@media (max-width: 767px) {
-	body.home .et_pb_fullwidth_header_1 .header-content {
-		padding-top: 5.25rem;
-	}
-}
-
-/* Subpagina-hero’s: witte titel niet over logo (transparante header) */
+body.home .et_pb_fullwidth_header_1 .header-content,
 #post-17 .et_pb_fullwidth_header_0 .header-content,
 #post-17 .et_pb_fullwidth_header_1 .header-content,
 #post-21 .et_pb_fullwidth_header_0 .header-content,
@@ -79,33 +84,170 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 	box-sizing: border-box;
 }
 
+body.home .et_pb_fullwidth_header_0 .header-content,
 #post-17 .et_pb_fullwidth_header_0 .header-content,
 #post-21 .et_pb_fullwidth_header_0 .header-content,
 #post-493 .et_pb_fullwidth_header_0 .header-content {
-	padding-top: 11rem;
+	padding-top: var(--hero-under-logo-gap);
 }
 
 @media (min-width: 1660px) {
+	body.home .et_pb_fullwidth_header_0 .header-content,
 	#post-17 .et_pb_fullwidth_header_0 .header-content,
 	#post-21 .et_pb_fullwidth_header_0 .header-content,
 	#post-493 .et_pb_fullwidth_header_0 .header-content {
-		padding-top: 8.5rem;
+		padding-top: var(--hero-under-logo-gap-wide);
 	}
 }
 
 @media (max-width: 980px) {
+	body.home .et_pb_fullwidth_header_0 .header-content,
 	#post-17 .et_pb_fullwidth_header_0 .header-content,
 	#post-21 .et_pb_fullwidth_header_0 .header-content,
 	#post-493 .et_pb_fullwidth_header_0 .header-content {
-		padding-top: 5.25rem;
+		padding-top: var(--hero-under-logo-gap-tablet);
 	}
 }
 
 @media (max-width: 767px) {
+	body.home .et_pb_fullwidth_header_1 .header-content,
 	#post-17 .et_pb_fullwidth_header_1 .header-content,
 	#post-21 .et_pb_fullwidth_header_1 .header-content,
 	#post-493 .et_pb_fullwidth_header_1 .header-content {
-		padding-top: 5.25rem;
+		padding-top: var(--hero-under-logo-gap-tablet);
+	}
+}
+
+/* Behandelingen (hero met CTA): foto normale positie, titel + knop onderin hero
+   Teksthoogte zelf instellen: --behandeling-hero-inset (desktop) en --behandeling-hero-inset-mobile */
+body:has(#post-15),
+body:has(#post-295),
+body:has(#post-501),
+body:has(#post-506) {
+	--behandeling-hero-inset: 5.5rem;
+	--behandeling-hero-inset-mobile: 4rem;
+}
+
+#page-container:has(#post-15) #main-header,
+#page-container:has(#post-295) #main-header,
+#page-container:has(#post-501) #main-header,
+#page-container:has(#post-506) #main-header {
+	background-color: transparent !important;
+	z-index: 100;
+}
+
+#post-15 .et_pb_section.et_pb_section_0,
+#post-295 .et_pb_section.et_pb_section_0,
+#post-501 .et_pb_section.et_pb_section_0,
+#post-506 .et_pb_section.et_pb_section_0 {
+	margin-top: 0 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	width: 100% !important;
+	max-width: 100% !important;
+}
+
+#post-15 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
+#post-295 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
+#post-501 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
+#post-506 .et_pb_fullwidth_header.et_pb_fullwidth_header_0 {
+	position: relative;
+	width: 100% !important;
+	max-width: 100% !important;
+	height: 550px !important;
+	min-height: 550px;
+	padding: 0 !important;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#post-15 .et_pb_fullwidth_header_0 .et_pb_module_header,
+#post-15 .et_pb_fullwidth_header_1 .et_pb_module_header,
+#post-295 .et_pb_fullwidth_header_0 .et_pb_module_header,
+#post-295 .et_pb_fullwidth_header_1 .et_pb_module_header,
+#post-501 .et_pb_fullwidth_header_0 .et_pb_module_header,
+#post-501 .et_pb_fullwidth_header_1 .et_pb_module_header,
+#post-506 .et_pb_fullwidth_header_0 .et_pb_module_header,
+#post-506 .et_pb_fullwidth_header_1 .et_pb_module_header {
+	font-family: jenna_sueregular, "Jenna Sue", cursive;
+	font-weight: normal;
+}
+
+#post-15 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+#post-15 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+#post-295 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+#post-295 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+#post-501 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+#post-501 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+#post-506 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+#post-506 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container {
+	position: absolute;
+	inset: 0;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: flex-end !important;
+	min-height: 0 !important;
+	height: auto !important;
+	padding-bottom: var(--behandeling-hero-inset) !important;
+	box-sizing: border-box;
+}
+
+#post-15 .et_pb_fullwidth_header_0 .header-content-container,
+#post-15 .et_pb_fullwidth_header_1 .header-content-container,
+#post-295 .et_pb_fullwidth_header_0 .header-content-container,
+#post-295 .et_pb_fullwidth_header_1 .header-content-container,
+#post-501 .et_pb_fullwidth_header_0 .header-content-container,
+#post-501 .et_pb_fullwidth_header_1 .header-content-container,
+#post-506 .et_pb_fullwidth_header_0 .header-content-container,
+#post-506 .et_pb_fullwidth_header_1 .header-content-container {
+	display: block !important;
+	align-self: auto !important;
+	vertical-align: bottom;
+}
+
+#post-15 .et_pb_fullwidth_header_0 .header-content,
+#post-15 .et_pb_fullwidth_header_1 .header-content,
+#post-295 .et_pb_fullwidth_header_0 .header-content,
+#post-295 .et_pb_fullwidth_header_1 .header-content,
+#post-501 .et_pb_fullwidth_header_0 .header-content,
+#post-501 .et_pb_fullwidth_header_1 .header-content,
+#post-506 .et_pb_fullwidth_header_0 .header-content,
+#post-506 .et_pb_fullwidth_header_1 .header-content {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+#post-15 .et_pb_fullwidth_header_0 .header-content-container,
+#post-15 .et_pb_fullwidth_header_1 .header-content-container,
+#post-295 .et_pb_fullwidth_header_0 .header-content-container,
+#post-295 .et_pb_fullwidth_header_1 .header-content-container,
+#post-501 .et_pb_fullwidth_header_0 .header-content-container,
+#post-501 .et_pb_fullwidth_header_1 .header-content-container,
+#post-506 .et_pb_fullwidth_header_0 .header-content-container,
+#post-506 .et_pb_fullwidth_header_1 .header-content-container {
+	width: 100%;
+	max-width: 100%;
+}
+
+@media (max-width: 980px) {
+	#page-container:has(#post-15) #main-header,
+	#page-container:has(#post-295) #main-header,
+	#page-container:has(#post-501) #main-header,
+	#page-container:has(#post-506) #main-header {
+		background-color: transparent !important;
+	}
+
+	#post-15 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+	#post-15 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+	#post-295 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+	#post-295 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+	#post-501 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+	#post-501 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+	#post-506 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+	#post-506 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container {
+		padding-bottom: var(--behandeling-hero-inset-mobile) !important;
 	}
 }
 

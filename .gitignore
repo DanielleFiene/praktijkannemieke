@@ -1,6 +1,9 @@
 scripts/.filename-renames.json
 scripts/.divi-asset-renames.json
 
+# Editor Local History (Cursor/VS Code)
+.history/
+
 node_modules/
 test-results/
 playwright-report/
