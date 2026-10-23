@@ -145,7 +145,8 @@
 					slide.style.visibility = '';
 				});
 
-				const heightPx = `${Math.ceil(max)}px`;
+				const slideSlackPx = slider.closest('#Ervaringen') ? 72 : 0;
+				const heightPx = `${Math.ceil(max) + slideSlackPx}px`;
 				wrap.style.height = heightPx;
 				wrap.style.minHeight = heightPx;
 				slider.classList.add('site-slider-ready');
