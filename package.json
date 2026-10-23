@@ -25,6 +25,7 @@
     "seo:jsonld": "node scripts/fix-json-ld-urls.mjs",
     "assets:rename": "node scripts/rename-bronexport-assets.mjs",
     "scrub:bronexport": "node scripts/scrub-bronexport-remnants.mjs",
+    "css:split-critical": "node scripts/split-critical-css.mjs",
     "errors:generate": "node scripts/generate-error-pages.mjs && node scripts/apply-footer-updates.mjs",
     "docs:patch-formulier": "node scripts/patch-kennismakingsformulier-docx.mjs",
     "perf:fonts": "node scripts/strip-divi-inline-fonts.mjs",

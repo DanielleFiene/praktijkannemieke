@@ -26,7 +26,7 @@
 
 @media (min-width: 1660px) {
 	#page-container #main-header #logo {
-		max-height: var(--nav-logo-max-height) !important;
+		max-height: var(--hero-logo-max-height) !important;
 		min-height: 0;
 	}
 }
@@ -196,8 +196,10 @@ body {
 /* Hero-tekst onder het logo (home, Over Annemieke, Neem contact op, Tarieven)
    Meer/minder ruimte: pas --hero-under-logo-gap* op :root aan (groter = verder onder logo) */
 :root {
-	--hero-under-logo-gap: 13.25rem;
-	--hero-under-logo-gap-wide: 10.75rem;
+	--hero-under-logo-gap: 11.75rem;
+	--hero-under-logo-gap-wide: 9.5rem;
+	/* Zelfde horizontale rand als .et_pb_fullwidth_header_container (export 10% / gecentreerd 1325px) */
+	--hero-quote-inset-x: max(10vw, (100vw - 1325px) / 2);
 	--hero-under-logo-gap-tablet: 7.5rem;
 	--hero-former-cta-offset: 3.25rem;
 	/* Mobiel: quote-hero in de linkerhoek van de foto */
@@ -225,6 +227,7 @@ body {
 	--nav-accent: #ebcbcd;
 	--nav-bar-padding-x: clamp(1.25rem, 2.5vw, 2.5rem);
 	--nav-logo-max-height: 5.75rem;
+	--hero-logo-max-height: 10rem;
 	--site-mint: #c1dfe0;
 	--contact-phone-icon: #d67680;
 	--contact-phone-icon-hover: #b85a63;
@@ -259,7 +262,6 @@ body.et_transparent_nav #page-container #main-header {
 }
 
 #page-container #main-header .logo_container {
-	position: relative !important;
 	width: auto !important;
 	height: auto !important;
 	float: none !important;
@@ -283,20 +285,12 @@ body.et_transparent_nav #page-container #main-header {
 	#page-container #main-header .container.et_menu_container {
 		display: flex;
 		align-items: center;
-		justify-content: flex-start;
-		gap: 0.75rem 1.25rem;
+		justify-content: stretch;
+		gap: 0;
 		min-height: 5.25rem;
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
 		box-sizing: border-box;
-	}
-
-	#page-container #main-header .logo_container {
-		flex: 0 0 auto;
-	}
-
-	#page-container #main-header #logo {
-		max-height: 4.75rem !important;
 	}
 
 	#page-container #main-header #et-top-navigation {
@@ -342,8 +336,12 @@ body.et_transparent_nav #page-container #main-header {
 	border-color: #c1dfe0 !important;
 }
 
-/* Desktop: witte balk + roze hoofdmenu (hamburger blijft mint) */
+/* Desktop: witte balk (alleen menu); logo op hero zoals oorspronkelijk export */
 @media (min-width: 981px) {
+	#page-container #main-header {
+		position: relative !important;
+	}
+
 	#page-container #main-header .container.et_menu_container {
 		width: 100% !important;
 		max-width: none;
@@ -351,16 +349,42 @@ body.et_transparent_nav #page-container #main-header {
 		margin-right: 0;
 		padding-left: var(--nav-bar-padding-x);
 		padding-right: var(--nav-bar-padding-x);
-		gap: clamp(0.75rem, 2vw, 1.75rem);
+		gap: 0;
 		min-height: 6rem;
 	}
 
+	#page-container #main-header .logo_container {
+		position: absolute !important;
+		left: var(--hero-quote-inset-x);
+		top: 100%;
+		margin-top: 0.75rem;
+		z-index: 110;
+		flex: none !important;
+		width: auto;
+		height: auto;
+		float: none !important;
+		pointer-events: auto;
+	}
+
+	#page-container #main-header .logo_container .logo_helper {
+		display: none !important;
+		height: 0 !important;
+	}
+
+	#page-container #main-header .logo_container > a {
+		display: block;
+		line-height: 0;
+	}
+
 	#page-container #main-header #logo {
-		max-height: var(--nav-logo-max-height) !important;
+		max-height: var(--hero-logo-max-height) !important;
+		width: auto;
+		max-width: min(14rem, 26vw);
 	}
 
 	#page-container #main-header #et-top-navigation {
-		flex: 1 1 0;
+		flex: 1 1 100%;
+		width: 100%;
 		justify-content: stretch;
 		align-self: center;
 	}
@@ -1285,15 +1309,14 @@ html {
 	}
 }
 
-@media (max-width: 980px) {
-	html {
-		overflow-x: clip;
-	}
+/* Voorkom horizontale scroll (o.a. 100vw-hero’s); clip i.p.v. hidden voor sticky/focus */
+html {
+	overflow-x: clip;
+}
 
-	#page-container {
-		overflow-x: clip;
-		max-width: 100%;
-	}
+#page-container {
+	overflow-x: clip;
+	max-width: 100%;
 }
 
 /* Primaire knoppen (footer + error-CTA): zelfde padding/rand/hover als bronexport et_pb_button_0 */
@@ -1678,13 +1701,24 @@ a.contact-whatsapp-link:focus-visible::before {
 	background-size: cover !important;
 	background-position: center center !important;
 	background-repeat: no-repeat !important;
-	width: 100vw !important;
-	max-width: 100vw !important;
-	margin-left: calc(50% - 50vw) !important;
-	margin-right: calc(50% - 50vw) !important;
+	width: 100% !important;
+	max-width: none !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 	box-sizing: border-box;
+}
+
+@media (min-width: 981px) {
+	/* Buiten 1325px-kolomgrid; overflow-x op html/page-container knipt 100vw-rand */
+	#post-19 .et_pb_section.et_pb_section_0,
+	#post-19 .et_pb_section.et_pb_section_1 {
+		width: 100vw !important;
+		max-width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+		margin-right: calc(50% - 50vw) !important;
+	}
 }
 
 #post-19 .et_pb_section.et_pb_section_0 .et_pb_fullwidth_header,

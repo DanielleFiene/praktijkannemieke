@@ -25,7 +25,7 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 
 - **`assets/wp/`** en **`assets/css/divi/`**: verwijderd (dubbel met `assets/css/bronexport/`).
 - **`assets/css/bronexport/themes/Divi`** en **`Divi_child`**: verwijderd; live CSS via `export-base` / `export-site`.
-- **`page-cache/`** + bronexport-base CSS: weg na CSS-herschrijving (AGENTS.md stap 5).
+- **`page-cache/`** + bronexport-base CSS: weg na CSS-herschrijving (AGENTS.md stap 5). **Gestart:** gedeelde critical → `assets/css/critical-shared.css`; dubbele `assets/css/divi/` + `bronexport/themes/Divi*` verwijderd.
 - **`wp-image-*` / `alignnone` op afbeeldingen**: CMS-export-klassen; vervangen bij stap 7 / 5.
 
 ## Herbruikbare onderdelen (later)

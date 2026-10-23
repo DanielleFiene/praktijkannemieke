@@ -11,7 +11,7 @@ const VIEWPORTS = [
 	{ name: 'hamburger-1200', width: 1200, height: 800 },
 ];
 
-const PATHS = ['./', './access-bars/', './tarieven/'];
+const PATHS = ['./', './access-bars/', './tarieven/', './ondersteunende-middelen/'];
 
 async function horizontalOverflowPx(page) {
 	return page.evaluate(() => {
