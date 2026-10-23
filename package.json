@@ -25,7 +25,10 @@
     "seo:jsonld": "node scripts/fix-json-ld-urls.mjs",
     "assets:rename": "node scripts/rename-divi-assets.mjs",
     "errors:generate": "node scripts/generate-error-pages.mjs && node scripts/apply-footer-updates.mjs",
-    "docs:patch-formulier": "node scripts/patch-kennismakingsformulier-docx.mjs"
+    "docs:patch-formulier": "node scripts/patch-kennismakingsformulier-docx.mjs",
+    "perf:fonts": "node scripts/strip-divi-inline-fonts.mjs",
+    "perf:images": "node scripts/optimize-lighthouse-images.mjs && node scripts/apply-webp-paths.mjs",
+    "perf:lighthouse": "npm run perf:fonts && npm run perf:images"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0",
@@ -34,6 +37,7 @@
     "lighthouse": "^12.3.0",
     "playwright-lighthouse": "^4.0.0",
     "serve": "^14.2.4",
+    "sharp": "^0.35.5",
     "ttf2woff2": "^8.0.1"
   }
 }

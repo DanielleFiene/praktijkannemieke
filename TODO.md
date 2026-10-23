@@ -16,6 +16,12 @@
 
 Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele keuze → hier noteren vóór wijziging.
 
+## Lighthouse / performance
+
+- **Cache TTL 10m** op GitHub Pages: komt van GitHub, niet uit de repo. Bij live host (Cloudflare/eigen server) lange `Cache-Control` op `assets/` zetten.
+- **`npm run perf:lighthouse`**: inline Divi-fonts weg, WebP voor LCP/logo; blijft zwaar door **`style-static.min.css` (~82 KiB)** + **`et-cache/`** tot stap 5 (eigen CSS, Divi eruit).
+
 ## Opruimen (later)
 
-- **`assets/wp/`**: oude Divi-export (dubbel met `assets/css/divi/`). Veilig verwijderen zodra niets meer naar `assets/wp` verwijst (nu gebruikt de site `assets/css/divi/`, incl. **`et-cache/`** = per-pagina Divi-CSS tot stap 5 klaar is).
+- **`assets/wp/`**: oude Divi-export (dubbel met `assets/css/divi/`). Verwijderd zodra niet meer in git nodig.
+- **`et-cache/`** + Divi-thema: weg na CSS-herschrijving (AGENTS.md stap 5).

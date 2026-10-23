@@ -69,6 +69,46 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 	}
 }
 
+/* Subpagina-hero’s: witte titel niet over logo (transparante header) */
+#post-17 .et_pb_fullwidth_header_0 .header-content,
+#post-17 .et_pb_fullwidth_header_1 .header-content,
+#post-21 .et_pb_fullwidth_header_0 .header-content,
+#post-21 .et_pb_fullwidth_header_1 .header-content,
+#post-493 .et_pb_fullwidth_header_0 .header-content,
+#post-493 .et_pb_fullwidth_header_1 .header-content {
+	box-sizing: border-box;
+}
+
+#post-17 .et_pb_fullwidth_header_0 .header-content,
+#post-21 .et_pb_fullwidth_header_0 .header-content,
+#post-493 .et_pb_fullwidth_header_0 .header-content {
+	padding-top: 11rem;
+}
+
+@media (min-width: 1660px) {
+	#post-17 .et_pb_fullwidth_header_0 .header-content,
+	#post-21 .et_pb_fullwidth_header_0 .header-content,
+	#post-493 .et_pb_fullwidth_header_0 .header-content {
+		padding-top: 8.5rem;
+	}
+}
+
+@media (max-width: 980px) {
+	#post-17 .et_pb_fullwidth_header_0 .header-content,
+	#post-21 .et_pb_fullwidth_header_0 .header-content,
+	#post-493 .et_pb_fullwidth_header_0 .header-content {
+		padding-top: 5.25rem;
+	}
+}
+
+@media (max-width: 767px) {
+	#post-17 .et_pb_fullwidth_header_1 .header-content,
+	#post-21 .et_pb_fullwidth_header_1 .header-content,
+	#post-493 .et_pb_fullwidth_header_1 .header-content {
+		padding-top: 5.25rem;
+	}
+}
+
 /* Wie-sectie: witte kopjes + intro; lijsttekst zwart (zoals ontwerp) */
 #Wie h2,
 #Wie h2 span {
@@ -129,6 +169,17 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 	clear: both;
 }
 
+/* Divi icon-font: font-display (Lighthouse) */
+@font-face {
+	font-family: ETmodules;
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	src:
+		url('divi/themes/Divi/core/admin/fonts/modules/all/modules.woff') format('woff'),
+		url('divi/themes/Divi/core/admin/fonts/modules/all/modules.ttf') format('truetype');
+}
+
 /* Privacy + error-pagina’s: titel in mint-header (iets boven visueel midden) */
 #post-227 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container.center {
 	display: flex;
@@ -152,9 +203,18 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 }
 
 /* Footer-widgetblok: verloop wit → mint (i.p.v. vlak grijs) */
-.et_pb_section.et_pb_section_3.et_pb_with_background {
+.et_pb_section.et_pb_section_3.et_pb_with_background:not(#Ervaringen) {
 	background: linear-gradient(180deg, #ffffff 0%, #e5f3f3 42%, #c1dfe0 100%) !important;
 	background-color: transparent !important;
+}
+
+/* Ervaringen-sectie: seigaiha-patroon op lichte mint-basis */
+#Ervaringen.et_pb_section {
+	background-color: #e8f2f2 !important;
+	background-image: url('../images/seigaiha.png') !important;
+	background-repeat: repeat;
+	background-position: 0 0;
+	background-size: 120px 120px;
 }
 
 #main-footer {
@@ -185,4 +245,154 @@ body.home .et_pb_fullwidth_header_0 .header-content {
 .et_pb_section_1 .error-page-cta {
 	margin-top: 1.25rem;
 	text-align: center;
+}
+
+/* Ervaringen-carousel (Divi-slider + site.js) */
+/* Divi toont standaard alleen :first-child; actieve slide via JS */
+.js .site-slider-enhanced .et_pb_slides > .et_pb_slide {
+	display: none !important;
+	float: none;
+	margin-right: 0;
+	width: 100%;
+}
+
+.js .site-slider-enhanced.site-slider-ready .et_pb_slides {
+	overflow: hidden;
+}
+
+.js .site-slider-enhanced.site-slider-ready .et_pb_slides > .et_pb_slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.js .site-slider-enhanced .et_pb_slides > .et_pb_slide.et-pb-active-slide {
+	display: block !important;
+}
+
+html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
+	display: block !important;
+	float: none;
+	margin-right: 0;
+	margin-bottom: 2.5rem;
+}
+
+.Ervaringen .et_pb_text_2 h1 {
+	font-family: jenna_sueregular, "Jenna Sue", cursive;
+	color: #000000;
+}
+
+.site-slider-enhanced {
+	position: relative;
+	padding: 0 3rem 0.5rem;
+	box-sizing: border-box;
+}
+
+.site-slider-enhanced .et_pb_slides {
+	position: relative;
+}
+
+.site-slider-enhanced .et_pb_slide_description,
+.site-slider-enhanced .et_pb_slide_content,
+.site-slider-enhanced .et_pb_slide_content p {
+	text-align: center;
+}
+
+.site-slider-enhanced .et_pb_slide_title {
+	font-family: jenna_sueregular, "Jenna Sue", cursive;
+	font-size: clamp(1.5rem, 4.2vw, 3.25rem) !important;
+	line-height: 1.15;
+	text-align: center;
+	color: #b4dcdc !important;
+}
+
+.site-slider-enhanced .et_pb_slide_content {
+	color: #5a5a5a !important;
+	font-size: 1rem;
+	line-height: 1.65;
+	max-width: 52rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.site-slider-nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1.5rem;
+}
+
+.site-slider-prev,
+.site-slider-next {
+	position: absolute;
+	top: 50%;
+	z-index: 2;
+	transform: translateY(-50%);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.75rem;
+	min-height: 2.75rem;
+	padding: 0;
+	border: none;
+	background: transparent;
+	color: #b4dcdc;
+	font-size: 3.5rem;
+	font-weight: 300;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.site-slider-prev {
+	left: 0;
+}
+
+.site-slider-next {
+	right: 0;
+}
+
+.site-slider-prev:hover,
+.site-slider-next:hover {
+	color: #9ec9c9;
+}
+
+.site-slider-prev:focus-visible,
+.site-slider-next:focus-visible,
+.site-slider-dot:focus-visible {
+	outline: 2px solid #c1dfe0;
+	outline-offset: 2px;
+}
+
+.site-slider-dots {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0;
+}
+
+.site-slider-dot {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	padding: 0;
+	border: none;
+	border-radius: 50%;
+	background: transparent;
+	cursor: pointer;
+}
+
+.site-slider-dot::before {
+	content: '';
+	width: 0.45rem;
+	height: 0.45rem;
+	border: none;
+	border-radius: 50%;
+	background: #d4ecec;
+}
+
+.site-slider-dot[aria-selected='true']::before {
+	background: #7aabab;
 }

@@ -7,9 +7,21 @@ test.describe('anchor-links', () => {
     await page.goto('./', { waitUntil: 'domcontentloaded' });
     await waitForPageStable(page);
 
-    const neiLink = page.locator('a[href="#Nei#Nei"], a[href="../#Nei#Nei"]').last();
+    const neiLink = page.locator('a[href="#Nei"]').last();
     await neiLink.scrollIntoViewIfNeeded();
     await neiLink.click({ noWaitAfter: true });
+    await expect(page.locator('#Nei')).toBeVisible();
+  });
+
+  test('NEI THERAPIE vanaf subpagina naar home #Nei', async ({ page }) => {
+    await page.goto('tarieven/', { waitUntil: 'domcontentloaded' });
+    await waitForPageStable(page);
+
+    const neiLink = page.locator('a[href="../index.html#Nei"]').last();
+    await neiLink.scrollIntoViewIfNeeded();
+    await neiLink.click();
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page).toHaveURL(/#Nei$/);
     await expect(page.locator('#Nei')).toBeVisible();
   });
 
