@@ -39,7 +39,7 @@ module.exports = defineConfig({
     {
       name: 'checks',
       testMatch:
-        /links\.spec\.js|html-validate\.spec\.js|a11y\.spec\.js|external-requests\.spec\.js/,
+        /links\.spec\.js|html-validate\.spec\.js|a11y\.spec\.js|external-requests\.spec\.js|layout-overflow\.spec\.js/,
       use: { viewport: { width: 1440, height: 900 } },
     },
     {
