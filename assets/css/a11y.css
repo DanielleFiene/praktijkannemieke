@@ -103,6 +103,43 @@ html {
 	scroll-padding-top: var(--anchor-scroll-padding);
 }
 
+/* Desktop: BEHANDELINGEN-dropdown onder het menu-item (niet onder Divi-link-padding) */
+@media (min-width: 981px) {
+	:root {
+		--nav-top-link-padding-bottom: 111px;
+	}
+
+	#top-menu > li.menu-item-has-children {
+		position: relative;
+	}
+
+	#top-menu > li.menu-item-has-children > ul.sub-menu {
+		top: calc(100% - var(--nav-top-link-padding-bottom));
+		left: 0;
+		right: auto;
+		min-width: 100%;
+		transform: none;
+	}
+
+	#main-header #top-menu .sub-menu li a {
+		color: #ffffff;
+	}
+
+	#main-header #top-menu .sub-menu li.current-menu-item > a,
+	#main-header #top-menu .sub-menu li.current_page_item > a,
+	.et-fixed-header #main-header #top-menu .sub-menu li.current-menu-item > a,
+	.et-fixed-header #main-header #top-menu .sub-menu li.current_page_item > a {
+		color: #000000 !important;
+	}
+
+	#main-header #top-menu .sub-menu li a:hover,
+	#main-header #top-menu .sub-menu li a:focus-visible,
+	.et-fixed-header #main-header #top-menu .sub-menu li a:hover,
+	.et-fixed-header #main-header #top-menu .sub-menu li a:focus-visible {
+		color: #000000 !important;
+	}
+}
+
 body.home .et_pb_fullwidth_header_0 .header-content,
 body.home .et_pb_fullwidth_header_1 .header-content,
 #post-17 .et_pb_fullwidth_header_0 .header-content,
