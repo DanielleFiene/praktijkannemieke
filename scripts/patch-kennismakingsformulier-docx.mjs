@@ -101,6 +101,19 @@ function addSpaceBeforeFirstDatum(xml) {
 	return xml.replace(insertSpace, '$1$2$2$3');
 }
 
+const OUDER2_HEADING = 'Ouder/voogd 2 (indien van toepassing)';
+
+/** Witregel vóór kop „Ouder/voogd 2”. */
+function addSpaceBeforeOuder2(xml) {
+	const headingPara = para(OUDER2_HEADING, true);
+	const spaced = para('') + headingPara;
+	if (xml.includes(spaced)) return xml;
+	if (xml.includes(headingPara)) {
+		return xml.replace(headingPara, spaced);
+	}
+	return xml;
+}
+
 const appendix = `
 ${para('', false)}
 ${GEZAG_PARAS}
@@ -115,6 +128,7 @@ ${emptyField('Geboortedatum minderjarige:')}
 ${para('Ouder/voogd 1', true)}
 ${emptyField('Naam:')}
 ${para('Datum: ........................................          Handtekening: ........................................')}
+${para('')}
 ${para('Ouder/voogd 2 (indien van toepassing)', true)}
 ${emptyField('Naam:')}
 ${para('Datum: ........................................          Handtekening: ........................................')}
@@ -131,6 +145,7 @@ const before = xml;
 xml = fixGezagWording(xml);
 xml = applyGezagLayout(xml);
 xml = addSpaceBeforeFirstDatum(xml);
+xml = addSpaceBeforeOuder2(xml);
 
 const marker = '</w:body>';
 const needsAppendix =

@@ -131,9 +131,16 @@ html {
 		top: calc(100% - var(--nav-top-link-padding-bottom));
 		left: auto;
 		right: 0;
-		min-width: max-content;
-		width: max-content;
+		min-width: 100%;
+		width: auto;
 		transform: none;
+	}
+
+	#top-menu > li.menu-item-has-children > ul.sub-menu li {
+		display: block;
+		float: none;
+		clear: both;
+		width: 100%;
 	}
 
 	#main-header #top-menu .sub-menu li a {
@@ -712,7 +719,7 @@ html {
 
 #main-header a,
 .et_mobile_menu a,
-#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon {
+#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon {
 	background-image: none !important;
 }
 
@@ -721,8 +728,8 @@ html {
 	transition: none;
 }
 
-/* Footer-kolom (niet #main-footer): social icons roze + hover */
-#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon {
+/* Footer-kolom: social icons roze + hover (na Divi deferred in cascade) */
+#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon {
 	background-color: var(--footer-social-bg) !important;
 	border: 2px solid var(--footer-social-icon) !important;
 	color: var(--footer-social-icon) !important;
@@ -732,23 +739,20 @@ html {
 		border-color 0.25s ease;
 }
 
-#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon::before {
+#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon::before {
 	color: var(--footer-social-icon) !important;
 	transition: color 0.25s ease;
 }
 
-#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon:hover,
-#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon:focus-visible {
+#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon:hover,
+#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon:focus-visible {
 	background-color: var(--footer-social-bg-hover) !important;
 	border-color: var(--footer-social-bg-hover) !important;
 	color: var(--footer-social-icon-hover) !important;
 }
 
-#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon:hover::before,
-#page-container
-	.et_pb_row:has(.et_pb_button_0_wrapper)
-	.et_pb_social_media_follow_network
-	a.icon:focus-visible::before {
+#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon:hover::before,
+#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon:focus-visible::before {
 	color: var(--footer-social-icon-hover) !important;
 }
 
