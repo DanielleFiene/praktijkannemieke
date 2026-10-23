@@ -510,6 +510,26 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 	}
 }
 
+/* Hero-quote regelafbreking (bijv. Neem contact op: “echt bent” op tweede regel) */
+@media (max-width: 980px) {
+	#page-container .hero-quote__br {
+		display: none;
+	}
+}
+
+@media (min-width: 981px) {
+	/* Desktop: quote links uitlijnen met logo (Neem contact op: h1 in wrapper met inline center) */
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.header-content
+		:is(.et_pb_module_header, .et_pb_header_content_wrapper, .et_pb_header_content_wrapper h1) {
+		text-align: left !important;
+	}
+}
+
 @media (max-width: 980px) {
 	/* Quote-hero’s (_0/_1, niet behandelingen/privacy): blok in linkerhoek (export .center uit) */
 	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
