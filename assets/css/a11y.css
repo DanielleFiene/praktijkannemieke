@@ -92,7 +92,15 @@ body {
 	--hero-under-logo-gap: 13.25rem;
 	--hero-under-logo-gap-wide: 10.75rem;
 	--hero-under-logo-gap-tablet: 7.5rem;
+	--hero-former-cta-offset: 3.25rem;
 	--anchor-scroll-padding: 5.5rem;
+	/* Donkerder teal (leesbaar op wit); past bij #c1dfe0 / footer-gradient */
+	--link-hover-color: #2d7575;
+	--scrollbar-track: #ffffff;
+	--scrollbar-thumb-top: #fcd8db;
+	--scrollbar-thumb-mid: #e08a92;
+	--scrollbar-thumb-bottom: #4a9a9a;
+	--scrollbar-thumb-end: #2d7575;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -187,7 +195,19 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 	}
 }
 
-/* Behandelingen (hero met CTA): foto normale positie, titel + knop onderin hero
+/* Hero-banner: tekst op hoogte van voormalige CTA (behandelingen: flex-end onderin) */
+body.home .et_pb_fullwidth_header .header-content > .et_pb_module_header,
+#post-17 .et_pb_fullwidth_header .header-content > .et_pb_module_header,
+#post-21 .et_pb_fullwidth_header .header-content > .et_pb_module_header {
+	margin-top: var(--hero-former-cta-offset);
+}
+
+body.home .et_pb_fullwidth_header .header-content > .et_pb_header_content_wrapper:not(:empty),
+#post-21 .et_pb_fullwidth_header .header-content > .et_pb_header_content_wrapper:not(:empty) {
+	margin-top: var(--hero-former-cta-offset);
+}
+
+/* Behandelingen (hero): foto normale positie, titel onderin hero
    Teksthoogte zelf instellen: --behandeling-hero-inset (desktop) en --behandeling-hero-inset-mobile */
 body:has(#post-15),
 body:has(#post-295),
@@ -579,6 +599,39 @@ body:has(#post-506) {
 	background: linear-gradient(180deg, #e5f3f3 0%, #c1dfe0 100%) !important;
 }
 
+/* Scrollbar: standaardbreedte, roze→groen zoals footer/schakering */
+html {
+	scrollbar-color: var(--scrollbar-thumb-mid) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-track {
+	background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(
+		180deg,
+		var(--scrollbar-thumb-top) 0%,
+		var(--scrollbar-thumb-mid) 32%,
+		var(--scrollbar-thumb-bottom) 68%,
+		var(--scrollbar-thumb-end) 100%
+	);
+	border: 2px solid var(--scrollbar-track);
+	background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(
+		180deg,
+		#f5c4c8 0%,
+		#d67680 38%,
+		#3d8585 72%,
+		#245f5f 100%
+	);
+	border: 2px solid var(--scrollbar-track);
+	background-clip: padding-box;
+}
+
 /* Disclaimer (o.a. et_pb_text_10): één <span> zonder breaks → horizontale scroll (iPhone landscape) */
 #page-container .et_pb_row .et_pb_column {
 	min-width: 0;
@@ -593,13 +646,147 @@ body:has(#post-506) {
 	overflow-wrap: anywhere;
 }
 
-#page-container .et_pb_text_inner p > span {
+#page-container .et_pb_text_10 .et_pb_text_inner p > span {
 	display: block;
 	width: 100%;
 	max-width: 100%;
 	overflow-wrap: anywhere !important;
 	word-break: break-word !important;
 	hyphens: auto;
+}
+
+/* Tekstlinks (niet tel/menu/social/knoppen): underline links→rechts bij hover */
+@media (prefers-reduced-motion: no-preference) {
+	#page-container
+		:where(.et_pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+			.footer-credit-link
+		) {
+		text-decoration: none;
+		padding-bottom: 0.2em;
+		background-image: linear-gradient(var(--link-hover-color), var(--link-hover-color));
+		background-position: 0 calc(100% - 0.05em);
+		background-repeat: no-repeat;
+		background-size: 0% 2px;
+		transition:
+			background-size 0.8s ease,
+			color 0.8s ease;
+	}
+
+	#page-container
+		:where(.et_pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+			.footer-credit-link
+		):hover,
+	#page-container
+		:where(.et_pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+			.footer-credit-link
+		):focus-visible {
+		color: var(--link-hover-color) !important;
+		background-size: 100% 2px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#page-container
+		:where(.et_pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+			.footer-credit-link
+		):hover,
+	#page-container
+		:where(.et_pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+			.footer-credit-link
+		):focus-visible {
+		color: var(--link-hover-color) !important;
+		text-decoration: underline;
+		text-decoration-color: var(--link-hover-color);
+	}
+}
+
+#main-header a,
+.et_mobile_menu a,
+#main-footer .et_pb_social_media_follow_network a.icon {
+	background-image: none !important;
+}
+
+#main-header a,
+.et_mobile_menu a {
+	transition: none;
+}
+
+/* Footer: social icons in huisstijl (roze/teal) */
+#main-footer .et_pb_social_media_follow_network a.icon {
+	background-color: #fcd8db !important;
+	border: 2px solid var(--link-hover-color) !important;
+	color: var(--link-hover-color) !important;
+	transition:
+		background-color 0.25s ease,
+		color 0.25s ease,
+		border-color 0.25s ease;
+}
+
+#main-footer .et_pb_social_media_follow_network a.icon:hover,
+#main-footer .et_pb_social_media_follow_network a.icon:focus-visible {
+	background-color: var(--link-hover-color) !important;
+	border-color: var(--link-hover-color) !important;
+	color: #ffffff !important;
+}
+
+/* Mobiel/tablet smal: koppen en lopende tekst gecentreerd (incl. footer-kolommen) */
+@media (max-width: 980px) {
+	main#hoofdinhoud :is(.et_pb_text, .et_pb_blurb, .et_pb_toggle) {
+		text-align: center !important;
+	}
+
+	main#hoofdinhoud .et_pb_text_inner,
+	main#hoofdinhoud .et_pb_blurb_content {
+		text-align: center !important;
+	}
+
+	main#hoofdinhoud .et_pb_text_inner :is(h1, h2, h3, h4, h5, h6, p, li, a, span, em, strong) {
+		text-align: center;
+	}
+
+	main#hoofdinhoud .et_pb_fullwidth_header .header-content,
+	main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper {
+		text-align: center !important;
+	}
+
+	main#hoofdinhoud .et_pb_text_inner img.alignnone,
+	main#hoofdinhoud .et_pb_text_inner img.alignleft,
+	main#hoofdinhoud .et_pb_text_inner img.alignright {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		display: block;
+	}
+
+	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) {
+		text-align: center;
+	}
+
+	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_module.et_pb_text,
+	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_text_inner {
+		text-align: center !important;
+	}
+
+	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_text_inner :is(h3, p, a, span, em, strong) {
+		text-align: center;
+	}
+
+	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_button_module_wrapper {
+		text-align: center;
+	}
+
+	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow {
+		justify-content: center;
+	}
+
+	#footer-bottom,
+	#footer-bottom #footer-info {
+		text-align: center !important;
+	}
 }
 
 @media (max-width: 980px) {

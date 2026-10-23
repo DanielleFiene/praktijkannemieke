@@ -1,5 +1,5 @@
 /**
- * Voegt toestemmings- en minderjarigen-secties toe aan het kennismakingsformulier (.docx).
+ * Toestemmings- en minderjarigen-secties in het kennismakingsformulier (.docx).
  * Vereist: npm install jszip (devDependency).
  */
 import fs from 'node:fs';
@@ -46,6 +46,10 @@ const GEZAG_TEKST = [
 
 const GEZAG_PARAS = GEZAG_TEKST.map((t) => para(t)).join('');
 
+const GEZAG_CHECKBOX = para(
+	'☐  Ik heb als enige het ouderlijk gezag over de minderjarige cliënt (vul dan ouder/voogd 2 niet in).'
+);
+
 const OLD_GEZAG_ZIN =
 	'Bij gescheiden ouders met gezamenlijk gezag geven beide ouders toestemming, tenzij anders met de praktijk is afgesproken.';
 
@@ -61,10 +65,26 @@ function fixGezagWording(xml) {
 	return xml.replace(re, GEZAG_PARAS);
 }
 
+/** Gezagtekst boven handtekening; geen aparte AVG-toestemmingsparagraaf; onderaan leeg. */
+function applyGezagLayout(xml) {
+	let out = xml;
+	const toestemmingRe =
+		/<w:p><w:pPr><w:pStyle w:val="Plattetekst"\/><\/w:pPr><w:r><w:rPr><w:rFonts w:ascii="Tahoma" w:hAnsi="Tahoma" w:cs="Tahoma"\/><w:b\/><w:szCs w:val="22"\/><\/w:rPr><w:t xml:space="preserve">Toestemming verwerking persoonsgegevens<\/w:t><\/w:r><\/w:p>\s*<w:p><w:pPr><w:pStyle w:val="Plattetekst"\/><\/w:pPr><w:r><w:rPr><w:rFonts w:ascii="Tahoma" w:hAnsi="Tahoma" w:cs="Tahoma"\/><w:szCs w:val="22"\/><\/w:rPr><w:t xml:space="preserve">Ik geef toestemming aan Praktijk Annemieke om mijn \(bijzondere\) persoonsgegevens te verwerken voor het uitvoeren van de behandeling en de daarmee samenhangende administratie, zoals beschreven in de privacyverklaring op praktijkannemieke\.nl\.<\/w:t><\/w:r><\/w:p>/;
+	if (toestemmingRe.test(out)) {
+		out = out.replace(toestemmingRe, GEZAG_PARAS);
+	}
+	const trailingGezagRe = new RegExp(
+		`${GEZAG_CHECKBOX.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*${GEZAG_PARAS.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`
+	);
+	if (trailingGezagRe.test(out)) {
+		out = out.replace(trailingGezagRe, GEZAG_CHECKBOX);
+	}
+	return out;
+}
+
 const appendix = `
 ${para('', false)}
-${para('Toestemming verwerking persoonsgegevens', true)}
-${para('Ik geef toestemming aan Praktijk Annemieke om mijn (bijzondere) persoonsgegevens te verwerken voor het uitvoeren van de behandeling en de daarmee samenhangende administratie, zoals beschreven in de privacyverklaring op praktijkannemieke.nl.')}
+${GEZAG_PARAS}
 ${para('')}
 ${para('Datum: ........................................          Handtekening: ........................................')}
 ${para('', false)}
@@ -78,8 +98,7 @@ ${para('Datum: ........................................          Handtekening: .
 ${para('Ouder/voogd 2 (indien van toepassing)', true)}
 ${emptyField('Naam:')}
 ${para('Datum: ........................................          Handtekening: ........................................')}
-${para('☐  Ik heb als enige het ouderlijk gezag over de minderjarige cliënt (vul dan ouder/voogd 2 niet in).')}
-${GEZAG_PARAS}
+${GEZAG_CHECKBOX}
 `;
 
 const buf = fs.readFileSync(docPath);
@@ -90,9 +109,12 @@ let xml = await docFile.async('string');
 const before = xml;
 
 xml = fixGezagWording(xml);
+xml = applyGezagLayout(xml);
 
 const marker = '</w:body>';
-if (!xml.includes('Toestemming verwerking persoonsgegevens')) {
+const needsAppendix =
+	!xml.includes('Alleen invullen bij minderjarige cliënt (jonger dan 16 jaar)');
+if (needsAppendix) {
 	if (!xml.includes(marker)) throw new Error('Onverwachte document.xml-structuur');
 	xml = xml.replace(marker, `${appendix}${marker}`);
 }

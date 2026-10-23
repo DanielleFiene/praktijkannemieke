@@ -25,3 +25,7 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 
 - **`assets/wp/`**: oude Divi-export (dubbel met `assets/css/divi/`). Verwijderd zodra niet meer in git nodig.
 - **`et-cache/`** + Divi-thema: weg na CSS-herschrijving (AGENTS.md stap 5).
+
+## Herbruikbare onderdelen (later)
+
+- **Footer** (en evt. header): nu dezelfde HTML op elke pagina (Divi-export). Overwegen één bronbestand + kleine build/deploy-stap of include, zodat tekst/links niet per pagina hoeven te wijzigen. Styling blijft in `assets/css/a11y.css`.
