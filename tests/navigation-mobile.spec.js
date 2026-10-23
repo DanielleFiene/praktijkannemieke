@@ -16,6 +16,22 @@ test.describe('mobiel menu', () => {
     await expect(mobileNav.getByRole('link', { name: /tarieven/i })).toBeVisible();
   });
 
+  test('BEHANDELINGEN klapt submenu uit', async ({ page }) => {
+    await page.goto('./', { waitUntil: 'domcontentloaded' });
+    await waitForPageStable(page);
+
+    await page.locator('.mobile_menu_bar').click();
+    const menu = page.locator('#mobile_menu');
+    const accessBars = menu.getByRole('link', { name: /access bars/i });
+    await expect(accessBars).toBeHidden();
+    const behandelingen = menu.getByRole('link', { name: /^BEHANDELINGEN$/i });
+    await behandelingen.click();
+    await expect(accessBars).toBeVisible();
+    await expect(menu.getByRole('link', { name: /shambhala reiki/i })).toBeVisible();
+    await behandelingen.click();
+    await expect(accessBars).toBeHidden();
+  });
+
   test('NEI THERAPIE in mobiel menu', async ({ page }) => {
     await page.goto('./', { waitUntil: 'domcontentloaded' });
     await waitForPageStable(page);

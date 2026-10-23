@@ -377,6 +377,86 @@ body:has(#post-506) {
 	}
 }
 
+/* Hamburger-menu: paneel rechts (niet full-width; Divi child hack tot 1200px) */
+@media (max-width: 1659px) {
+	#et-top-navigation #et_mobile_nav_menu .mobile_nav {
+		position: relative;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu {
+		position: absolute;
+		right: 0;
+		left: auto;
+		top: calc(100% + 0.35rem);
+		width: min(20rem, 88vw) !important;
+		max-width: 20rem;
+		margin-left: 0 !important;
+		padding: 0.75rem 1rem !important;
+		box-sizing: border-box;
+		box-shadow: 0 0.35rem 1.25rem rgba(0, 0, 0, 0.14);
+		z-index: 100000;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu li {
+		text-align: left;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu li a {
+		padding: 0.6rem 0.35rem;
+	}
+
+	/* Divi: #main-header .et_mobile_menu li ul { display: block !important } */
+	#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-has-children > ul.sub-menu {
+		display: none !important;
+		visibility: visible !important;
+		margin: 0;
+		padding: 0 0 0.35rem 0.65rem;
+		list-style: none;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-has-children.site-mobile-submenu-open > ul.sub-menu {
+		display: block !important;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-has-children > a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		cursor: pointer;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-has-children > a::after {
+		content: "";
+		flex-shrink: 0;
+		width: 0.45rem;
+		height: 0.45rem;
+		border-right: 2px solid currentColor;
+		border-bottom: 2px solid currentColor;
+		transform: rotate(45deg);
+		margin-top: -0.15rem;
+		transition: transform 0.15s ease;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-has-children.site-mobile-submenu-open > a::after {
+		transform: rotate(-135deg);
+		margin-top: 0.1rem;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu .sub-menu li a {
+		font-weight: 400;
+		padding: 0.45rem 0.35rem;
+	}
+}
+
+@media (max-width: 767px) {
+	#et-top-navigation #mobile_menu.et_mobile_menu {
+		width: min(15rem, 76vw) !important;
+		max-width: 15rem;
+		padding: 0.65rem 0.75rem !important;
+	}
+}
+
 /* Heading-order fix op home: h2 in NEI-blok behoudt Divi h3-opmaak */
 #Nei .et_pb_text_1 h2,
 #Nei .et_pb_text_2 h2,
