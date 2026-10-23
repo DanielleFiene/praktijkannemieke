@@ -77,6 +77,11 @@ body {
 	font-weight: 400;
 }
 
+#page-container .et_pb_bg_layout_light .et_pb_text_inner strong,
+#page-container .et_pb_bg_layout_light .et_pb_text_inner strong :is(a, span) {
+	font-weight: 700;
+}
+
 #Nei .et_pb_text_inner :is(h2, p, li) {
 	color: #000000;
 	font-weight: 400;
@@ -101,10 +106,12 @@ body {
 	--scrollbar-thumb-mid: #e08a92;
 	--scrollbar-thumb-bottom: #4a9a9a;
 	--scrollbar-thumb-end: #2d7575;
-	--footer-social-bg: #fcd8db;
+	--footer-social-bg: #f8e3e6;
+	--footer-social-border: #f8e3e6;
 	--footer-social-icon: #d67680;
 	--footer-social-bg-hover: #d67680;
 	--footer-social-icon-hover: #ffffff;
+	--footer-button-radius: 3px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -130,7 +137,7 @@ html {
 	#top-menu > li.menu-item-has-children > ul.sub-menu {
 		top: calc(100% - var(--nav-top-link-padding-bottom));
 		left: auto;
-		right: 0;
+		right: calc(0.625rem + 10px);
 		min-width: 100%;
 		width: auto;
 		transform: none;
@@ -401,7 +408,7 @@ body:has(#post-506) {
 }
 
 /* Footer-kolommen: body staat op 300, dat oogt op #000 als donkergrijs */
-.et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_text_inner :where(p, a, h3, span, li, strong, em) {
+.et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_text_inner :where(p, a, h3, span, li, em) {
 	color: #000000;
 	font-weight: 400;
 }
@@ -719,7 +726,7 @@ html {
 
 #main-header a,
 .et_mobile_menu a,
-#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon {
+#page-container ul.et_pb_social_media_follow_0 a.icon {
 	background-image: none !important;
 }
 
@@ -728,10 +735,11 @@ html {
 	transition: none;
 }
 
-/* Footer-kolom: social icons roze + hover (na Divi deferred in cascade) */
-#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon {
+/* Footer-kolom: social icons roze + hover (Divi deferred zet zwart via network_0/1/2) */
+#page-container ul.et_pb_social_media_follow_0 a.icon {
 	background-color: var(--footer-social-bg) !important;
-	border: 2px solid var(--footer-social-icon) !important;
+	border: 1px solid var(--footer-social-border) !important;
+	border-radius: 50% !important;
 	color: var(--footer-social-icon) !important;
 	transition:
 		background-color 0.25s ease,
@@ -739,21 +747,26 @@ html {
 		border-color 0.25s ease;
 }
 
-#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon::before {
+#page-container ul.et_pb_social_media_follow_0 a.icon::before {
 	color: var(--footer-social-icon) !important;
 	transition: color 0.25s ease;
 }
 
-#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon:hover,
-#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon:focus-visible {
+#page-container ul.et_pb_social_media_follow_0 a.icon:hover,
+#page-container ul.et_pb_social_media_follow_0 a.icon:focus-visible {
 	background-color: var(--footer-social-bg-hover) !important;
 	border-color: var(--footer-social-bg-hover) !important;
 	color: var(--footer-social-icon-hover) !important;
 }
 
-#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon:hover::before,
-#page-container ul.et_pb_social_media_follow_0 .et_pb_social_media_follow_network a.icon:focus-visible::before {
+#page-container ul.et_pb_social_media_follow_0 a.icon:hover::before,
+#page-container ul.et_pb_social_media_follow_0 a.icon:focus-visible::before {
 	color: var(--footer-social-icon-hover) !important;
+}
+
+/* VVNT-logo: zelfde afronding als footer-knoppen (Divi .et_pb_button ≈ 3px) */
+#page-container a[href="https://vvnt.nl"] img.wp-image-91 {
+	border-radius: var(--footer-button-radius);
 }
 
 /* Mobiel/tablet smal: koppen en lopende tekst gecentreerd (incl. footer-kolommen) */
