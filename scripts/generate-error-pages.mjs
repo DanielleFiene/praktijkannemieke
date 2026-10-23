@@ -1,5 +1,5 @@
 /**
- * 403/404:zelfde Divi-shell als privacy (hero + footer-widgets), alleen inhoud anders.
+ * 403/404:zelfde bronexport-shell als privacy (hero + footer-widgets), alleen inhoud anders.
  */
 import fs from 'node:fs';
 import path from 'node:path';

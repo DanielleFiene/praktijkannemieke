@@ -2,11 +2,15 @@
 
 ## Doel
 
-Statische export van WordPress/Divi omzetten naar schone HTML/CSS/JS. Visueel **exact** gelijk op desktop en mobiel. Inhoud (teksten, afbeeldingen, documenten) ongewijzigd, behalve bewuste uitzonderingen in [Credits](#credits-en-onderhoud).
+Statische export van de oude CMS-site omzetten naar schone HTML/CSS/JS. Visueel **exact** gelijk op desktop en mobiel. Inhoud (teksten, afbeeldingen, documenten) ongewijzigd, behalve bewuste uitzonderingen in [Credits](#credits-en-onderhoud).
+
+## Terminologie
+
+- **Bronexport**: tijdelijke layout-CSS en markup-hooks uit de oorspronkelijke site-export (`assets/css/bronexport/`). Nog veel `et_pb_*`-klassen in HTML; die verdwijnen bij stap 5. In docs en comments: **bronexport**, niet merknamen van het oude CMS/thema.
 
 ## Harde regels
 
-- Geen WordPress, Divi, jQuery of plugin-code in het eindresultaat; alles herschreven als zelfstandige code. Geen frameworks of build-stap nodig voor de live site.
+- Geen CMS-runtime, jQuery of plugin-code in het eindresultaat; alles herschreven als zelfstandige code. Geen frameworks of build-stap nodig voor de live site.
 - Visueel 1-op-1. Bij twijfel: vragen, niet “verbeteren”.
 - Pagina-URL’s blijven gelijk (`/tarieven/`, `/neem-contact-op/`, …).
 - **Relatieve paden** overal, zodat de site in een submap werkt (GitHub Pages: `/praktijkannemieke/`).
@@ -34,16 +38,16 @@ Statische export van WordPress/Divi omzetten naar schone HTML/CSS/JS. Visueel **
 └── .well-known/security.txt
 ```
 
-WordPress-restjes (`wp-json`, `et-cache`, dubbele bestanden) verwijderen zodra niet meer nodig.
+CMS-restjes (`wp-json`, oude caches, dubbele bestanden) verwijderen zodra niet meer nodig.
 
 ## Volgorde
 
 1. Testopzet + referentie-screenshots — **gedaan**
 2. Relatieve paden + `%3F`-bestandsnamen opschonen — **gedaan**
-3. Nieuwe mappenstructuur, WP-restjes verwijderen — **gedaan** (`assets/`, `wp-json`/`feed`/`comments`/`site/` weg; Divi tijdelijk onder `assets/css/divi/`)
+3. Nieuwe mappenstructuur, CMS-restjes verwijderen — **gedaan** (`assets/`, `wp-json`/`feed`/`comments`/`site/` weg; bronexport onder `assets/css/bronexport/`)
 4. Semantische HTML — **gedaan** (skip-link, `<main>`, nav ARIA, credits-meta, footer Tiki-tekst, `humans.txt`, `a11y.css`; één `h1` per pagina volgt in stap 5/6)
-5. CSS herschrijven (screenshots gelijk) — **deels** (lokale fonts; Divi-CSS nog in `assets/css/divi/`)
-6. Minimale vanilla JS — **gedaan** (`assets/js/site.js`; jQuery/Divi-footer verwijderd)
+5. CSS herschrijven (screenshots gelijk) — **deels** (lokale fonts; bronexport-CSS nog aanwezig)
+6. Minimale vanilla JS — **gedaan** (`assets/js/site.js`; jQuery en export-footer-scripts verwijderd)
 7. Afbeeldingen/fonts optimaliseren
 8. SEO + structured data + llms.txt
 9. Eindcontrole: tests groen, Lighthouse ≥ 95

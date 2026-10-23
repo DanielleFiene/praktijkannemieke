@@ -22,7 +22,7 @@ function pagePathToFile(pagePath) {
   return path.join(siteRoot, segment, 'index.html');
 }
 
-test.describe('HTML-validatie (baseline – WordPress markup)', () => {
+test.describe('HTML-validatie (baseline – bronexport-markup)', () => {
   for (const { slug, path: pagePath } of PAGES) {
     test(slug, async () => {
       const file = pagePathToFile(pagePath);
@@ -30,7 +30,7 @@ test.describe('HTML-validatie (baseline – WordPress markup)', () => {
       const errors = report.results.flatMap((r) =>
         r.messages.filter((m) => m.severity === 2)
       );
-      // Baseline-export faalt vaak op Divi-markup; rapporteer count, geen harde gate tot herschrijf.
+      // Baseline-export faalt vaak op bronexport-markup; rapporteer count, geen harde gate tot herschrijf.
       if (process.env.HTML_VALIDATE_STRICT === '1') {
         expect(errors, report.format()).toHaveLength(0);
       } else {

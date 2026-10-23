@@ -1,5 +1,5 @@
 /**
- * Laadt a11y.css ná Divi deferred CSS (sync), zodat overrides niet worden overschreven.
+ * Laadt a11y.css ná bronexport deferred CSS (sync), zodat overrides niet worden overschreven.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,7 +19,7 @@ function listHtmlFiles() {
 
 const A11Y_RE = /<link rel="stylesheet" href="([^"]*a11y\.css)"\s*\/?>\s*/i;
 const DEFERRED_PRELOAD_RE =
-	/<link rel="preload" as="style" id="(et-core-unified-deferred[^"]+)" href="([^"]+)" onload="this\.onload=null;this\.rel='stylesheet';"\s*\/?>/i;
+	/<link rel="preload" as="style" id="((?:et-core-unified-deferred|bronexport-page)[^"]+)" href="([^"]+)" onload="this\.onload=null;this\.rel='stylesheet';"\s*\/?>/i;
 
 let updated = 0;
 for (const file of listHtmlFiles()) {

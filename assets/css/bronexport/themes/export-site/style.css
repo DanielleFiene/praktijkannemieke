@@ -1,14 +1,6 @@
-/*
-Theme Name: Divi Child
-Theme URI: http://www.elegantthemes.com/gallery/divi/
-Version: 2.2
-Description: Smart. Flexible. Beautiful. Divi is the most powerful theme in our collection.
-Author: Elegant Themes
-Template: Divi
-Author URI: http://www.elegantthemes.com
-*/
+/* Site-specifieke overrides uit de oorspronkelijke export (bronexport-site). */
 
-/* =Theme customization starts here
+/* =Aanpassingen uit bronexport
 -------------------------------------------------------------- */
 #mobile_menu.et_mobile_menu {
 	background-color: #c1dfe0!important;

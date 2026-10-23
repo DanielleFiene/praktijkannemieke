@@ -8,7 +8,7 @@
 	z-index: 100000;
 }
 
-/* Logo: aspect-ratio voor Lighthouse, weergave via Divi max-height (niet 732px breed) */
+/* Logo: aspect-ratio voor Lighthouse, weergave via bronexport max-height (niet 732px breed) */
 #logo {
 	width: auto;
 	height: auto;
@@ -45,7 +45,7 @@
 		box-sizing: border-box;
 	}
 
-	/* Divi .clearfix::after verstoort verticale centrering in flex/grid */
+	/* Bronexport .clearfix::after verstoort verticale centrering in flex/grid */
 	#page-container #main-header .container.et_menu_container::before,
 	#page-container #main-header .container.et_menu_container::after {
 		display: none !important;
@@ -169,7 +169,7 @@
 	font-size: 1rem;
 }
 
-/* Lopende tekst: Divi child gebruikt weight 300; op #000 oogt dat grijs (NEI, pagina’s, …) */
+/* Lopende tekst: bronexport-site gebruikt weight 300; op #000 oogt dat grijs (NEI, pagina’s, …) */
 body {
 	font-weight: 400;
 }
@@ -224,6 +224,8 @@ body {
 	--nav-accent: #ebcbcd;
 	--nav-bar-padding-x: clamp(1.25rem, 2.5vw, 2.5rem);
 	--nav-logo-max-height: 5.75rem;
+	--site-mint: #c1dfe0;
+	--contact-whatsapp-icon: #4a9a9a;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -477,7 +479,7 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 }
 
 @media (max-width: 980px) {
-	/* Quote-hero’s (_0/_1, niet behandelingen/privacy): blok in linkerhoek (Divi .center uit) */
+	/* Quote-hero’s (_0/_1, niet behandelingen/privacy): blok in linkerhoek (export .center uit) */
 	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
 			:has(#post-227)
 		)
@@ -821,7 +823,7 @@ body:has(#post-506) {
 	}
 }
 
-/* Hamburger-menu: paneel rechts (niet full-width; Divi child hack tot 1200px) */
+/* Hamburger-menu: paneel rechts (niet full-width; bronexport-site hack tot 1200px) */
 @media (max-width: 1659px) {
 	#et-top-navigation #et_mobile_nav_menu .mobile_nav {
 		position: relative;
@@ -879,7 +881,7 @@ body:has(#post-506) {
 		color: #000000 !important;
 	}
 
-	/* Divi: #main-header .et_mobile_menu li ul { display: block !important } */
+	/* Bronexport: #main-header .et_mobile_menu li ul { display: block !important } */
 	#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-has-children > ul.sub-menu {
 		display: none !important;
 		visibility: visible !important;
@@ -936,7 +938,7 @@ body:has(#post-506) {
 	}
 }
 
-/* Heading-order fix op home: h2 in NEI-blok behoudt Divi h3-opmaak */
+/* Heading-order fix op home: h2 in NEI-blok behoudt bronexport h3-opmaak */
 #Nei .et_pb_text_1 h2,
 #Nei .et_pb_text_2 h2,
 #Nei .et_pb_text_3 h2,
@@ -949,15 +951,15 @@ body:has(#post-506) {
 	clear: both;
 }
 
-/* Divi icon-font: font-display (Lighthouse) */
+/* Bronexport icon-font: font-display (Lighthouse) */
 @font-face {
 	font-family: ETmodules;
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 	src:
-		url('divi/themes/Divi/core/admin/fonts/modules/all/modules.woff') format('woff'),
-		url('divi/themes/Divi/core/admin/fonts/modules/all/modules.ttf') format('truetype');
+		url('bronexport/themes/export-base/core/admin/fonts/modules/all/modules.woff') format('woff'),
+		url('bronexport/themes/export-base/core/admin/fonts/modules/all/modules.ttf') format('truetype');
 }
 
 /* Privacy + error-pagina’s: titel in mint-header (iets boven visueel midden) */
@@ -988,7 +990,7 @@ body:has(#post-506) {
 	background-color: transparent !important;
 }
 
-/* Ervaringen-sectie: golfpatroon (originele Divi-asset; wint van deferred .et_pb_section_3) */
+/* Ervaringen-sectie: golfpatroon (originele export-asset; wint van deferred .et_pb_section_3) */
 #Ervaringen.et_pb_section.et_pb_section_3 {
 	background-color: #e8f2f2 !important;
 	background-image: url('../images/2021/06/6-bg_testimonials_section-2.png') !important;
@@ -999,7 +1001,7 @@ body:has(#post-506) {
 	padding-block: calc(4.125rem - 0.9375rem) !important;
 }
 
-/* Iets breder dan Divi-default (1325px), maar niet te ver */
+/* Iets breder dan bronexport-default (1325px), maar niet te ver */
 #Ervaringen.et_pb_section .et_pb_row {
 	max-width: 85rem !important;
 	width: 91% !important;
@@ -1138,7 +1140,7 @@ html {
 	transition: none;
 }
 
-/* Footer-kolom: social icons roze + hover (Divi deferred zet zwart via network_0/1/2) */
+/* Footer-kolom: social icons roze + hover (bronexport deferred zet zwart via network_0/1/2) */
 #page-container ul.et_pb_social_media_follow_0 a.icon {
 	background-color: var(--footer-social-bg) !important;
 	border: 1px solid var(--footer-social-border) !important;
@@ -1167,7 +1169,7 @@ html {
 	color: var(--footer-social-icon-hover) !important;
 }
 
-/* VVNT-logo: zelfde afronding als footer-knoppen (Divi .et_pb_button ≈ 3px) */
+/* VVNT-logo: zelfde afronding als footer-knoppen (bronexport .et_pb_button ≈ 3px) */
 #page-container a[href="https://vvnt.nl"] img.wp-image-91 {
 	border-radius: var(--footer-button-radius);
 }
@@ -1286,7 +1288,7 @@ html {
 	}
 }
 
-/* Primaire knoppen (footer + error-CTA): zelfde padding/rand/hover als Divi et_pb_button_0 */
+/* Primaire knoppen (footer + error-CTA): zelfde padding/rand/hover als bronexport et_pb_button_0 */
 #page-container .et_pb_button_module_wrapper .et_pb_button.et_pb_button_0,
 #page-container .error-page-cta .et_pb_button.et_pb_button_0 {
 	padding: 10px 20px !important;
@@ -1317,8 +1319,8 @@ html {
 	text-align: center;
 }
 
-/* Ervaringen-carousel (Divi-slider + site.js) */
-/* Divi toont standaard alleen :first-child; actieve slide via JS */
+/* Ervaringen-carousel (export-slider + site.js) */
+/* Bronexport toont standaard alleen :first-child; actieve slide via JS */
 .js .site-slider-enhanced .et_pb_slides > .et_pb_slide {
 	display: none !important;
 	float: none;
@@ -1354,7 +1356,7 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 }
 
 /*
- * Divi deferred CSS: .et_pb_slider_0 { margin-top: -100px } laadt ná a11y.css.
+ * Bronexport deferred CSS: .et_pb_slider_0 { margin-top: -100px } laadt ná a11y.css.
  * margin-top: 0 + padding (geen margin-collapse) voor vaste ruimte kop ↔ quote.
  */
 #Ervaringen.et_pb_section .et_pb_text_2.et_pb_module {
@@ -1572,4 +1574,93 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 
 .site-slider-dot[aria-selected='true']::before {
 	background: #7aabab;
+}
+
+/* WhatsApp bij telefoonnummer (site-mint/teal) */
+a.contact-whatsapp-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4em;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+a.contact-whatsapp-link::before {
+	content: '';
+	flex-shrink: 0;
+	width: 1.35em;
+	height: 1.35em;
+	background-color: var(--contact-whatsapp-icon);
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z'/%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+}
+
+a.contact-whatsapp-link:hover::before,
+a.contact-whatsapp-link:focus-visible::before {
+	background-color: var(--link-hover-color);
+}
+
+/* Ondersteunende middelen: 3 kolommen + ronde foto’s */
+@media (min-width: 981px) {
+	#post-19 .et_pb_section_2,
+	#post-19 .et_pb_section_3 {
+		display: contents;
+	}
+
+	#post-19 .et_builder_inner_content.et_pb_gutters3 {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		column-gap: clamp(1rem, 3vw, 2.5rem);
+		row-gap: 2rem;
+		align-items: start;
+	}
+
+	#post-19 .et_pb_section_0,
+	#post-19 .et_pb_section_1,
+	#post-19 .et_pb_section_5,
+	#post-19 .et_pb_section_7 {
+		grid-column: 1 / -1;
+	}
+
+	#post-19 .et_pb_row_0 {
+		grid-column: 1;
+	}
+	#post-19 .et_pb_row_1 {
+		grid-column: 2;
+	}
+	#post-19 .et_pb_row_2 {
+		grid-column: 3;
+	}
+}
+
+#post-19 .et_pb_row_0 .et_pb_text_inner,
+#post-19 .et_pb_row_1 .et_pb_text_inner,
+#post-19 .et_pb_row_2 .et_pb_text_inner {
+	text-align: center !important;
+}
+
+#post-19 .et_pb_row_0 .et_pb_text_inner :is(h1, p, a, span),
+#post-19 .et_pb_row_1 .et_pb_text_inner :is(h1, p, a, span),
+#post-19 .et_pb_row_2 .et_pb_text_inner :is(h1, p, a, span) {
+	text-align: center !important;
+}
+
+#post-19 .et_pb_row_0 img,
+#post-19 .et_pb_row_1 img,
+#post-19 .et_pb_row_2 img {
+	border-radius: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: min(100%, 280px);
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
 }
