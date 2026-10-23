@@ -246,35 +246,61 @@
 		return { pathPart, id };
 	}
 
+	function anchorScrollBehavior() {
+		return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+			? 'auto'
+			: 'smooth';
+	}
+
+	function isSamePageAnchorLink(link) {
+		const raw = link.getAttribute('href');
+		if (!raw || raw === '#') return false;
+		if (raw.startsWith('#')) return true;
+		try {
+			const dest = new URL(link.href, window.location.href);
+			return (
+				dest.origin === window.location.origin &&
+				dest.pathname === window.location.pathname
+			);
+		} catch {
+			return false;
+		}
+	}
+
+	function scrollToAnchorId(id) {
+		const target = document.getElementById(id);
+		if (!target) return false;
+		target.scrollIntoView({ behavior: anchorScrollBehavior(), block: 'start' });
+		try {
+			history.replaceState(null, '', `#${encodeURIComponent(id)}`);
+		} catch {
+			/* ignore */
+		}
+		return true;
+	}
+
 	function initAnchors() {
-		document.querySelectorAll('a[href*="#"]').forEach((link) => {
-			const href = link.getAttribute('href');
-			const parsed = parseAnchorHref(href);
+		document.addEventListener('click', (e) => {
+			const link = e.target.closest('a[href*="#"]');
+			if (!link || link.target === '_blank') return;
+
+			const parsed = parseAnchorHref(link.getAttribute('href'));
 			if (!parsed) return;
 
-			const { pathPart, id } = parsed;
+			if (!isSamePageAnchorLink(link)) return;
 
-			link.addEventListener('click', (e) => {
-				const target = document.getElementById(id);
-				if (target) {
-					e.preventDefault();
-					target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-					try {
-						history.replaceState(null, '', `#${id}`);
-					} catch {
-						/* ignore */
-					}
-					return;
-				}
-
-				if (pathPart && pathPart !== '.') {
-					return;
-				}
-
+			if (scrollToAnchorId(parsed.id)) {
 				e.preventDefault();
-				window.location.href = `../index.html#${id}`;
-			});
+			}
 		});
+
+		const hash = window.location.hash;
+		if (hash.length > 1 && anchorScrollBehavior() === 'smooth') {
+			const id = decodeURIComponent(hash.slice(1)).split('#')[0];
+			requestAnimationFrame(() => {
+				scrollToAnchorId(id);
+			});
+		}
 	}
 
 	function initFooterYear() {

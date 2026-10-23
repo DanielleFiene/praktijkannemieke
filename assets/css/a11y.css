@@ -90,6 +90,17 @@ body {
 	--hero-under-logo-gap: 13.25rem;
 	--hero-under-logo-gap-wide: 10.75rem;
 	--hero-under-logo-gap-tablet: 7.5rem;
+	--anchor-scroll-padding: 5.5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+html {
+	scroll-padding-top: var(--anchor-scroll-padding);
 }
 
 body.home .et_pb_fullwidth_header_0 .header-content,
