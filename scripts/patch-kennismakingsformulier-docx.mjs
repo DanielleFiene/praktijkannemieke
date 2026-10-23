@@ -85,14 +85,20 @@ function applyGezagLayout(xml) {
 const FIRST_DATUM_LINE =
 	'Datum: ........................................          Handtekening: ........................................';
 
+const EMPTY_PARA_XML =
+	/<w:p><w:pPr><w:pStyle w:val="Plattetekst"\/><\/w:pPr><w:r><w:rPr><w:rFonts w:ascii="Tahoma" w:hAnsi="Tahoma" w:cs="Tahoma"\/><w:szCs w:val="22"\/><\/w:rPr><w:t xml:space="preserve"><\/w:t><\/w:r><\/w:p>/;
+
 /** Extra witregel vóór de eerste datum/handtekening (na gezagtekst). */
 function addSpaceBeforeFirstDatum(xml) {
-	const block = GEZAG_PARAS + para('') + para(FIRST_DATUM_LINE);
-	const spaced = GEZAG_PARAS + para('') + para('') + para(FIRST_DATUM_LINE);
-	if (xml.includes(block) && !xml.includes(spaced)) {
-		return xml.replace(block, spaced);
-	}
-	return xml;
+	const alreadySpaced = new RegExp(
+		`volstaat diens toestemming\\.</w:t></w:r></w:p>\\s*(?:${EMPTY_PARA_XML.source}\\s*){2}<w:p><w:pPr><w:pStyle w:val="Plattetekst"`
+	);
+	if (alreadySpaced.test(xml)) return xml;
+
+	const insertSpace = new RegExp(
+		`(volstaat diens toestemming\\.</w:t></w:r></w:p>)\\s*(${EMPTY_PARA_XML.source})\\s*(<w:p><w:pPr><w:pStyle w:val="Plattetekst"\\/><\\/w:pPr><w:r><w:rPr><w:rFonts w:ascii="Tahoma" w:hAnsi="Tahoma" w:cs="Tahoma"\\/><w:szCs w:val="22"\\/><\\/w:rPr><w:t xml:space="preserve">Datum:)`
+	);
+	return xml.replace(insertSpace, '$1$2$2$3');
 }
 
 const appendix = `
