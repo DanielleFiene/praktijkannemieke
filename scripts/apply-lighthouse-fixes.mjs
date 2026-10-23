@@ -14,7 +14,7 @@ const htmlFiles = [
     'shambhala-reiki',
     'vlindermassage',
     'magnesiumpakking',
-    'ondersteunende-middelen-2',
+    'ondersteunende-middelen',
     'tarieven',
     'over-annemieke',
     'neem-contact-op',

@@ -14,7 +14,7 @@ const CANONICAL = {
   'shambhala-reiki/index.html': `${SITE}/shambhala-reiki/`,
   'vlindermassage/index.html': `${SITE}/vlindermassage/`,
   'magnesiumpakking/index.html': `${SITE}/magnesiumpakking/`,
-  'ondersteunende-middelen-2/index.html': `${SITE}/ondersteunende-middelen-2/`,
+  'ondersteunende-middelen/index.html': `${SITE}/ondersteunende-middelen/`,
   'tarieven/index.html': `${SITE}/tarieven/`,
   'over-annemieke/index.html': `${SITE}/over-annemieke/`,
   'neem-contact-op/index.html': `${SITE}/neem-contact-op/`,

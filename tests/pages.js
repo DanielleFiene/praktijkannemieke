@@ -9,8 +9,8 @@ const PAGES = [
   { slug: 'vlindermassage', path: 'vlindermassage/', title: 'Vlindermassage' },
   { slug: 'magnesiumpakking', path: 'magnesiumpakking/', title: 'Magnesiumpakking' },
   {
-    slug: 'ondersteunende-middelen-2',
-    path: 'ondersteunende-middelen-2/',
+    slug: 'ondersteunende-middelen',
+    path: 'ondersteunende-middelen/',
     title: 'Ondersteunende middelen',
   },
   { slug: 'tarieven', path: 'tarieven/', title: 'Tarieven' },

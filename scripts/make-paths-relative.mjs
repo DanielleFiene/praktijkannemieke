@@ -1,7 +1,7 @@
 /**
  * 1) Vervang %253F / oude %3F-paden door geschoonde bestandsnamen
  * 2) Maak root-absolute paden (/foo) relatief t.o.v. elk HTML-bestand
- * 3) Corrigeer bekende foute slug ondersteunende-middelen → ondersteunende-middelen-2
+ * 3) Corrigeer bekende foute slug ondersteunende-middelen → ondersteunende-middelen
  */
 import fs from 'fs';
 import path from 'path';
@@ -19,7 +19,7 @@ const PAGE_SLUGS = new Set([
   'shambhala-reiki',
   'vlindermassage',
   'magnesiumpakking',
-  'ondersteunende-middelen-2',
+  'ondersteunende-middelen',
   'tarieven',
   'over-annemieke',
   'neem-contact-op',
@@ -102,8 +102,8 @@ function rewriteUrl(fromFile, url) {
   if (u.startsWith('/')) {
     u = toRelative(path.dirname(fromFile), u);
   }
-  u = u.replace(/\/ondersteunende-middelen\//g, '/ondersteunende-middelen-2/');
-  u = u.replace(/\bondersteunende-middelen\//g, 'ondersteunende-middelen-2/');
+  u = u.replace(/\/ondersteunende-middelen\//g, '/ondersteunende-middelen/');
+  u = u.replace(/\bondersteunende-middelen\//g, 'ondersteunende-middelen/');
   return u;
 }
 

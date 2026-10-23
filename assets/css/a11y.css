@@ -1671,6 +1671,32 @@ a.contact-whatsapp-link:focus-visible::before {
 	height: 1.15em;
 }
 
+/* Ondersteunende middelen: hero full-bleed (export mint-filter, 1440×1080) */
+#post-19 .et_pb_section.et_pb_section_0,
+#post-19 .et_pb_section.et_pb_section_1 {
+	background-image: url(../images/2021/06/ondersteunendemiddelen-u121594-fr.jpg) !important;
+	background-size: cover !important;
+	background-position: center center !important;
+	background-repeat: no-repeat !important;
+	width: 100vw !important;
+	max-width: 100vw !important;
+	margin-left: calc(50% - 50vw) !important;
+	margin-right: calc(50% - 50vw) !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	box-sizing: border-box;
+}
+
+#post-19 .et_pb_section.et_pb_section_0 .et_pb_fullwidth_header,
+#post-19 .et_pb_section.et_pb_section_1 .et_pb_fullwidth_header {
+	width: 100% !important;
+	max-width: 100% !important;
+}
+
+#page-container:has(#post-19) #main-header {
+	z-index: 100;
+}
+
 /* Ondersteunende middelen: 3 kolommen + ronde foto’s */
 @media (min-width: 981px) {
 	#post-19 .et_pb_section_2,
@@ -1825,8 +1851,24 @@ a.contact-whatsapp-link:focus-visible::before {
 }
 
 @media (max-width: 980px) {
+	/* Kolommen staan in section_2 + section_3: dubbele sectie-padding = grote witruimte */
+	#post-19 .et_pb_section_2,
+	#post-19 .et_pb_section_3 {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	#post-19 .et_pb_section_2 {
+		padding-top: 1.5rem !important;
+	}
+
 	#post-19 .et_pb_row_0,
-	#post-19 .et_pb_row_1 {
+	#post-19 .et_pb_row_1,
+	#post-19 .et_pb_row_2 {
 		margin-bottom: 1.5rem;
+	}
+
+	#post-19 .et_pb_row_2 {
+		margin-bottom: 0;
 	}
 }

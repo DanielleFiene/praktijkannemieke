@@ -87,6 +87,28 @@ for (const page of PAGES) {
     `<link rel="canonical" href="${page.canonical}" />`
   );
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': page.canonical,
+        url: page.canonical,
+        name: page.title,
+        isPartOf: { '@id': 'https://www.praktijkannemieke.nl/#website' },
+        inLanguage: 'nl-NL',
+      },
+    ],
+  };
+  html = html.replace(
+    /<script type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/,
+    `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`
+  );
+  html = html.replace(
+    /\s*<meta name="twitter:label1" content="Geschatte leestijd" \/>\s*<meta name="twitter:data1" content="[^"]*" \/>/,
+    ''
+  );
+
   html = html.replace(
     /<div class="et_pb_header_content_wrapper"><h1[^>]*>Privacyverklaring<\/h1><\/div>/,
     `<div class="et_pb_header_content_wrapper"><h1 style="text-align: center;">${page.hero}</h1></div>`
