@@ -53,6 +53,20 @@
 				setOpen(false);
 			}
 		});
+
+		mobileNav.addEventListener('click', (e) => {
+			if (e.target.closest('#mobile_menu a')) {
+				setOpen(false);
+			}
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!mobileNav.classList.contains('opened')) return;
+			const target = e.target;
+			if (!(target instanceof Node)) return;
+			if (mobileNav.contains(target)) return;
+			setOpen(false);
+		});
 	}
 
 	const SLIDER_AUTOPLAY_MS = 10000;

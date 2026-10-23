@@ -65,6 +65,25 @@
 	font-size: 1rem;
 }
 
+/* Lopende tekst: Divi child gebruikt weight 300; op #000 oogt dat grijs (NEI, pagina’s, …) */
+body {
+	font-weight: 400;
+}
+
+#page-container .et_pb_bg_layout_light .et_pb_text_inner :is(p, li, a, td, th) {
+	color: #000000;
+	font-weight: 400;
+}
+
+#Nei .et_pb_text_inner :is(h2, p, li) {
+	color: #000000;
+	font-weight: 400;
+}
+
+#Nei .et_pb_text_inner h2 {
+	font-weight: 400;
+}
+
 /* Hero-tekst onder het logo (home, Over Annemieke, Neem contact op, Tarieven)
    Meer/minder ruimte: pas --hero-under-logo-gap* op :root aan (groter = verder onder logo) */
 :root {
@@ -288,8 +307,20 @@ body:has(#post-506) {
 	color: #c1dfe0 !important;
 }
 
+#footer-bottom #footer-info,
+#footer-bottom #footer-info a:not(.footer-credit-link) {
+	color: #000000 !important;
+	font-weight: 400;
+}
+
 #footer-bottom .footer-credit-link {
 	color: #000000 !important;
+}
+
+/* Footer-kolommen: body staat op 300, dat oogt op #000 als donkergrijs */
+.et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_text_inner :where(p, a, h3, span, li, strong, em) {
+	color: #000000;
+	font-weight: 400;
 }
 
 @media (max-width: 981px) {
