@@ -101,6 +101,10 @@ body {
 	--scrollbar-thumb-mid: #e08a92;
 	--scrollbar-thumb-bottom: #4a9a9a;
 	--scrollbar-thumb-end: #2d7575;
+	--footer-social-bg: #fcd8db;
+	--footer-social-icon: #d67680;
+	--footer-social-bg-hover: #d67680;
+	--footer-social-icon-hover: #ffffff;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -125,9 +129,10 @@ html {
 
 	#top-menu > li.menu-item-has-children > ul.sub-menu {
 		top: calc(100% - var(--nav-top-link-padding-bottom));
-		left: 0;
-		right: auto;
-		min-width: 100%;
+		left: auto;
+		right: 0;
+		min-width: max-content;
+		width: max-content;
 		transform: none;
 	}
 
@@ -707,7 +712,7 @@ html {
 
 #main-header a,
 .et_mobile_menu a,
-#main-footer .et_pb_social_media_follow_network a.icon {
+#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon {
 	background-image: none !important;
 }
 
@@ -716,22 +721,35 @@ html {
 	transition: none;
 }
 
-/* Footer: social icons in huisstijl (roze/teal) */
-#main-footer .et_pb_social_media_follow_network a.icon {
-	background-color: #fcd8db !important;
-	border: 2px solid var(--link-hover-color) !important;
-	color: var(--link-hover-color) !important;
+/* Footer-kolom (niet #main-footer): social icons roze + hover */
+#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon {
+	background-color: var(--footer-social-bg) !important;
+	border: 2px solid var(--footer-social-icon) !important;
+	color: var(--footer-social-icon) !important;
 	transition:
 		background-color 0.25s ease,
 		color 0.25s ease,
 		border-color 0.25s ease;
 }
 
-#main-footer .et_pb_social_media_follow_network a.icon:hover,
-#main-footer .et_pb_social_media_follow_network a.icon:focus-visible {
-	background-color: var(--link-hover-color) !important;
-	border-color: var(--link-hover-color) !important;
-	color: #ffffff !important;
+#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon::before {
+	color: var(--footer-social-icon) !important;
+	transition: color 0.25s ease;
+}
+
+#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon:hover,
+#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon:focus-visible {
+	background-color: var(--footer-social-bg-hover) !important;
+	border-color: var(--footer-social-bg-hover) !important;
+	color: var(--footer-social-icon-hover) !important;
+}
+
+#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow_network a.icon:hover::before,
+#page-container
+	.et_pb_row:has(.et_pb_button_0_wrapper)
+	.et_pb_social_media_follow_network
+	a.icon:focus-visible::before {
+	color: var(--footer-social-icon-hover) !important;
 }
 
 /* Mobiel/tablet smal: koppen en lopende tekst gecentreerd (incl. footer-kolommen) */

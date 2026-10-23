@@ -82,9 +82,23 @@ function applyGezagLayout(xml) {
 	return out;
 }
 
+const FIRST_DATUM_LINE =
+	'Datum: ........................................          Handtekening: ........................................';
+
+/** Extra witregel vóór de eerste datum/handtekening (na gezagtekst). */
+function addSpaceBeforeFirstDatum(xml) {
+	const block = GEZAG_PARAS + para('') + para(FIRST_DATUM_LINE);
+	const spaced = GEZAG_PARAS + para('') + para('') + para(FIRST_DATUM_LINE);
+	if (xml.includes(block) && !xml.includes(spaced)) {
+		return xml.replace(block, spaced);
+	}
+	return xml;
+}
+
 const appendix = `
 ${para('', false)}
 ${GEZAG_PARAS}
+${para('')}
 ${para('')}
 ${para('Datum: ........................................          Handtekening: ........................................')}
 ${para('', false)}
@@ -110,6 +124,7 @@ const before = xml;
 
 xml = fixGezagWording(xml);
 xml = applyGezagLayout(xml);
+xml = addSpaceBeforeFirstDatum(xml);
 
 const marker = '</w:body>';
 const needsAppendix =
