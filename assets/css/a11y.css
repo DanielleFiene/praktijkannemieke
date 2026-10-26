@@ -251,6 +251,7 @@ body {
 	/* Bannerfoto: crop boven/onder (alleen phone landscape) */
 	--hero-mobile-landscape-crop-y: 120px;
 	--hero-mobile-landscape-crop-bottom-extra: 12px;
+	--hero-mobile-landscape-reveal-top: 15px;
 	/* Rechter onderhoek: vaste px (geen % — wordt op brede banner schuin) */
 	--hero-mobile-landscape-corner-br: 460px;
 	--anchor-scroll-padding: 5.5rem;
@@ -280,6 +281,8 @@ body {
 	--nav-bar-padding-bottom-mobile: 0.125rem;
 	--nav-bar-padding-x-mobile: 1.15rem;
 	--site-mobile-menu-width-landscape: calc(14.25rem - 43px);
+	--site-mobile-menu-transition-duration: 0.52s;
+	--site-mobile-menu-link-color: #ffffff;
 	--hero-logo-max-height: 10rem;
 	--site-mint: #c1dfe0;
 	--contact-phone-icon: #d67680;
@@ -822,7 +825,10 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		overflow: hidden !important;
 		background-repeat: no-repeat !important;
 		background-position: center
-			calc(50% - var(--hero-mobile-landscape-crop-bottom-extra)) !important;
+			calc(
+				50% - var(--hero-mobile-landscape-crop-bottom-extra) +
+					var(--hero-mobile-landscape-reveal-top)
+			) !important;
 		background-size: auto calc(100% + 2 * var(--hero-mobile-landscape-crop-y)) !important;
 	}
 
@@ -856,6 +862,17 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		min-height: 0 !important;
 	}
 
+	/* Home: hero-banner iets langer naar beneden (alleen phone landscape) */
+	body.home main#hoofdinhoud .et_pb_fullwidth_header_1.et_pb_fullwidth_header {
+		height: max(
+			14rem,
+			calc(
+				688px - 2 * var(--hero-mobile-landscape-crop-y) -
+					var(--hero-mobile-landscape-crop-bottom-extra) + 100px
+			)
+		) !important;
+	}
+
 	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
 			:has(#post-227)
 		).home
@@ -872,7 +889,10 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		overflow: hidden !important;
 		background-repeat: no-repeat !important;
 		background-position: center
-			calc(50% - var(--hero-mobile-landscape-crop-bottom-extra)) !important;
+			calc(
+				50% - var(--hero-mobile-landscape-crop-bottom-extra) +
+					var(--hero-mobile-landscape-reveal-top)
+			) !important;
 		background-size: auto calc(100% + 2 * var(--hero-mobile-landscape-crop-y)) !important;
 	}
 
@@ -1159,9 +1179,9 @@ body:has(#post-506) {
 		transform-origin: top right;
 		pointer-events: none;
 		transition:
-			transform 0.34s cubic-bezier(0.33, 1, 0.68, 1),
-			opacity 0.22s ease,
-			visibility 0s linear 0.34s;
+			transform var(--site-mobile-menu-transition-duration) cubic-bezier(0.33, 1, 0.68, 1),
+			opacity 0.38s ease,
+			visibility 0s linear var(--site-mobile-menu-transition-duration);
 	}
 
 	#et-top-navigation .mobile_nav.opened #mobile_menu.et_mobile_menu {
@@ -1170,8 +1190,8 @@ body:has(#post-506) {
 		transform: scaleY(1);
 		pointer-events: auto;
 		transition:
-			transform 0.34s cubic-bezier(0.33, 1, 0.68, 1),
-			opacity 0.22s ease,
+			transform var(--site-mobile-menu-transition-duration) cubic-bezier(0.33, 1, 0.68, 1),
+			opacity 0.38s ease,
 			visibility 0s;
 	}
 
@@ -1189,7 +1209,13 @@ body:has(#post-506) {
 
 	#et-top-navigation #mobile_menu.et_mobile_menu li a {
 		padding: 0.6rem 0.35rem;
-		color: #000000 !important;
+		color: var(--site-mobile-menu-link-color) !important;
+	}
+
+	#et-top-navigation #mobile_menu.et_mobile_menu li a:hover,
+	#et-top-navigation #mobile_menu.et_mobile_menu li a:focus-visible {
+		color: var(--site-mobile-menu-link-color) !important;
+		opacity: 0.92;
 	}
 
 	/* Bronexport: #main-header .et_mobile_menu li ul { display: block !important } */
@@ -1233,6 +1259,7 @@ body:has(#post-506) {
 	#et-top-navigation #mobile_menu.et_mobile_menu .sub-menu li a {
 		font-weight: 400;
 		padding: 0.45rem 0.35rem;
+		color: var(--site-mobile-menu-link-color) !important;
 	}
 }
 
@@ -1966,6 +1993,14 @@ a.contact-whatsapp-link:focus-visible::before {
 	align-items: center;
 	gap: 0.35em;
 	white-space: nowrap;
+}
+
+#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-whatsapp > a.nav-whatsapp-link {
+	color: var(--site-mobile-menu-link-color) !important;
+}
+
+#et-top-navigation #mobile_menu.et_mobile_menu a.contact-whatsapp-link::before {
+	background-color: var(--site-mobile-menu-link-color);
 }
 
 #main-header #top-menu > li.menu-item-whatsapp > a.nav-whatsapp-link {
