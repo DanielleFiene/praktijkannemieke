@@ -32,16 +32,27 @@
 }
 
 @media (max-width: 980px) {
+	#page-container #main-header {
+		min-height: 0 !important;
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
 	#page-container #main-header .container.et_menu_container {
 		display: flex !important;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between !important;
 		width: 100% !important;
-		max-width: none;
-		min-height: 5rem;
-		gap: 0.75rem;
-		padding: 0.75rem 1.25rem;
+		max-width: none !important;
+		min-height: calc(
+			var(--nav-logo-max-height-mobile) + var(--nav-bar-padding-top-mobile) +
+				var(--nav-bar-padding-bottom-mobile)
+		);
+		height: auto;
+		gap: 0.5rem;
+		padding: var(--nav-bar-padding-top-mobile) var(--nav-bar-padding-x-mobile)
+			var(--nav-bar-padding-bottom-mobile);
 		box-sizing: border-box;
 	}
 
@@ -54,6 +65,8 @@
 
 	#page-container #main-header .logo_container {
 		flex: 0 1 auto;
+		min-width: 0;
+		max-width: calc(100% - 3.25rem);
 		float: none !important;
 		display: flex;
 		align-items: center;
@@ -147,9 +160,36 @@
 	}
 
 	#page-container #main-header #logo {
-		max-height: 4.25rem !important;
+		display: block;
+		width: auto !important;
+		max-width: min(10.5rem, 44vw) !important;
+		max-height: var(--nav-logo-max-height-mobile) !important;
+		height: auto !important;
 		margin-top: 0 !important;
+		margin-bottom: 0 !important;
 	}
+
+	#page-container #main-header .logo_container {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
+
+	/* Bronexport-site: #logo { max-height: 90%; margin-top: 15px } */
+	#page-container #main-header #et-top-navigation {
+		align-self: center;
+		min-height: 0;
+	}
+
+	#page-container #main-header #et_mobile_nav_menu {
+		align-self: center;
+	}
+}
+
+/* Over Annemieke: paginatitel niet vet (export had <strong>) */
+#post-17 .et_pb_text_0 .et_pb_text_inner > h1 {
+	font-weight: 400;
 }
 
 .skip-link.screen-reader-text:focus {
@@ -206,6 +246,13 @@ body {
 	--hero-mobile-quote-inset-x: 0.5rem;
 	--hero-mobile-quote-inset-top: 0.5rem;
 	--hero-mobile-quote-max-width: 70%;
+	/* Phone landscape: korte viewport (niet tablet/desktop landscape) */
+	--hero-mobile-landscape-max-height: 32rem;
+	/* Bannerfoto: crop boven/onder (alleen phone landscape) */
+	--hero-mobile-landscape-crop-y: 120px;
+	--hero-mobile-landscape-crop-bottom-extra: 12px;
+	/* Rechter onderhoek: vaste px (geen % — wordt op brede banner schuin) */
+	--hero-mobile-landscape-corner-br: 460px;
 	--anchor-scroll-padding: 5.5rem;
 	/* Donkerder teal (leesbaar op wit); past bij #c1dfe0 / footer-gradient */
 	--link-hover-color: #2d7575;
@@ -227,6 +274,12 @@ body {
 	--nav-accent: #ebcbcd;
 	--nav-bar-padding-x: clamp(1.25rem, 2.5vw, 2.5rem);
 	--nav-logo-max-height: 5.75rem;
+	/* Mobiele header: logo + witte balk */
+	--nav-logo-max-height-mobile: 7rem;
+	--nav-bar-padding-top-mobile: 0.55rem;
+	--nav-bar-padding-bottom-mobile: 0.125rem;
+	--nav-bar-padding-x-mobile: 1.15rem;
+	--site-mobile-menu-width-landscape: calc(14.25rem - 43px);
 	--hero-logo-max-height: 10rem;
 	--site-mint: #c1dfe0;
 	--contact-phone-icon: #d67680;
@@ -510,10 +563,29 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 	}
 }
 
-/* Hero-quote regelafbreking (bijv. Neem contact op: “echt bent” op tweede regel) */
-@media (max-width: 980px) {
+/* Hero-quote regelafbreking: portret mobiel één regel; landscape twee regels (desktop) */
+@media (max-width: 980px) and (orientation: portrait) {
 	#page-container .hero-quote__br {
 		display: none;
+	}
+}
+
+@media (max-width: 980px) and (orientation: landscape) {
+	#page-container .hero-quote__br {
+		display: block;
+	}
+}
+
+/* Extra regels in banner-quotes (bijv. home NEI-banner): alleen desktop/tablet breed */
+@media (max-width: 980px) {
+	#page-container .hero-quote__br-desktop-only {
+		display: none;
+	}
+}
+
+@media (min-width: 981px) {
+	#page-container .hero-quote__br-desktop-only {
+		display: block;
 	}
 }
 
@@ -656,6 +728,193 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		.header-content
 		> .et_pb_module_header {
 		margin-top: 0 !important;
+	}
+}
+
+/* Phone landscape: tablet-hero (_0) verbergen, mobiele hero (_1) + quote verticaal in beeld */
+@media (max-width: 980px) and (orientation: landscape) and (max-height: 32rem) {
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_section.et_pb_section_0:has(.et_pb_fullwidth_header_0):has(
+			~ .et_pb_section_1 .et_pb_fullwidth_header_1
+		) {
+		display: none !important;
+	}
+
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_section.et_pb_section_1:has(.et_pb_fullwidth_header_1) {
+		display: block !important;
+	}
+
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1) {
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+	}
+
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.et_pb_fullwidth_header_container {
+		flex: 1 1 auto;
+		justify-content: center !important;
+		align-items: flex-start !important;
+		align-self: stretch !important;
+		min-height: 0;
+	}
+
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.header-content,
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		).home
+		.et_pb_fullwidth_header_0
+		.header-content,
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		#post-17
+		.et_pb_fullwidth_header_0
+		.header-content,
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		#post-21
+		.et_pb_fullwidth_header_0
+		.header-content,
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		#post-493
+		.et_pb_fullwidth_header_0
+		.header-content {
+		padding-top: 0 !important;
+	}
+
+	/* Kortere banner + achtergrond iets ingezoomd (crop boven/onder) */
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_section:has(
+			> .et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		),
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1) {
+		overflow: hidden !important;
+		background-repeat: no-repeat !important;
+		background-position: center
+			calc(50% - var(--hero-mobile-landscape-crop-bottom-extra)) !important;
+		background-size: auto calc(100% + 2 * var(--hero-mobile-landscape-crop-y)) !important;
+	}
+
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
+		height: max(
+			13rem,
+			calc(
+				550px - 2 * var(--hero-mobile-landscape-crop-y) -
+					var(--hero-mobile-landscape-crop-bottom-extra)
+			)
+		) !important;
+		min-height: 0 !important;
+	}
+
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_fullwidth_header_1.et_pb_fullwidth_header {
+		height: max(
+			14rem,
+			calc(
+				688px - 2 * var(--hero-mobile-landscape-crop-y) -
+					var(--hero-mobile-landscape-crop-bottom-extra)
+			)
+		) !important;
+		min-height: 0 !important;
+	}
+
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		).home
+		main#hoofdinhoud
+		.et_pb_fullwidth_header_2.et_pb_fullwidth_header {
+		height: max(
+			13rem,
+			calc(
+				620px - 2 * var(--hero-mobile-landscape-crop-y) -
+					var(--hero-mobile-landscape-crop-bottom-extra)
+			)
+		) !important;
+		min-height: 0 !important;
+		overflow: hidden !important;
+		background-repeat: no-repeat !important;
+		background-position: center
+			calc(50% - var(--hero-mobile-landscape-crop-bottom-extra)) !important;
+		background-size: auto calc(100% + 2 * var(--hero-mobile-landscape-crop-y)) !important;
+	}
+
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_section:has(> .et_pb_fullwidth_header_0),
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_section:has(> .et_pb_fullwidth_header_1) {
+		height: auto !important;
+		min-height: 0 !important;
+	}
+
+	/* Rechter onderhoek: ronde boog (export mobiel ≈ 200px), niet border-radius % */
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_section:has(
+			> .et_pb_fullwidth_header:is(
+					.et_pb_fullwidth_header_0,
+					.et_pb_fullwidth_header_1,
+					.et_pb_fullwidth_header_2
+				)
+		),
+	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
+			:has(#post-227)
+		)
+		main#hoofdinhoud
+		.et_pb_fullwidth_header:is(
+			.et_pb_fullwidth_header_0,
+			.et_pb_fullwidth_header_1,
+			.et_pb_fullwidth_header_2
+		) {
+		border-top-left-radius: 0 !important;
+		border-top-right-radius: 0 !important;
+		border-bottom-left-radius: 0 !important;
+		border-bottom-right-radius: var(--hero-mobile-landscape-corner-br) !important;
 	}
 }
 
@@ -885,7 +1144,7 @@ body:has(#post-506) {
 		position: absolute;
 		right: calc(-1 * var(--site-mobile-menu-right-inset, 0px));
 		left: auto;
-		top: calc(100% + 0.35rem);
+		top: calc(100% + var(--site-mobile-menu-top-offset, 0.35rem));
 		width: min(20rem, 88vw) !important;
 		max-width: min(20rem, 100vw);
 		margin-left: 0 !important;
@@ -896,23 +1155,23 @@ body:has(#post-506) {
 		display: block;
 		opacity: 0;
 		visibility: hidden;
-		transform: translateY(-0.4rem);
+		transform: scaleY(0);
 		transform-origin: top right;
 		pointer-events: none;
 		transition:
-			opacity 0.28s ease,
-			transform 0.28s ease,
-			visibility 0s linear 0.28s;
+			transform 0.34s cubic-bezier(0.33, 1, 0.68, 1),
+			opacity 0.22s ease,
+			visibility 0s linear 0.34s;
 	}
 
 	#et-top-navigation .mobile_nav.opened #mobile_menu.et_mobile_menu {
 		opacity: 1;
 		visibility: visible;
-		transform: translateY(0);
+		transform: scaleY(1);
 		pointer-events: auto;
 		transition:
-			opacity 0.28s ease,
-			transform 0.28s ease,
+			transform 0.34s cubic-bezier(0.33, 1, 0.68, 1),
+			opacity 0.22s ease,
 			visibility 0s;
 	}
 
@@ -977,8 +1236,17 @@ body:has(#post-506) {
 	}
 }
 
-/* Mobiel: menu full-width (viewport), tablet/breed: smal paneel rechts */
-@media (max-width: 767px) {
+/* Mobiel landscape: smal uitklapmenu rechts */
+@media (max-width: 980px) and (orientation: landscape) {
+	#et-top-navigation #mobile_menu.et_mobile_menu {
+		width: min(var(--site-mobile-menu-width-landscape), 60vw) !important;
+		max-width: min(var(--site-mobile-menu-width-landscape), 60vw);
+		padding: 0.65rem 0.85rem !important;
+	}
+}
+
+/* Mobiel/tablet portret: menu even breed als witte headerbalk (insets via site.js) */
+@media (max-width: 980px) and (orientation: portrait) {
 	#et-top-navigation #mobile_menu.et_mobile_menu {
 		left: calc(-1 * var(--site-mobile-menu-left-inset, 0px));
 		right: calc(-1 * var(--site-mobile-menu-right-inset, 0px));

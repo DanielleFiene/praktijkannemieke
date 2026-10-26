@@ -17,6 +17,30 @@
 			const menu = document.getElementById('mobile_menu');
 			if (!menu || !mobileNav.classList.contains('opened')) return;
 			const anchor = mobileNav.getBoundingClientRect();
+			const headerBar =
+				document.querySelector('#main-header .container.et_menu_container') ??
+				document.getElementById('main-header');
+			const fullBarWidth = window.matchMedia(
+				'(max-width: 980px) and (orientation: portrait)',
+			).matches;
+			if (headerBar) {
+				const bar = headerBar.getBoundingClientRect();
+				menu.style.setProperty(
+					'--site-mobile-menu-top-offset',
+					`${Math.max(0, bar.bottom - anchor.bottom)}px`,
+				);
+				if (fullBarWidth) {
+					menu.style.setProperty(
+						'--site-mobile-menu-left-inset',
+						`${Math.max(0, anchor.left - bar.left)}px`,
+					);
+					menu.style.setProperty(
+						'--site-mobile-menu-right-inset',
+						`${Math.max(0, bar.right - anchor.right)}px`,
+					);
+					return;
+				}
+			}
 			menu.style.setProperty(
 				'--site-mobile-menu-left-inset',
 				`${Math.max(0, anchor.left)}px`,
@@ -25,6 +49,9 @@
 				'--site-mobile-menu-right-inset',
 				`${Math.max(0, window.innerWidth - anchor.right)}px`,
 			);
+			if (!headerBar) {
+				menu.style.removeProperty('--site-mobile-menu-top-offset');
+			}
 		}
 
 		function setOpen(open) {
