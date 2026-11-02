@@ -573,27 +573,31 @@ body.nav-over-hero #site #main-header {
 
 body.home .hero-quote-a .header-content,
 body.home .hero-cover .header-content,
-body.page--over-annemieke .hero-quote-a .header-content,
+body.page--over-annemieke .hero.hero-title .header-content,
 body.page--over-annemieke .hero-cover .header-content,
-body.page--neem-contact-op .hero-quote-a .header-content,
+body.page--neem-contact-op .hero.hero-title .header-content,
 body.page--neem-contact-op .hero-cover .header-content,
-body.page--tarieven .hero-quote-a .header-content,
-body.page--tarieven .hero-cover .header-content {
+body.page--tarieven .hero.hero-title .header-content,
+body.page--tarieven .hero-cover .header-content,
+body.page--ondersteunende-middelen .hero.hero-title .header-content,
+body.page--ondersteunende-middelen .hero-cover .header-content {
 	box-sizing: border-box;
 }
 
 body.home .hero-quote-a .header-content,
-body.page--over-annemieke .hero-quote-a .header-content,
-body.page--neem-contact-op .hero-quote-a .header-content,
-body.page--tarieven .hero-quote-a .header-content {
+body.page--over-annemieke .hero.hero-title .header-content,
+body.page--neem-contact-op .hero.hero-title .header-content,
+body.page--tarieven .hero.hero-title .header-content,
+body.page--ondersteunende-middelen .hero.hero-title .header-content {
 	padding-top: var(--hero-under-logo-gap);
 }
 
 @media (min-width: 1660px) {
 	body.home .hero-quote-a .header-content,
-	body.page--over-annemieke .hero-quote-a .header-content,
-	body.page--neem-contact-op .hero-quote-a .header-content,
-	body.page--tarieven .hero-quote-a .header-content {
+	body.page--over-annemieke .hero.hero-title .header-content,
+	body.page--neem-contact-op .hero.hero-title .header-content,
+	body.page--tarieven .hero.hero-title .header-content,
+	body.page--ondersteunende-middelen .hero.hero-title .header-content {
 		padding-top: var(--hero-under-logo-gap-wide);
 	}
 }
@@ -626,12 +630,26 @@ body.page--tarieven .hero-quote-a .header-content {
 
 @media (min-width: 981px) {
 	
-	body:not(.page-layout-hero)
+	body:not(.page-layout-hero):not(.page--ondersteunende-middelen)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content
 		:is(.hero-title, .hero-body, .hero-body :is(h1, h2)) {
 		text-align: left !important;
+	}
+}
+
+@media (min-width: 981px) {
+	body.page--ondersteunende-middelen
+		main#hoofdinhoud
+		.hero:is(.hero-title, .hero-cover)
+		.header-content,
+	body.page--ondersteunende-middelen
+		main#hoofdinhoud
+		.hero:is(.hero-title, .hero-cover)
+		.header-content
+		:is(.hero-title, .hero-body, .hero-body :is(h1, h2)) {
+		text-align: center !important;
 	}
 }
 
@@ -639,7 +657,7 @@ body.page--tarieven .hero-quote-a .header-content {
 	
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.hero-inner {
 		display: flex !important;
 		flex-direction: column !important;
@@ -653,11 +671,11 @@ body.page--tarieven .hero-quote-a .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content-container,
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content-container.center {
 		align-self: flex-start !important;
 		width: var(--hero-mobile-quote-max-width) !important;
@@ -676,22 +694,42 @@ body.page--tarieven .hero-quote-a .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content,
 	body:not(.page-layout-hero).home
 		.hero-quote-a
 		.header-content,
 	body:not(.page-layout-hero)
-		body.page--over-annemieke
-		.hero-quote-a
-		.header-content,
-	body:not(.page-layout-hero)
-		body.page--neem-contact-op
-		.hero-quote-a
+		body.page--tarieven
+		.hero.hero-title
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--tarieven
-		.hero-quote-a
+		.hero.hero-cover
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--over-annemieke
+		.hero.hero-title
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--over-annemieke
+		.hero.hero-cover
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--neem-contact-op
+		.hero.hero-title
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--neem-contact-op
+		.hero.hero-cover
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--ondersteunende-middelen
+		.hero.hero-title
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--ondersteunende-middelen
+		.hero.hero-cover
 		.header-content {
 		width: 100% !important;
 		max-width: 100% !important;
@@ -706,7 +744,7 @@ body.page--tarieven .hero-quote-a .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content
 		:is(h1, h2, .hero-title, .hero-body, .hero-body :is(h1, h2)) {
 		text-align: center !important;
@@ -716,22 +754,45 @@ body.page--tarieven .hero-quote-a .header-content {
 	}
 
 	body:not(.page-layout-hero).home
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content
 		> .hero-title,
 	body:not(.page-layout-hero)
 		body.page--neem-contact-op
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content
 		> .hero-body:not(:empty),
 	body:not(.page-layout-hero)
 		body.page--over-annemieke
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content
 		> .hero-title,
 	body:not(.page-layout-hero)
 		body.page--tarieven
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.header-content
+		> .hero-title {
+		margin-top: 0 !important;
+	}
+
+	body:not(.page-layout-hero)
+		body.page--tarieven
+		.hero.hero-cover
+		.header-content
+		> .hero-title,
+	body:not(.page-layout-hero)
+		body.page--over-annemieke
+		.hero.hero-cover
+		.header-content
+		> .hero-title,
+	body:not(.page-layout-hero)
+		body.page--neem-contact-op
+		.hero.hero-cover
+		.header-content
+		> .hero-title,
+	body:not(.page-layout-hero)
+		body.page--ondersteunende-middelen
+		.hero.hero-cover
 		.header-content
 		> .hero-title {
 		margin-top: 0 !important;
@@ -756,7 +817,7 @@ body.page--tarieven .hero-quote-a .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b) {
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover) {
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
@@ -764,7 +825,7 @@ body.page--tarieven .hero-quote-a .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.hero-inner {
 		flex: 1 1 auto;
 		justify-content: center !important;
@@ -775,22 +836,34 @@ body.page--tarieven .hero-quote-a .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content,
 	body:not(.page-layout-hero).home
 		.hero-quote-a
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--over-annemieke
-		.hero-quote-a
+		.hero.hero-title
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--over-annemieke
+		.hero.hero-cover
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--neem-contact-op
-		.hero-quote-a
+		.hero.hero-title
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--neem-contact-op
+		.hero.hero-cover
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--tarieven
-		.hero-quote-a
+		.hero.hero-title
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--tarieven
+		.hero.hero-cover
 		.header-content {
 		padding-top: 0 !important;
 	}
@@ -799,11 +872,11 @@ body.page--tarieven .hero-quote-a .header-content {
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
 		.sec:has(
-			> .hero:is(.hero-quote-a, .hero-quote-b)
+			> .hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		),
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b) {
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover) {
 		overflow: hidden !important;
 		background-repeat: no-repeat !important;
 		background-position: center
@@ -816,7 +889,8 @@ body.page--tarieven .hero-quote-a .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero-quote-a.hero {
+		.hero-quote-a.hero,
+		.hero-title.hero {
 		height: max(
 			13rem,
 			calc(
@@ -875,6 +949,7 @@ body.page--tarieven .hero-quote-a .header-content {
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
 		.sec:has(> .hero-quote-a),
+		.sec:has(> .hero.hero-title),
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
 		.sec:has(> .hero-cover) {
@@ -944,7 +1019,7 @@ body.page--access-bars,
 body.page--vlindermassage,
 body.page--magnesiumpakking {
 	--behandeling-hero-inset: 5.5rem;
-	--behandeling-hero-inset-mobile: 4rem;
+	--behandeling-hero-inset-mobile: 5.5rem;
 }
 
 body.page--shambhala-reiki #site #main-header,
@@ -965,10 +1040,10 @@ body.page--magnesiumpakking .sec.sec-hero-intro {
 	max-width: 100% !important;
 }
 
-body.page--shambhala-reiki .hero.hero-quote-a,
-body.page--access-bars .hero.hero-quote-a,
-body.page--vlindermassage .hero.hero-quote-a,
-body.page--magnesiumpakking .hero.hero-quote-a {
+body.page--shambhala-reiki .hero.hero-title,
+body.page--access-bars .hero.hero-title,
+body.page--vlindermassage .hero.hero-title,
+body.page--magnesiumpakking .hero.hero-title {
 	position: relative;
 	width: 100% !important;
 	max-width: 100% !important;
@@ -980,25 +1055,25 @@ body.page--magnesiumpakking .hero.hero-quote-a {
 	background-repeat: no-repeat;
 }
 
-body.page--shambhala-reiki .hero-quote-a .hero-title,
-body.page--shambhala-reiki .hero-cover .hero-title,
-body.page--access-bars .hero-quote-a .hero-title,
-body.page--access-bars .hero-cover .hero-title,
-body.page--vlindermassage .hero-quote-a .hero-title,
-body.page--vlindermassage .hero-cover .hero-title,
-body.page--magnesiumpakking .hero-quote-a .hero-title,
-body.page--magnesiumpakking .hero-cover .hero-title {
+body.page--shambhala-reiki .hero.hero-title .header-content > .hero-title,
+body.page--shambhala-reiki .hero-cover .header-content > .hero-title,
+body.page--access-bars .hero.hero-title .header-content > .hero-title,
+body.page--access-bars .hero-cover .header-content > .hero-title,
+body.page--vlindermassage .hero.hero-title .header-content > .hero-title,
+body.page--vlindermassage .hero-cover .header-content > .hero-title,
+body.page--magnesiumpakking .hero.hero-title .header-content > .hero-title,
+body.page--magnesiumpakking .hero-cover .header-content > .hero-title {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	font-weight: normal;
 }
 
-body.page--shambhala-reiki .hero-quote-a .hero-inner,
+body.page--shambhala-reiki .hero.hero-title .hero-inner,
 body.page--shambhala-reiki .hero-cover .hero-inner,
-body.page--access-bars .hero-quote-a .hero-inner,
+body.page--access-bars .hero.hero-title .hero-inner,
 body.page--access-bars .hero-cover .hero-inner,
-body.page--vlindermassage .hero-quote-a .hero-inner,
+body.page--vlindermassage .hero.hero-title .hero-inner,
 body.page--vlindermassage .hero-cover .hero-inner,
-body.page--magnesiumpakking .hero-quote-a .hero-inner,
+body.page--magnesiumpakking .hero.hero-title .hero-inner,
 body.page--magnesiumpakking .hero-cover .hero-inner {
 	position: absolute;
 	inset: 0;
@@ -1012,53 +1087,60 @@ body.page--magnesiumpakking .hero-cover .hero-inner {
 	box-sizing: border-box;
 }
 
-body.page--shambhala-reiki .hero-quote-a .header-content-container,
+body.page--shambhala-reiki .hero.hero-title .header-content-container,
 body.page--shambhala-reiki .hero-cover .header-content-container,
-body.page--access-bars .hero-quote-a .header-content-container,
+body.page--access-bars .hero.hero-title .header-content-container,
 body.page--access-bars .hero-cover .header-content-container,
-body.page--vlindermassage .hero-quote-a .header-content-container,
+body.page--vlindermassage .hero.hero-title .header-content-container,
 body.page--vlindermassage .hero-cover .header-content-container,
-body.page--magnesiumpakking .hero-quote-a .header-content-container,
+body.page--magnesiumpakking .hero.hero-title .header-content-container,
 body.page--magnesiumpakking .hero-cover .header-content-container {
 	display: block !important;
 	align-self: auto !important;
 	vertical-align: bottom;
 }
 
-body.page--shambhala-reiki .hero-quote-a .header-content,
+body.page--shambhala-reiki .hero.hero-title .header-content,
 body.page--shambhala-reiki .hero-cover .header-content,
-body.page--access-bars .hero-quote-a .header-content,
+body.page--access-bars .hero.hero-title .header-content,
 body.page--access-bars .hero-cover .header-content,
-body.page--vlindermassage .hero-quote-a .header-content,
+body.page--vlindermassage .hero.hero-title .header-content,
 body.page--vlindermassage .hero-cover .header-content,
-body.page--magnesiumpakking .hero-quote-a .header-content,
+body.page--magnesiumpakking .hero.hero-title .header-content,
 body.page--magnesiumpakking .hero-cover .header-content {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
 
-body.page--shambhala-reiki .hero-quote-a .header-content-container,
+body.page--shambhala-reiki .hero.hero-title .header-content-container,
 body.page--shambhala-reiki .hero-cover .header-content-container,
-body.page--access-bars .hero-quote-a .header-content-container,
+body.page--access-bars .hero.hero-title .header-content-container,
 body.page--access-bars .hero-cover .header-content-container,
-body.page--vlindermassage .hero-quote-a .header-content-container,
+body.page--vlindermassage .hero.hero-title .header-content-container,
 body.page--vlindermassage .hero-cover .header-content-container,
-body.page--magnesiumpakking .hero-quote-a .header-content-container,
+body.page--magnesiumpakking .hero.hero-title .header-content-container,
 body.page--magnesiumpakking .hero-cover .header-content-container {
 	width: 100%;
 	max-width: 100%;
 }
 
 @media (max-width: 980px) {
-	body.page--shambhala-reiki .hero-quote-a .hero-inner,
+	body.page--shambhala-reiki .hero.hero-title .hero-inner,
 	body.page--shambhala-reiki .hero-cover .hero-inner,
-	body.page--access-bars .hero-quote-a .hero-inner,
+	body.page--access-bars .hero.hero-title .hero-inner,
 	body.page--access-bars .hero-cover .hero-inner,
-	body.page--vlindermassage .hero-quote-a .hero-inner,
+	body.page--vlindermassage .hero.hero-title .hero-inner,
 	body.page--vlindermassage .hero-cover .hero-inner,
-	body.page--magnesiumpakking .hero-quote-a .hero-inner,
+	body.page--magnesiumpakking .hero.hero-title .hero-inner,
 	body.page--magnesiumpakking .hero-cover .hero-inner {
 		padding-bottom: var(--behandeling-hero-inset-mobile) !important;
+	}
+
+	body.page--shambhala-reiki .hero .header-content > .hero-title,
+	body.page--access-bars .hero .header-content > .hero-title,
+	body.page--vlindermassage .hero .header-content > .hero-title,
+	body.page--magnesiumpakking .hero .header-content > .hero-title {
+		margin-top: 0 !important;
 	}
 }
 
@@ -1275,7 +1357,7 @@ body.page--magnesiumpakking .hero-cover .header-content-container {
 }
 
 
-body.page--privacyverklaring .hero-quote-a .hero-inner.center {
+body.page--privacyverklaring .hero.hero-title .hero-inner.center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1283,12 +1365,12 @@ body.page--privacyverklaring .hero-quote-a .hero-inner.center {
 	padding-top: 0;
 	box-sizing: border-box;
 }
-body.page--privacyverklaring .hero-quote-a .header-content {
+body.page--privacyverklaring .hero.hero-title .header-content {
 	margin-top: -4rem;
 }
-body.page--privacyverklaring .hero-quote-a .header-content-container,
-body.page--privacyverklaring .hero-quote-a .header-content,
-body.page--privacyverklaring .hero-quote-a .hero-body {
+body.page--privacyverklaring .hero.hero-title .header-content-container,
+body.page--privacyverklaring .hero.hero-title .header-content,
+body.page--privacyverklaring .hero.hero-title .hero-body {
 	width: 100%;
 	max-width: 100%;
 	text-align: center;
@@ -1522,19 +1604,19 @@ html {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content,
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.hero-body,
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content-container,
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.hero:is(.hero-quote-a, .hero-quote-b)
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
 		.header-content-container.center {
 		text-align: center !important;
 		width: var(--hero-mobile-quote-max-width) !important;
