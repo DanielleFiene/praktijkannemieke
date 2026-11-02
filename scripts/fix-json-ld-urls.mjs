@@ -1,5 +1,5 @@
 /**
- * Vervang oude WordPress-URL's in Yoast JSON-LD door statische assets + www-canonical host.
+ * Vervang oude CMS-export-URL's in JSON-LD door statische assets + www-canonical host.
  */
 import fs from 'node:fs';
 import path from 'node:path';

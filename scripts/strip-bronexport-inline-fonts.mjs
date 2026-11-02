@@ -1,5 +1,5 @@
 /**
- * Verwijder zware Divi Open Sans inline-blok; gebruik assets/css/fonts.css.
+ * Verwijder zware bronexport Open Sans inline-blok; gebruik assets/css/fonts.css.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -40,8 +40,8 @@ for (const file of listHtmlFiles()) {
 		);
 		if (!next.includes('assets/css/fonts.css')) {
 			next = next.replace(
-				/<link rel='stylesheet' id='divi-style-parent-css'/,
-				`${fontsTag}<link rel='stylesheet' id='divi-style-parent-css'`
+				/<link rel='stylesheet' id='bronexport-base-css'/,
+				`${fontsTag}<link rel='stylesheet' id='bronexport-base-css'`
 			);
 		}
 	}

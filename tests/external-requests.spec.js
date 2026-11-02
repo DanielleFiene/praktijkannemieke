@@ -9,7 +9,7 @@ const strict =
 test.describe('externe requests', () => {
   test.skip(
     !strict,
-    'STRICT_EXTERNAL niet gezet – baseline WordPress-export laadt nog Typekit/Google Fonts'
+    'STRICT_EXTERNAL niet gezet – baseline bronexport laadt nog Typekit/Google Fonts'
   );
 
   for (const { slug, path } of PAGES) {

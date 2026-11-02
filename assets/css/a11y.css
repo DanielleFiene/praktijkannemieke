@@ -188,7 +188,7 @@
 }
 
 /* Over Annemieke: paginatitel niet vet (export had <strong>) */
-#post-17 .et_pb_text_0 .et_pb_text_inner > h1 {
+#page-17 .et_pb_text_0 .et_pb_text_inner > h1 {
 	font-weight: 400;
 }
 
@@ -541,27 +541,27 @@ body.et_transparent_nav #page-container #main-header {
 
 body.home .et_pb_fullwidth_header_0 .header-content,
 body.home .et_pb_fullwidth_header_1 .header-content,
-#post-17 .et_pb_fullwidth_header_0 .header-content,
-#post-17 .et_pb_fullwidth_header_1 .header-content,
-#post-21 .et_pb_fullwidth_header_0 .header-content,
-#post-21 .et_pb_fullwidth_header_1 .header-content,
-#post-493 .et_pb_fullwidth_header_0 .header-content,
-#post-493 .et_pb_fullwidth_header_1 .header-content {
+#page-17 .et_pb_fullwidth_header_0 .header-content,
+#page-17 .et_pb_fullwidth_header_1 .header-content,
+#page-21 .et_pb_fullwidth_header_0 .header-content,
+#page-21 .et_pb_fullwidth_header_1 .header-content,
+#page-493 .et_pb_fullwidth_header_0 .header-content,
+#page-493 .et_pb_fullwidth_header_1 .header-content {
 	box-sizing: border-box;
 }
 
 body.home .et_pb_fullwidth_header_0 .header-content,
-#post-17 .et_pb_fullwidth_header_0 .header-content,
-#post-21 .et_pb_fullwidth_header_0 .header-content,
-#post-493 .et_pb_fullwidth_header_0 .header-content {
+#page-17 .et_pb_fullwidth_header_0 .header-content,
+#page-21 .et_pb_fullwidth_header_0 .header-content,
+#page-493 .et_pb_fullwidth_header_0 .header-content {
 	padding-top: var(--hero-under-logo-gap);
 }
 
 @media (min-width: 1660px) {
 	body.home .et_pb_fullwidth_header_0 .header-content,
-	#post-17 .et_pb_fullwidth_header_0 .header-content,
-	#post-21 .et_pb_fullwidth_header_0 .header-content,
-	#post-493 .et_pb_fullwidth_header_0 .header-content {
+	#page-17 .et_pb_fullwidth_header_0 .header-content,
+	#page-21 .et_pb_fullwidth_header_0 .header-content,
+	#page-493 .et_pb_fullwidth_header_0 .header-content {
 		padding-top: var(--hero-under-logo-gap-wide);
 	}
 }
@@ -594,8 +594,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 
 @media (min-width: 981px) {
 	/* Desktop: quote links uitlijnen met logo (Neem contact op: h1 in wrapper met inline center) */
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
@@ -607,8 +607,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 
 @media (max-width: 980px) {
 	/* Quote-hero’s (_0/_1, niet behandelingen/privacy): blok in linkerhoek (export .center uit) */
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
@@ -623,14 +623,14 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		box-sizing: border-box;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content-container,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
@@ -650,33 +650,33 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		box-sizing: border-box;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		).home
 		.et_pb_fullwidth_header_0
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-17
+		#page-17
 		.et_pb_fullwidth_header_0
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-21
+		#page-21
 		.et_pb_fullwidth_header_0
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-493
+		#page-493
 		.et_pb_fullwidth_header_0
 		.header-content {
 		width: 100% !important;
@@ -690,8 +690,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		box-sizing: border-box;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
@@ -703,30 +703,30 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		margin-right: 0 !important;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		).home
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content
 		> .et_pb_module_header,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-21
+		#page-21
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content
 		> .et_pb_header_content_wrapper:not(:empty),
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-17
+		#page-17
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content
 		> .et_pb_module_header,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-493
+		#page-493
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content
 		> .et_pb_module_header {
@@ -736,8 +736,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 
 /* Phone landscape: tablet-hero (_0) verbergen, mobiele hero (_1) + quote verticaal in beeld */
 @media (max-width: 980px) and (orientation: landscape) and (max-height: 32rem) {
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_section.et_pb_section_0:has(.et_pb_fullwidth_header_0):has(
@@ -746,16 +746,16 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		display: none !important;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_section.et_pb_section_1:has(.et_pb_fullwidth_header_1) {
 		display: block !important;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1) {
@@ -764,8 +764,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		box-sizing: border-box;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
@@ -777,48 +777,48 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		min-height: 0;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		).home
 		.et_pb_fullwidth_header_0
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-17
+		#page-17
 		.et_pb_fullwidth_header_0
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-21
+		#page-21
 		.et_pb_fullwidth_header_0
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
-		#post-493
+		#page-493
 		.et_pb_fullwidth_header_0
 		.header-content {
 		padding-top: 0 !important;
 	}
 
 	/* Kortere banner + achtergrond iets ingezoomd (crop boven/onder) */
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_section:has(
 			> .et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		),
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1) {
@@ -832,8 +832,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		background-size: auto calc(100% + 2 * var(--hero-mobile-landscape-crop-y)) !important;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
@@ -847,8 +847,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		min-height: 0 !important;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header_1.et_pb_fullwidth_header {
@@ -873,8 +873,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		) !important;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		).home
 		main#hoofdinhoud
 		.et_pb_fullwidth_header_2.et_pb_fullwidth_header {
@@ -896,13 +896,13 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		background-size: auto calc(100% + 2 * var(--hero-mobile-landscape-crop-y)) !important;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_section:has(> .et_pb_fullwidth_header_0),
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_section:has(> .et_pb_fullwidth_header_1) {
@@ -911,8 +911,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 	}
 
 	/* Rechter onderhoek: ronde boog (export mobiel ≈ 200px), niet border-radius % */
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_section:has(
@@ -922,8 +922,8 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 					.et_pb_fullwidth_header_2
 				)
 		),
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(
@@ -939,19 +939,19 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 }
 
 @media (max-width: 767px) {
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)).home
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)).home
 		.et_pb_fullwidth_header_1
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506))
-		#post-17
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506))
+		#page-17
 		.et_pb_fullwidth_header_1
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506))
-		#post-21
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506))
+		#page-21
 		.et_pb_fullwidth_header_1
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506))
-		#post-493
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506))
+		#page-493
 		.et_pb_fullwidth_header_1
 		.header-content {
 		padding-top: var(--hero-mobile-quote-inset-top) !important;
@@ -960,37 +960,37 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 
 /* Hero-banner: tekst op hoogte van voormalige CTA (behandelingen: flex-end onderin) */
 body.home .et_pb_fullwidth_header .header-content > .et_pb_module_header,
-#post-17 .et_pb_fullwidth_header .header-content > .et_pb_module_header,
-#post-21 .et_pb_fullwidth_header .header-content > .et_pb_module_header {
+#page-17 .et_pb_fullwidth_header .header-content > .et_pb_module_header,
+#page-21 .et_pb_fullwidth_header .header-content > .et_pb_module_header {
 	margin-top: var(--hero-former-cta-offset);
 }
 
 body.home .et_pb_fullwidth_header .header-content > .et_pb_header_content_wrapper:not(:empty),
-#post-21 .et_pb_fullwidth_header .header-content > .et_pb_header_content_wrapper:not(:empty) {
+#page-21 .et_pb_fullwidth_header .header-content > .et_pb_header_content_wrapper:not(:empty) {
 	margin-top: var(--hero-former-cta-offset);
 }
 
 /* Behandelingen (hero): foto normale positie, titel onderin hero
    Teksthoogte zelf instellen: --behandeling-hero-inset (desktop) en --behandeling-hero-inset-mobile */
-body:has(#post-15),
-body:has(#post-295),
-body:has(#post-501),
-body:has(#post-506) {
+body:has(#page-15),
+body:has(#page-295),
+body:has(#page-501),
+body:has(#page-506) {
 	--behandeling-hero-inset: 5.5rem;
 	--behandeling-hero-inset-mobile: 4rem;
 }
 
-#page-container:has(#post-15) #main-header,
-#page-container:has(#post-295) #main-header,
-#page-container:has(#post-501) #main-header,
-#page-container:has(#post-506) #main-header {
+#page-container:has(#page-15) #main-header,
+#page-container:has(#page-295) #main-header,
+#page-container:has(#page-501) #main-header,
+#page-container:has(#page-506) #main-header {
 	z-index: 100;
 }
 
-#post-15 .et_pb_section.et_pb_section_0,
-#post-295 .et_pb_section.et_pb_section_0,
-#post-501 .et_pb_section.et_pb_section_0,
-#post-506 .et_pb_section.et_pb_section_0 {
+#page-15 .et_pb_section.et_pb_section_0,
+#page-295 .et_pb_section.et_pb_section_0,
+#page-501 .et_pb_section.et_pb_section_0,
+#page-506 .et_pb_section.et_pb_section_0 {
 	margin-top: 0 !important;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
@@ -998,10 +998,10 @@ body:has(#post-506) {
 	max-width: 100% !important;
 }
 
-#post-15 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
-#post-295 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
-#post-501 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
-#post-506 .et_pb_fullwidth_header.et_pb_fullwidth_header_0 {
+#page-15 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
+#page-295 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
+#page-501 .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
+#page-506 .et_pb_fullwidth_header.et_pb_fullwidth_header_0 {
 	position: relative;
 	width: 100% !important;
 	max-width: 100% !important;
@@ -1013,26 +1013,26 @@ body:has(#post-506) {
 	background-repeat: no-repeat;
 }
 
-#post-15 .et_pb_fullwidth_header_0 .et_pb_module_header,
-#post-15 .et_pb_fullwidth_header_1 .et_pb_module_header,
-#post-295 .et_pb_fullwidth_header_0 .et_pb_module_header,
-#post-295 .et_pb_fullwidth_header_1 .et_pb_module_header,
-#post-501 .et_pb_fullwidth_header_0 .et_pb_module_header,
-#post-501 .et_pb_fullwidth_header_1 .et_pb_module_header,
-#post-506 .et_pb_fullwidth_header_0 .et_pb_module_header,
-#post-506 .et_pb_fullwidth_header_1 .et_pb_module_header {
+#page-15 .et_pb_fullwidth_header_0 .et_pb_module_header,
+#page-15 .et_pb_fullwidth_header_1 .et_pb_module_header,
+#page-295 .et_pb_fullwidth_header_0 .et_pb_module_header,
+#page-295 .et_pb_fullwidth_header_1 .et_pb_module_header,
+#page-501 .et_pb_fullwidth_header_0 .et_pb_module_header,
+#page-501 .et_pb_fullwidth_header_1 .et_pb_module_header,
+#page-506 .et_pb_fullwidth_header_0 .et_pb_module_header,
+#page-506 .et_pb_fullwidth_header_1 .et_pb_module_header {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	font-weight: normal;
 }
 
-#post-15 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-#post-15 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-#post-295 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-#post-295 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-#post-501 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-#post-501 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-#post-506 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-#post-506 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container {
+#page-15 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+#page-15 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+#page-295 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+#page-295 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+#page-501 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+#page-501 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+#page-506 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+#page-506 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container {
 	position: absolute;
 	inset: 0;
 	display: flex !important;
@@ -1045,52 +1045,52 @@ body:has(#post-506) {
 	box-sizing: border-box;
 }
 
-#post-15 .et_pb_fullwidth_header_0 .header-content-container,
-#post-15 .et_pb_fullwidth_header_1 .header-content-container,
-#post-295 .et_pb_fullwidth_header_0 .header-content-container,
-#post-295 .et_pb_fullwidth_header_1 .header-content-container,
-#post-501 .et_pb_fullwidth_header_0 .header-content-container,
-#post-501 .et_pb_fullwidth_header_1 .header-content-container,
-#post-506 .et_pb_fullwidth_header_0 .header-content-container,
-#post-506 .et_pb_fullwidth_header_1 .header-content-container {
+#page-15 .et_pb_fullwidth_header_0 .header-content-container,
+#page-15 .et_pb_fullwidth_header_1 .header-content-container,
+#page-295 .et_pb_fullwidth_header_0 .header-content-container,
+#page-295 .et_pb_fullwidth_header_1 .header-content-container,
+#page-501 .et_pb_fullwidth_header_0 .header-content-container,
+#page-501 .et_pb_fullwidth_header_1 .header-content-container,
+#page-506 .et_pb_fullwidth_header_0 .header-content-container,
+#page-506 .et_pb_fullwidth_header_1 .header-content-container {
 	display: block !important;
 	align-self: auto !important;
 	vertical-align: bottom;
 }
 
-#post-15 .et_pb_fullwidth_header_0 .header-content,
-#post-15 .et_pb_fullwidth_header_1 .header-content,
-#post-295 .et_pb_fullwidth_header_0 .header-content,
-#post-295 .et_pb_fullwidth_header_1 .header-content,
-#post-501 .et_pb_fullwidth_header_0 .header-content,
-#post-501 .et_pb_fullwidth_header_1 .header-content,
-#post-506 .et_pb_fullwidth_header_0 .header-content,
-#post-506 .et_pb_fullwidth_header_1 .header-content {
+#page-15 .et_pb_fullwidth_header_0 .header-content,
+#page-15 .et_pb_fullwidth_header_1 .header-content,
+#page-295 .et_pb_fullwidth_header_0 .header-content,
+#page-295 .et_pb_fullwidth_header_1 .header-content,
+#page-501 .et_pb_fullwidth_header_0 .header-content,
+#page-501 .et_pb_fullwidth_header_1 .header-content,
+#page-506 .et_pb_fullwidth_header_0 .header-content,
+#page-506 .et_pb_fullwidth_header_1 .header-content {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
 
-#post-15 .et_pb_fullwidth_header_0 .header-content-container,
-#post-15 .et_pb_fullwidth_header_1 .header-content-container,
-#post-295 .et_pb_fullwidth_header_0 .header-content-container,
-#post-295 .et_pb_fullwidth_header_1 .header-content-container,
-#post-501 .et_pb_fullwidth_header_0 .header-content-container,
-#post-501 .et_pb_fullwidth_header_1 .header-content-container,
-#post-506 .et_pb_fullwidth_header_0 .header-content-container,
-#post-506 .et_pb_fullwidth_header_1 .header-content-container {
+#page-15 .et_pb_fullwidth_header_0 .header-content-container,
+#page-15 .et_pb_fullwidth_header_1 .header-content-container,
+#page-295 .et_pb_fullwidth_header_0 .header-content-container,
+#page-295 .et_pb_fullwidth_header_1 .header-content-container,
+#page-501 .et_pb_fullwidth_header_0 .header-content-container,
+#page-501 .et_pb_fullwidth_header_1 .header-content-container,
+#page-506 .et_pb_fullwidth_header_0 .header-content-container,
+#page-506 .et_pb_fullwidth_header_1 .header-content-container {
 	width: 100%;
 	max-width: 100%;
 }
 
 @media (max-width: 980px) {
-	#post-15 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-	#post-15 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-	#post-295 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-	#post-295 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-	#post-501 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-	#post-501 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-	#post-506 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-	#post-506 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container {
+	#page-15 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+	#page-15 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+	#page-295 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+	#page-295 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+	#page-501 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+	#page-501 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
+	#page-506 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
+	#page-506 .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container {
 		padding-bottom: var(--behandeling-hero-inset-mobile) !important;
 	}
 }
@@ -1310,7 +1310,7 @@ body:has(#post-506) {
 }
 
 /* Privacy + error-pagina’s: titel in mint-header (iets boven visueel midden) */
-#post-227 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container.center {
+#page-227 .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container.center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1318,12 +1318,12 @@ body:has(#post-506) {
 	padding-top: 0;
 	box-sizing: border-box;
 }
-#post-227 .et_pb_fullwidth_header_0 .header-content {
+#page-227 .et_pb_fullwidth_header_0 .header-content {
 	margin-top: -4rem;
 }
-#post-227 .et_pb_fullwidth_header_0 .header-content-container,
-#post-227 .et_pb_fullwidth_header_0 .header-content,
-#post-227 .et_pb_fullwidth_header_0 .et_pb_header_content_wrapper {
+#page-227 .et_pb_fullwidth_header_0 .header-content-container,
+#page-227 .et_pb_fullwidth_header_0 .header-content,
+#page-227 .et_pb_fullwidth_header_0 .et_pb_header_content_wrapper {
 	width: 100%;
 	max-width: 100%;
 	text-align: center;
@@ -1517,7 +1517,7 @@ html {
 }
 
 /* VVNT-logo: zelfde afronding als footer-knoppen (bronexport .et_pb_button ≈ 3px) */
-#page-container a[href="https://vvnt.nl"] img.wp-image-91 {
+#page-container a[href="https://vvnt.nl"] img.footer-vvnt-badge {
 	border-radius: var(--footer-button-radius);
 }
 
@@ -1542,39 +1542,39 @@ html {
 	main#hoofdinhoud
 		.et_pb_fullwidth_header:not(.et_pb_fullwidth_header_0):not(.et_pb_fullwidth_header_1)
 		.et_pb_header_content_wrapper,
-	body:has(#post-15) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body:has(#post-15) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
-	body:has(#post-295) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body:has(#post-295) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
-	body:has(#post-501) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body:has(#post-501) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
-	body:has(#post-227) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body:has(#post-227) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
-	body:has(#post-506) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body:has(#post-506) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper {
+	body:has(#page-15) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
+	body:has(#page-15) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
+	body:has(#page-295) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
+	body:has(#page-295) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
+	body:has(#page-501) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
+	body:has(#page-501) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
+	body:has(#page-227) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
+	body:has(#page-227) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
+	body:has(#page-506) main#hoofdinhoud .et_pb_fullwidth_header .header-content,
+	body:has(#page-506) main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper {
 		text-align: center !important;
 	}
 
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.et_pb_header_content_wrapper,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content-container,
-	body:not(:has(#post-15)):not(:has(#post-295)):not(:has(#post-501)):not(:has(#post-506)):not(
-			:has(#post-227)
+	body:not(:has(#page-15)):not(:has(#page-295)):not(:has(#page-501)):not(:has(#page-506)):not(
+			:has(#page-227)
 		)
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
@@ -1589,9 +1589,7 @@ html {
 		margin-right: auto !important;
 	}
 
-	main#hoofdinhoud .et_pb_text_inner img.alignnone,
-	main#hoofdinhoud .et_pb_text_inner img.alignleft,
-	main#hoofdinhoud .et_pb_text_inner img.alignright {
+	main#hoofdinhoud .et_pb_text_inner img {
 		margin-left: auto !important;
 		margin-right: auto !important;
 		display: block;
@@ -2018,8 +2016,8 @@ a.contact-whatsapp-link:focus-visible::before {
 }
 
 /* Ondersteunende middelen: hero full-bleed (export mint-filter, 1440×1080) */
-#post-19 .et_pb_section.et_pb_section_0,
-#post-19 .et_pb_section.et_pb_section_1 {
+#page-19 .et_pb_section.et_pb_section_0,
+#page-19 .et_pb_section.et_pb_section_1 {
 	background-image: url(../images/2021/06/ondersteunendemiddelen-u121594-fr.jpg) !important;
 	background-size: cover !important;
 	background-position: center center !important;
@@ -2035,8 +2033,8 @@ a.contact-whatsapp-link:focus-visible::before {
 
 @media (min-width: 981px) {
 	/* Buiten 1325px-kolomgrid; overflow-x op html/page-container knipt 100vw-rand */
-	#post-19 .et_pb_section.et_pb_section_0,
-	#post-19 .et_pb_section.et_pb_section_1 {
+	#page-19 .et_pb_section.et_pb_section_0,
+	#page-19 .et_pb_section.et_pb_section_1 {
 		width: 100vw !important;
 		max-width: 100vw !important;
 		margin-left: calc(50% - 50vw) !important;
@@ -2044,24 +2042,24 @@ a.contact-whatsapp-link:focus-visible::before {
 	}
 }
 
-#post-19 .et_pb_section.et_pb_section_0 .et_pb_fullwidth_header,
-#post-19 .et_pb_section.et_pb_section_1 .et_pb_fullwidth_header {
+#page-19 .et_pb_section.et_pb_section_0 .et_pb_fullwidth_header,
+#page-19 .et_pb_section.et_pb_section_1 .et_pb_fullwidth_header {
 	width: 100% !important;
 	max-width: 100% !important;
 }
 
-#page-container:has(#post-19) #main-header {
+#page-container:has(#page-19) #main-header {
 	z-index: 100;
 }
 
 /* Ondersteunende middelen: 3 kolommen + ronde foto’s */
 @media (min-width: 981px) {
-	#post-19 .et_pb_section_2,
-	#post-19 .et_pb_section_3 {
+	#page-19 .et_pb_section_2,
+	#page-19 .et_pb_section_3 {
 		display: contents;
 	}
 
-	#post-19 .et_builder_inner_content.et_pb_gutters3 {
+	#page-19 .et_builder_inner_content.et_pb_gutters3 {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		column-gap: var(--ondersteunende-kolom-gap);
@@ -2076,9 +2074,9 @@ a.contact-whatsapp-link:focus-visible::before {
 		box-sizing: border-box;
 	}
 
-	#post-19 .et_pb_row_0,
-	#post-19 .et_pb_row_1,
-	#post-19 .et_pb_row_2 {
+	#page-19 .et_pb_row_0,
+	#page-19 .et_pb_row_1,
+	#page-19 .et_pb_row_2 {
 		display: flex;
 		flex-direction: column;
 		height: 100%;
@@ -2087,62 +2085,62 @@ a.contact-whatsapp-link:focus-visible::before {
 		max-width: none !important;
 	}
 
-	#post-19 .et_pb_row_0 .et_pb_column,
-	#post-19 .et_pb_row_1 .et_pb_column,
-	#post-19 .et_pb_row_2 .et_pb_column {
+	#page-19 .et_pb_row_0 .et_pb_column,
+	#page-19 .et_pb_row_1 .et_pb_column,
+	#page-19 .et_pb_row_2 .et_pb_column {
 		width: 100% !important;
 		max-width: none !important;
 	}
 
-	#post-19 .et_pb_row_0 .et_pb_column,
-	#post-19 .et_pb_row_1 .et_pb_column,
-	#post-19 .et_pb_row_2 .et_pb_column {
+	#page-19 .et_pb_row_0 .et_pb_column,
+	#page-19 .et_pb_row_1 .et_pb_column,
+	#page-19 .et_pb_row_2 .et_pb_column {
 		display: flex;
 		flex-direction: column;
 		flex: 1 1 auto;
 		height: 100%;
 	}
 
-	#post-19 .et_pb_section_0,
-	#post-19 .et_pb_section_1,
-	#post-19 .et_pb_section_5,
-	#post-19 .et_pb_section_7 {
+	#page-19 .et_pb_section_0,
+	#page-19 .et_pb_section_1,
+	#page-19 .et_pb_section_5,
+	#page-19 .et_pb_section_7 {
 		grid-column: 1 / -1;
 	}
 
-	#post-19 .et_pb_row_0 {
+	#page-19 .et_pb_row_0 {
 		grid-column: 1;
 	}
-	#post-19 .et_pb_row_1 {
+	#page-19 .et_pb_row_1 {
 		grid-column: 2;
 	}
-	#post-19 .et_pb_row_2 {
+	#page-19 .et_pb_row_2 {
 		grid-column: 3;
 	}
 }
 
 /* Kolommen: mint (1+3), roze midden; buitenrand afgerond zoals knoppen */
-#post-19 .et_pb_row_0.et_pb_row,
-#post-19 .et_pb_row_2.et_pb_row {
+#page-19 .et_pb_row_0.et_pb_row,
+#page-19 .et_pb_row_2.et_pb_row {
 	background-color: var(--site-mint) !important;
 }
 
-#post-19 .et_pb_row_1.et_pb_row {
+#page-19 .et_pb_row_1.et_pb_row {
 	background-color: var(--ondersteunende-kolom-roze) !important;
 }
 
-#post-19 .et_pb_row_0.et_pb_row,
-#post-19 .et_pb_row_1.et_pb_row,
-#post-19 .et_pb_row_2.et_pb_row {
+#page-19 .et_pb_row_0.et_pb_row,
+#page-19 .et_pb_row_1.et_pb_row,
+#page-19 .et_pb_row_2.et_pb_row {
 	padding: clamp(1.25rem, 3vw, 3.125rem) !important;
 	box-sizing: border-box;
 	border-radius: var(--footer-button-radius);
 	overflow: hidden;
 }
 
-#post-19 .et_pb_row_0 .et_pb_module.et_pb_text,
-#post-19 .et_pb_row_1 .et_pb_module.et_pb_text,
-#post-19 .et_pb_row_2 .et_pb_module.et_pb_text {
+#page-19 .et_pb_row_0 .et_pb_module.et_pb_text,
+#page-19 .et_pb_row_1 .et_pb_module.et_pb_text,
+#page-19 .et_pb_row_2 .et_pb_module.et_pb_text {
 	box-sizing: border-box;
 	flex: 1 1 auto;
 	height: 100%;
@@ -2153,30 +2151,30 @@ a.contact-whatsapp-link:focus-visible::before {
 	box-shadow: none !important;
 }
 
-#post-19 .et_pb_row_1 .et_pb_module.et_pb_text {
+#page-19 .et_pb_row_1 .et_pb_module.et_pb_text {
 	border-color: var(--ondersteunende-kolom-roze-border) !important;
 }
 
-#post-19 .et_pb_row_0 .et_pb_text_inner,
-#post-19 .et_pb_row_1 .et_pb_text_inner,
-#post-19 .et_pb_row_2 .et_pb_text_inner {
+#page-19 .et_pb_row_0 .et_pb_text_inner,
+#page-19 .et_pb_row_1 .et_pb_text_inner,
+#page-19 .et_pb_row_2 .et_pb_text_inner {
 	text-align: center !important;
 }
 
-#post-19 .et_pb_row_0 .et_pb_text_inner :is(h1, p, a, span),
-#post-19 .et_pb_row_1 .et_pb_text_inner :is(h1, p, a, span),
-#post-19 .et_pb_row_2 .et_pb_text_inner :is(h1, p, a, span) {
+#page-19 .et_pb_row_0 .et_pb_text_inner :is(h1, p, a, span),
+#page-19 .et_pb_row_1 .et_pb_text_inner :is(h1, p, a, span),
+#page-19 .et_pb_row_2 .et_pb_text_inner :is(h1, p, a, span) {
 	text-align: center !important;
 }
 
-#post-19 .et_pb_text_inner p:has(> img.ondersteunende-middelen-foto) {
+#page-19 .et_pb_text_inner p:has(> img.ondersteunende-middelen-foto) {
 	margin-left: auto;
 	margin-right: auto;
 	width: var(--ondersteunende-foto-grootte);
 	max-width: 100%;
 }
 
-#post-19 img.ondersteunende-middelen-foto {
+#page-19 img.ondersteunende-middelen-foto {
 	box-sizing: border-box;
 	border-radius: 50% !important;
 	display: block !important;
@@ -2194,38 +2192,38 @@ a.contact-whatsapp-link:focus-visible::before {
 }
 
 /* Typografisch ritme: titel → intro → foto → vervolgtekst (zoals kolom 2) */
-#post-19 .et_pb_row_0 .et_pb_text_inner > p,
-#post-19 .et_pb_row_1 .et_pb_text_inner > p,
-#post-19 .et_pb_row_2 .et_pb_text_inner > p {
+#page-19 .et_pb_row_0 .et_pb_text_inner > p,
+#page-19 .et_pb_row_1 .et_pb_text_inner > p,
+#page-19 .et_pb_row_2 .et_pb_text_inner > p {
 	margin-bottom: 1em;
 }
 
-#post-19 .et_pb_row_0 .et_pb_text_inner > p:has(img),
-#post-19 .et_pb_row_1 .et_pb_text_inner > p:has(img),
-#post-19 .et_pb_row_2 .et_pb_text_inner > p:has(img) {
+#page-19 .et_pb_row_0 .et_pb_text_inner > p:has(img),
+#page-19 .et_pb_row_1 .et_pb_text_inner > p:has(img),
+#page-19 .et_pb_row_2 .et_pb_text_inner > p:has(img) {
 	margin-top: 0.25em;
 	margin-bottom: 1em;
 }
 
 @media (max-width: 980px) {
 	/* Kolommen staan in section_2 + section_3: dubbele sectie-padding = grote witruimte */
-	#post-19 .et_pb_section_2,
-	#post-19 .et_pb_section_3 {
+	#page-19 .et_pb_section_2,
+	#page-19 .et_pb_section_3 {
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 	}
 
-	#post-19 .et_pb_section_2 {
+	#page-19 .et_pb_section_2 {
 		padding-top: 1.5rem !important;
 	}
 
-	#post-19 .et_pb_row_0,
-	#post-19 .et_pb_row_1,
-	#post-19 .et_pb_row_2 {
+	#page-19 .et_pb_row_0,
+	#page-19 .et_pb_row_1,
+	#page-19 .et_pb_row_2 {
 		margin-bottom: 1.5rem;
 	}
 
-	#post-19 .et_pb_row_2 {
+	#page-19 .et_pb_row_2 {
 		margin-bottom: 0;
 	}
 }

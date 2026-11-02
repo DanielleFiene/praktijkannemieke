@@ -91,6 +91,7 @@ function scrubHtml(html, fileBasename) {
 	next = next.replaceAll('/themes/Divi/', '/themes/export-base/');
 	next = next.replaceAll('/themes/Divi_child/', '/themes/export-site/');
 	next = next.replaceAll('/et-cache/', '/page-cache/');
+	next = next.replaceAll(/et-core-unified-deferred-(\d+)\.min\.css/g, 'page-$1.min.css');
 
 	next = next.replaceAll("id='divi-style-parent-css'", "id='bronexport-base-css'");
 	next = next.replaceAll("id='divi-style-css'", "id='bronexport-site-css'");

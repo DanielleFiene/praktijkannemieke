@@ -19,7 +19,7 @@ function listHtmlFiles() {
 
 const A11Y_RE = /<link rel="stylesheet" href="([^"]*a11y\.css)"\s*\/?>\s*/i;
 const DEFERRED_PRELOAD_RE =
-	/<link rel="preload" as="style" id="((?:et-core-unified-deferred|bronexport-page)[^"]+)" href="([^"]+)" onload="this\.onload=null;this\.rel='stylesheet';"\s*\/?>/i;
+	/<link rel="preload" as="style" id="(bronexport-page[^"]+)" href="([^"]+)" onload="this\.onload=null;this\.rel='stylesheet';"\s*\/?>/i;
 
 let updated = 0;
 for (const file of listHtmlFiles()) {
