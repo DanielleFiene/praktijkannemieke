@@ -4,7 +4,7 @@
 }
 
 .site-nav,
-#top-menu-nav.site-nav {
+#nav.site-nav {
 	flex: 1 1 auto;
 }
 
@@ -19,13 +19,13 @@ main.site-main {
 }
 
 .site-root,
-#page-container.site-root {
+#site.site-root {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
-.site-root #et-main-area,
-#page-container #et-main-area {
+.site-root #main-wrap,
+#site #main-wrap {
 	flex: 1 1 auto;
 }

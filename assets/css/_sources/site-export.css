@@ -2,7 +2,7 @@
 
 /* =Aanpassingen uit bronexport
 -------------------------------------------------------------- */
-#mobile_menu.et_mobile_menu {
+#nav-mobile.nav-mobile-panel {
 	background-color: #c1dfe0!important;
 }
 
@@ -12,7 +12,7 @@
 	text-align: center;
 }
 
-#top-menu li {
+#nav-menu li {
 	text-align: center;
 	vertical-align: middle;
 }
@@ -21,13 +21,13 @@
 	line-height: 1.3em;
 }
 
-header#main-header.et-fixed-header, #main-header{
+header#main-header.header-fixed, #main-header{
 	-webkit-box-shadow:none !important;
 	-moz-box-shadow:none !important;
 	box-shadow:none !important;
 }
 
-#page-container #main-header {
+#site #main-header {
 	box-shadow:none !important;
 }
 
@@ -94,20 +94,20 @@ body {
 
 /* ipad menu landscape */
 @media only screen and ( max-width:1659px ) {
-#et_mobile_nav_menu { 
+#mobile-nav { 
 	display:block !important; 
 	margin-bottom:20px; 
 	margin-top:6px 
 }
-#top-menu-nav { 
+#nav { 
 	display:none; 
 	}
-.et-fixed-header #et_mobile_nav_menu { margin-bottom:0; 
+.header-fixed #mobile-nav { margin-bottom:0; 
 	}
 }
 
 @media only screen and ( min-width:1660px ) {
-#top-menu {
+#nav-menu {
 	margin-top: -80px;
 	}
 #logo {
@@ -116,10 +116,10 @@ body {
 }
 
 @media (max-width: 1200px) {
- .container.menu-container { 
+ .container.header-inner { 
  width: calc( 100% - 60px);
  }
-.et_mobile_menu {
+.nav-mobile-panel {
  margin-left: -30px;
  padding: 5%;
  width: calc( 100% + 60px);
@@ -144,17 +144,17 @@ body {
 	margin-top: 15px;
 }
 
-.et_header_style_left #et-top-navigation .mobile_menu_bar, .et_header_style_split #et-top-navigation .mobile_menu_bar {
+.header-left #header-nav .mobile_menu_bar, .et_header_style_split #header-nav .mobile_menu_bar {
 	padding-top: 10px;
 }
 
-.dtb_mobile .et_mobile_menu li a, .dtb_mobile .dtb-menu .et_mobile_menu li a, .dtb_mobile #et-boc .dtb-menu .et_mobile_menu li a, .et-db #et-boc .builder .dtb-menu .et_mobile_menu li a {
+.dtb_mobile .nav-mobile-panel li a, .dtb_mobile .dtb-menu .nav-mobile-panel li a, .dtb_mobile #et-boc .dtb-menu .nav-mobile-panel li a, .et-db #et-boc .builder .dtb-menu .nav-mobile-panel li a {
 	color: #000;
 	letter-spacing: 1px;
 	font-weight: 700;
 }
 
-.dtb_mobile .et_mobile_menu li.cta-item>a, .dtb_mobile .dtb-menu .et_mobile_menu li.cta-item>a {
+.dtb_mobile .nav-mobile-panel li.cta-item>a, .dtb_mobile .dtb-menu .nav-mobile-panel li.cta-item>a {
 	color: #000;
 	letter-spacing: 1px;
 

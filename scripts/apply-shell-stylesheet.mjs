@@ -9,18 +9,13 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const shellPath = path.join(root, 'assets', 'css', 'shell.css');
 const SKIP_DIRS = new Set(['node_modules', 'tests', 'playwright-report', 'test-results', '.git']);
 
-const SHELL_CSS = `/*
- * shell.css – site-header, navigatie, footer (stap 5.4)
- * Bronexport-layout (layout.css) blijft; dit zijn site-specifieke overrides.
- */
-
-.site-header,
+const SHELL_CSS = `.site-header,
 #main-header.site-header {
 	position: relative;
 }
 
 .site-nav,
-#top-menu-nav.site-nav {
+#nav.site-nav {
 	flex: 1 1 auto;
 }
 
@@ -35,14 +30,14 @@ main.site-main {
 }
 
 .site-root,
-#page-container.site-root {
+#site.site-root {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
-.site-root #et-main-area,
-#page-container #et-main-area {
+.site-root #main-wrap,
+#site #main-wrap {
 	flex: 1 1 auto;
 }
 `;

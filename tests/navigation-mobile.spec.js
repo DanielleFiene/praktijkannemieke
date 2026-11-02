@@ -11,7 +11,7 @@ test.describe('mobiel menu', () => {
     await expect(menuToggle).toBeVisible();
     await menuToggle.click();
 
-    const mobileNav = page.locator('#mobile_menu, .et_mobile_menu');
+    const mobileNav = page.locator('#nav-mobile, .nav-mobile-panel');
     await expect(mobileNav.first()).toBeVisible();
     await expect(mobileNav.getByRole('link', { name: /tarieven/i })).toBeVisible();
   });
@@ -21,7 +21,7 @@ test.describe('mobiel menu', () => {
     await waitForPageStable(page);
 
     await page.locator('.mobile_menu_bar').click();
-    const menu = page.locator('#mobile_menu');
+    const menu = page.locator('#nav-mobile');
     const accessBars = menu.getByRole('link', { name: /access bars/i });
     await expect(accessBars).toBeHidden();
     const behandelingen = menu.getByRole('link', { name: /^BEHANDELINGEN$/i });
@@ -37,7 +37,7 @@ test.describe('mobiel menu', () => {
     await waitForPageStable(page);
 
     await page.locator('.mobile_menu_bar').click();
-    const neiLink = page.locator('.et_mobile_menu a[href*="Nei"]');
+    const neiLink = page.locator('.nav-mobile-panel a[href*="Nei"]');
     await neiLink.click({ noWaitAfter: true });
     await expect(page.locator('#Nei')).toBeVisible();
   });

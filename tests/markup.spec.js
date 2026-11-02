@@ -23,5 +23,15 @@ test('article: slug-class geen page--123', () => {
 		expect(html, path.relative(siteRoot, file)).not.toMatch(/<article id="page-\d+"/);
 		expect(html, path.relative(siteRoot, file)).toMatch(/<article class="page page--[\w-]+">/);
 		expect(html, path.relative(siteRoot, file)).not.toMatch(/\bet_pb_/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/id="page-container"/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/id="et-main-area"/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/id="top-menu-nav"/);
+		expect(html, path.relative(siteRoot, file)).toMatch(/id="site"/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/\bcover-bg s3\b/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/\bsec-[0-9]+\b/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/\btext-[0-9]+\b/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/\brow-[0-9]+\b/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/\bhero-[0-9]+\b/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/\bcol-[0-9]+\b/);
 	}
 });

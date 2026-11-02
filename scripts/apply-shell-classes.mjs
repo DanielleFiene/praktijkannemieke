@@ -31,11 +31,12 @@ function addClassOnTag(html, tagPattern, className) {
 
 function patch(html) {
 	let next = html;
-	next = addClassOnTag(next, 'div id="page-container"', 'site-root');
+	next = addClassOnTag(next, 'div id="site"', 'site-root');
+	next = addClassOnTag(next, 'div class="container header-inner"', 'clearfix');
 	next = addClassOnTag(next, 'header id="main-header"', 'site-header');
 	next = addClassOnTag(next, 'footer id="main-footer"', 'site-footer');
 	next = addClassOnTag(next, 'main id="hoofdinhoud"', 'site-main');
-	next = addClassOnTag(next, 'nav id="top-menu-nav"', 'site-nav');
+	next = addClassOnTag(next, 'nav id="nav"', 'site-nav');
 	return next;
 }
 

@@ -2,23 +2,23 @@
 	'use strict';
 
 	function initMobileNav() {
-		const mobileNav = document.querySelector('#et_mobile_nav_menu .mobile_nav');
+		const mobileNav = document.querySelector('#mobile-nav .mobile_nav');
 		const toggle = document.querySelector('.mobile_menu_bar');
-		const topMenu = document.querySelector('#top-menu');
+		const topMenu = document.querySelector('#nav-menu');
 		if (!mobileNav || !toggle || !topMenu) return;
 
 		toggle.setAttribute('role', 'button');
 		toggle.setAttribute('tabindex', '0');
 		toggle.setAttribute('aria-expanded', 'false');
 		toggle.setAttribute('aria-label', 'Menu openen en sluiten');
-		toggle.setAttribute('aria-controls', 'mobile_menu');
+		toggle.setAttribute('aria-controls', 'nav-mobile');
 
 		function syncMobileMenuEdgeInsets() {
-			const menu = document.getElementById('mobile_menu');
+			const menu = document.getElementById('nav-mobile');
 			if (!menu || !mobileNav.classList.contains('opened')) return;
 			const anchor = mobileNav.getBoundingClientRect();
 			const headerBar =
-				document.querySelector('#main-header .container.menu-container') ??
+				document.querySelector('#main-header .container.header-inner') ??
 				document.getElementById('main-header');
 			const fullBarWidth = window.matchMedia(
 				'(max-width: 980px) and (orientation: portrait)',
@@ -58,7 +58,7 @@
 			mobileNav.classList.toggle('opened', open);
 			mobileNav.classList.toggle('closed', !open);
 			toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-			const menu = document.getElementById('mobile_menu');
+			const menu = document.getElementById('nav-mobile');
 			if (menu) {
 				menu.setAttribute('aria-hidden', open ? 'false' : 'true');
 				if (open) {
@@ -102,11 +102,11 @@
 		}
 
 		function ensureMobileMenu() {
-			let menu = document.getElementById('mobile_menu');
+			let menu = document.getElementById('nav-mobile');
 			if (menu) return menu;
 			menu = document.createElement('ul');
-			menu.id = 'mobile_menu';
-			menu.className = 'et_mobile_menu';
+			menu.id = 'nav-mobile';
+			menu.className = 'nav-mobile-panel';
 			menu.innerHTML = topMenu.innerHTML;
 			menu.setAttribute('aria-hidden', 'true');
 			mobileNav.appendChild(menu);
@@ -134,7 +134,7 @@
 		});
 
 		mobileNav.addEventListener('click', (e) => {
-			const link = e.target.closest('#mobile_menu a');
+			const link = e.target.closest('#nav-mobile a');
 			if (!link) return;
 			if (isMobileSubmenuToggleLink(link)) return;
 			setOpen(false);
