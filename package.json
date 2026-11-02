@@ -44,7 +44,8 @@
     "docs:patch-formulier": "node scripts/patch-kennismakingsformulier-docx.mjs",
     "perf:fonts": "node scripts/strip-bronexport-inline-fonts.mjs",
     "perf:images": "node scripts/optimize-lighthouse-images.mjs && node scripts/apply-webp-paths.mjs",
-    "perf:lighthouse": "npm run perf:fonts && npm run perf:images"
+    "perf:markup": "node scripts/apply-perf-markup.mjs",
+    "perf:lighthouse": "npm run perf:fonts && npm run perf:images && npm run perf:markup"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0",
