@@ -26,13 +26,7 @@ css = css.replace(/url\((?:includes|core)\/[^)]+\)/gi, (match) => {
 	return PLACEHOLDER_IMG;
 });
 
-const header = `/*
- * layout.css – site-brede layout (stap 5)
- * Bron: assets/css/_sources/layout-export.min.css
- * Genereer: npm run css:layout
- */
-
-`;
+const header = `/* layout.css – npm run css:layout */\n\n`;
 
 fs.writeFileSync(out, header + css);
 console.log('Wrote', path.relative(root, out), `(${(header.length + css.length).toLocaleString()} chars)`);

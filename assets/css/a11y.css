@@ -8,7 +8,7 @@
 	z-index: 100000;
 }
 
-/* Logo: aspect-ratio voor Lighthouse, weergave via bronexport max-height (niet 732px breed) */
+
 #logo {
 	width: auto;
 	height: auto;
@@ -38,7 +38,7 @@
 		padding-bottom: 0 !important;
 	}
 
-	#page-container #main-header .container.et_menu_container {
+	#page-container #main-header .container.menu-container {
 		display: flex !important;
 		flex-direction: row;
 		align-items: center;
@@ -56,9 +56,9 @@
 		box-sizing: border-box;
 	}
 
-	/* Bronexport .clearfix::after verstoort verticale centrering in flex/grid */
-	#page-container #main-header .container.et_menu_container::before,
-	#page-container #main-header .container.et_menu_container::after {
+	
+	#page-container #main-header .container.menu-container::before,
+	#page-container #main-header .container.menu-container::after {
 		display: none !important;
 		content: none !important;
 	}
@@ -176,7 +176,7 @@
 		padding-bottom: 0 !important;
 	}
 
-	/* Bronexport-site: #logo { max-height: 90%; margin-top: 15px } */
+	
 	#page-container #main-header #et-top-navigation {
 		align-self: center;
 		min-height: 0;
@@ -187,41 +187,41 @@
 	}
 }
 
-/* Over Annemieke: paginatitel niet vet (export had <strong>) */
-body.page--over-annemieke .et_pb_text_0 .et_pb_text_inner > :is(h1, h2) {
+
+body.page--over-annemieke .pb_text_0 .pb_text_inner > :is(h1, h2) {
 	font-weight: 400;
 }
 
-/* Pagina- en quote-koppen (voorheen h1): bronexport page-cache targette .et_pb_text_N h1 */
-main#hoofdinhoud .et_pb_text_inner > h2:has(.H1-Jenna-Sue-56pt-zwart),
-main#hoofdinhoud .et_pb_text_inner > h2:has(.Quote-Annemieke),
-main#hoofdinhoud .et_pb_text_inner > h2.Quote-Annemieke,
-.et_pb_text_2 .et_pb_text_inner > h2:first-child {
+
+main#hoofdinhoud .pb_text_inner > h2:has(.H1-Jenna-Sue-56pt-zwart),
+main#hoofdinhoud .pb_text_inner > h2:has(.Quote-Annemieke),
+main#hoofdinhoud .pb_text_inner > h2.Quote-Annemieke,
+.pb_text_2 .pb_text_inner > h2:first-child {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	font-size: 65px;
 	font-weight: 400;
 	line-height: 1.1em;
 }
 
-#Nei .et_pb_text_inner > h2 {
+#Nei .pb_text_inner > h2 {
 	font-size: 50px;
 }
 
-/* Hero over foto: quotes (h2.et_pb_module_header / wrapper) — export gaf Jenna Sue alleen aan h1 */
-main#hoofdinhoud .et_pb_fullwidth_header .header-content > h2.et_pb_module_header {
+
+main#hoofdinhoud .pb_fullwidth_header .header-content > h2.pb_module_header {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	font-weight: 400;
 	line-height: 1.1em;
 }
 
-main#hoofdinhoud .et_pb_fullwidth_header .header-content .et_pb_header_content_wrapper > h2 {
+main#hoofdinhoud .pb_fullwidth_header .header-content .pb_header_content_wrapper > h2 {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	font-size: 65px;
 	font-weight: 400;
 	line-height: 1.1em;
 }
 
-.home main#hoofdinhoud .et_pb_fullwidth_header .header-content .et_pb_header_content_wrapper > h2 {
+.home main#hoofdinhoud .pb_fullwidth_header .header-content .pb_header_content_wrapper > h2 {
 	font-size: 63px;
 }
 
@@ -242,53 +242,52 @@ main#hoofdinhoud .et_pb_fullwidth_header .header-content .et_pb_header_content_w
 	font-size: 1rem;
 }
 
-/* Lopende tekst: bronexport-site gebruikt weight 300; op #000 oogt dat grijs (NEI, pagina’s, …) */
+
 body {
 	font-weight: 400;
 }
 
-#page-container .et_pb_bg_layout_light .et_pb_text_inner :is(p, li, a, td, th) {
+#page-container .pb_bg_layout_light .pb_text_inner :is(p, li, a, td, th) {
 	color: #000000;
 	font-weight: 400;
 }
 
-#page-container .et_pb_bg_layout_light .et_pb_text_inner strong,
-#page-container .et_pb_bg_layout_light .et_pb_text_inner strong :is(a, span) {
+#page-container .pb_bg_layout_light .pb_text_inner strong,
+#page-container .pb_bg_layout_light .pb_text_inner strong :is(a, span) {
 	font-weight: 700;
 }
 
-#Nei .et_pb_text_inner :is(h2, p, li) {
+#Nei .pb_text_inner :is(h2, p, li) {
 	color: #000000;
 	font-weight: 400;
 }
 
-#Nei .et_pb_text_inner h2 {
+#Nei .pb_text_inner h2 {
 	font-weight: 400;
 }
 
-/* Hero-tekst onder het logo (home, Over Annemieke, Neem contact op, Tarieven)
-   Meer/minder ruimte: pas --hero-under-logo-gap* op :root aan (groter = verder onder logo) */
+
 :root {
 	--hero-under-logo-gap: 11.75rem;
 	--hero-under-logo-gap-wide: 9.5rem;
-	/* Zelfde horizontale rand als .et_pb_fullwidth_header_container (export 10% / gecentreerd 1325px) */
+	
 	--hero-quote-inset-x: max(10vw, (100vw - 1325px) / 2);
 	--hero-under-logo-gap-tablet: 7.5rem;
 	--hero-former-cta-offset: 3.25rem;
-	/* Mobiel: quote-hero in de linkerhoek van de foto */
+	
 	--hero-mobile-quote-inset-x: 0.5rem;
 	--hero-mobile-quote-inset-top: 0.5rem;
 	--hero-mobile-quote-max-width: 70%;
-	/* Phone landscape: korte viewport (niet tablet/desktop landscape) */
+	
 	--hero-mobile-landscape-max-height: 32rem;
-	/* Bannerfoto: crop boven/onder (alleen phone landscape) */
+	
 	--hero-mobile-landscape-crop-y: 120px;
 	--hero-mobile-landscape-crop-bottom-extra: 12px;
 	--hero-mobile-landscape-reveal-top: 15px;
-	/* Rechter onderhoek: vaste px (geen % — wordt op brede banner schuin) */
+	
 	--hero-mobile-landscape-corner-br: 460px;
 	--anchor-scroll-padding: 5.5rem;
-	/* Donkerder teal (leesbaar op wit); past bij #c1dfe0 / footer-gradient */
+	
 	--link-hover-color: #2d7575;
 	--link-underline-duration: 0.35s;
 	--scrollbar-track: #ffffff;
@@ -308,7 +307,7 @@ body {
 	--nav-accent: #ebcbcd;
 	--nav-bar-padding-x: clamp(1.25rem, 2.5vw, 2.5rem);
 	--nav-logo-max-height: 5.75rem;
-	/* Mobiele header: logo + witte balk */
+	
 	--nav-logo-max-height-mobile: 7rem;
 	--nav-bar-padding-top-mobile: 0.55rem;
 	--nav-bar-padding-bottom-mobile: 0.125rem;
@@ -338,7 +337,7 @@ html {
 	scroll-padding-top: var(--anchor-scroll-padding);
 }
 
-/* Witte headerbalk + roze navigatie (logo en menu in één balk, hero daaronder) */
+
 #page-container #main-header,
 #page-container #main-header.et-fixed-header,
 .et_fixed_nav #page-container .et-fixed-header#main-header,
@@ -371,7 +370,7 @@ body.et_transparent_nav #page-container #main-header {
 }
 
 @media (min-width: 981px) {
-	#page-container #main-header .container.et_menu_container {
+	#page-container #main-header .container.menu-container {
 		display: flex;
 		align-items: center;
 		justify-content: stretch;
@@ -425,13 +424,13 @@ body.et_transparent_nav #page-container #main-header {
 	border-color: #c1dfe0 !important;
 }
 
-/* Desktop: witte balk (alleen menu); logo op hero zoals oorspronkelijk export */
+
 @media (min-width: 981px) {
 	#page-container #main-header {
 		position: relative !important;
 	}
 
-	#page-container #main-header .container.et_menu_container {
+	#page-container #main-header .container.menu-container {
 		width: 100% !important;
 		max-width: none;
 		margin-left: 0;
@@ -572,34 +571,34 @@ body.et_transparent_nav #page-container #main-header {
 	}
 }
 
-body.home .et_pb_fullwidth_header_0 .header-content,
-body.home .et_pb_fullwidth_header_1 .header-content,
-body.page--over-annemieke .et_pb_fullwidth_header_0 .header-content,
-body.page--over-annemieke .et_pb_fullwidth_header_1 .header-content,
-body.page--neem-contact-op .et_pb_fullwidth_header_0 .header-content,
-body.page--neem-contact-op .et_pb_fullwidth_header_1 .header-content,
-body.page--tarieven .et_pb_fullwidth_header_0 .header-content,
-body.page--tarieven .et_pb_fullwidth_header_1 .header-content {
+body.home .pb_fullwidth_header_0 .header-content,
+body.home .pb_fullwidth_header_1 .header-content,
+body.page--over-annemieke .pb_fullwidth_header_0 .header-content,
+body.page--over-annemieke .pb_fullwidth_header_1 .header-content,
+body.page--neem-contact-op .pb_fullwidth_header_0 .header-content,
+body.page--neem-contact-op .pb_fullwidth_header_1 .header-content,
+body.page--tarieven .pb_fullwidth_header_0 .header-content,
+body.page--tarieven .pb_fullwidth_header_1 .header-content {
 	box-sizing: border-box;
 }
 
-body.home .et_pb_fullwidth_header_0 .header-content,
-body.page--over-annemieke .et_pb_fullwidth_header_0 .header-content,
-body.page--neem-contact-op .et_pb_fullwidth_header_0 .header-content,
-body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
+body.home .pb_fullwidth_header_0 .header-content,
+body.page--over-annemieke .pb_fullwidth_header_0 .header-content,
+body.page--neem-contact-op .pb_fullwidth_header_0 .header-content,
+body.page--tarieven .pb_fullwidth_header_0 .header-content {
 	padding-top: var(--hero-under-logo-gap);
 }
 
 @media (min-width: 1660px) {
-	body.home .et_pb_fullwidth_header_0 .header-content,
-	body.page--over-annemieke .et_pb_fullwidth_header_0 .header-content,
-	body.page--neem-contact-op .et_pb_fullwidth_header_0 .header-content,
-	body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
+	body.home .pb_fullwidth_header_0 .header-content,
+	body.page--over-annemieke .pb_fullwidth_header_0 .header-content,
+	body.page--neem-contact-op .pb_fullwidth_header_0 .header-content,
+	body.page--tarieven .pb_fullwidth_header_0 .header-content {
 		padding-top: var(--hero-under-logo-gap-wide);
 	}
 }
 
-/* Hero-quote regelafbreking: portret mobiel één regel; landscape twee regels (desktop) */
+
 @media (max-width: 980px) and (orientation: portrait) {
 	#page-container .hero-quote__br {
 		display: none;
@@ -612,7 +611,7 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 	}
 }
 
-/* Extra regels in banner-quotes (bijv. home NEI-banner): alleen desktop/tablet breed */
+
 @media (max-width: 980px) {
 	#page-container .hero-quote__br-desktop-only {
 		display: none;
@@ -626,22 +625,22 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 }
 
 @media (min-width: 981px) {
-	/* Desktop: quote links uitlijnen met logo (Neem contact op: h1 in wrapper met inline center) */
+	
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content
-		:is(.et_pb_module_header, .et_pb_header_content_wrapper, .et_pb_header_content_wrapper :is(h1, h2)) {
+		:is(.pb_module_header, .pb_header_content_wrapper, .pb_header_content_wrapper :is(h1, h2)) {
 		text-align: left !important;
 	}
 }
 
 @media (max-width: 980px) {
-	/* Quote-hero’s (_0/_1, niet behandelingen/privacy): blok in linkerhoek (export .center uit) */
+	
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
-		.et_pb_fullwidth_header_container {
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
+		.pb_fullwidth_header_container {
 		display: flex !important;
 		flex-direction: column !important;
 		align-items: flex-start !important;
@@ -654,11 +653,11 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content-container,
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content-container.center {
 		align-self: flex-start !important;
 		width: var(--hero-mobile-quote-max-width) !important;
@@ -677,22 +676,22 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content,
 	body:not(.page-layout-hero).home
-		.et_pb_fullwidth_header_0
+		.pb_fullwidth_header_0
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--over-annemieke
-		.et_pb_fullwidth_header_0
+		.pb_fullwidth_header_0
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--neem-contact-op
-		.et_pb_fullwidth_header_0
+		.pb_fullwidth_header_0
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--tarieven
-		.et_pb_fullwidth_header_0
+		.pb_fullwidth_header_0
 		.header-content {
 		width: 100% !important;
 		max-width: 100% !important;
@@ -707,9 +706,9 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content
-		:is(h1, h2, .et_pb_module_header, .et_pb_header_content_wrapper, .et_pb_header_content_wrapper :is(h1, h2)) {
+		:is(h1, h2, .pb_module_header, .pb_header_content_wrapper, .pb_header_content_wrapper :is(h1, h2)) {
 		text-align: center !important;
 		margin-top: 0 !important;
 		margin-left: 0 !important;
@@ -717,47 +716,47 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 	}
 
 	body:not(.page-layout-hero).home
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content
-		> .et_pb_module_header,
+		> .pb_module_header,
 	body:not(.page-layout-hero)
 		body.page--neem-contact-op
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content
-		> .et_pb_header_content_wrapper:not(:empty),
+		> .pb_header_content_wrapper:not(:empty),
 	body:not(.page-layout-hero)
 		body.page--over-annemieke
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content
-		> .et_pb_module_header,
+		> .pb_module_header,
 	body:not(.page-layout-hero)
 		body.page--tarieven
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content
-		> .et_pb_module_header {
+		> .pb_module_header {
 		margin-top: 0 !important;
 	}
 }
 
-/* Phone landscape: tablet-hero (_0) verbergen, mobiele hero (_1) + quote verticaal in beeld */
+
 @media (max-width: 980px) and (orientation: landscape) and (max-height: 32rem) {
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_section.et_pb_section_0:has(.et_pb_fullwidth_header_0):has(
-			~ .et_pb_section_1 .et_pb_fullwidth_header_1
+		.pb_section.pb_section_0:has(.pb_fullwidth_header_0):has(
+			~ .pb_section_1 .pb_fullwidth_header_1
 		) {
 		display: none !important;
 	}
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_section.et_pb_section_1:has(.et_pb_fullwidth_header_1) {
+		.pb_section.pb_section_1:has(.pb_fullwidth_header_1) {
 		display: block !important;
 	}
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1) {
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1) {
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
@@ -765,8 +764,8 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
-		.et_pb_fullwidth_header_container {
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
+		.pb_fullwidth_header_container {
 		flex: 1 1 auto;
 		justify-content: center !important;
 		align-items: flex-start !important;
@@ -776,35 +775,35 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content,
 	body:not(.page-layout-hero).home
-		.et_pb_fullwidth_header_0
+		.pb_fullwidth_header_0
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--over-annemieke
-		.et_pb_fullwidth_header_0
+		.pb_fullwidth_header_0
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--neem-contact-op
-		.et_pb_fullwidth_header_0
+		.pb_fullwidth_header_0
 		.header-content,
 	body:not(.page-layout-hero)
 		body.page--tarieven
-		.et_pb_fullwidth_header_0
+		.pb_fullwidth_header_0
 		.header-content {
 		padding-top: 0 !important;
 	}
 
-	/* Kortere banner + achtergrond iets ingezoomd (crop boven/onder) */
+	
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_section:has(
-			> .et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_section:has(
+			> .pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		),
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1) {
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1) {
 		overflow: hidden !important;
 		background-repeat: no-repeat !important;
 		background-position: center
@@ -817,7 +816,7 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header_0.et_pb_fullwidth_header {
+		.pb_fullwidth_header_0.pb_fullwidth_header {
 		height: max(
 			13rem,
 			calc(
@@ -830,7 +829,7 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header_1.et_pb_fullwidth_header {
+		.pb_fullwidth_header_1.pb_fullwidth_header {
 		height: max(
 			14rem,
 			calc(
@@ -841,8 +840,8 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 		min-height: 0 !important;
 	}
 
-	/* Home: hero-banner iets langer naar beneden (alleen phone landscape) */
-	body.home main#hoofdinhoud .et_pb_fullwidth_header_1.et_pb_fullwidth_header {
+	
+	body.home main#hoofdinhoud .pb_fullwidth_header_1.pb_fullwidth_header {
 		height: max(
 			14rem,
 			calc(
@@ -854,7 +853,7 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero).home
 		main#hoofdinhoud
-		.et_pb_fullwidth_header_2.et_pb_fullwidth_header {
+		.pb_fullwidth_header_2.pb_fullwidth_header {
 		height: max(
 			13rem,
 			calc(
@@ -875,30 +874,30 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_section:has(> .et_pb_fullwidth_header_0),
+		.pb_section:has(> .pb_fullwidth_header_0),
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_section:has(> .et_pb_fullwidth_header_1) {
+		.pb_section:has(> .pb_fullwidth_header_1) {
 		height: auto !important;
 		min-height: 0 !important;
 	}
 
-	/* Rechter onderhoek: ronde boog (export mobiel ≈ 200px), niet border-radius % */
+	
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_section:has(
-			> .et_pb_fullwidth_header:is(
-					.et_pb_fullwidth_header_0,
-					.et_pb_fullwidth_header_1,
-					.et_pb_fullwidth_header_2
+		.pb_section:has(
+			> .pb_fullwidth_header:is(
+					.pb_fullwidth_header_0,
+					.pb_fullwidth_header_1,
+					.pb_fullwidth_header_2
 				)
 		),
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(
-			.et_pb_fullwidth_header_0,
-			.et_pb_fullwidth_header_1,
-			.et_pb_fullwidth_header_2
+		.pb_fullwidth_header:is(
+			.pb_fullwidth_header_0,
+			.pb_fullwidth_header_1,
+			.pb_fullwidth_header_2
 		) {
 		border-top-left-radius: 0 !important;
 		border-top-right-radius: 0 !important;
@@ -909,38 +908,37 @@ body.page--tarieven .et_pb_fullwidth_header_0 .header-content {
 
 @media (max-width: 767px) {
 	body:not(.page--shambhala-reiki):not(.page--access-bars):not(.page--vlindermassage):not(.page--magnesiumpakking).home
-		.et_pb_fullwidth_header_1
+		.pb_fullwidth_header_1
 		.header-content,
 	body:not(.page--shambhala-reiki):not(.page--access-bars):not(.page--vlindermassage):not(.page--magnesiumpakking)
 		body.page--over-annemieke
-		.et_pb_fullwidth_header_1
+		.pb_fullwidth_header_1
 		.header-content,
 	body:not(.page--shambhala-reiki):not(.page--access-bars):not(.page--vlindermassage):not(.page--magnesiumpakking)
 		body.page--neem-contact-op
-		.et_pb_fullwidth_header_1
+		.pb_fullwidth_header_1
 		.header-content,
 	body:not(.page--shambhala-reiki):not(.page--access-bars):not(.page--vlindermassage):not(.page--magnesiumpakking)
 		body.page--tarieven
-		.et_pb_fullwidth_header_1
+		.pb_fullwidth_header_1
 		.header-content {
 		padding-top: var(--hero-mobile-quote-inset-top) !important;
 	}
 }
 
-/* Hero-banner: tekst op hoogte van voormalige CTA (behandelingen: flex-end onderin) */
-body.home .et_pb_fullwidth_header .header-content > .et_pb_module_header,
-body.page--over-annemieke .et_pb_fullwidth_header .header-content > .et_pb_module_header,
-body.page--neem-contact-op .et_pb_fullwidth_header .header-content > .et_pb_module_header {
+
+body.home .pb_fullwidth_header .header-content > .pb_module_header,
+body.page--over-annemieke .pb_fullwidth_header .header-content > .pb_module_header,
+body.page--neem-contact-op .pb_fullwidth_header .header-content > .pb_module_header {
 	margin-top: var(--hero-former-cta-offset);
 }
 
-body.home .et_pb_fullwidth_header .header-content > .et_pb_header_content_wrapper:not(:empty),
-body.page--neem-contact-op .et_pb_fullwidth_header .header-content > .et_pb_header_content_wrapper:not(:empty) {
+body.home .pb_fullwidth_header .header-content > .pb_header_content_wrapper:not(:empty),
+body.page--neem-contact-op .pb_fullwidth_header .header-content > .pb_header_content_wrapper:not(:empty) {
 	margin-top: var(--hero-former-cta-offset);
 }
 
-/* Behandelingen (hero): foto normale positie, titel onderin hero
-   Teksthoogte zelf instellen: --behandeling-hero-inset (desktop) en --behandeling-hero-inset-mobile */
+
 body.page--shambhala-reiki,
 body.page--access-bars,
 body.page--vlindermassage,
@@ -956,10 +954,10 @@ body.page--magnesiumpakking #page-container #main-header {
 	z-index: 100;
 }
 
-body.page--shambhala-reiki .et_pb_section.et_pb_section_0,
-body.page--access-bars .et_pb_section.et_pb_section_0,
-body.page--vlindermassage .et_pb_section.et_pb_section_0,
-body.page--magnesiumpakking .et_pb_section.et_pb_section_0 {
+body.page--shambhala-reiki .pb_section.pb_section_0,
+body.page--access-bars .pb_section.pb_section_0,
+body.page--vlindermassage .pb_section.pb_section_0,
+body.page--magnesiumpakking .pb_section.pb_section_0 {
 	margin-top: 0 !important;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
@@ -967,10 +965,10 @@ body.page--magnesiumpakking .et_pb_section.et_pb_section_0 {
 	max-width: 100% !important;
 }
 
-body.page--shambhala-reiki .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
-body.page--access-bars .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
-body.page--vlindermassage .et_pb_fullwidth_header.et_pb_fullwidth_header_0,
-body.page--magnesiumpakking .et_pb_fullwidth_header.et_pb_fullwidth_header_0 {
+body.page--shambhala-reiki .pb_fullwidth_header.pb_fullwidth_header_0,
+body.page--access-bars .pb_fullwidth_header.pb_fullwidth_header_0,
+body.page--vlindermassage .pb_fullwidth_header.pb_fullwidth_header_0,
+body.page--magnesiumpakking .pb_fullwidth_header.pb_fullwidth_header_0 {
 	position: relative;
 	width: 100% !important;
 	max-width: 100% !important;
@@ -982,26 +980,26 @@ body.page--magnesiumpakking .et_pb_fullwidth_header.et_pb_fullwidth_header_0 {
 	background-repeat: no-repeat;
 }
 
-body.page--shambhala-reiki .et_pb_fullwidth_header_0 .et_pb_module_header,
-body.page--shambhala-reiki .et_pb_fullwidth_header_1 .et_pb_module_header,
-body.page--access-bars .et_pb_fullwidth_header_0 .et_pb_module_header,
-body.page--access-bars .et_pb_fullwidth_header_1 .et_pb_module_header,
-body.page--vlindermassage .et_pb_fullwidth_header_0 .et_pb_module_header,
-body.page--vlindermassage .et_pb_fullwidth_header_1 .et_pb_module_header,
-body.page--magnesiumpakking .et_pb_fullwidth_header_0 .et_pb_module_header,
-body.page--magnesiumpakking .et_pb_fullwidth_header_1 .et_pb_module_header {
+body.page--shambhala-reiki .pb_fullwidth_header_0 .pb_module_header,
+body.page--shambhala-reiki .pb_fullwidth_header_1 .pb_module_header,
+body.page--access-bars .pb_fullwidth_header_0 .pb_module_header,
+body.page--access-bars .pb_fullwidth_header_1 .pb_module_header,
+body.page--vlindermassage .pb_fullwidth_header_0 .pb_module_header,
+body.page--vlindermassage .pb_fullwidth_header_1 .pb_module_header,
+body.page--magnesiumpakking .pb_fullwidth_header_0 .pb_module_header,
+body.page--magnesiumpakking .pb_fullwidth_header_1 .pb_module_header {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	font-weight: normal;
 }
 
-body.page--shambhala-reiki .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-body.page--shambhala-reiki .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-body.page--access-bars .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-body.page--access-bars .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-body.page--vlindermassage .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-body.page--vlindermassage .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-body.page--magnesiumpakking .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-body.page--magnesiumpakking .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container {
+body.page--shambhala-reiki .pb_fullwidth_header_0 .pb_fullwidth_header_container,
+body.page--shambhala-reiki .pb_fullwidth_header_1 .pb_fullwidth_header_container,
+body.page--access-bars .pb_fullwidth_header_0 .pb_fullwidth_header_container,
+body.page--access-bars .pb_fullwidth_header_1 .pb_fullwidth_header_container,
+body.page--vlindermassage .pb_fullwidth_header_0 .pb_fullwidth_header_container,
+body.page--vlindermassage .pb_fullwidth_header_1 .pb_fullwidth_header_container,
+body.page--magnesiumpakking .pb_fullwidth_header_0 .pb_fullwidth_header_container,
+body.page--magnesiumpakking .pb_fullwidth_header_1 .pb_fullwidth_header_container {
 	position: absolute;
 	inset: 0;
 	display: flex !important;
@@ -1014,64 +1012,64 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_co
 	box-sizing: border-box;
 }
 
-body.page--shambhala-reiki .et_pb_fullwidth_header_0 .header-content-container,
-body.page--shambhala-reiki .et_pb_fullwidth_header_1 .header-content-container,
-body.page--access-bars .et_pb_fullwidth_header_0 .header-content-container,
-body.page--access-bars .et_pb_fullwidth_header_1 .header-content-container,
-body.page--vlindermassage .et_pb_fullwidth_header_0 .header-content-container,
-body.page--vlindermassage .et_pb_fullwidth_header_1 .header-content-container,
-body.page--magnesiumpakking .et_pb_fullwidth_header_0 .header-content-container,
-body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container {
+body.page--shambhala-reiki .pb_fullwidth_header_0 .header-content-container,
+body.page--shambhala-reiki .pb_fullwidth_header_1 .header-content-container,
+body.page--access-bars .pb_fullwidth_header_0 .header-content-container,
+body.page--access-bars .pb_fullwidth_header_1 .header-content-container,
+body.page--vlindermassage .pb_fullwidth_header_0 .header-content-container,
+body.page--vlindermassage .pb_fullwidth_header_1 .header-content-container,
+body.page--magnesiumpakking .pb_fullwidth_header_0 .header-content-container,
+body.page--magnesiumpakking .pb_fullwidth_header_1 .header-content-container {
 	display: block !important;
 	align-self: auto !important;
 	vertical-align: bottom;
 }
 
-body.page--shambhala-reiki .et_pb_fullwidth_header_0 .header-content,
-body.page--shambhala-reiki .et_pb_fullwidth_header_1 .header-content,
-body.page--access-bars .et_pb_fullwidth_header_0 .header-content,
-body.page--access-bars .et_pb_fullwidth_header_1 .header-content,
-body.page--vlindermassage .et_pb_fullwidth_header_0 .header-content,
-body.page--vlindermassage .et_pb_fullwidth_header_1 .header-content,
-body.page--magnesiumpakking .et_pb_fullwidth_header_0 .header-content,
-body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content {
+body.page--shambhala-reiki .pb_fullwidth_header_0 .header-content,
+body.page--shambhala-reiki .pb_fullwidth_header_1 .header-content,
+body.page--access-bars .pb_fullwidth_header_0 .header-content,
+body.page--access-bars .pb_fullwidth_header_1 .header-content,
+body.page--vlindermassage .pb_fullwidth_header_0 .header-content,
+body.page--vlindermassage .pb_fullwidth_header_1 .header-content,
+body.page--magnesiumpakking .pb_fullwidth_header_0 .header-content,
+body.page--magnesiumpakking .pb_fullwidth_header_1 .header-content {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
 
-body.page--shambhala-reiki .et_pb_fullwidth_header_0 .header-content-container,
-body.page--shambhala-reiki .et_pb_fullwidth_header_1 .header-content-container,
-body.page--access-bars .et_pb_fullwidth_header_0 .header-content-container,
-body.page--access-bars .et_pb_fullwidth_header_1 .header-content-container,
-body.page--vlindermassage .et_pb_fullwidth_header_0 .header-content-container,
-body.page--vlindermassage .et_pb_fullwidth_header_1 .header-content-container,
-body.page--magnesiumpakking .et_pb_fullwidth_header_0 .header-content-container,
-body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container {
+body.page--shambhala-reiki .pb_fullwidth_header_0 .header-content-container,
+body.page--shambhala-reiki .pb_fullwidth_header_1 .header-content-container,
+body.page--access-bars .pb_fullwidth_header_0 .header-content-container,
+body.page--access-bars .pb_fullwidth_header_1 .header-content-container,
+body.page--vlindermassage .pb_fullwidth_header_0 .header-content-container,
+body.page--vlindermassage .pb_fullwidth_header_1 .header-content-container,
+body.page--magnesiumpakking .pb_fullwidth_header_0 .header-content-container,
+body.page--magnesiumpakking .pb_fullwidth_header_1 .header-content-container {
 	width: 100%;
 	max-width: 100%;
 }
 
 @media (max-width: 980px) {
-	body.page--shambhala-reiki .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-	body.page--shambhala-reiki .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-	body.page--access-bars .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-	body.page--access-bars .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-	body.page--vlindermassage .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-	body.page--vlindermassage .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container,
-	body.page--magnesiumpakking .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container,
-	body.page--magnesiumpakking .et_pb_fullwidth_header_1 .et_pb_fullwidth_header_container {
+	body.page--shambhala-reiki .pb_fullwidth_header_0 .pb_fullwidth_header_container,
+	body.page--shambhala-reiki .pb_fullwidth_header_1 .pb_fullwidth_header_container,
+	body.page--access-bars .pb_fullwidth_header_0 .pb_fullwidth_header_container,
+	body.page--access-bars .pb_fullwidth_header_1 .pb_fullwidth_header_container,
+	body.page--vlindermassage .pb_fullwidth_header_0 .pb_fullwidth_header_container,
+	body.page--vlindermassage .pb_fullwidth_header_1 .pb_fullwidth_header_container,
+	body.page--magnesiumpakking .pb_fullwidth_header_0 .pb_fullwidth_header_container,
+	body.page--magnesiumpakking .pb_fullwidth_header_1 .pb_fullwidth_header_container {
 		padding-bottom: var(--behandeling-hero-inset-mobile) !important;
 	}
 }
 
-/* Wie-sectie: witte kopjes + intro; lijsttekst zwart (zoals ontwerp) */
+
 #Wie :is(h1, h2),
 #Wie :is(h1, h2) span {
 	color: #ffffff !important;
 }
 
-#Wie .et_pb_text_6 h3,
-#Wie .et_pb_text_7 h3 {
+#Wie .pb_text_6 h3,
+#Wie .pb_text_7 h3 {
 	font-family: proxima-nova, "Open Sans", Arial, sans-serif !important;
 	font-size: 1rem;
 	font-weight: 700;
@@ -1080,20 +1078,20 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 	color: #ffffff !important;
 }
 
-#Wie .et_pb_text_6 h3 strong,
-#Wie .et_pb_text_7 h3 strong,
-#Wie .et_pb_text_6 h3 em,
-#Wie .et_pb_text_7 h3 em,
-#Wie .et_pb_text_6 h3 span,
-#Wie .et_pb_text_7 h3 span {
+#Wie .pb_text_6 h3 strong,
+#Wie .pb_text_7 h3 strong,
+#Wie .pb_text_6 h3 em,
+#Wie .pb_text_7 h3 em,
+#Wie .pb_text_6 h3 span,
+#Wie .pb_text_7 h3 span {
 	font-family: inherit !important;
 	font-weight: inherit;
 	font-style: inherit;
 	color: #ffffff !important;
 }
 
-#Wie .et_pb_text_6 p,
-#Wie .et_pb_text_7 p {
+#Wie .pb_text_6 p,
+#Wie .pb_text_7 p {
 	color: #000000;
 }
 
@@ -1111,8 +1109,8 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 	color: #000000 !important;
 }
 
-/* Footer-kolommen: body staat op 300, dat oogt op #000 als donkergrijs */
-.et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_text_inner :where(p, a, h3, span, li, em) {
+
+.pb_row:has(.pb_button_0_wrapper) .pb_text_inner :where(p, a, h3, span, li, em) {
 	color: #000000;
 	font-weight: 400;
 }
@@ -1123,7 +1121,7 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 	}
 }
 
-/* Hamburger-menu: paneel rechts (niet full-width; bronexport-site hack tot 1200px) */
+
 @media (max-width: 1659px) {
 	#et-top-navigation #et_mobile_nav_menu .mobile_nav {
 		position: relative;
@@ -1187,7 +1185,7 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 		opacity: 0.92;
 	}
 
-	/* Bronexport: #main-header .et_mobile_menu li ul { display: block !important } */
+	
 	#et-top-navigation #mobile_menu.et_mobile_menu li.menu-item-has-children > ul.sub-menu {
 		display: none !important;
 		visibility: visible !important;
@@ -1232,7 +1230,7 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 	}
 }
 
-/* Mobiel landscape: smal uitklapmenu rechts */
+
 @media (max-width: 980px) and (orientation: landscape) {
 	#et-top-navigation #mobile_menu.et_mobile_menu {
 		width: min(var(--site-mobile-menu-width-landscape), 60vw) !important;
@@ -1241,7 +1239,7 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 	}
 }
 
-/* Mobiel/tablet portret: menu even breed als witte headerbalk (insets via site.js) */
+
 @media (max-width: 980px) and (orientation: portrait) {
 	#et-top-navigation #mobile_menu.et_mobile_menu {
 		left: calc(-1 * var(--site-mobile-menu-left-inset, 0px));
@@ -1254,11 +1252,11 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 	}
 }
 
-/* Heading-order fix op home: h2 in NEI-blok behoudt bronexport h3-opmaak */
-#Nei .et_pb_text_1 h2,
-#Nei .et_pb_text_2 h2,
-#Nei .et_pb_text_3 h2,
-#Nei .et_pb_text_4 h2 {
+
+#Nei .pb_text_1 h2,
+#Nei .pb_text_2 h2,
+#Nei .pb_text_3 h2,
+#Nei .pb_text_4 h2 {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	font-size: 50px;
 }
@@ -1267,7 +1265,7 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 	clear: both;
 }
 
-/* Bronexport icon-font: font-display (Lighthouse) */
+
 @font-face {
 	font-family: ETmodules;
 	font-weight: 400;
@@ -1276,8 +1274,8 @@ body.page--magnesiumpakking .et_pb_fullwidth_header_1 .header-content-container 
 	src: url('../fonts/etmodules/modules.woff') format('woff');
 }
 
-/* Privacy + error-pagina’s: titel in mint-header (iets boven visueel midden) */
-body.page--privacyverklaring .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_container.center {
+
+body.page--privacyverklaring .pb_fullwidth_header_0 .pb_fullwidth_header_container.center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1285,12 +1283,12 @@ body.page--privacyverklaring .et_pb_fullwidth_header_0 .et_pb_fullwidth_header_c
 	padding-top: 0;
 	box-sizing: border-box;
 }
-body.page--privacyverklaring .et_pb_fullwidth_header_0 .header-content {
+body.page--privacyverklaring .pb_fullwidth_header_0 .header-content {
 	margin-top: -4rem;
 }
-body.page--privacyverklaring .et_pb_fullwidth_header_0 .header-content-container,
-body.page--privacyverklaring .et_pb_fullwidth_header_0 .header-content,
-body.page--privacyverklaring .et_pb_fullwidth_header_0 .et_pb_header_content_wrapper {
+body.page--privacyverklaring .pb_fullwidth_header_0 .header-content-container,
+body.page--privacyverklaring .pb_fullwidth_header_0 .header-content,
+body.page--privacyverklaring .pb_fullwidth_header_0 .pb_header_content_wrapper {
 	width: 100%;
 	max-width: 100%;
 	text-align: center;
@@ -1298,37 +1296,37 @@ body.page--privacyverklaring .et_pb_fullwidth_header_0 .et_pb_header_content_wra
 	margin-right: auto;
 }
 
-/* Footer-widgetblok: verloop wit → mint (i.p.v. vlak grijs) */
-.et_pb_section.et_pb_section_3.et_pb_with_background:not(#Ervaringen) {
+
+.pb_section.pb_section_3.pb_with_background:not(#Ervaringen) {
 	background: linear-gradient(180deg, #ffffff 0%, #e5f3f3 42%, #c1dfe0 100%) !important;
 	background-color: transparent !important;
 }
 
-/* Ervaringen-sectie: golfpatroon (originele export-asset; wint van deferred .et_pb_section_3) */
-#Ervaringen.et_pb_section.et_pb_section_3 {
+
+#Ervaringen.pb_section.pb_section_3 {
 	background-color: #e8f2f2 !important;
 	background-image: url('../images/2021/06/6-bg_testimonials_section-2.png') !important;
 	background-repeat: repeat;
 	background-position: 0 0;
 	background-size: 2100px auto;
-	/* ~15px minder padding boven en onder (totaal ~30px minder sectiehoogte) */
+	
 	padding-block: calc(4.125rem - 0.9375rem) !important;
 }
 
-/* Iets breder dan bronexport-default (1325px), maar niet te ver */
-#Ervaringen.et_pb_section .et_pb_row {
+
+#Ervaringen.pb_section .pb_row {
 	max-width: 85rem !important;
 	width: 91% !important;
 }
 
 @media (max-width: 980px) {
-	#Ervaringen.et_pb_section {
+	#Ervaringen.pb_section {
 		padding-block: calc(3.375rem - 0.9375rem) !important;
 	}
 }
 
 @media (max-width: 767px) {
-	#Ervaringen.et_pb_section {
+	#Ervaringen.pb_section {
 		padding-block: calc(2.5rem - 0.9375rem) !important;
 	}
 }
@@ -1337,7 +1335,7 @@ body.page--privacyverklaring .et_pb_fullwidth_header_0 .et_pb_header_content_wra
 	background: linear-gradient(180deg, #e5f3f3 0%, #c1dfe0 100%) !important;
 }
 
-/* Scrollbar: standaardbreedte, roze→groen zoals footer/schakering */
+
 html {
 	scrollbar-color: var(--scrollbar-thumb-mid) var(--scrollbar-track);
 }
@@ -1370,21 +1368,21 @@ html {
 	background-clip: padding-box;
 }
 
-/* Disclaimer (o.a. et_pb_text_10): één <span> zonder breaks → horizontale scroll (iPhone landscape) */
-#page-container .et_pb_row .et_pb_column {
+
+#page-container .pb_row .pb_column {
 	min-width: 0;
 }
 
-#page-container .et_pb_module.et_pb_text {
+#page-container .pb_module.pb_text {
 	max-width: 100%;
 }
 
-#page-container .et_pb_text_inner {
+#page-container .pb_text_inner {
 	max-width: 100%;
 	overflow-wrap: anywhere;
 }
 
-#page-container .et_pb_text_10 .et_pb_text_inner p > span {
+#page-container .pb_text_10 .pb_text_inner p > span {
 	display: block;
 	width: 100%;
 	max-width: 100%;
@@ -1393,11 +1391,11 @@ html {
 	hyphens: auto;
 }
 
-/* Tekstlinks (niet tel/menu/social/knoppen): underline links→rechts bij hover */
+
 @media (prefers-reduced-motion: no-preference) {
 	#page-container
-		:where(.et_pb_text_inner, .entry-content, #main-footer)
-		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+		:where(.pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.pb_button):not(.icon):not(.skip-link):not(
 			.footer-credit-link
 		):not(.contact-whatsapp-link) {
 		text-decoration: none;
@@ -1412,13 +1410,13 @@ html {
 	}
 
 	#page-container
-		:where(.et_pb_text_inner, .entry-content, #main-footer)
-		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+		:where(.pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.pb_button):not(.icon):not(.skip-link):not(
 			.footer-credit-link
 		):not(.contact-whatsapp-link):hover,
 	#page-container
-		:where(.et_pb_text_inner, .entry-content, #main-footer)
-		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+		:where(.pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.pb_button):not(.icon):not(.skip-link):not(
 			.footer-credit-link
 		):not(.contact-whatsapp-link):focus-visible {
 		color: var(--link-hover-color) !important;
@@ -1428,13 +1426,13 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
 	#page-container
-		:where(.et_pb_text_inner, .entry-content, #main-footer)
-		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+		:where(.pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.pb_button):not(.icon):not(.skip-link):not(
 			.footer-credit-link
 		):not(.contact-whatsapp-link):hover,
 	#page-container
-		:where(.et_pb_text_inner, .entry-content, #main-footer)
-		a[href]:not([href^="tel:"]):not(.et_pb_button):not(.icon):not(.skip-link):not(
+		:where(.pb_text_inner, .entry-content, #main-footer)
+		a[href]:not([href^="tel:"]):not(.pb_button):not(.icon):not(.skip-link):not(
 			.footer-credit-link
 		):not(.contact-whatsapp-link):focus-visible {
 		color: var(--link-hover-color) !important;
@@ -1445,7 +1443,7 @@ html {
 
 #main-header a,
 .et_mobile_menu a,
-#page-container ul.et_pb_social_media_follow_0 a.icon {
+#page-container ul.pb_social_media_follow_0 a.icon {
 	background-image: none !important;
 }
 
@@ -1454,8 +1452,8 @@ html {
 	transition: none;
 }
 
-/* Footer-kolom: social icons roze + hover (bronexport deferred zet zwart via network_0/1/2) */
-#page-container ul.et_pb_social_media_follow_0 a.icon {
+
+#page-container ul.pb_social_media_follow_0 a.icon {
 	background-color: var(--footer-social-bg) !important;
 	border: 1px solid var(--footer-social-border) !important;
 	border-radius: 50% !important;
@@ -1466,77 +1464,77 @@ html {
 		border-color 0.25s ease;
 }
 
-#page-container ul.et_pb_social_media_follow_0 a.icon::before {
+#page-container ul.pb_social_media_follow_0 a.icon::before {
 	color: var(--footer-social-icon) !important;
 	transition: color 0.25s ease;
 }
 
-#page-container ul.et_pb_social_media_follow_0 a.icon:hover,
-#page-container ul.et_pb_social_media_follow_0 a.icon:focus-visible {
+#page-container ul.pb_social_media_follow_0 a.icon:hover,
+#page-container ul.pb_social_media_follow_0 a.icon:focus-visible {
 	background-color: var(--footer-social-bg-hover) !important;
 	border-color: var(--footer-social-bg-hover) !important;
 	color: var(--footer-social-icon-hover) !important;
 }
 
-#page-container ul.et_pb_social_media_follow_0 a.icon:hover::before,
-#page-container ul.et_pb_social_media_follow_0 a.icon:focus-visible::before {
+#page-container ul.pb_social_media_follow_0 a.icon:hover::before,
+#page-container ul.pb_social_media_follow_0 a.icon:focus-visible::before {
 	color: var(--footer-social-icon-hover) !important;
 }
 
-/* VVNT-logo: zelfde afronding als footer-knoppen (bronexport .et_pb_button ≈ 3px) */
+
 #page-container a[href="https://vvnt.nl"] img.footer-vvnt-badge {
 	border-radius: var(--footer-button-radius);
 }
 
-/* Mobiel/tablet smal: koppen en lopende tekst gecentreerd (incl. footer-kolommen) */
+
 @media (max-width: 980px) {
-	main#hoofdinhoud :is(.et_pb_text, .et_pb_blurb, .et_pb_toggle) {
+	main#hoofdinhoud :is(.pb_text, .pb_blurb, .pb_toggle) {
 		text-align: center !important;
 	}
 
-	main#hoofdinhoud .et_pb_text_inner,
-	main#hoofdinhoud .et_pb_blurb_content {
+	main#hoofdinhoud .pb_text_inner,
+	main#hoofdinhoud .pb_blurb_content {
 		text-align: center !important;
 	}
 
-	main#hoofdinhoud .et_pb_text_inner :is(h1, h2, h3, h4, h5, h6, p, li, a, span, em, strong) {
+	main#hoofdinhoud .pb_text_inner :is(h1, h2, h3, h4, h5, h6, p, li, a, span, em, strong) {
 		text-align: center;
 	}
 
 	main#hoofdinhoud
-		.et_pb_fullwidth_header:not(.et_pb_fullwidth_header_0):not(.et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:not(.pb_fullwidth_header_0):not(.pb_fullwidth_header_1)
 		.header-content,
 	main#hoofdinhoud
-		.et_pb_fullwidth_header:not(.et_pb_fullwidth_header_0):not(.et_pb_fullwidth_header_1)
-		.et_pb_header_content_wrapper,
-	body.page--shambhala-reiki main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body.page--shambhala-reiki main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
-	body.page--access-bars main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body.page--access-bars main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
-	body.page--vlindermassage main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body.page--vlindermassage main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
-	body.page--privacyverklaring main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body.page--privacyverklaring main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper,
-	body.page--magnesiumpakking main#hoofdinhoud .et_pb_fullwidth_header .header-content,
-	body.page--magnesiumpakking main#hoofdinhoud .et_pb_fullwidth_header .et_pb_header_content_wrapper {
+		.pb_fullwidth_header:not(.pb_fullwidth_header_0):not(.pb_fullwidth_header_1)
+		.pb_header_content_wrapper,
+	body.page--shambhala-reiki main#hoofdinhoud .pb_fullwidth_header .header-content,
+	body.page--shambhala-reiki main#hoofdinhoud .pb_fullwidth_header .pb_header_content_wrapper,
+	body.page--access-bars main#hoofdinhoud .pb_fullwidth_header .header-content,
+	body.page--access-bars main#hoofdinhoud .pb_fullwidth_header .pb_header_content_wrapper,
+	body.page--vlindermassage main#hoofdinhoud .pb_fullwidth_header .header-content,
+	body.page--vlindermassage main#hoofdinhoud .pb_fullwidth_header .pb_header_content_wrapper,
+	body.page--privacyverklaring main#hoofdinhoud .pb_fullwidth_header .header-content,
+	body.page--privacyverklaring main#hoofdinhoud .pb_fullwidth_header .pb_header_content_wrapper,
+	body.page--magnesiumpakking main#hoofdinhoud .pb_fullwidth_header .header-content,
+	body.page--magnesiumpakking main#hoofdinhoud .pb_fullwidth_header .pb_header_content_wrapper {
 		text-align: center !important;
 	}
 
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content,
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
-		.et_pb_header_content_wrapper,
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
+		.pb_header_content_wrapper,
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content-container,
 	body:not(.page-layout-hero)
 		main#hoofdinhoud
-		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
+		.pb_fullwidth_header:is(.pb_fullwidth_header_0, .pb_fullwidth_header_1)
 		.header-content-container.center {
 		text-align: center !important;
 		width: var(--hero-mobile-quote-max-width) !important;
@@ -1548,30 +1546,30 @@ html {
 		margin-right: auto !important;
 	}
 
-	main#hoofdinhoud .et_pb_text_inner img {
+	main#hoofdinhoud .pb_text_inner img {
 		margin-left: auto !important;
 		margin-right: auto !important;
 		display: block;
 	}
 
-	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) {
+	#page-container .pb_row:has(.pb_button_0_wrapper) {
 		text-align: center;
 	}
 
-	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_module.et_pb_text,
-	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_text_inner {
+	#page-container .pb_row:has(.pb_button_0_wrapper) .pb_module.pb_text,
+	#page-container .pb_row:has(.pb_button_0_wrapper) .pb_text_inner {
 		text-align: center !important;
 	}
 
-	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_text_inner :is(h3, p, a, span, em, strong) {
+	#page-container .pb_row:has(.pb_button_0_wrapper) .pb_text_inner :is(h3, p, a, span, em, strong) {
 		text-align: center;
 	}
 
-	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_button_module_wrapper {
+	#page-container .pb_row:has(.pb_button_0_wrapper) .pb_button_module_wrapper {
 		text-align: center;
 	}
 
-	#page-container .et_pb_row:has(.et_pb_button_0_wrapper) .et_pb_social_media_follow {
+	#page-container .pb_row:has(.pb_button_0_wrapper) .pb_social_media_follow {
 		justify-content: center;
 	}
 
@@ -1581,7 +1579,7 @@ html {
 	}
 }
 
-/* Voorkom horizontale scroll (o.a. 100vw-hero’s); clip i.p.v. hidden voor sticky/focus */
+
 html {
 	overflow-x: clip;
 }
@@ -1591,9 +1589,9 @@ html {
 	max-width: 100%;
 }
 
-/* Primaire knoppen (footer + error-CTA): zelfde padding/rand/hover als bronexport et_pb_button_0 */
-#page-container .et_pb_button_module_wrapper .et_pb_button.et_pb_button_0,
-#page-container .error-page-cta .et_pb_button.et_pb_button_0 {
+
+#page-container .pb_button_module_wrapper .pb_button.pb_button_0,
+#page-container .error-page-cta .pb_button.pb_button_0 {
 	padding: 10px 20px !important;
 	border: 1px solid #f6d9db !important;
 	border-width: 1px !important;
@@ -1602,78 +1600,75 @@ html {
 	color: #000000;
 	transition: background-color 300ms ease, border-color 300ms ease;
 }
-#page-container .et_pb_button_module_wrapper .et_pb_button.et_pb_button_0 {
+#page-container .pb_button_module_wrapper .pb_button.pb_button_0 {
 	font-weight: 700 !important;
 }
-#page-container .error-page-cta .et_pb_button.et_pb_button_0 {
+#page-container .error-page-cta .pb_button.pb_button_0 {
 	font-weight: 600 !important;
 }
-#page-container .et_pb_button_module_wrapper .et_pb_button.et_pb_button_0:after,
-#page-container .error-page-cta .et_pb_button.et_pb_button_0:after {
+#page-container .pb_button_module_wrapper .pb_button.pb_button_0:after,
+#page-container .error-page-cta .pb_button.pb_button_0:after {
 	display: none !important;
 }
-#page-container .et_pb_button_module_wrapper .et_pb_button.et_pb_button_0:hover,
-#page-container .error-page-cta .et_pb_button.et_pb_button_0:hover {
+#page-container .pb_button_module_wrapper .pb_button.pb_button_0:hover,
+#page-container .error-page-cta .pb_button.pb_button_0:hover {
 	background-color: #ffffff;
 	border-color: rgba(255, 255, 255, 0) !important;
 }
-.et_pb_section_1 .error-page-cta {
+.pb_section_1 .error-page-cta {
 	margin-top: 1.25rem;
 	text-align: center;
 }
 
-/* Ervaringen-carousel (export-slider + site.js) */
-/* Bronexport toont standaard alleen :first-child; actieve slide via JS */
-.js .site-slider-enhanced .et_pb_slides > .et_pb_slide {
+
+
+.js .site-slider-enhanced .pb_slides > .pb_slide {
 	display: none !important;
 	float: none;
 	margin-right: 0;
 	width: 100%;
 }
 
-.js .site-slider-enhanced.site-slider-ready .et_pb_slides {
+.js .site-slider-enhanced.site-slider-ready .pb_slides {
 	overflow: hidden;
 }
 
-.js .site-slider-enhanced.site-slider-ready .et_pb_slides > .et_pb_slide {
+.js .site-slider-enhanced.site-slider-ready .pb_slides > .pb_slide {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 }
 
-.js .site-slider-enhanced .et_pb_slides > .et_pb_slide.et-pb-active-slide {
+.js .site-slider-enhanced .pb_slides > .pb_slide.et-pb-active-slide {
 	display: block !important;
 }
 
-html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
+html:not(.js) .Ervaringen .pb_slides > .pb_slide {
 	display: block !important;
 	float: none;
 	margin-right: 0;
 	margin-bottom: 2.5rem;
 }
 
-.Ervaringen .et_pb_text_2 :is(h1, h2) {
+.Ervaringen .pb_text_2 :is(h1, h2) {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	color: #000000;
 }
 
-/*
- * Bronexport deferred CSS: .et_pb_slider_0 { margin-top: -100px } laadt ná a11y.css.
- * margin-top: 0 + padding (geen margin-collapse) voor vaste ruimte kop ↔ quote.
- */
-#Ervaringen.et_pb_section .et_pb_text_2.et_pb_module {
+
+#Ervaringen.pb_section .pb_text_2.pb_module {
 	margin-bottom: 0 !important;
 	padding-bottom: clamp(4rem, 7.5vw, 5.75rem);
 }
 
-#Ervaringen.et_pb_section .et_pb_slider.et_pb_slider_0 {
+#Ervaringen.pb_section .pb_slider.pb_slider_0 {
 	margin-top: 0 !important;
 	padding-top: clamp(3.5rem, 6.5vw, 5.25rem);
 }
 
-#Ervaringen .site-slider-enhanced .et_pb_slide .et_pb_container,
-#Ervaringen .site-slider-enhanced .et_pb_slider_container_inner {
+#Ervaringen .site-slider-enhanced .pb_slide .pb_container,
+#Ervaringen .site-slider-enhanced .pb_slider_container_inner {
 	width: 100%;
 	max-width: 100%;
 	margin-left: auto;
@@ -1682,7 +1677,7 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 	padding-right: 0;
 }
 
-#Ervaringen .site-slider-enhanced .et_pb_slide_description {
+#Ervaringen .site-slider-enhanced .pb_slide_description {
 	width: 100%;
 	float: none;
 	margin-left: auto;
@@ -1691,7 +1686,7 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 	padding-bottom: 0 !important;
 }
 
-/* Alleen bolletjes iets omhoog (tekst/slider ongewijzigd) */
+
 #Ervaringen .site-slider-nav {
 	margin-top: -2.75rem;
 }
@@ -1707,17 +1702,17 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 	padding-right: 0.75rem;
 }
 
-.site-slider-enhanced .et_pb_slides {
+.site-slider-enhanced .pb_slides {
 	position: relative;
 }
 
-.site-slider-enhanced .et_pb_slide_description,
-.site-slider-enhanced .et_pb_slide_content,
-.site-slider-enhanced .et_pb_slide_content p {
+.site-slider-enhanced .pb_slide_description,
+.site-slider-enhanced .pb_slide_content,
+.site-slider-enhanced .pb_slide_content p {
 	text-align: center;
 }
 
-.site-slider-enhanced .et_pb_slide_title {
+.site-slider-enhanced .pb_slide_title {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	font-size: clamp(1.5rem, 4.2vw, 3.25rem) !important;
 	line-height: 1.15;
@@ -1728,7 +1723,7 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 	margin-right: auto;
 }
 
-.site-slider-enhanced .et_pb_slide_content {
+.site-slider-enhanced .pb_slide_content {
 	color: #5a5a5a !important;
 	font-size: 1rem;
 	line-height: 1.65;
@@ -1737,8 +1732,8 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 	margin-right: auto;
 }
 
-#Ervaringen .site-slider-enhanced .et_pb_slide_title,
-#Ervaringen .site-slider-enhanced .et_pb_slide_content {
+#Ervaringen .site-slider-enhanced .pb_slide_title,
+#Ervaringen .site-slider-enhanced .pb_slide_content {
 	max-width: 82rem;
 }
 
@@ -1785,7 +1780,7 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 	font-size: 4.25rem;
 }
 
-/* Pijlen (alleen muis): verborgen tot hover/focus op sectie; schuiven naar buiten/binnen */
+
 @media (hover: hover) {
 	#Ervaringen .site-slider-prev,
 	#Ervaringen .site-slider-next {
@@ -1879,7 +1874,7 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 	background: #7aabab;
 }
 
-/* Bellen + WhatsApp: twee regels (nummer, dan WhatsApp) — gangbaar in footers */
+
 .contact-channels {
 	text-align: center;
 }
@@ -1974,9 +1969,9 @@ a.contact-whatsapp-link:focus-visible::before {
 	height: 1.15em;
 }
 
-/* Ondersteunende middelen: hero full-bleed (export mint-filter, 1440×1080) */
-body.page--ondersteunende-middelen .et_pb_section.et_pb_section_0,
-body.page--ondersteunende-middelen .et_pb_section.et_pb_section_1 {
+
+body.page--ondersteunende-middelen .pb_section.pb_section_0,
+body.page--ondersteunende-middelen .pb_section.pb_section_1 {
 	background-image: url(../images/2021/06/ondersteunendemiddelen-u121594-fr.jpg) !important;
 	background-size: cover !important;
 	background-position: center center !important;
@@ -1991,9 +1986,9 @@ body.page--ondersteunende-middelen .et_pb_section.et_pb_section_1 {
 }
 
 @media (min-width: 981px) {
-	/* Buiten 1325px-kolomgrid; overflow-x op html/page-container knipt 100vw-rand */
-	body.page--ondersteunende-middelen .et_pb_section.et_pb_section_0,
-	body.page--ondersteunende-middelen .et_pb_section.et_pb_section_1 {
+	
+	body.page--ondersteunende-middelen .pb_section.pb_section_0,
+	body.page--ondersteunende-middelen .pb_section.pb_section_1 {
 		width: 100vw !important;
 		max-width: 100vw !important;
 		margin-left: calc(50% - 50vw) !important;
@@ -2001,8 +1996,8 @@ body.page--ondersteunende-middelen .et_pb_section.et_pb_section_1 {
 	}
 }
 
-body.page--ondersteunende-middelen .et_pb_section.et_pb_section_0 .et_pb_fullwidth_header,
-body.page--ondersteunende-middelen .et_pb_section.et_pb_section_1 .et_pb_fullwidth_header {
+body.page--ondersteunende-middelen .pb_section.pb_section_0 .pb_fullwidth_header,
+body.page--ondersteunende-middelen .pb_section.pb_section_1 .pb_fullwidth_header {
 	width: 100% !important;
 	max-width: 100% !important;
 }
@@ -2011,14 +2006,14 @@ body.page--ondersteunende-middelen .et_pb_section.et_pb_section_1 .et_pb_fullwid
 	z-index: 100;
 }
 
-/* Ondersteunende middelen: 3 kolommen + ronde foto’s */
+
 @media (min-width: 981px) {
-	body.page--ondersteunende-middelen .et_pb_section_2,
-	body.page--ondersteunende-middelen .et_pb_section_3 {
+	body.page--ondersteunende-middelen .pb_section_2,
+	body.page--ondersteunende-middelen .pb_section_3 {
 		display: contents;
 	}
 
-	body.page--ondersteunende-middelen .et_builder_inner_content.et_pb_gutters3 {
+	body.page--ondersteunende-middelen .builder-inner.pb_gutters3 {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		column-gap: var(--ondersteunende-kolom-gap);
@@ -2033,9 +2028,9 @@ body.page--ondersteunende-middelen .et_pb_section.et_pb_section_1 .et_pb_fullwid
 		box-sizing: border-box;
 	}
 
-	body.page--ondersteunende-middelen .et_pb_row_0,
-	body.page--ondersteunende-middelen .et_pb_row_1,
-	body.page--ondersteunende-middelen .et_pb_row_2 {
+	body.page--ondersteunende-middelen .pb_row_0,
+	body.page--ondersteunende-middelen .pb_row_1,
+	body.page--ondersteunende-middelen .pb_row_2 {
 		display: flex;
 		flex-direction: column;
 		height: 100%;
@@ -2044,62 +2039,62 @@ body.page--ondersteunende-middelen .et_pb_section.et_pb_section_1 .et_pb_fullwid
 		max-width: none !important;
 	}
 
-	body.page--ondersteunende-middelen .et_pb_row_0 .et_pb_column,
-	body.page--ondersteunende-middelen .et_pb_row_1 .et_pb_column,
-	body.page--ondersteunende-middelen .et_pb_row_2 .et_pb_column {
+	body.page--ondersteunende-middelen .pb_row_0 .pb_column,
+	body.page--ondersteunende-middelen .pb_row_1 .pb_column,
+	body.page--ondersteunende-middelen .pb_row_2 .pb_column {
 		width: 100% !important;
 		max-width: none !important;
 	}
 
-	body.page--ondersteunende-middelen .et_pb_row_0 .et_pb_column,
-	body.page--ondersteunende-middelen .et_pb_row_1 .et_pb_column,
-	body.page--ondersteunende-middelen .et_pb_row_2 .et_pb_column {
+	body.page--ondersteunende-middelen .pb_row_0 .pb_column,
+	body.page--ondersteunende-middelen .pb_row_1 .pb_column,
+	body.page--ondersteunende-middelen .pb_row_2 .pb_column {
 		display: flex;
 		flex-direction: column;
 		flex: 1 1 auto;
 		height: 100%;
 	}
 
-	body.page--ondersteunende-middelen .et_pb_section_0,
-	body.page--ondersteunende-middelen .et_pb_section_1,
-	body.page--ondersteunende-middelen .et_pb_section_5,
-	body.page--ondersteunende-middelen .et_pb_section_7 {
+	body.page--ondersteunende-middelen .pb_section_0,
+	body.page--ondersteunende-middelen .pb_section_1,
+	body.page--ondersteunende-middelen .pb_section_5,
+	body.page--ondersteunende-middelen .pb_section_7 {
 		grid-column: 1 / -1;
 	}
 
-	body.page--ondersteunende-middelen .et_pb_row_0 {
+	body.page--ondersteunende-middelen .pb_row_0 {
 		grid-column: 1;
 	}
-	body.page--ondersteunende-middelen .et_pb_row_1 {
+	body.page--ondersteunende-middelen .pb_row_1 {
 		grid-column: 2;
 	}
-	body.page--ondersteunende-middelen .et_pb_row_2 {
+	body.page--ondersteunende-middelen .pb_row_2 {
 		grid-column: 3;
 	}
 }
 
-/* Kolommen: mint (1+3), roze midden; buitenrand afgerond zoals knoppen */
-body.page--ondersteunende-middelen .et_pb_row_0.et_pb_row,
-body.page--ondersteunende-middelen .et_pb_row_2.et_pb_row {
+
+body.page--ondersteunende-middelen .pb_row_0.pb_row,
+body.page--ondersteunende-middelen .pb_row_2.pb_row {
 	background-color: var(--site-mint) !important;
 }
 
-body.page--ondersteunende-middelen .et_pb_row_1.et_pb_row {
+body.page--ondersteunende-middelen .pb_row_1.pb_row {
 	background-color: var(--ondersteunende-kolom-roze) !important;
 }
 
-body.page--ondersteunende-middelen .et_pb_row_0.et_pb_row,
-body.page--ondersteunende-middelen .et_pb_row_1.et_pb_row,
-body.page--ondersteunende-middelen .et_pb_row_2.et_pb_row {
+body.page--ondersteunende-middelen .pb_row_0.pb_row,
+body.page--ondersteunende-middelen .pb_row_1.pb_row,
+body.page--ondersteunende-middelen .pb_row_2.pb_row {
 	padding: clamp(1.25rem, 3vw, 3.125rem) !important;
 	box-sizing: border-box;
 	border-radius: var(--footer-button-radius);
 	overflow: hidden;
 }
 
-body.page--ondersteunende-middelen .et_pb_row_0 .et_pb_module.et_pb_text,
-body.page--ondersteunende-middelen .et_pb_row_1 .et_pb_module.et_pb_text,
-body.page--ondersteunende-middelen .et_pb_row_2 .et_pb_module.et_pb_text {
+body.page--ondersteunende-middelen .pb_row_0 .pb_module.pb_text,
+body.page--ondersteunende-middelen .pb_row_1 .pb_module.pb_text,
+body.page--ondersteunende-middelen .pb_row_2 .pb_module.pb_text {
 	box-sizing: border-box;
 	flex: 1 1 auto;
 	height: 100%;
@@ -2110,23 +2105,23 @@ body.page--ondersteunende-middelen .et_pb_row_2 .et_pb_module.et_pb_text {
 	box-shadow: none !important;
 }
 
-body.page--ondersteunende-middelen .et_pb_row_1 .et_pb_module.et_pb_text {
+body.page--ondersteunende-middelen .pb_row_1 .pb_module.pb_text {
 	border-color: var(--ondersteunende-kolom-roze-border) !important;
 }
 
-body.page--ondersteunende-middelen .et_pb_row_0 .et_pb_text_inner,
-body.page--ondersteunende-middelen .et_pb_row_1 .et_pb_text_inner,
-body.page--ondersteunende-middelen .et_pb_row_2 .et_pb_text_inner {
+body.page--ondersteunende-middelen .pb_row_0 .pb_text_inner,
+body.page--ondersteunende-middelen .pb_row_1 .pb_text_inner,
+body.page--ondersteunende-middelen .pb_row_2 .pb_text_inner {
 	text-align: center !important;
 }
 
-body.page--ondersteunende-middelen .et_pb_row_0 .et_pb_text_inner :is(h1, h2, p, a, span),
-body.page--ondersteunende-middelen .et_pb_row_1 .et_pb_text_inner :is(h1, h2, p, a, span),
-body.page--ondersteunende-middelen .et_pb_row_2 .et_pb_text_inner :is(h1, h2, p, a, span) {
+body.page--ondersteunende-middelen .pb_row_0 .pb_text_inner :is(h1, h2, p, a, span),
+body.page--ondersteunende-middelen .pb_row_1 .pb_text_inner :is(h1, h2, p, a, span),
+body.page--ondersteunende-middelen .pb_row_2 .pb_text_inner :is(h1, h2, p, a, span) {
 	text-align: center !important;
 }
 
-body.page--ondersteunende-middelen .et_pb_text_inner p:has(> img.ondersteunende-middelen-foto) {
+body.page--ondersteunende-middelen .pb_text_inner p:has(> img.ondersteunende-middelen-foto) {
 	margin-left: auto;
 	margin-right: auto;
 	width: var(--ondersteunende-foto-grootte);
@@ -2150,39 +2145,39 @@ body.page--ondersteunende-middelen img.ondersteunende-middelen-foto {
 	flex-shrink: 0;
 }
 
-/* Typografisch ritme: titel → intro → foto → vervolgtekst (zoals kolom 2) */
-body.page--ondersteunende-middelen .et_pb_row_0 .et_pb_text_inner > p,
-body.page--ondersteunende-middelen .et_pb_row_1 .et_pb_text_inner > p,
-body.page--ondersteunende-middelen .et_pb_row_2 .et_pb_text_inner > p {
+
+body.page--ondersteunende-middelen .pb_row_0 .pb_text_inner > p,
+body.page--ondersteunende-middelen .pb_row_1 .pb_text_inner > p,
+body.page--ondersteunende-middelen .pb_row_2 .pb_text_inner > p {
 	margin-bottom: 1em;
 }
 
-body.page--ondersteunende-middelen .et_pb_row_0 .et_pb_text_inner > p:has(img),
-body.page--ondersteunende-middelen .et_pb_row_1 .et_pb_text_inner > p:has(img),
-body.page--ondersteunende-middelen .et_pb_row_2 .et_pb_text_inner > p:has(img) {
+body.page--ondersteunende-middelen .pb_row_0 .pb_text_inner > p:has(img),
+body.page--ondersteunende-middelen .pb_row_1 .pb_text_inner > p:has(img),
+body.page--ondersteunende-middelen .pb_row_2 .pb_text_inner > p:has(img) {
 	margin-top: 0.25em;
 	margin-bottom: 1em;
 }
 
 @media (max-width: 980px) {
-	/* Kolommen staan in section_2 + section_3: dubbele sectie-padding = grote witruimte */
-	body.page--ondersteunende-middelen .et_pb_section_2,
-	body.page--ondersteunende-middelen .et_pb_section_3 {
+	
+	body.page--ondersteunende-middelen .pb_section_2,
+	body.page--ondersteunende-middelen .pb_section_3 {
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
 	}
 
-	body.page--ondersteunende-middelen .et_pb_section_2 {
+	body.page--ondersteunende-middelen .pb_section_2 {
 		padding-top: 1.5rem !important;
 	}
 
-	body.page--ondersteunende-middelen .et_pb_row_0,
-	body.page--ondersteunende-middelen .et_pb_row_1,
-	body.page--ondersteunende-middelen .et_pb_row_2 {
+	body.page--ondersteunende-middelen .pb_row_0,
+	body.page--ondersteunende-middelen .pb_row_1,
+	body.page--ondersteunende-middelen .pb_row_2 {
 		margin-bottom: 1.5rem;
 	}
 
-	body.page--ondersteunende-middelen .et_pb_row_2 {
+	body.page--ondersteunende-middelen .pb_row_2 {
 		margin-bottom: 0;
 	}
 }

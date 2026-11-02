@@ -35,6 +35,8 @@
     "css:shell": "node scripts/apply-shell-classes.mjs",
     "css:normalize": "node scripts/normalize-page-markup.mjs && node scripts/apply-current-menu.mjs && node scripts/apply-shell-classes.mjs && node scripts/apply-shell-stylesheet.mjs",
     "css:a11y-slugs": "node scripts/migrate-a11y-page-ids.mjs",
+    "css:rename-builder": "node scripts/rename-builder-classes.mjs",
+    "css:strip-comments": "node scripts/strip-css-comments.mjs",
     "strato:links": "node scripts/apply-strato-links.mjs",
     "strato:origin": "node scripts/migrate-site-origin.mjs",
     "strato:staging-robots": "node scripts/apply-staging-robots.mjs",

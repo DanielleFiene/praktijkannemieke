@@ -116,7 +116,7 @@ body {
 }
 
 @media (max-width: 1200px) {
- .container.et_menu_container { 
+ .container.menu-container { 
  width: calc( 100% - 60px);
  }
 .et_mobile_menu {
@@ -148,7 +148,7 @@ body {
 	padding-top: 10px;
 }
 
-.dtb_mobile .et_mobile_menu li a, .dtb_mobile .dtb-menu .et_mobile_menu li a, .dtb_mobile #et-boc .dtb-menu .et_mobile_menu li a, .et-db #et-boc .et-l .dtb-menu .et_mobile_menu li a {
+.dtb_mobile .et_mobile_menu li a, .dtb_mobile .dtb-menu .et_mobile_menu li a, .dtb_mobile #et-boc .dtb-menu .et_mobile_menu li a, .et-db #et-boc .builder .dtb-menu .et_mobile_menu li a {
 	color: #000;
 	letter-spacing: 1px;
 	font-weight: 700;

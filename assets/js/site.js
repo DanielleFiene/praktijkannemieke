@@ -18,7 +18,7 @@
 			if (!menu || !mobileNav.classList.contains('opened')) return;
 			const anchor = mobileNav.getBoundingClientRect();
 			const headerBar =
-				document.querySelector('#main-header .container.et_menu_container') ??
+				document.querySelector('#main-header .container.menu-container') ??
 				document.getElementById('main-header');
 			const fullBarWidth = window.matchMedia(
 				'(max-width: 980px) and (orientation: portrait)',
@@ -158,8 +158,8 @@
 	const SLIDER_AUTOPLAY_MS = 10000;
 
 	function initSliders() {
-		document.querySelectorAll('.et_pb_slider').forEach((slider) => {
-			const slides = [...slider.querySelectorAll('.et_pb_slide')];
+		document.querySelectorAll('.pb_slider').forEach((slider) => {
+			const slides = [...slider.querySelectorAll('.pb_slide')];
 			if (slides.length < 2) return;
 
 			slider.classList.add('site-slider-enhanced');
@@ -192,7 +192,7 @@
 
 			const dots = slides.map((slide, i) => {
 				const title =
-					slide.querySelector('.et_pb_slide_title')?.textContent?.trim() ||
+					slide.querySelector('.pb_slide_title')?.textContent?.trim() ||
 					`Ervaring ${i + 1}`;
 				const dot = document.createElement('button');
 				dot.type = 'button';
@@ -205,7 +205,7 @@
 			});
 
 			nav.append(dotsWrap);
-			const slidesWrap = slider.querySelector('.et_pb_slides');
+			const slidesWrap = slider.querySelector('.pb_slides');
 			if (slidesWrap) {
 				slidesWrap.append(prev, next);
 			} else {
@@ -217,7 +217,7 @@
 			let timer = null;
 
 			const syncSlideHeight = () => {
-				const wrap = slider.querySelector('.et_pb_slides');
+				const wrap = slider.querySelector('.pb_slides');
 				if (!wrap) return;
 
 				const savedIndex = index;

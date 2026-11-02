@@ -46,7 +46,7 @@ CMS-restjes (`wp-json`, oude caches, dubbele bestanden) verwijderen zodra niet m
 2. Relatieve paden + `%3F`-bestandsnamen opschonen — **gedaan**
 3. Nieuwe mappenstructuur, CMS-restjes verwijderen — **gedaan** (`assets/`; CSS-bron in `_sources/`)
 4. Semantische HTML — **gedaan** (skip-link, `<main>`, nav ARIA, credits-meta, footer Tiki-tekst, `humans.txt`, `a11y.css`; één `h1` per pagina volgt in stap 5/6)
-5. CSS herschrijven (screenshots gelijk) — **gedaan** (`layout.css`, `site.css`, `pages/`, `shell.css`, slug-markup zonder CMS `id` op `<article>`; `a11y.css` op `body.page--{slug}` / `page-layout-hero`; bron in `_sources/`. Inhoudsblokken behouden `et_pb_*` zolang `layout.css` + `pages/*.css` daarop leunen.)
+5. CSS herschrijven (screenshots gelijk) — **gedaan** (`layout.css`, `site.css`, `pages/`, `shell.css`, slug-markup; `pb_*` i.p.v. `et_pb_*`; bron in `_sources/`.)
 6. Minimale vanilla JS — **gedaan** (`assets/js/site.js`; jQuery en export-footer-scripts verwijderd)
 7. Afbeeldingen/fonts optimaliseren — **deels** (`npm run perf:lighthouse`; og-share 1200×630; favicon.svg; font-preload + footer lazy via `perf:markup`)
 8. SEO + structured data + llms.txt — **gedaan** (`npm run seo:static`; robots/sitemap/llms; LocalBusiness + Service JSON-LD)

@@ -30,4 +30,4 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 
 ## Opruimen (later – apart project, visueel 1-op-1)
 
-- **`et_pb_*` + slanke CSS:** inhoudsmarkup en `layout.css` (~800 KB) pas weg na volledige CSS-herschrijf met visuele tests; **niet** doen voor livegang.
+- **`et_pb_*` + slanke CSS:** builder-klassen heten nu **`pb_*`** (geen Divi-prefix); `layout.css` blijft export-groot tot optionele purge/herschrijf; comments weg uit `a11y.css` / `site.css` / `shell.css`.

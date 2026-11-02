@@ -22,5 +22,6 @@ test('article: slug-class geen page--123', () => {
 		expect(html, path.relative(siteRoot, file)).not.toMatch(/class="page page--\d+"/);
 		expect(html, path.relative(siteRoot, file)).not.toMatch(/<article id="page-\d+"/);
 		expect(html, path.relative(siteRoot, file)).toMatch(/<article class="page page--[\w-]+">/);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/\bet_pb_/);
 	}
 });
