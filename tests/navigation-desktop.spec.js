@@ -25,6 +25,18 @@ test.describe('anchor-links', () => {
     await expect(page.locator('#Nei')).toBeVisible();
   });
 
+  test('Voor wie vanaf subpagina naar home #Wie', async ({ page }) => {
+    await page.goto('tarieven/', { waitUntil: 'domcontentloaded' });
+    await waitForPageStable(page);
+
+    const link = page.locator('a[href="/#Wie"]').filter({ hasText: 'Voor wie' });
+    await link.scrollIntoViewIfNeeded();
+    await link.click();
+    await page.waitForLoadState('domcontentloaded');
+    await expect(page).toHaveURL(/#Wie$/);
+    await expect(page.locator('#Wie')).toBeVisible();
+  });
+
   test('Ervaringen op over-annemieke', async ({ page }) => {
     await page.goto('over-annemieke/', { waitUntil: 'domcontentloaded' });
     await waitForPageStable(page);

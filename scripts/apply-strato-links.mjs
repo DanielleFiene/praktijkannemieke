@@ -63,6 +63,11 @@ function patchHtml(html, slug) {
 	next = next.replace(/href="site\.webmanifest"/g, 'href="/site.webmanifest"');
 	next = next.replace(/href="\.\.\/([^"]+\.html)"/g, 'href="/$1"');
 
+	// WordPress-export: dubbele fragmenten (#Wie#Wie) en #id/ in href
+	next = next.replaceAll('href="#Wie#Wie"', 'href="#Wie"');
+	next = next.replaceAll('href="/#Wie#Wie"', 'href="/#Wie"');
+	next = next.replaceAll('#Ervaringen/"', '#Ervaringen"');
+
 	return next;
 }
 
