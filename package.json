@@ -24,6 +24,7 @@
     "finalize:site": "node scripts/finalize-static-site.mjs",
     "seo:jsonld": "node scripts/fix-json-ld-urls.mjs",
     "seo:static": "node scripts/apply-seo-static.mjs",
+    "fix:headings": "node scripts/fix-heading-hierarchy.mjs",
     "assets:rename": "node scripts/rename-bronexport-assets.mjs",
     "scrub:bronexport": "node scripts/scrub-bronexport-remnants.mjs",
     "scrub:cms-markup": "node scripts/scrub-cms-markup.mjs",

@@ -188,8 +188,41 @@
 }
 
 /* Over Annemieke: paginatitel niet vet (export had <strong>) */
-#page-17 .et_pb_text_0 .et_pb_text_inner > h1 {
+#page-17 .et_pb_text_0 .et_pb_text_inner > :is(h1, h2) {
 	font-weight: 400;
+}
+
+/* Pagina- en quote-koppen (voorheen h1): bronexport page-cache targette .et_pb_text_N h1 */
+main#hoofdinhoud .et_pb_text_inner > h2:has(.H1-Jenna-Sue-56pt-zwart),
+main#hoofdinhoud .et_pb_text_inner > h2:has(.Quote-Annemieke),
+main#hoofdinhoud .et_pb_text_inner > h2.Quote-Annemieke,
+.et_pb_text_2 .et_pb_text_inner > h2:first-child {
+	font-family: jenna_sueregular, "Jenna Sue", cursive;
+	font-size: 65px;
+	font-weight: 400;
+	line-height: 1.1em;
+}
+
+#Nei .et_pb_text_inner > h2 {
+	font-size: 50px;
+}
+
+/* Hero over foto: quotes (h2.et_pb_module_header / wrapper) — export gaf Jenna Sue alleen aan h1 */
+main#hoofdinhoud .et_pb_fullwidth_header .header-content > h2.et_pb_module_header {
+	font-family: jenna_sueregular, "Jenna Sue", cursive;
+	font-weight: 400;
+	line-height: 1.1em;
+}
+
+main#hoofdinhoud .et_pb_fullwidth_header .header-content .et_pb_header_content_wrapper > h2 {
+	font-family: jenna_sueregular, "Jenna Sue", cursive;
+	font-size: 65px;
+	font-weight: 400;
+	line-height: 1.1em;
+}
+
+.home main#hoofdinhoud .et_pb_fullwidth_header .header-content .et_pb_header_content_wrapper > h2 {
+	font-size: 63px;
 }
 
 .skip-link.screen-reader-text:focus {
@@ -600,7 +633,7 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content
-		:is(.et_pb_module_header, .et_pb_header_content_wrapper, .et_pb_header_content_wrapper h1) {
+		:is(.et_pb_module_header, .et_pb_header_content_wrapper, .et_pb_header_content_wrapper :is(h1, h2)) {
 		text-align: left !important;
 	}
 }
@@ -696,7 +729,7 @@ body.home .et_pb_fullwidth_header_0 .header-content,
 		main#hoofdinhoud
 		.et_pb_fullwidth_header:is(.et_pb_fullwidth_header_0, .et_pb_fullwidth_header_1)
 		.header-content
-		:is(h1, .et_pb_module_header, .et_pb_header_content_wrapper, .et_pb_header_content_wrapper h1) {
+		:is(h1, h2, .et_pb_module_header, .et_pb_header_content_wrapper, .et_pb_header_content_wrapper :is(h1, h2)) {
 		text-align: center !important;
 		margin-top: 0 !important;
 		margin-left: 0 !important;
@@ -1096,8 +1129,8 @@ body:has(#page-506) {
 }
 
 /* Wie-sectie: witte kopjes + intro; lijsttekst zwart (zoals ontwerp) */
-#Wie h2,
-#Wie h2 span {
+#Wie :is(h1, h2),
+#Wie :is(h1, h2) span {
 	color: #ffffff !important;
 }
 
@@ -1694,7 +1727,7 @@ html:not(.js) .Ervaringen .et_pb_slides > .et_pb_slide {
 	margin-bottom: 2.5rem;
 }
 
-.Ervaringen .et_pb_text_2 h1 {
+.Ervaringen .et_pb_text_2 :is(h1, h2) {
 	font-family: jenna_sueregular, "Jenna Sue", cursive;
 	color: #000000;
 }
@@ -2161,9 +2194,9 @@ a.contact-whatsapp-link:focus-visible::before {
 	text-align: center !important;
 }
 
-#page-19 .et_pb_row_0 .et_pb_text_inner :is(h1, p, a, span),
-#page-19 .et_pb_row_1 .et_pb_text_inner :is(h1, p, a, span),
-#page-19 .et_pb_row_2 .et_pb_text_inner :is(h1, p, a, span) {
+#page-19 .et_pb_row_0 .et_pb_text_inner :is(h1, h2, p, a, span),
+#page-19 .et_pb_row_1 .et_pb_text_inner :is(h1, h2, p, a, span),
+#page-19 .et_pb_row_2 .et_pb_text_inner :is(h1, h2, p, a, span) {
 	text-align: center !important;
 }
 

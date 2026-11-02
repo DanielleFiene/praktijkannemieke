@@ -7,6 +7,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://www.praktijkannemieke.nl';
+const OG_IMAGE = `${SITE}/assets/images/og-share.png`;
+const LOCAL_BUSINESS_DESC =
+	'Praktijk voor energetisch werk in Beneden-Leeuwen (Gelderland). NEI-therapie, Reiki, Access Bars en meer; NEI ook op afstand.';
 const SKIP_DIRS = new Set(['node_modules', 'tests', 'playwright-report', 'test-results', '.git']);
 
 const CSP =
@@ -48,6 +51,93 @@ function extractMeta(html, name) {
 	return m?.[1]?.trim() || '';
 }
 
+function escapeAttr(value) {
+	return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+function stripTags(html) {
+	return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function truncateMeta(text, max = 155) {
+	if (text.length <= max) return text;
+	const cut = text.slice(0, max - 1);
+	const lastSpace = cut.lastIndexOf(' ');
+	return `${(lastSpace > 80 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+}
+
+function inferDescription(html, dir) {
+	let existing = extractMeta(html, 'description');
+	if (dir === '' && existing && !/afstand/i.test(existing)) {
+		const extra = ' NEI ook op afstand.';
+		if (existing.length + extra.length <= 160) existing += extra;
+	}
+	if (existing) return existing;
+
+	const main = /<main id="hoofdinhoud">([\s\S]*?)<\/main>/i.exec(html);
+	if (main) {
+		for (const match of main[1].matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)) {
+			const text = stripTags(match[1]);
+			if (text.length >= 50) return truncateMeta(text);
+		}
+	}
+
+	const fallbacks = {
+		tarieven:
+			'Tarieven voor NEI-sessies, Shambhala Reiki, Access Bars, vlindermassage en magnesiumpakking bij Praktijk Annemieke in Beneden-Leeuwen.',
+		'neem-contact-op':
+			'Neem contact op met Praktijk Annemieke in Beneden-Leeuwen voor een afspraak of vraag over NEI-therapie en andere behandelingen.',
+		privacyverklaring:
+			'Privacyverklaring van Praktijk Annemieke: hoe persoonsgegevens worden verwerkt en bewaard.',
+	};
+	return fallbacks[dir] || '';
+}
+
+function ensureMetaDescription(html, description) {
+	if (!description) return html;
+	const tag = `<meta name="description" content="${escapeAttr(description)}" />`;
+	if (html.includes('name="description"')) {
+		return html.replace(/<meta name="description" content="[^"]*"\s*\/>/, tag);
+	}
+	return html.replace(/<link rel="canonical" href="[^"]*"\s*\/>/, (m) => `${m}\n\t${tag}`);
+}
+
+function ensureSocialMeta(html, { canonical, pageTitle, description }) {
+	let next = html;
+	next = next.replace(
+		/<meta property="og:url" content="\.\/"\s*\/>/g,
+		`<meta property="og:url" content="${canonical}" />`
+	);
+	if (description) {
+		const ogDesc = `<meta property="og:description" content="${escapeAttr(description)}" />`;
+		if (next.includes('property="og:description"')) {
+			next = next.replace(/<meta property="og:description" content="[^"]*"\s*\/>/, ogDesc);
+		} else {
+			next = next.replace(
+				/<meta property="og:title" content="[^"]*"\s*\/>/i,
+				(m) => `${m}\n\t${ogDesc}`
+			);
+		}
+		const twDesc = `<meta name="twitter:description" content="${escapeAttr(description)}" />`;
+		if (next.includes('name="twitter:description"')) {
+			next = next.replace(/<meta name="twitter:description" content="[^"]*"\s*\/>/, twDesc);
+		} else if (next.includes('name="twitter:card"')) {
+			next = next.replace(/<meta name="twitter:card" content="[^"]*"\s*\/>/i, (m) => `${m}\n\t${twDesc}`);
+		}
+	}
+	const twitter = [
+		['twitter:title', pageTitle],
+		['twitter:image', OG_IMAGE],
+	];
+	for (const [name, value] of twitter) {
+		if (!value || next.includes(`name="${name}"`)) continue;
+		next = next.replace(
+			/<meta name="twitter:card" content="[^"]*"\s*\/>/i,
+			(m) => `${m}\n\t<meta name="${name}" content="${escapeAttr(value)}" />`
+		);
+	}
+	return next;
+}
 function extractCanonical(html) {
 	const m = /<link rel="canonical" href="([^"]+)"/i.exec(html);
 	return m?.[1]?.trim() || SITE;
@@ -58,7 +148,7 @@ function localBusinessNode() {
 		'@type': 'LocalBusiness',
 		'@id': `${SITE}/#localbusiness`,
 		name: 'Praktijk Annemieke',
-		description: 'Praktijk voor energetisch werk',
+		description: LOCAL_BUSINESS_DESC,
 		url: SITE,
 		telephone: '+31611260440',
 		email: 'welkom@praktijkannemieke.nl',
@@ -79,6 +169,9 @@ function enrichGraph(graph, { canonical, dir, metaDescription, pageTitle }) {
 
 	if (!byId(`${SITE}/#localbusiness`)) {
 		next.push(localBusinessNode());
+	} else {
+		const lb = byId(`${SITE}/#localbusiness`);
+		lb.description = LOCAL_BUSINESS_DESC;
 	}
 
 	const website = byId(`${SITE}/#website`);
@@ -93,6 +186,9 @@ function enrichGraph(graph, { canonical, dir, metaDescription, pageTitle }) {
 	}
 
 	const webPage = next.find((n) => n && n['@type'] === 'WebPage' && n.url === canonical);
+	if (webPage && metaDescription) {
+		webPage.description = metaDescription;
+	}
 	const serviceName =
 		dir === ''
 			? 'NEI-therapie'
@@ -102,7 +198,8 @@ function enrichGraph(graph, { canonical, dir, metaDescription, pageTitle }) {
 
 	if (serviceName && metaDescription) {
 		const serviceId = `${canonical}#service`;
-		if (!byId(serviceId)) {
+		const existingService = byId(serviceId);
+		if (!existingService) {
 			next.push({
 				'@type': 'Service',
 				'@id': serviceId,
@@ -112,6 +209,8 @@ function enrichGraph(graph, { canonical, dir, metaDescription, pageTitle }) {
 				provider: { '@id': `${SITE}/#localbusiness` },
 				areaServed: { '@type': 'Country', name: 'NL' },
 			});
+		} else {
+			existingService.description = metaDescription;
 		}
 		if (webPage) {
 			webPage.about = { '@id': serviceId };
@@ -236,17 +335,17 @@ pruneLegacyPageCss();
 updateSitemapLastmod();
 
 let changed = 0;
-for (const file of listHtmlFiles()) {
+	for (const file of listHtmlFiles()) {
 	const prefix = relPrefix(file);
 	const dir = pageDir(file);
 	const before = fs.readFileSync(file, 'utf8');
-	const ctx = {
-		canonical: extractCanonical(before),
-		dir,
-		metaDescription: extractMeta(before, 'description'),
-		pageTitle: (/<title>([^<]*)<\/title>/i.exec(before)?.[1] || '').trim(),
-	};
-	let after = patchJsonLd(before, ctx);
+	const pageTitle = (/<title>([^<]*)<\/title>/i.exec(before)?.[1] || '').trim();
+	const canonical = extractCanonical(before);
+	const metaDescription = inferDescription(before, dir);
+	let after = ensureMetaDescription(before, metaDescription);
+	const ctx = { canonical, dir, metaDescription, pageTitle };
+	after = patchJsonLd(after, ctx);
+	after = ensureSocialMeta(after, ctx);
 	after = ensureHeadMeta(after, prefix);
 	if (after !== before) {
 		fs.writeFileSync(file, after);
