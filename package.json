@@ -34,6 +34,7 @@
     "css:layout": "node scripts/build-layout-css.mjs && node scripts/apply-layout-stylesheet.mjs",
     "css:shell": "node scripts/apply-shell-classes.mjs",
     "css:normalize": "node scripts/normalize-page-markup.mjs && node scripts/apply-current-menu.mjs && node scripts/apply-shell-classes.mjs && node scripts/apply-shell-stylesheet.mjs",
+    "css:a11y-slugs": "node scripts/migrate-a11y-page-ids.mjs",
     "strato:links": "node scripts/apply-strato-links.mjs",
     "strato:origin": "node scripts/migrate-site-origin.mjs",
     "strato:staging-robots": "node scripts/apply-staging-robots.mjs",

@@ -1,4 +1,36 @@
 /*
- * shell.css – reservering voor header/nav/footer (stap 5.4).
- * Site-specifieke overrides staan in a11y.css tot verder opgesplitst.
+ * shell.css – site-header, navigatie, footer (stap 5.4)
+ * Bronexport-layout (layout.css) blijft; dit zijn site-specifieke overrides.
  */
+
+.site-header,
+#main-header.site-header {
+	position: relative;
+}
+
+.site-nav,
+#top-menu-nav.site-nav {
+	flex: 1 1 auto;
+}
+
+.site-footer,
+#main-footer.site-footer {
+	margin-top: auto;
+}
+
+.site-main,
+main.site-main {
+	display: block;
+}
+
+.site-root,
+#page-container.site-root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.site-root #et-main-area,
+#page-container #et-main-area {
+	flex: 1 1 auto;
+}

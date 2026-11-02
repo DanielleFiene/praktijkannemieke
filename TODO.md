@@ -19,13 +19,13 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 ## Lighthouse / performance
 
 - **Cache TTL 10m** op GitHub Pages: komt van GitHub, niet uit de repo. Bij live host (Cloudflare/eigen server) lange `Cache-Control` op `assets/` zetten.
-- **`npm run perf:lighthouse`**: inline export-fonts weg, WebP voor LCP/logo; zwaarste blokken nog **`layout.css`** + **`pages/*.css`** tot stap 5.4 (inkrimpen).
+- **`npm run perf:lighthouse`**: inline export-fonts weg, WebP voor LCP/logo; zwaarste blokken nog **`layout.css`** + **`pages/*.css`** (inkrimpen = apart performance-spoor, niet blokkerend voor live).
 
 ## Opruimen (later)
 
 - **`assets/wp/`** en **`assets/css/divi/`**: verwijderd (dubbel met `assets/css/bronexport/`).
 - **`assets/css/bronexport/themes/Divi`** en **`Divi_child`**: verwijderd; live CSS via `export-base` / `export-site`.
-- **`assets/css/bronexport/`**: verwijderd (stap 5.3). Live: `layout.css`, `site.css`, `pages/*.css`, `shell.css`, `a11y.css`. HTML: `page--{slug}` + semantische menu-classes; `et_pb_*` in inhoud tot pagina-CSS herschreven is.
+- **`assets/css/bronexport/`**: verwijderd (stap 5.3). Live: `layout.css`, `site.css`, `pages/*.css`, `shell.css`, `a11y.css`. HTML: `page--{slug}`, semantische menu-classes, geen CMS-`id` op `<article>`; `npm run css:normalize` / `npm run css:a11y-slugs`. `et_pb_*` in inhoud tot layout/pagina-CSS herschreven is.
 - **`wp-image-*` / Muse/Yoast-restjes**: `npm run scrub:cms-markup`.
 - **SEO head + JSON-LD**: `npm run seo:static` (LocalBusiness, Service, CSP, manifest, og-share 1200×630).
 

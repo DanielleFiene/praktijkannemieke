@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { HERO_LAYOUT_SLUGS, cmsIdForSlug, slugFromHtmlPath } from './page-slugs.mjs';
+import { HERO_LAYOUT_SLUGS, slugFromHtmlPath } from './page-slugs.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP_DIRS = new Set(['node_modules', 'tests', 'playwright-report', 'test-results', '.git']);
@@ -51,13 +51,9 @@ function patchBodyClasses(html, slug) {
 }
 
 function patchArticle(html, slug) {
-	const cmsId = cmsIdForSlug(slug);
-	if (!cmsId) {
-		return html.replace(/<article id="page-\d+" class="page page--\d+">/g, `<article class="page page--${slug}">`);
-	}
 	return html.replace(
 		/<article(?: id="page-\d+")? class="page page--(?:\d+|[\w-]+)">/g,
-		`<article id="page-${cmsId}" class="page page--${slug}">`
+		`<article class="page page--${slug}">`
 	);
 }
 

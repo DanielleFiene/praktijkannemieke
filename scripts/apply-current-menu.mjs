@@ -39,8 +39,12 @@ function patch(html, file) {
 		return html.replace(/\scurrent-menu-item/g, '').replace(/\smenu-item--current/g, '');
 	}
 	let next = html.replace(/\scurrent-menu-item/g, '').replace(/\smenu-item--current/g, '');
-	const re = new RegExp(`(<li class="menu-item ${menuClass}[^"]*")`, 'g');
-	next = next.replace(re, '$1 current-menu-item menu-item--current');
+	const re = new RegExp(`(<li class="[^"]*\\b${menuClass}\\b[^"]*")`, 'g');
+	next = next.replace(re, (match) =>
+		match.includes('current-menu-item')
+			? match
+			: match.replace(/"$/, ' current-menu-item menu-item--current"')
+	);
 	return next;
 }
 

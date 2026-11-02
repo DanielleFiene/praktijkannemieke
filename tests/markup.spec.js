@@ -20,8 +20,7 @@ test('article: slug-class geen page--123', () => {
 	for (const file of listHtmlFiles()) {
 		const html = fs.readFileSync(file, 'utf8');
 		expect(html, path.relative(siteRoot, file)).not.toMatch(/class="page page--\d+"/);
-		expect(html, path.relative(siteRoot, file)).toMatch(
-			/<article id="page-\d+" class="page page--[\w-]+">/
-		);
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/<article id="page-\d+"/);
+		expect(html, path.relative(siteRoot, file)).toMatch(/<article class="page page--[\w-]+">/);
 	}
 });
