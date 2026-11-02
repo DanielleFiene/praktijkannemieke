@@ -5,8 +5,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { SITE_ORIGIN } from './site-url.mjs';
+
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://www.praktijkannemieke.nl';
+const SITE = SITE_ORIGIN;
 const OG_IMAGE = `${SITE}/assets/images/og-share.png`;
 const LOCAL_BUSINESS_DESC =
 	'Praktijk voor energetisch werk in Beneden-Leeuwen (Gelderland). NEI-therapie, Reiki, Access Bars en meer; NEI ook op afstand.';

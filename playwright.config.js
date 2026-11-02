@@ -3,7 +3,7 @@ const { defineConfig } = require('@playwright/test');
 
 const port = Number(process.env.PORT || 4173);
 const basePath = (
-  process.env.BASE_PATH !== undefined ? process.env.BASE_PATH : '/praktijkannemieke'
+  process.env.BASE_PATH !== undefined ? process.env.BASE_PATH : ''
 ).replace(/\/$/, '');
 const origin = `http://127.0.0.1:${port}`;
 

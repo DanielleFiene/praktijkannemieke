@@ -17,7 +17,7 @@ test.describe('anchor-links', () => {
     await page.goto('tarieven/', { waitUntil: 'domcontentloaded' });
     await waitForPageStable(page);
 
-    const neiLink = page.locator('a[href="../index.html#Nei"]').last();
+    const neiLink = page.locator('a[href="/#Nei"]').last();
     await neiLink.scrollIntoViewIfNeeded();
     await neiLink.click();
     await page.waitForLoadState('domcontentloaded');

@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const port = Number(process.env.PORT || 4173);
-const basePath = (process.env.BASE_PATH || '/praktijkannemieke').replace(/\/$/, '');
+const basePath = (process.env.BASE_PATH ?? '').replace(/\/$/, '');
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',

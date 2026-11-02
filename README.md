@@ -67,4 +67,6 @@ npm run test:update-snapshots
 
 ## Publiceren
 
-Push naar GitHub; Pages serveert de repo-root of projectinstelling. Relatieve paden werken onder `/praktijkannemieke/`.
+**Strato (productie):** zie [LIVEGANG.md](./LIVEGANG.md) — SFTP naar documentroot, `.htaccess`, staging `noindex` verwijderen bij livegang.
+
+Push naar GitHub; voor Pages-only preview eventueel `BASE_PATH=/praktijkannemieke` (interne links zijn root-absoluut voor Strato).

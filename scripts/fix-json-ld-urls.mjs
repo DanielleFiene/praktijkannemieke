@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://www.praktijkannemieke.nl';
+const SITE = 'https://praktijkannemieke.nl';
 
 const UPLOAD_REPLACEMENTS = [
   ['site/wp-content/uploads/', 'assets/images/'],

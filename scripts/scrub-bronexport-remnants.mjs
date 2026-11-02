@@ -29,11 +29,11 @@ const SEARCH_ACTION_JSON =
 
 const ERROR_PAGE_JSONLD = {
 	'404.html': {
-		canonical: 'https://www.praktijkannemieke.nl/404.html',
+		canonical: 'https://praktijkannemieke.nl/404.html',
 		name: 'Pagina niet gevonden – Praktijk Annemieke',
 	},
 	'403.html': {
-		canonical: 'https://www.praktijkannemieke.nl/403.html',
+		canonical: 'https://praktijkannemieke.nl/403.html',
 		name: 'Geen toegang – Praktijk Annemieke',
 	},
 };
@@ -65,7 +65,7 @@ function scrubJsonLdScripts(html, fileBasename) {
 							'@id': errorMeta.canonical,
 							url: errorMeta.canonical,
 							name: errorMeta.name,
-							isPartOf: { '@id': 'https://www.praktijkannemieke.nl/#website' },
+							isPartOf: { '@id': 'https://praktijkannemieke.nl/#website' },
 							inLanguage: 'nl-NL',
 						},
 					],
