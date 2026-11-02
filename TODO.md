@@ -25,7 +25,7 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 
 - **`assets/wp/`** en **`assets/css/divi/`**: verwijderd (dubbel met `assets/css/bronexport/`).
 - **`assets/css/bronexport/themes/Divi`** en **`Divi_child`**: verwijderd; live CSS via `export-base` / `export-site`.
-- **`page-cache/`** + bronexport-base CSS: weg na CSS-herschrijving (AGENTS.md stap 5). **Gestart:** gedeelde critical → `assets/css/critical-shared.css`; dubbele `et-core-*.min.css` verwijderd.
+- **`page-cache/`** + bronexport-base CSS: base-layout (`style-static.min.css`) blijft tot stap 5.2; pagina-CSS staat in **`assets/css/pages/`** (`npm run css:site`). Gedeelde critical + thema → **`assets/css/site.css`** (bron van `critical-shared.css` + export-site).
 - **`wp-image-*` / Muse/Yoast-restjes**: `npm run scrub:cms-markup`.
 - **SEO head + JSON-LD**: `npm run seo:static` (LocalBusiness, Service, CSP, manifest, og-share 1200×630).
 
