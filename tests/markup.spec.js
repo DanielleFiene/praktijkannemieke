@@ -35,3 +35,11 @@ test('article: slug-class geen page--123', () => {
 		expect(html, path.relative(siteRoot, file)).not.toMatch(/\bcol-[0-9]+\b/);
 	}
 });
+
+test('builder-secties: section.sec, geen div.sec', () => {
+	for (const file of listHtmlFiles()) {
+		const html = fs.readFileSync(file, 'utf8');
+		expect(html, path.relative(siteRoot, file)).not.toMatch(/<div[^>]*\bclass="[^"]*\bsec\b/);
+		expect(html, path.relative(siteRoot, file)).toMatch(/<section[^>]*\bclass="[^"]*\bsec\b/);
+	}
+});
