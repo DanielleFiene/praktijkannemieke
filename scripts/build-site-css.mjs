@@ -13,7 +13,7 @@ const exportSite = path.join(root, 'assets', 'css', 'bronexport', 'themes', 'exp
 
 const tokens = `/*
  * Praktijk Annemieke – site.css (stap 5)
- * Layout-base blijft tijdelijk: bronexport/themes/export-base/style-static.min.css
+ * Layout-base blijft tijdelijk in layout.css (stap 5.2); inhoud wordt per onderdeel vervangen.
  */
 
 :root {

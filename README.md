@@ -5,7 +5,7 @@ Visuele kopie van [praktijkannemieke.nl](https://www.praktijkannemieke.nl/) als 
 ## Structuur
 
 - `index.html` en `<pagina>/index.html` — pagina’s (URL-paden gelijk aan productie)
-- `assets/css/` — `fonts.css`, `site.css`, `pages/*.css`, `a11y.css`; tijdelijk `bronexport/` (alleen base-layout)
+- `assets/css/` — `fonts.css`, `layout.css`, `site.css`, `pages/*.css`, `a11y.css`; restje `bronexport/` (icon-font)
 - `assets/js/site.js` — mobiel menu, sliders, kleine UX-verbeteringen
 - `assets/images/`, `assets/docs/`, `assets/fonts/`
 - `tests/` — Playwright (visueel, links, navigatie, HTML-validatie)
@@ -61,6 +61,7 @@ npm run test:update-snapshots
 | `npm run scrub:cms-markup` | CMS/Muse/Yoast-restjes uit HTML |
 | `npm run scrub:bronexport` | Bronexport-paden en head opschonen |
 | `npm run css:site` | `site.css` bouwen + pagina-stylesheets migreren |
+| `npm run css:layout` | `layout.css` bouwen + HTML base-stylesheet |
 | `npm run seo:static` | JSON-LD, CSP, manifest, og-share |
 | `npm run perf:lighthouse` | Fonts/images performance |
 

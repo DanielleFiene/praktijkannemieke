@@ -31,6 +31,7 @@
     "css:build": "node scripts/build-site-css.mjs",
     "css:migrate": "node scripts/apply-site-stylesheets.mjs",
     "css:site": "node scripts/build-site-css.mjs && node scripts/apply-site-stylesheets.mjs",
+    "css:layout": "node scripts/build-layout-css.mjs && node scripts/apply-layout-stylesheet.mjs",
     "css:split-critical": "node scripts/split-critical-css.mjs",
     "errors:generate": "node scripts/generate-error-pages.mjs && node scripts/apply-footer-updates.mjs",
     "docs:patch-formulier": "node scripts/patch-kennismakingsformulier-docx.mjs",
