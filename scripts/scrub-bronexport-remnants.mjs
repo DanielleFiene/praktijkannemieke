@@ -8,10 +8,12 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 
+const SKIP_PAGE_DIRS = new Set(['node_modules', 'tests', 'playwright-report', 'test-results', '.git']);
+
 function listHtmlFiles() {
 	const files = [path.join(root, 'index.html')];
 	for (const name of fs.readdirSync(root, { withFileTypes: true })) {
-		if (!name.isDirectory() || name.name === 'node_modules' || name.name === 'tests') continue;
+		if (!name.isDirectory() || SKIP_PAGE_DIRS.has(name.name)) continue;
 		const p = path.join(root, name.name, 'index.html');
 		if (fs.existsSync(p)) files.push(p);
 	}
@@ -114,12 +116,10 @@ function scrubHtml(html, fileBasename) {
 	next = next.replace(/<h1><\/h1>/g, '');
 	next = next.replace(/<h1 class="et_pb_module_header">\s*<\/h1>/g, '');
 
-	if (fileBasename === '404.html' || fileBasename === '403.html') {
-		next = next.replace(
-			/\s*<meta name="twitter:label1" content="Geschatte leestijd" \/>\s*<meta name="twitter:data1" content="[^"]*" \/>/g,
-			''
-		);
-	}
+	next = next.replace(
+		/\s*<meta name="twitter:label1" content="Geschatte leestijd" \/>\s*<meta name="twitter:data1" content="[^"]*" \/>/g,
+		''
+	);
 
 	return next;
 }

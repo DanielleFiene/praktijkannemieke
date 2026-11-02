@@ -9,10 +9,20 @@ import { fileURLToPath } from 'node:url';
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pageCacheRoot = path.join(root, 'assets', 'css', 'bronexport', 'page-cache');
 
+const SKIP_PAGE_DIRS = new Set([
+	'node_modules',
+	'tests',
+	'playwright-report',
+	'test-results',
+	'.git',
+	'scripts',
+	'assets',
+]);
+
 function listHtmlFiles() {
 	const files = [path.join(root, 'index.html'), path.join(root, '403.html'), path.join(root, '404.html')];
 	for (const name of fs.readdirSync(root, { withFileTypes: true })) {
-		if (!name.isDirectory() || name.name === 'node_modules' || name.name === 'tests') continue;
+		if (!name.isDirectory() || SKIP_PAGE_DIRS.has(name.name)) continue;
 		const page = path.join(root, name.name, 'index.html');
 		if (fs.existsSync(page)) files.push(page);
 	}
@@ -43,6 +53,34 @@ function renamePageCacheCssFiles() {
 	return count;
 }
 
+function scrubExportArtifacts(html) {
+	let next = html;
+
+	next = next.replace(
+		/\s*<meta name="twitter:label1" content="Geschatte leestijd" \/>\s*<meta name="twitter:data1" content="[^"]*" \/>/g,
+		''
+	);
+
+	next = next.replace(/\s+data-content-guid="[^"]*"/g, '');
+	next = next.replace(/\s+data-href="[^"]*"/g, '');
+
+	next = next.replace(/\sclass="nonblock"/g, '');
+	next = next.replace(/(\sclass="[^"]*)\snonblock(\s[^"]*")/g, '$1$2');
+	next = next.replace(/(\sclass=")nonblock\s+/g, '$1');
+
+	next = next.replace(/\s*shared_content\s*/g, ' ');
+	next = next.replace(/class="\s+/g, 'class="');
+	next = next.replace(/\s+"/g, '"');
+	next = next.replace(/\sclass=""/g, '');
+
+	next = next.replace(/\s+id="u[0-9]+(-[0-9]+)?"/g, '');
+	next = next.replace(/<p><\/div>/g, '</div>');
+
+	next = next.replace(/<p class="body"/g, '<p');
+
+	return next;
+}
+
 function scrubHtml(html) {
 	let next = html;
 
@@ -57,6 +95,8 @@ function scrubHtml(html) {
 		/class="wp-image-\d+ alignnone size-full (ondersteunende-middelen-foto)"/g,
 		'class="$1"'
 	);
+
+	next = scrubExportArtifacts(next);
 
 	return next;
 }

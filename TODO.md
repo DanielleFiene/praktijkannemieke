@@ -27,6 +27,7 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 - **`assets/css/bronexport/themes/Divi`** en **`Divi_child`**: verwijderd; live CSS via `export-base` / `export-site`.
 - **`page-cache/`** + bronexport-base CSS: weg na CSS-herschrijving (AGENTS.md stap 5). **Gestart:** gedeelde critical → `assets/css/critical-shared.css`; dubbele `assets/css/divi/` + `bronexport/themes/Divi*` verwijderd.
 - **`wp-image-*` / `alignnone` op afbeeldingen**: vervangen door `footer-logo`, `footer-vvnt-badge`, enz. (`npm run scrub:cms-markup`).
+- **Muse/Yoast-restjes** (`data-content-guid`, `shared_content`, `nonblock`, `id="u…"`, Twitter-leestijd): idem via `scrub:cms-markup`.
 
 ## Herbruikbare onderdelen (later)
 
