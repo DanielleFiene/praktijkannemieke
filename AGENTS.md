@@ -50,7 +50,7 @@ CMS-restjes (`wp-json`, oude caches, dubbele bestanden) verwijderen zodra niet m
 6. Minimale vanilla JS — **gedaan** (`assets/js/site.js`; jQuery en export-footer-scripts verwijderd)
 7. Afbeeldingen/fonts optimaliseren — **deels** (`npm run perf:lighthouse`; og-share 1200×630; favicon.svg; font-preload + footer lazy via `perf:markup`)
 8. SEO + structured data + llms.txt — **gedaan** (`npm run seo:static`; robots/sitemap/llms; LocalBusiness + Service JSON-LD)
-9. Eindcontrole: tests groen, Lighthouse ≥ 95 — **deels** (Playwright CI; Lighthouse met `RUN_LIGHTHOUSE=1`)
+9. Eindcontrole: tests groen, Lighthouse optioneel — **gedaan** (128 Playwright; `RUN_LIGHTHOUSE=1` rapport; strict met `LIGHTHOUSE_STRICT=1`; geen layout voor scores)
 
 ## Tests (Playwright)
 

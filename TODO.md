@@ -21,14 +21,13 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 - **Cache TTL 10m** op GitHub Pages: komt van GitHub, niet uit de repo. Bij live host (Cloudflare/eigen server) lange `Cache-Control` op `assets/` zetten.
 - **`npm run perf:lighthouse`**: inline export-fonts weg, WebP voor LCP/logo; zwaarste blokken nog **`layout.css`** + **`pages/*.css`** (inkrimpen = apart performance-spoor, niet blokkerend voor live).
 
-## Opruimen (later)
+## Livegang (Strato)
 
-- **`assets/wp/`** en **`assets/css/divi/`**: verwijderd (dubbel met `assets/css/bronexport/`).
-- **`assets/css/bronexport/themes/Divi`** en **`Divi_child`**: verwijderd; live CSS via `export-base` / `export-site`.
-- **`assets/css/bronexport/`**: verwijderd (stap 5.3). Live: `layout.css`, `site.css`, `pages/*.css`, `shell.css`, `a11y.css`. HTML: `page--{slug}`, semantische menu-classes, geen CMS-`id` op `<article>`; `npm run css:normalize` / `npm run css:a11y-slugs`. `et_pb_*` in inhoud tot layout/pagina-CSS herschreven is.
-- **`wp-image-*` / Muse/Yoast-restjes**: `npm run scrub:cms-markup`.
-- **SEO head + JSON-LD**: `npm run seo:static` (LocalBusiness, Service, CSP, manifest, og-share 1200×630).
+- **Voor upload:** `npm run strato:prepare` (origin, links, staging `noindex`, sitemap/SEO) — daarna `npm test`.
+- **Deploy:** repo naar Strato (incl. `.htaccess`), DNS apex/www zoals afgesproken.
+- **Op go-live:** `npm run strato:live-robots` → opnieuw deployen (403 blijft `noindex`).
+- **Niet vergeten:** `STRICT_EXTERNAL=1 npm test` lokaal; Lighthouse optioneel: `RUN_LIGHTHOUSE=1 npm run test:lighthouse`.
 
-## Herbruikbare onderdelen (later)
+## Opruimen (later – apart project, visueel 1-op-1)
 
-- **Footer** (en evt. header): nu dezelfde HTML op elke pagina (bronexport). Overwegen één bronbestand + kleine build/deploy-stap of include, zodat tekst/links niet per pagina hoeven te wijzigen. Styling blijft in `assets/css/a11y.css`.
+- **`et_pb_*` + slanke CSS:** inhoudsmarkup en `layout.css` (~800 KB) pas weg na volledige CSS-herschrijf met visuele tests; **niet** doen voor livegang.
