@@ -1,0 +1,23 @@
+{
+  "name": "Praktijk Annemieke",
+  "short_name": "Annemieke",
+  "description": "Praktijk voor energetisch werk in Beneden-Leeuwen",
+  "lang": "nl",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7aabab",
+  "icons": [
+    {
+      "src": "assets/images/2023/04/cropped-icon_annemieke-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/2023/04/cropped-icon_annemieke-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

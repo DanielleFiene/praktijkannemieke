@@ -98,6 +98,12 @@ function scrubHtml(html) {
 
 	next = scrubExportArtifacts(next);
 
+	next = next.replace(/\smenu-item-type-(?:post_type|custom)\s/g, ' ');
+	next = next.replace(/\smenu-item-object-(?:page|custom)\s/g, ' ');
+	next = next.replace(/\smenu-item-home\s/g, ' ');
+	next = next.replace(/class="\s+/g, 'class="');
+	next = next.replace(/\s+"/g, '"');
+
 	return next;
 }
 

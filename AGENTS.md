@@ -46,11 +46,11 @@ CMS-restjes (`wp-json`, oude caches, dubbele bestanden) verwijderen zodra niet m
 2. Relatieve paden + `%3F`-bestandsnamen opschonen — **gedaan**
 3. Nieuwe mappenstructuur, CMS-restjes verwijderen — **gedaan** (`assets/`, `wp-json`/`feed`/`comments`/`site/` weg; bronexport onder `assets/css/bronexport/`)
 4. Semantische HTML — **gedaan** (skip-link, `<main>`, nav ARIA, credits-meta, footer Tiki-tekst, `humans.txt`, `a11y.css`; één `h1` per pagina volgt in stap 5/6)
-5. CSS herschrijven (screenshots gelijk) — **deels** (lokale fonts; bronexport-CSS nog aanwezig)
+5. CSS herschrijven (screenshots gelijk) — **deels** (lokale fonts; bronexport-CSS nog aanwezig; `a11y.css` + critical)
 6. Minimale vanilla JS — **gedaan** (`assets/js/site.js`; jQuery en export-footer-scripts verwijderd)
-7. Afbeeldingen/fonts optimaliseren
-8. SEO + structured data + llms.txt
-9. Eindcontrole: tests groen, Lighthouse ≥ 95
+7. Afbeeldingen/fonts optimaliseren — **deels** (`npm run perf:lighthouse`; og-share 1200×630; favicon.svg)
+8. SEO + structured data + llms.txt — **gedaan** (`npm run seo:static`; robots/sitemap/llms; LocalBusiness + Service JSON-LD)
+9. Eindcontrole: tests groen, Lighthouse ≥ 95 — **deels** (Playwright CI; Lighthouse met `RUN_LIGHTHOUSE=1`)
 
 ## Tests (Playwright)
 

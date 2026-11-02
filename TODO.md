@@ -25,9 +25,9 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 
 - **`assets/wp/`** en **`assets/css/divi/`**: verwijderd (dubbel met `assets/css/bronexport/`).
 - **`assets/css/bronexport/themes/Divi`** en **`Divi_child`**: verwijderd; live CSS via `export-base` / `export-site`.
-- **`page-cache/`** + bronexport-base CSS: weg na CSS-herschrijving (AGENTS.md stap 5). **Gestart:** gedeelde critical → `assets/css/critical-shared.css`; dubbele `assets/css/divi/` + `bronexport/themes/Divi*` verwijderd.
-- **`wp-image-*` / `alignnone` op afbeeldingen**: vervangen door `footer-logo`, `footer-vvnt-badge`, enz. (`npm run scrub:cms-markup`).
-- **Muse/Yoast-restjes** (`data-content-guid`, `shared_content`, `nonblock`, `id="u…"`, Twitter-leestijd): idem via `scrub:cms-markup`.
+- **`page-cache/`** + bronexport-base CSS: weg na CSS-herschrijving (AGENTS.md stap 5). **Gestart:** gedeelde critical → `assets/css/critical-shared.css`; dubbele `et-core-*.min.css` verwijderd.
+- **`wp-image-*` / Muse/Yoast-restjes**: `npm run scrub:cms-markup`.
+- **SEO head + JSON-LD**: `npm run seo:static` (LocalBusiness, Service, CSP, manifest, og-share 1200×630).
 
 ## Herbruikbare onderdelen (later)
 
