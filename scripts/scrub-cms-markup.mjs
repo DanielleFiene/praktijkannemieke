@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const pageCacheRoot = path.join(root, 'assets', 'css', 'bronexport', 'page-cache');
+const pagesDir = path.join(root, 'assets', 'css', 'pages');
 
 const SKIP_PAGE_DIRS = new Set([
 	'node_modules',
@@ -29,26 +29,14 @@ function listHtmlFiles() {
 	return files;
 }
 
-function renamePageCacheCssFiles() {
-	if (!fs.existsSync(pageCacheRoot)) return 0;
+function renameLegacyPageCssFiles() {
+	if (!fs.existsSync(pagesDir)) return 0;
 	let count = 0;
-	for (const ent of fs.readdirSync(pageCacheRoot, { withFileTypes: true })) {
-		if (!ent.isDirectory()) continue;
-		const dir = path.join(pageCacheRoot, ent.name);
-		for (const file of fs.readdirSync(dir)) {
-			const m = /^et-core-unified-deferred-(\d+)\.min\.css$/.exec(file);
-			if (!m) continue;
-			const newName = `page-${m[1]}.min.css`;
-			const oldPath = path.join(dir, file);
-			const newPath = path.join(dir, newName);
-			if (fs.existsSync(newPath)) {
-				fs.unlinkSync(oldPath);
-			} else {
-				fs.renameSync(oldPath, newPath);
-			}
-			count += 1;
-			console.log('rename CSS', path.relative(root, oldPath), '→', path.relative(root, newPath));
-		}
+	for (const file of fs.readdirSync(pagesDir)) {
+		const m = /^et-core-unified-deferred-(\d+)\.min\.css$/.exec(file);
+		if (!m) continue;
+		console.warn('Legacy page CSS in pages/ (hernoem handmatig naar slug.css):', file);
+		count += 1;
 	}
 	return count;
 }
@@ -140,7 +128,11 @@ function replaceInTree(dir, exts, transform) {
 	}
 }
 
-renamePageCacheCssFiles();
+replaceInTree(path.join(root, 'assets', 'css', 'pages'), ['.css'], (text) =>
+	text.replaceAll(/et-core-unified-deferred-(\d+)\.min\.css/g, 'page-$1.min.css')
+);
+
+renameLegacyPageCssFiles();
 
 let htmlChanged = 0;
 for (const file of listHtmlFiles()) {

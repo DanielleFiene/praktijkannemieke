@@ -19,7 +19,7 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 ## Lighthouse / performance
 
 - **Cache TTL 10m** op GitHub Pages: komt van GitHub, niet uit de repo. Bij live host (Cloudflare/eigen server) lange `Cache-Control` op `assets/` zetten.
-- **`npm run perf:lighthouse`**: inline export-fonts weg, WebP voor LCP/logo; blijft zwaar door **`style-static.min.css` (~82 KiB)** + **`page-cache/`** tot stap 5 (eigen CSS, bronexport eruit).
+- **`npm run perf:lighthouse`**: inline export-fonts weg, WebP voor LCP/logo; zwaarste blokken nog **`layout.css`** + **`pages/*.css`** tot stap 5.4 (inkrimpen).
 
 ## Opruimen (later)
 

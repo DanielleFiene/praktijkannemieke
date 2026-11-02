@@ -24,19 +24,26 @@ function listHtmlFiles() {
 
 const mode = process.argv[2] === 'live' ? 'live' : 'staging';
 
+function stripRobotsMeta(html) {
+	return html.replace(/\s*<meta name=["']robots["'][^>]*\/>/gi, '');
+}
+
+function insertRobots(html, tag) {
+	if (!html.includes('http-equiv="X-UA-Compatible"')) {
+		return `${tag}\n${html}`;
+	}
+	return html.replace(/<meta http-equiv="X-UA-Compatible"[^>]*>/i, (m) => `${m}\n${tag}`);
+}
+
 function patch(html, is403) {
+	let next = stripRobotsMeta(html);
 	if (mode === 'live') {
-		if (html.includes('STAGING_ROBOTS')) {
-			return html.replace(/<meta name="robots"[^>]*data-staging="STAGING_ROBOTS"[^>]*\/>/i, LIVE);
+		if (is403) {
+			return insertRobots(next, '\t<meta name="robots" content="noindex, nofollow" />');
 		}
-		if (is403) return html;
-		return html.replace(/<meta name=['"]robots['"][^>]*\/>/i, LIVE);
+		return insertRobots(next, LIVE);
 	}
-	if (html.includes('STAGING_ROBOTS')) return html;
-	if (html.match(/<meta name=['"]robots['"][^>]*noindex/i)) {
-		return html.replace(/<meta name=['"]robots['"][^>]*\/>/i, STAGING);
-	}
-	return html.replace(/<meta http-equiv="X-UA-Compatible"[^>]*>/i, (m) => `${m}\n${STAGING}`);
+	return insertRobots(next, STAGING);
 }
 
 let changed = 0;
