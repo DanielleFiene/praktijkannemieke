@@ -284,6 +284,7 @@ body {
 	--hero-mobile-landscape-crop-y: 120px;
 	--hero-mobile-landscape-crop-bottom-extra: 12px;
 	--hero-mobile-landscape-reveal-top: 15px;
+	--hero-mobile-height-trim: 150px;
 	
 	--hero-mobile-landscape-corner-br: 460px;
 	--anchor-scroll-padding: 5.5rem;
@@ -653,6 +654,62 @@ body.page--ondersteunende-middelen .hero.hero-title .header-content {
 	}
 }
 
+@media (max-width: 980px) and (orientation: portrait) {
+	main#hoofdinhoud
+		.sec:is(
+			.sec-home-hero-a,
+			.sec-home-hero-b,
+			.sec-hero-intro,
+			.sec-hero-cover
+		) {
+		overflow: hidden !important;
+		height: calc(688px - var(--hero-mobile-height-trim)) !important;
+		max-height: calc(688px - var(--hero-mobile-height-trim)) !important;
+		min-height: 0 !important;
+	}
+
+	main#hoofdinhoud
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover) {
+		height: calc(688px - var(--hero-mobile-height-trim)) !important;
+		max-height: calc(688px - var(--hero-mobile-height-trim)) !important;
+		min-height: 0 !important;
+	}
+
+	body.page-layout-hero
+		main#hoofdinhoud
+		.hero.hero-title {
+		height: calc(550px - var(--hero-mobile-height-trim)) !important;
+		max-height: calc(550px - var(--hero-mobile-height-trim)) !important;
+		min-height: 0 !important;
+	}
+
+	body.page-layout-hero
+		main#hoofdinhoud
+		.hero.hero-cover {
+		height: calc(688px - var(--hero-mobile-height-trim)) !important;
+		max-height: calc(688px - var(--hero-mobile-height-trim)) !important;
+		min-height: 0 !important;
+	}
+
+	main#hoofdinhoud
+		.sec:is(
+			.sec-home-hero-a,
+			.sec-home-hero-b,
+			.sec-hero-intro,
+			.sec-hero-cover
+		),
+	body.page-layout-hero
+		main#hoofdinhoud
+		.hero:is(.hero-title, .hero-cover) {
+		overflow: hidden !important;
+		background-repeat: no-repeat !important;
+		background-size: auto
+			calc(100% + var(--hero-mobile-height-trim)) !important;
+		background-position: center
+			calc(-1 * var(--hero-mobile-height-trim)) !important;
+	}
+}
+
 @media (max-width: 980px) {
 	
 	body:not(.page-layout-hero)
@@ -798,7 +855,6 @@ body.page--ondersteunende-middelen .hero.hero-title .header-content {
 		margin-top: 0 !important;
 	}
 }
-
 
 @media (max-width: 980px) and (orientation: landscape) and (max-height: 32rem) {
 	body:not(.page-layout-hero)
@@ -1011,6 +1067,17 @@ body.page--neem-contact-op .hero .header-content > .hero-title {
 body.home .hero .header-content > .hero-body:not(:empty),
 body.page--neem-contact-op .hero .header-content > .hero-body:not(:empty) {
 	margin-top: var(--hero-former-cta-offset);
+}
+
+body.home .hero-tools-quote .header-content > .btn-module_wrapper {
+	margin-top: 1rem;
+	text-align: left;
+}
+
+@media (max-width: 980px) {
+	body.home .hero-tools-quote .header-content > .btn-module_wrapper {
+		margin-top: 0.75rem;
+	}
 }
 
 
@@ -1658,6 +1725,69 @@ html {
 	#footer-bottom,
 	#footer-bottom #footer-info {
 		text-align: center !important;
+	}
+}
+
+@media (max-width: 980px) and (orientation: portrait) {
+	body:not(.page-layout-hero)
+		main#hoofdinhoud
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.header-content-container,
+	body:not(.page-layout-hero)
+		main#hoofdinhoud
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.header-content-container.center,
+	body:not(.page-layout-hero)
+		main#hoofdinhoud
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.header-content,
+	body:not(.page-layout-hero)
+		main#hoofdinhoud
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.hero-body,
+	body:not(.page-layout-hero).home
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--tarieven
+		.hero:is(.hero-title, .hero-cover)
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--over-annemieke
+		.hero:is(.hero-title, .hero-cover)
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--neem-contact-op
+		.hero:is(.hero-title, .hero-cover)
+		.header-content,
+	body:not(.page-layout-hero)
+		body.page--ondersteunende-middelen
+		.hero:is(.hero-title, .hero-cover)
+		.header-content {
+		text-align: left !important;
+	}
+
+	body:not(.page-layout-hero)
+		main#hoofdinhoud
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.header-content-container,
+	body:not(.page-layout-hero)
+		main#hoofdinhoud
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.header-content-container.center {
+		margin-left: 0 !important;
+		max-width: min(
+			var(--hero-mobile-quote-max-width),
+			100%
+		) !important;
+	}
+
+	body:not(.page-layout-hero)
+		main#hoofdinhoud
+		.hero:is(.hero-quote-a, .hero-quote-b, .hero-title, .hero-cover)
+		.header-content
+		:is(h1, h2, .hero-title, .hero-body, .hero-body :is(h1, h2, p, span, em, strong)) {
+		text-align: left !important;
 	}
 }
 
