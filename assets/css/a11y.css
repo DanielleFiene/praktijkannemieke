@@ -1217,6 +1217,11 @@ body.page--magnesiumpakking .hero-cover .header-content-container {
 	color: #ffffff !important;
 }
 
+#Wie .text-voor-wie-is-nei-geschikt .text-inner > h2:first-child,
+#Wie .text-voor-wie-is-nei-geschikt .text-inner > h2:first-child span {
+	color: #000000 !important;
+}
+
 #Wie .text-faal-angst-jaloezie-verdriet-b h3,
 #Wie .text-niet-zwanger-kunnen-worden h3 {
 	font-family: proxima-nova, "Open Sans", Arial, sans-serif !important;
@@ -1826,6 +1831,17 @@ html {
 #site .error-page-cta .btn.btn-contact:hover {
 	background-color: #ffffff;
 	border-color: rgba(255, 255, 255, 0) !important;
+}
+
+body.home #site .hero-tools-quote .btn-module_wrapper .btn.btn-contact,
+body.home #site .hero-tools-quote .btn-module_wrapper .btn.btn-contact:hover,
+body.home #site .hero-tools-quote .btn-module_wrapper .btn.btn-contact:focus-visible {
+	color: #000000 !important;
+	background-color: transparent !important;
+	background-image: none !important;
+	border-width: 2px !important;
+	border-style: solid !important;
+	border-color: #ffffff !important;
 }
 	.sec-privacy-body .error-page-cta {
 	margin-top: 1.25rem;
