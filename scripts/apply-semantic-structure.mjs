@@ -1,5 +1,6 @@
 /**
- * Semantische structuur: div.sec → section, decoratie aria-hidden, lege hero-body weg.
+ * Semantische structuur: div.sec → section, decoratie aria-hidden.
+ * hero-body blijft (ook leeg) — nodig voor export-layout.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -75,13 +76,8 @@ function addAriaHiddenDecor(html) {
 		.replace(/<div class="rule-internal"><\/div>/g, '<div class="rule-internal" aria-hidden="true"></div>');
 }
 
-function removeEmptyHeroBody(html) {
-	return html.replace(/<div class="hero-body"><\/div>\s*/g, '');
-}
-
 function patch(html) {
 	let next = html;
-	next = removeEmptyHeroBody(next);
 	next = addAriaHiddenDecor(next);
 	next = upgradeSecSections(next);
 	return next;
