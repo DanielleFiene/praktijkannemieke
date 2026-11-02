@@ -6,7 +6,7 @@ Statische export van de oude CMS-site omzetten naar schone HTML/CSS/JS. Visueel 
 
 ## Terminologie
 
-- **Bronexport**: tijdelijke layout-CSS en markup-hooks uit de oorspronkelijke site-export (`assets/css/bronexport/`). Nog veel `et_pb_*`-klassen in HTML; die verdwijnen bij stap 5. In docs en comments: **bronexport**, niet merknamen van het oude CMS/thema.
+- **Bronexport**: tijdelijke export-markup (`et_pb_*` in HTML) en CSS-bronnen in `assets/css/_sources/`; in docs **bronexport**, geen CMS-merknamen.
 
 ## Harde regels
 
@@ -44,9 +44,9 @@ CMS-restjes (`wp-json`, oude caches, dubbele bestanden) verwijderen zodra niet m
 
 1. Testopzet + referentie-screenshots — **gedaan**
 2. Relatieve paden + `%3F`-bestandsnamen opschonen — **gedaan**
-3. Nieuwe mappenstructuur, CMS-restjes verwijderen — **gedaan** (`assets/`, `wp-json`/`feed`/`comments`/`site/` weg; bronexport onder `assets/css/bronexport/`)
+3. Nieuwe mappenstructuur, CMS-restjes verwijderen — **gedaan** (`assets/`; CSS-bron in `_sources/`)
 4. Semantische HTML — **gedaan** (skip-link, `<main>`, nav ARIA, credits-meta, footer Tiki-tekst, `humans.txt`, `a11y.css`; één `h1` per pagina volgt in stap 5/6)
-5. CSS herschrijven (screenshots gelijk) — **deels** (`layout.css` + `site.css` + `pages/`; bronexport alleen ETmodules-font; `a11y.css`)
+5. CSS herschrijven (screenshots gelijk) — **deels** (`layout.css`, `site.css`, `pages/`; bron in `_sources/`; `a11y.css`)
 6. Minimale vanilla JS — **gedaan** (`assets/js/site.js`; jQuery en export-footer-scripts verwijderd)
 7. Afbeeldingen/fonts optimaliseren — **deels** (`npm run perf:lighthouse`; og-share 1200×630; favicon.svg)
 8. SEO + structured data + llms.txt — **gedaan** (`npm run seo:static`; robots/sitemap/llms; LocalBusiness + Service JSON-LD)

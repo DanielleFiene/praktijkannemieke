@@ -5,7 +5,7 @@ Visuele kopie van [praktijkannemieke.nl](https://www.praktijkannemieke.nl/) als 
 ## Structuur
 
 - `index.html` en `<pagina>/index.html` — pagina’s (URL-paden gelijk aan productie)
-- `assets/css/` — `fonts.css`, `layout.css`, `site.css`, `pages/*.css`, `a11y.css`; restje `bronexport/` (icon-font)
+- `assets/css/` — `fonts.css`, `layout.css`, `site.css`, `pages/*.css`, `a11y.css`; bron **`_sources/`** (niet in HTML)
 - `assets/js/site.js` — mobiel menu, sliders, kleine UX-verbeteringen
 - `assets/images/`, `assets/docs/`, `assets/fonts/`
 - `tests/` — Playwright (visueel, links, navigatie, HTML-validatie)

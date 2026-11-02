@@ -305,18 +305,7 @@ async function ensureOgShareImage() {
 }
 
 function pruneLegacyPageCss() {
-	const cache = path.join(root, 'assets', 'css', 'bronexport', 'page-cache');
-	if (!fs.existsSync(cache)) return;
-	for (const ent of fs.readdirSync(cache, { withFileTypes: true })) {
-		if (!ent.isDirectory()) continue;
-		const dir = path.join(cache, ent.name);
-		for (const file of fs.readdirSync(dir)) {
-			if (file.startsWith('et-core-unified-deferred-')) {
-				fs.unlinkSync(path.join(dir, file));
-				console.log('removed legacy', path.join('assets/css/bronexport/page-cache', ent.name, file));
-			}
-		}
-	}
+	/* page-cache verwijderd in stap 5.3 */
 }
 
 function updateSitemapLastmod() {

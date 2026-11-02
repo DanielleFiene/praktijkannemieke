@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const out = path.join(root, 'assets', 'css', 'site.css');
 const criticalShared = path.join(root, 'assets', 'css', 'critical-shared.css');
-const exportSite = path.join(root, 'assets', 'css', 'bronexport', 'themes', 'export-site', 'style.css');
+const exportSite = path.join(root, 'assets', 'css', '_sources', 'site-export.css');
 
 const tokens = `/*
  * Praktijk Annemieke – site.css (stap 5)

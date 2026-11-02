@@ -40,20 +40,12 @@ function relPrefix(filePath) {
 	return `${'../'.repeat(rel.split(path.sep).filter(Boolean).length)}`;
 }
 
-function migratePageCssFiles() {
+function ensurePageCssFiles() {
 	fs.mkdirSync(pagesDir, { recursive: true });
-	for (const [id, slug] of Object.entries(PAGE_ID_TO_FILE)) {
-		const src = path.join(root, 'assets', 'css', 'bronexport', 'page-cache', id, `page-${id}.min.css`);
+	for (const slug of Object.values(PAGE_ID_TO_FILE)) {
 		const dest = path.join(pagesDir, `${slug}.css`);
-		if (!fs.existsSync(src)) {
-			console.warn('Missing page CSS', src);
-			continue;
-		}
 		if (!fs.existsSync(dest)) {
-			let css = fs.readFileSync(src, 'utf8');
-			css = css.replaceAll('url(../../../../images/', 'url(../../images/');
-			fs.writeFileSync(dest, css);
-			console.log('Page CSS', path.relative(root, dest));
+			console.warn('Missing page CSS (handmatig herstellen):', path.relative(root, dest));
 		}
 	}
 }
@@ -88,7 +80,7 @@ function patchHtml(html, prefix) {
 	return next;
 }
 
-migratePageCssFiles();
+ensurePageCssFiles();
 
 let changed = 0;
 for (const file of listHtmlFiles()) {
