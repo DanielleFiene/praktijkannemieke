@@ -25,7 +25,7 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 
 - **`assets/wp/`** en **`assets/css/divi/`**: verwijderd (dubbel met `assets/css/bronexport/`).
 - **`assets/css/bronexport/themes/Divi`** en **`Divi_child`**: verwijderd; live CSS via `export-base` / `export-site`.
-- **`assets/css/bronexport/`**: verwijderd (stap 5.3). Bron: **`assets/css/_sources/`**; ETmodules: **`assets/fonts/etmodules/`**. Volgende: `layout.css`/`pages/` inkrimpen, `et_pb_*` uit HTML.
+- **`assets/css/bronexport/`**: verwijderd (stap 5.3). Live: `layout.css`, `site.css`, `pages/*.css`, `shell.css`, `a11y.css`. HTML: `page--{slug}` + semantische menu-classes; `et_pb_*` in inhoud tot pagina-CSS herschreven is.
 - **`wp-image-*` / Muse/Yoast-restjes**: `npm run scrub:cms-markup`.
 - **SEO head + JSON-LD**: `npm run seo:static` (LocalBusiness, Service, CSP, manifest, og-share 1200×630).
 

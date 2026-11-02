@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { CMS_ID_TO_SLUG } from './page-slugs.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pagesDir = path.join(root, 'assets', 'css', 'pages');
@@ -76,6 +77,10 @@ function scrubHtml(html) {
 
 	next = next.replace(/id="post-(\d+)"/g, 'id="page-$1"');
 	next = next.replace(/class="post-(\d+) page type-page status-publish hentry"/g, 'class="page page--$1"');
+	next = next.replace(/<article id="page-(\d+)" class="page page--\d+">/g, (_, id) => {
+		const slug = CMS_ID_TO_SLUG[id];
+		return slug ? `<article id="page-${id}" class="page page--${slug}">` : `<article id="page-${id}" class="page page--${id}">`;
+	});
 
 	next = next.replaceAll('class="wp-image-409 alignnone size-full"', 'class="footer-logo"');
 	next = next.replaceAll('class="wp-image-91 alignnone size-medium"', 'class="footer-vvnt-badge"');
