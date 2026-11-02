@@ -62,5 +62,12 @@ module.exports = defineConfig({
       testMatch: /visual\.spec\.js|navigation-desktop\.spec\.js/,
       use: { viewport: { width: 1440, height: 900 } },
     },
+    {
+      name: 'lighthouse',
+      testMatch: /lighthouse\.spec\.js/,
+      fullyParallel: false,
+      workers: 1,
+      use: { viewport: { width: 1440, height: 900 } },
+    },
   ],
 });

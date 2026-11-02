@@ -58,7 +58,7 @@ CMS-restjes (`wp-json`, oude caches, dubbele bestanden) verwijderen zodra niet m
 - Linkchecker, geen externe requests (`STRICT_EXTERNAL=1` na rebuild)
 - Navigatie: mobiel menu, ankers
 - **axe-core**: 0 fouten op alle pagina’s (`test:a11y`)
-- HTML-validatie; Lighthouse **≥ 95** (performance, accessibility, SEO, best practices) met `RUN_LIGHTHOUSE=1`
+- HTML-validatie; Lighthouse **≥ 95** (performance, accessibility, SEO, best practices) met `RUN_LIGHTHOUSE=1` + **`LIGHTHOUSE_STRICT=1`** — rapportage alleen draaien zonder strict; **geen** layout/CSS wijzigen om scores te halen.
 - Core Web Vitals-doelen: LCP &lt; 2,5s, CLS &lt; 0,1, INP &lt; 200ms
 
 ## Aanscherpingen

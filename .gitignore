@@ -9,6 +9,8 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
+lighthouse/
+lighthouse-*.json
 
 # Oude WordPress-export (niet opnieuw committen)
 site/
