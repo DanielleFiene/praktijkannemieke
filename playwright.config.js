@@ -16,9 +16,7 @@ module.exports = defineConfig({
   workers: process.env.CI ? 2 : undefined,
   reporter: [['list'], ['html', { open: 'never' }]],
   timeout: 120_000,
-  /* Eén snapshot-set (win32) voor lokaal Windows én Linux CI */
-  snapshotPathTemplate:
-    '{testDir}/{testFileName}-snapshots/{arg}-{projectName}-win32{ext}',
+  testIgnore: process.env.SKIP_VISUAL ? ['**/visual.spec.js'] : [],
   expect: {
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.002,

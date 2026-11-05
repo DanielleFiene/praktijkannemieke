@@ -18,3 +18,16 @@ jobs:
       - run: npm test
         env:
           STRICT_EXTERNAL: '1'
+          SKIP_VISUAL: '1'
+
+  visual:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium
+      - run: npm run test:visual
