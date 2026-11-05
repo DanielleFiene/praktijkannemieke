@@ -732,6 +732,17 @@ body.page--ondersteunende-middelen .hero.hero-title .header-content {
 		background-position: center
 			calc(-1 * var(--hero-mobile-height-trim)) !important;
 	}
+
+	body.page--shambhala-reiki main#hoofdinhoud .hero.hero-title,
+	body.page--access-bars main#hoofdinhoud .hero.hero-title,
+	body.page--vlindermassage main#hoofdinhoud .hero.hero-title,
+	body.page--magnesiumpakking main#hoofdinhoud .hero.hero-title {
+		background-position: center
+			calc(
+				-1 * var(--hero-mobile-height-trim) +
+					var(--behandeling-hero-mobile-reveal-top)
+			) !important;
+	}
 }
 
 @media (max-width: 980px) {
@@ -1111,6 +1122,7 @@ body.page--vlindermassage,
 body.page--magnesiumpakking {
 	--behandeling-hero-inset: 5.5rem;
 	--behandeling-hero-inset-mobile: 5.5rem;
+	--behandeling-hero-mobile-reveal-top: 3.125rem;
 }
 
 body.page--shambhala-reiki #site #main-header,
