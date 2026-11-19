@@ -2,12 +2,6 @@ name: Deploy Strato
 
 on:
   workflow_dispatch:
-    inputs:
-      skip_verify:
-        description: 'Staging noindex-check overslaan (nood-deploy)'
-        required: false
-        type: boolean
-        default: false
   push:
     branches: [main]
     paths-ignore:
@@ -31,7 +25,6 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - name: Productie-check (robots, sitemap)
-        if: ${{ !inputs.skip_verify }}
         run: node scripts/verify-production-ready.mjs
       - name: Tests (zonder visueel)
         run: npm test
