@@ -31,9 +31,11 @@ Workflow: [.github/workflows/deploy-strato.yml](./.github/workflows/deploy-strat
 
 ## SSL en `.htaccess`
 
-In `.htaccess` staat een **http → https** redirect (en www → apex). Zolang het **SSL-certificaat** bij Strato nog niet (of niet goed) op **praktijkannemieke.nl** staat, kan de site via **http** wel, maar **https** falen of een redirect-loop geven. Pas na actief certificaat is https normaal.
+**Nu (tijdelijk):** in `.htaccess` staat **geen** http→https redirect; interne redirects gebruiken `http://`. Zo werkt de site zolang SSL bij Strato nog niet actief is.
 
-Tot die tijd: certificaat in Strato aanzetten/koppelen aan het domein; test daarna `http://` en `https://`.
+**Na SSL:** in `.htaccess` het HTTPS-blok weer uncommenten en alle `http://praktijkannemieke.nl` in rewrite-regels terugzetten naar `https://`. Daarna deploy.
+
+Canonical/OG in HTML blijven `https://` (bedoeld voor na SSL); dat is oké tijdens de overgang.
 
 ## Robots (productie vs staging)
 
