@@ -35,10 +35,10 @@ function insertRobots(html, tag) {
 	return html.replace(/<meta http-equiv="X-UA-Compatible"[^>]*>/i, (m) => `${m}\n${tag}`);
 }
 
-function patch(html, is403) {
+function patch(html, isErrorPage) {
 	let next = stripRobotsMeta(html);
 	if (mode === 'live') {
-		if (is403) {
+		if (isErrorPage) {
 			return insertRobots(next, '\t<meta name="robots" content="noindex, nofollow" />');
 		}
 		return insertRobots(next, LIVE);
@@ -48,9 +48,9 @@ function patch(html, is403) {
 
 let changed = 0;
 for (const file of listHtmlFiles()) {
-	const is403 = file.endsWith('403.html');
+	const isErrorPage = file.endsWith('403.html') || file.endsWith('404.html');
 	const before = fs.readFileSync(file, 'utf8');
-	const after = patch(before, is403);
+	const after = patch(before, isErrorPage);
 	if (after !== before) {
 		fs.writeFileSync(file, after);
 		changed += 1;

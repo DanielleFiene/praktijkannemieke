@@ -67,6 +67,6 @@ npm run test:update-snapshots
 
 ## Publiceren
 
-**Strato (productie):** zie [LIVEGANG.md](./LIVEGANG.md) — SFTP naar documentroot, `.htaccess`, staging `noindex` verwijderen bij livegang.
+**Strato (productie):** zie [LIVEGANG.md](./LIVEGANG.md) — GitHub Actions SFTP-deploy of handmatig; `npm run strato:verify` vóór livegang.
 
 Push naar GitHub; voor Pages-only preview eventueel `BASE_PATH=/praktijkannemieke` (interne links zijn root-absoluut voor Strato).

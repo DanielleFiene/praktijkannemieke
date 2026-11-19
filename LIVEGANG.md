@@ -2,24 +2,34 @@
 
 Checklist vóór en na upload via SFTP. De statische site is ingericht voor **documentroot = site-root** (geen submap).
 
-## Testfase (nu)
+## Testfase (staging)
 
-- Alle pagina’s hebben `<meta name="robots" content="noindex, nofollow" data-staging="STAGING_ROBOTS" />`.
-- **Zoekterm om te verwijderen bij livegang:** `STAGING_ROBOTS` (één keer in het project zoeken).
+- Staging: `npm run strato:staging-robots` zet `noindex` + marker `STAGING_ROBOTS`.
+- Productie: `npm run strato:live-robots` (403 blijft `noindex`).
+- Controle: `npm run strato:verify`.
 
-```bash
-npm run strato:live-robots
-```
+## Deploy (GitHub Actions → Strato SFTP)
 
-Of handmatig: vervang de staging-regel door:
+Workflow: [.github/workflows/deploy-strato.yml](./.github/workflows/deploy-strato.yml)
 
-```html
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-```
+- **Handmatig:** Actions → *Deploy Strato* → *Run workflow*.
+- **Automatisch:** push naar `main` (na geconfigureerde secrets).
+- Vóór upload: tests + `strato:verify` (geen `STAGING_ROBOTS`).
 
-## Upload
+**GitHub-repository → Settings → Environments → `production`** (aanbevolen) of repository secrets:
 
-1. Upload de repo naar Strato (Apache), inclusief `.htaccess`, `404.html`, `assets/`, en elke pagina-map met `index.html`. **Niet** uploaden: `ondersteunende-middelen-2/` (oude URL; alleen redirect in `.htaccess`), `node_modules/`, `.git/`, tests.
+| Secret | Voorbeeld |
+|--------|-----------|
+| `STRATO_SFTP_SERVER` | Hostnaam uit Strato (bijv. `ssh.strato.nl` of package-specifiek) |
+| `STRATO_SFTP_USERNAME` | SFTP-gebruiker |
+| `STRATO_SFTP_PASSWORD` | SFTP-wachtwoord |
+| `STRATO_SFTP_REMOTE_DIR` | Documentroot, vaak `/` of `/htdocs/` |
+
+Optioneel: wachtwoord alleen in environment `production` met vereiste reviewers.
+
+## Handmatige upload (SFTP)
+
+1. Upload de site naar Strato (Apache), inclusief `.htaccess`, `404.html`, `assets/`, en elke pagina-map met `index.html`. **Niet** uploaden: `ondersteunende-middelen-2/` (oude URL; alleen redirect in `.htaccess`), `node_modules/`, `.git/`, tests, `scripts/`.
 2. Controleer dat **mod_rewrite** aan staat (Strato: meestal standaard).
 3. `.htaccess`: HTTPS, www → apex (zie blok **WWW-KEUZE** als je www wilt behouden), redirect `/ondersteunende-middelen-2/`, trailing slash, `ErrorDocument 404`.
 
@@ -27,7 +37,7 @@ Of handmatig: vervang de staging-regel door:
 
 | Item | Actie |
 |------|--------|
-| **noindex weg** | `npm run strato:live-robots` + opnieuw uploaden |
+| **noindex weg** | `npm run strato:verify` + deploy (live robots in repo) |
 | **Redirects** | `http://` → HTTPS; `www.` → apex (of omgekeerd na WWW-KEUZE); `/tarieven` → `/tarieven/`; `/ondersteunende-middelen-2/` → `/ondersteunende-middelen/` |
 | **404** | Onbekende URL toont `/404.html` |
 | **Interne links** | Geen `index.html` in menu/footer; paden `/slug/` |

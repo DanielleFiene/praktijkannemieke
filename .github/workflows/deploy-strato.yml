@@ -1,0 +1,83 @@
+name: Deploy Strato
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_verify:
+        description: 'Staging noindex-check overslaan (nood-deploy)'
+        required: false
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'tests/**'
+      - '.github/workflows/ci.yml'
+
+concurrency:
+  group: strato-production
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Productie-check (robots, sitemap)
+        if: ${{ !inputs.skip_verify }}
+        run: node scripts/verify-production-ready.mjs
+      - name: Tests (zonder visueel)
+        run: npm test
+        env:
+          STRICT_EXTERNAL: '1'
+          SKIP_VISUAL: '1'
+
+  deploy:
+    needs: verify
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: SFTP naar Strato
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          protocol: sftp
+          server: ${{ secrets.STRATO_SFTP_SERVER }}
+          username: ${{ secrets.STRATO_SFTP_USERNAME }}
+          password: ${{ secrets.STRATO_SFTP_PASSWORD }}
+          port: 22
+          local-dir: ./
+          server-dir: ${{ secrets.STRATO_SFTP_REMOTE_DIR }}
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/tests/**
+            **/test-results/**
+            **/playwright-report/**
+            **/blob-report/**
+            **/playwright/.cache/**
+            **/lighthouse/**
+            **/lighthouse-*.json
+            **/scripts/**
+            **/site/**
+            **/wp-json/**
+            **/feed/**
+            **/comments/**
+            **/_proxima-extract/**
+            **/*.zip
+            **/package.json
+            **/package-lock.json
+            **/playwright.config.js
+            **/.editorconfig
+            **/.prettierrc*
+            **/AGENTS.md
+            **/TODO.md
+            **/LIVEGANG.md
+            **/README.md

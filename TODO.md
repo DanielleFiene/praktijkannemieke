@@ -23,10 +23,11 @@ Alles waar tijdens de rebuild twijfel bestaat over exacte formulering of visuele
 
 ## Livegang (Strato)
 
-- **Voor upload:** `npm run strato:prepare` (origin, links, staging `noindex`, sitemap/SEO) — daarna `npm test`.
-- **Deploy:** repo naar Strato (incl. `.htaccess`), DNS apex/www zoals afgesproken.
-- **Op go-live:** `npm run strato:live-robots` → opnieuw deployen (403 blijft `noindex`).
-- **Niet vergeten:** `STRICT_EXTERNAL=1 npm test` lokaal; Lighthouse optioneel: `RUN_LIGHTHOUSE=1 npm run test:lighthouse`.
+- **Productie in repo:** `strato:live-robots` + `strato:verify` — daarna commit/push.
+- **Deploy:** GitHub Actions *Deploy Strato* (secrets in `production`) of handmatig SFTP.
+- **DNS:** apex canonical; `.htaccess` redirect www → apex.
+- **Na deploy:** Search Console sitemap; redirects/SSL/404 handmatig controleren (zie LIVEGANG.md).
+- **Optioneel:** `STRICT_EXTERNAL=1 npm test`; Lighthouse: `RUN_LIGHTHOUSE=1 npm run test:lighthouse`.
 
 ## Opruimen (later – apart project, visueel 1-op-1)
 
