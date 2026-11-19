@@ -43,14 +43,13 @@ jobs:
           node-version: '20'
       - name: Productiebestanden bundelen
         run: node scripts/stage-strato-deploy.mjs
-      - name: Upload naar Strato (SSH/SCP, poort 22)
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.STRATO_SFTP_SERVER }}
-          username: ${{ secrets.STRATO_SFTP_USERNAME }}
-          password: ${{ secrets.STRATO_SFTP_PASSWORD }}
-          port: 22
-          source: '.deploy-staging/'
-          target: ${{ secrets.STRATO_SFTP_REMOTE_DIR }}
-          strip_components: 1
-          overwrite: true
+      - name: lftp (SFTP-mirror; Strato heeft geen SCP)
+        env:
+          STRATO_SFTP_SERVER: ${{ secrets.STRATO_SFTP_SERVER }}
+          STRATO_SFTP_USERNAME: ${{ secrets.STRATO_SFTP_USERNAME }}
+          STRATO_SFTP_PASSWORD: ${{ secrets.STRATO_SFTP_PASSWORD }}
+          STRATO_SFTP_REMOTE_DIR: ${{ secrets.STRATO_SFTP_REMOTE_DIR }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+          bash scripts/deploy-strato-lftp.sh

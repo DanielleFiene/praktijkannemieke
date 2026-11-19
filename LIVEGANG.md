@@ -16,7 +16,7 @@ Workflow: [.github/workflows/deploy-strato.yml](./.github/workflows/deploy-strat
 - **Automatisch:** push naar `main` (na geconfigureerde secrets).
 - Vóór upload: tests + `strato:verify` (geen `STAGING_ROBOTS`).
 
-Deploy gebruikt **SCP over SSH (poort 22)** — dezelfde gegevens als SFTP in FileZilla, niet FTPS op poort 21.
+Deploy gebruikt **SFTP** (poort 22, `lftp mirror`) — dezelfde gegevens als FileZilla. Strato staat meestal **geen SCP** toe; alleen bestanden uploaden.
 
 **GitHub-repository → Settings → Environments → `production`** (aanbevolen) of repository secrets:
 
