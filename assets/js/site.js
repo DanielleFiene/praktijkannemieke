@@ -222,10 +222,13 @@
 
 				const savedIndex = index;
 				slider.classList.remove('site-slider-ready');
+				slider.classList.add('site-slider-measuring');
 				wrap.style.height = 'auto';
 				wrap.style.minHeight = '0';
 
+				const contentWidth = wrap.clientWidth || slider.clientWidth;
 				let max = 0;
+
 				slides.forEach((slide) => {
 					slides.forEach((s) => {
 						s.hidden = true;
@@ -234,21 +237,32 @@
 					slide.hidden = false;
 					slide.classList.add('et-pb-active-slide');
 					slide.style.display = 'block';
-					slide.style.position = 'relative';
-					slide.style.visibility = 'visible';
-					max = Math.max(max, wrap.getBoundingClientRect().height);
+					slide.style.position = 'absolute';
+					slide.style.left = '0';
+					slide.style.right = '0';
+					slide.style.top = '0';
+					slide.style.visibility = 'hidden';
+					if (contentWidth > 0) {
+						slide.style.width = `${contentWidth}px`;
+					}
+					max = Math.max(max, slide.getBoundingClientRect().height);
 				});
 
 				slides.forEach((slide) => {
 					slide.style.display = '';
 					slide.style.position = '';
+					slide.style.left = '';
+					slide.style.right = '';
+					slide.style.top = '';
 					slide.style.visibility = '';
+					slide.style.width = '';
 				});
 
 				const slideSlackPx = slider.closest('#Ervaringen') ? 72 : 0;
 				const heightPx = `${Math.ceil(max) + slideSlackPx}px`;
 				wrap.style.height = heightPx;
 				wrap.style.minHeight = heightPx;
+				slider.classList.remove('site-slider-measuring');
 				slider.classList.add('site-slider-ready');
 				show(savedIndex);
 			};

@@ -285,7 +285,9 @@ body {
 	--hero-mobile-landscape-crop-bottom-extra: 12px;
 	--hero-mobile-landscape-reveal-top: 15px;
 	--hero-mobile-height-trim: 150px;
-	
+	/* Contact-hero: verticale crop (cover); lager % = focus hoger op foto (meer hoofd/haar) */
+	--hero-contact-bg-position-y: 28%;
+
 	--hero-mobile-landscape-corner-br: 460px;
 	--anchor-scroll-padding: 5.5rem;
 	
@@ -631,6 +633,10 @@ body.page--ondersteunende-middelen .hero.hero-title .header-content {
 @media (max-width: 980px) and (orientation: portrait) {
 	#site .hero-quote__br {
 		display: none;
+	}
+
+	body.page--neem-contact-op #site .hero-quote__br--contact {
+		display: block;
 	}
 }
 
@@ -1102,6 +1108,12 @@ body.page--neem-contact-op .hero .header-content > .hero-title {
 body.home .hero .header-content > .hero-body:not(:empty),
 body.page--neem-contact-op .hero .header-content > .hero-body:not(:empty) {
 	margin-top: var(--hero-former-cta-offset);
+}
+
+/* Contact-hero: hoogte ongewijzigd; alleen welk deel van de foto in beeld is */
+body.page--neem-contact-op main#hoofdinhoud .hero.hero-title,
+body.page--neem-contact-op main#hoofdinhoud .hero.hero-cover {
+	background-position: center var(--hero-contact-bg-position-y);
 }
 
 body.home .hero-tools-quote .header-content > .btn-module_wrapper {
@@ -1893,6 +1905,26 @@ body.home #site .hero-tools-quote .btn-module_wrapper .btn.btn-contact:focus-vis
 	width: 100%;
 }
 
+/* Hoogte meten zonder zichtbare flits tussen slides */
+.js .site-slider-enhanced.site-slider-measuring .pb_slides {
+	overflow: hidden;
+	min-height: 12rem;
+}
+
+.js .site-slider-enhanced.site-slider-measuring .pb_slides > .pb_slide.et-pb-active-slide {
+	display: block !important;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	visibility: hidden !important;
+	pointer-events: none;
+}
+
+.js .site-slider-enhanced:not(.site-slider-ready) .pb_slides > .pb_slide:not(.et-pb-active-slide) {
+	display: none !important;
+}
+
 .js .site-slider-enhanced.site-slider-ready .pb_slides {
 	overflow: hidden;
 }
@@ -1906,6 +1938,10 @@ body.home #site .hero-tools-quote .btn-module_wrapper .btn.btn-contact:focus-vis
 
 .js .site-slider-enhanced .pb_slides > .pb_slide.et-pb-active-slide {
 	display: block !important;
+}
+
+html.js .pb_slider .pb_slides > .pb_slide:not(.et-pb-active-slide) {
+	display: none !important;
 }
 
 html:not(.js) .Ervaringen .pb_slides > .pb_slide {

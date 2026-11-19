@@ -40,12 +40,12 @@ module.exports = defineConfig({
     {
       name: 'checks',
       testMatch:
-        /links\.spec\.js|html-validate\.spec\.js|a11y\.spec\.js|external-requests\.spec\.js|layout-overflow\.spec\.js|headings\.spec\.js|markup\.spec\.js/,
+        /links\.spec\.js|html-validate\.spec\.js|a11y\.spec\.js|external-requests\.spec\.js|layout-overflow\.spec\.js|headings\.spec\.js|markup\.spec\.js|ervaringen-slider\.spec\.js/,
       use: { viewport: { width: 1440, height: 900 } },
     },
     {
       name: 'mobile-375',
-      testMatch: /visual\.spec\.js|navigation-mobile\.spec\.js/,
+      testMatch: /visual\.spec\.js|navigation-mobile\.spec\.js|ervaringen-slider\.spec\.js/,
       use: {
         browserName: 'chromium',
         viewport: { width: 375, height: 812 },
@@ -60,7 +60,7 @@ module.exports = defineConfig({
     },
     {
       name: 'desktop-1440',
-      testMatch: /visual\.spec\.js|navigation-desktop\.spec\.js/,
+      testMatch: /visual\.spec\.js|navigation-desktop\.spec\.js|ervaringen-slider\.spec\.js/,
       use: { viewport: { width: 1440, height: 900 } },
     },
     {

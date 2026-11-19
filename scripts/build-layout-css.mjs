@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { GLOBAL_LAYOUT } from './generate-semantic-maps.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.join(root, 'assets', 'css', '_sources', 'layout-export.min.css');
@@ -25,6 +26,12 @@ css = css.replace(/url\((?:includes|core)\/[^)]+\)/gi, (match) => {
 	}
 	return PLACEHOLDER_IMG;
 });
+
+for (const [from, to] of Object.entries(GLOBAL_LAYOUT)) {
+	css = css.split(from).join(to);
+}
+css = css.replace(/@font-face\{font-family:FontAwesome[^}]+\}/gi, '');
+css = css.replace(/@font-face\{[^}]*data:image\/gif[^}]+\}/gi, '');
 
 const header = `/* layout.css – npm run css:layout */\n\n`;
 

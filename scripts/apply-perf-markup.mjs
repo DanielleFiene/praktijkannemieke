@@ -8,6 +8,8 @@ import { fileURLToPath } from 'node:url';
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP_DIRS = new Set(['node_modules', 'tests', 'playwright-report', 'test-results', '.git']);
 
+const EARLY_JS = '<script src="/assets/js/document-js.js"></script>';
+
 const FONT_PRELOADS = [
 	'<link rel="preload" href="/assets/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVI.woff2" as="font" type="font/woff2" crossorigin />',
 	'<link rel="preload" href="/assets/fonts/jennasue/jennasue-webfont.woff2" as="font" type="font/woff2" crossorigin />',
@@ -21,6 +23,13 @@ function listHtmlFiles() {
 		if (fs.existsSync(page)) files.push(page);
 	}
 	return files;
+}
+
+function patchEarlyJs(html) {
+	if (html.includes('document-js.js')) return html;
+	const anchor = '<meta charset="UTF-8" />';
+	if (!html.includes(anchor)) return html;
+	return html.replace(anchor, `${anchor}\n\t${EARLY_JS}`);
 }
 
 function patchFooterImages(html) {
@@ -42,7 +51,8 @@ function patchFontPreload(html) {
 let changed = 0;
 for (const file of listHtmlFiles()) {
 	const before = fs.readFileSync(file, 'utf8');
-	let after = patchFooterImages(before);
+	let after = patchEarlyJs(before);
+	after = patchFooterImages(after);
 	after = patchFontPreload(after);
 	if (after !== before) {
 		fs.writeFileSync(file, after);
