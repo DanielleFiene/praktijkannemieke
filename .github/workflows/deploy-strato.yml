@@ -29,6 +29,7 @@ jobs:
           node-version: '20'
           cache: npm
       - run: npm ci
+      - run: npx playwright install --with-deps chromium
       - name: Productie-check (robots, sitemap)
         if: ${{ !inputs.skip_verify }}
         run: node scripts/verify-production-ready.mjs
@@ -44,6 +45,7 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
+      # Geen tests hier; verify-job in main-CI dekt pushes. Deploy alleen uploaden.
       - name: SFTP naar Strato
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
