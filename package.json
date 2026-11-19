@@ -47,6 +47,7 @@
     "strato:live-robots": "node scripts/apply-staging-robots.mjs live",
     "strato:prepare": "node scripts/migrate-site-origin.mjs && node scripts/apply-strato-links.mjs && node scripts/apply-staging-robots.mjs && node scripts/apply-seo-static.mjs",
     "strato:verify": "node scripts/verify-production-ready.mjs",
+    "strato:stage": "node scripts/stage-strato-deploy.mjs",
     "errors:generate": "node scripts/generate-error-pages.mjs && node scripts/apply-footer-updates.mjs",
     "docs:patch-formulier": "node scripts/patch-kennismakingsformulier-docx.mjs",
     "perf:fonts": "node scripts/strip-bronexport-inline-fonts.mjs",

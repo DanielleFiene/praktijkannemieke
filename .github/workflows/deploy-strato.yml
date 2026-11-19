@@ -45,41 +45,19 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
-      # Geen tests hier; verify-job in main-CI dekt pushes. Deploy alleen uploaden.
-      - name: SFTP naar Strato
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      - uses: actions/setup-node@v4
         with:
-          protocol: sftp
-          server: ${{ secrets.STRATO_SFTP_SERVER }}
+          node-version: '20'
+      - name: Productiebestanden bundelen
+        run: node scripts/stage-strato-deploy.mjs
+      - name: Upload naar Strato (SSH/SCP, poort 22)
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.STRATO_SFTP_SERVER }}
           username: ${{ secrets.STRATO_SFTP_USERNAME }}
           password: ${{ secrets.STRATO_SFTP_PASSWORD }}
           port: 22
-          local-dir: ./
-          server-dir: ${{ secrets.STRATO_SFTP_REMOTE_DIR }}
-          exclude: |
-            **/.git*
-            **/.github/**
-            **/node_modules/**
-            **/tests/**
-            **/test-results/**
-            **/playwright-report/**
-            **/blob-report/**
-            **/playwright/.cache/**
-            **/lighthouse/**
-            **/lighthouse-*.json
-            **/scripts/**
-            **/site/**
-            **/wp-json/**
-            **/feed/**
-            **/comments/**
-            **/_proxima-extract/**
-            **/*.zip
-            **/package.json
-            **/package-lock.json
-            **/playwright.config.js
-            **/.editorconfig
-            **/.prettierrc*
-            **/AGENTS.md
-            **/TODO.md
-            **/LIVEGANG.md
-            **/README.md
+          source: '.deploy-staging/'
+          target: ${{ secrets.STRATO_SFTP_REMOTE_DIR }}
+          strip_components: 1
+          overwrite: true
