@@ -65,8 +65,33 @@ npm run test:update-snapshots
 | `npm run seo:static` | JSON-LD, CSP, manifest, og-share |
 | `npm run perf:lighthouse` | Fonts/images performance |
 
-## Publiceren
+## Publiceren (Strato)
 
-**Strato (productie):** zie [LIVEGANG.md](./LIVEGANG.md) — GitHub Actions SFTP-deploy of handmatig; `npm run strato:verify` vóór livegang.
+Zie [LIVEGANG.md](./LIVEGANG.md). Kort:
 
-Push naar GitHub; voor Pages-only preview eventueel `BASE_PATH=/praktijkannemieke` (interne links zijn root-absoluut voor Strato).
+1. In Strato: domein **praktijkannemieke.nl** → **Intern** → map **`praktijkannemieke.nl`**.
+2. GitHub secrets (environment `production` of repository):
+
+| Secret | Waarde |
+|--------|--------|
+| `STRATO_SFTP_SERVER` | uit Strato / FileZilla |
+| `STRATO_SFTP_USERNAME` | idem |
+| `STRATO_SFTP_PASSWORD` | idem |
+| `STRATO_SFTP_REMOTE_DIR` | **`/praktijkannemieke.nl`** (nooit `/` of leeg) |
+
+3. Actions → **Deploy Strato** (of push naar `main`). Upload gaat alleen naar die submap.
+4. `npm run strato:verify` vóór je productie commit.
+
+**.htaccess** dwingt HTTPS af; tot het SSL-certificaat op het domein actief is, kan https nog haperen — certificaat eerst in Strato regelen.
+
+### Opruimen op de server (handmatig, niet via deploy)
+
+Deploy **wist niets** in de webruimte-root. Oude resten (vaak na WordPress of eerdere uploads in de root) kun je **zelf** verwijderen als je zeker weet dat ze niet bij andere domeinen horen:
+
+- `index.php`, `wp-config.php`, mappen `wp-admin/`, `wp-content/`, `wp-includes/`
+- Oude `index.html` of WordPress-bestanden **direct in de webruimte-root** (niet in `/praktijkannemieke.nl/`)
+- Eventuele dubbele kopieën van `assets/` of pagina’s **buiten** `/praktijkannemieke.nl/`
+
+Laat andere domein-mappen en Strato-systeembestanden met rust.
+
+GitHub Pages-preview (optioneel): `BASE_PATH=/praktijkannemieke` lokaal — alleen voor preview, niet voor Strato.

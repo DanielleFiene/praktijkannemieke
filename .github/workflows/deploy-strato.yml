@@ -43,6 +43,10 @@ jobs:
           node-version: '20'
       - name: Productiebestanden bundelen
         run: node scripts/stage-strato-deploy.mjs
+      - name: Controle deploy-doelmap
+        env:
+          STRATO_SFTP_REMOTE_DIR: ${{ secrets.STRATO_SFTP_REMOTE_DIR }}
+        run: node scripts/validate-strato-remote-dir.mjs
       - name: lftp (SFTP-mirror; Strato heeft geen SCP)
         env:
           STRATO_SFTP_SERVER: ${{ secrets.STRATO_SFTP_SERVER }}

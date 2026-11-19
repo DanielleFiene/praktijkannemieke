@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Upload .deploy-staging/ via SFTP (lftp). Strato: geen shell/SCP, wel SFTP.
+# Upload .deploy-staging/ via SFTP (lftp) naar STRATO_SFTP_REMOTE_DIR (niet webruimte-root).
 set -euo pipefail
 
 for v in STRATO_SFTP_SERVER STRATO_SFTP_USERNAME STRATO_SFTP_PASSWORD; do
@@ -9,10 +9,12 @@ for v in STRATO_SFTP_SERVER STRATO_SFTP_USERNAME STRATO_SFTP_PASSWORD; do
 	fi
 done
 
-REMOTE_DIR="${STRATO_SFTP_REMOTE_DIR:-/}"
+node scripts/validate-strato-remote-dir.mjs
+
+REMOTE_DIR="${STRATO_SFTP_REMOTE_DIR//[$'\r\n ']/}"
 REMOTE_DIR="${REMOTE_DIR%/}"
-if [[ -z "$REMOTE_DIR" ]]; then
-	REMOTE_DIR="/"
+if [[ "$REMOTE_DIR" != /* ]]; then
+	REMOTE_DIR="/$REMOTE_DIR"
 fi
 
 STAGING=".deploy-staging"
@@ -21,13 +23,16 @@ if [[ ! -d "$STAGING" ]]; then
 	exit 1
 fi
 
+DIR_NAME="${REMOTE_DIR#/}"
+
 lftp <<EOF
 set sftp:connect-program "ssh -a -x -o StrictHostKeyChecking=accept-new"
 open -u "${STRATO_SFTP_USERNAME}","${STRATO_SFTP_PASSWORD}" "sftp://${STRATO_SFTP_SERVER}:22"
+mkdir -p "${DIR_NAME}"
 cd "${REMOTE_DIR}"
 lcd "${STAGING}"
 mirror -R --verbose --no-perms --no-umask
 bye
 EOF
 
-echo "SFTP-upload voltooid naar ${REMOTE_DIR}"
+echo "SFTP-upload voltooid: index.html, .htaccess en submappen in ${REMOTE_DIR}."

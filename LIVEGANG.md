@@ -1,70 +1,75 @@
 # Livegang Strato (praktijkannemieke.nl)
 
-Checklist vóór en na upload via SFTP. De statische site is ingericht voor **documentroot = site-root** (geen submap).
+## Strato: domein → map
 
-## Testfase (staging)
+In Strato wijst **praktijkannemieke.nl** (type **Intern**) naar de submap **`/praktijkannemieke.nl`** op de webruimte. Alleen bestanden **in die map** worden voor dat domein geserveerd. De webruimte-root (`/`) is **geen** documentroot voor dit domein.
 
-- Staging: `npm run strato:staging-robots` zet `noindex` + marker `STAGING_ROBOTS`.
-- Productie: `npm run strato:live-robots` (403 blijft `noindex`).
-- Controle: `npm run strato:verify`.
+De site in de repo gebruikt **URL-paden vanaf `/`** (`/assets/…`, `/tarieven/`, …). Dat klopt: voor bezoekers is de submap op Strato hetzelfde als de site-root. Er zijn **geen** aparte pad-prefixes in HTML nodig.
 
-## Deploy (GitHub Actions → Strato SFTP)
+**Deploy-doel (SFTP):** altijd **`/praktijkannemieke.nl`**, nooit `/`.
+
+## GitHub Actions — vier secrets
+
+Settings → Secrets (of environment **`production`**) → repository / environment secrets:
+
+| Secret | Wat invullen |
+|--------|----------------|
+| `STRATO_SFTP_SERVER` | SFTP-host uit Strato (zelfde als FileZilla) |
+| `STRATO_SFTP_USERNAME` | SFTP-gebruiker |
+| `STRATO_SFTP_PASSWORD` | SFTP-wachtwoord |
+| `STRATO_SFTP_REMOTE_DIR` | **`/praktijkannemieke.nl`** (verplicht; niet leeg, niet `/`) |
+
+De workflow **stopt met fout** als `STRATO_SFTP_REMOTE_DIR` leeg is of `/` is.
 
 Workflow: [.github/workflows/deploy-strato.yml](./.github/workflows/deploy-strato.yml)
 
 - **Handmatig:** Actions → *Deploy Strato* → *Run workflow*.
 - **Automatisch:** push naar `main` (na geconfigureerde secrets).
-- Vóór upload: tests + `strato:verify` (geen `STAGING_ROBOTS`).
+- Vóór upload: tests + `strato:verify`.
+- Upload: SFTP (`lftp mirror`) naar de doelmap; maakt **`praktijkannemieke.nl`** aan als die nog ontbreekt.
+- Er wordt **niets** automatisch uit de webruimte-root verwijderd.
 
-Deploy gebruikt **SFTP** (poort 22, `lftp mirror`) — dezelfde gegevens als FileZilla. Strato staat meestal **geen SCP** toe; alleen bestanden uploaden.
+## SSL en `.htaccess`
 
-**GitHub-repository → Settings → Environments → `production`** (aanbevolen) of repository secrets:
+In `.htaccess` staat een **http → https** redirect (en www → apex). Zolang het **SSL-certificaat** bij Strato nog niet (of niet goed) op **praktijkannemieke.nl** staat, kan de site via **http** wel, maar **https** falen of een redirect-loop geven. Pas na actief certificaat is https normaal.
 
-| Secret | Voorbeeld |
-|--------|-----------|
-| `STRATO_SFTP_SERVER` | Hostnaam uit Strato (bijv. `ssh.strato.nl` of package-specifiek) |
-| `STRATO_SFTP_USERNAME` | SFTP-gebruiker |
-| `STRATO_SFTP_PASSWORD` | SFTP-wachtwoord |
-| `STRATO_SFTP_REMOTE_DIR` | Documentroot, vaak `/` of `/htdocs/` |
+Tot die tijd: certificaat in Strato aanzetten/koppelen aan het domein; test daarna `http://` en `https://`.
 
-Optioneel: wachtwoord alleen in environment `production` met vereiste reviewers.
+## Robots (productie vs staging)
 
-## Handmatige upload (SFTP)
+- Staging: `npm run strato:staging-robots`
+- Productie: `npm run strato:live-robots` (403/404 blijven `noindex`)
+- Controle: `npm run strato:verify`
 
-1. Upload de site naar Strato (Apache), inclusief `.htaccess`, `404.html`, `assets/`, en elke pagina-map met `index.html`. **Niet** uploaden: `ondersteunende-middelen-2/` (oude URL; alleen redirect in `.htaccess`), `node_modules/`, `.git/`, tests, `scripts/`.
-2. Controleer dat **mod_rewrite** aan staat (Strato: meestal standaard).
-3. `.htaccess`: HTTPS, www → apex (zie blok **WWW-KEUZE** als je www wilt behouden), redirect `/ondersteunende-middelen-2/`, trailing slash, `ErrorDocument 404`.
+## Handmatige SFTP-upload
 
-## Na livegang — zelf controleren
+Zelfde doelmap: **`/praktijkannemieke.nl`**. Upload o.a. `.htaccess`, `index.html`, `assets/`, elke pagina-map met `index.html`. **Niet** uploaden: `node_modules/`, `.git/`, `tests/`, `scripts/`.
+
+## Na deploy — controleren
 
 | Item | Actie |
 |------|--------|
-| **noindex weg** | `npm run strato:verify` + deploy (live robots in repo) |
-| **Redirects** | `http://` → HTTPS; `www.` → apex (of omgekeerd na WWW-KEUZE); `/tarieven` → `/tarieven/`; `/ondersteunende-middelen-2/` → `/ondersteunende-middelen/` |
-| **404** | Onbekende URL toont `/404.html` |
-| **Interne links** | Geen `index.html` in menu/footer; paden `/slug/` |
-| **Canonical** | View source: `https://praktijkannemieke.nl/.../` (homepage `/`) |
-| **sitemap + robots** | `https://praktijkannemieke.nl/sitemap.xml` (10 URL’s, geen `-2`); robots verwijst naar die sitemap |
-| **Search Console** | Sitemap indienen; coverage controleren |
-| **Title / description / h1** | Vergelijk met live WordPress; pas HTML aan waar afwijking (placeholders tot Annemieke teksten aanlevert) |
-| **Privacy** | Geen cookies/analytics; fonts lokaal; WhatsApp-link is bewuste uitzondering (extern) |
-| **SSL** | Certificaat actief op apex-domein |
+| **Locatie** | In FileZilla: `index.html` staat in `/praktijkannemieke.nl/`, niet in webruimte-root |
+| **Redirects** | HTTPS, www → apex; `/ondersteunende-middelen-2/` → `/ondersteunende-middelen/` |
+| **404** | Onbekende URL → `/404.html` |
+| **Canonical** | `https://praktijkannemieke.nl/.../` |
+| **sitemap** | `https://praktijkannemieke.nl/sitemap.xml` |
+| **Search Console** | Sitemap indienen |
 
-## Scripts (onderhoud)
+## Scripts
 
 ```bash
-npm run strato:prepare    # origin apex, links, staging noindex, seo:static
-npm run strato:live-robots # alleen robots meta voor productie
+npm run strato:verify
+npm run strato:stage              # lokaal .deploy-staging/ bouwen
+npm run strato:validate-remote-dir  # STRATO_SFTP_REMOTE_DIR in env zetten
+npm run strato:live-robots
 ```
 
-## Lokaal testen (zelfde als Strato-root)
+## Lokaal testen
 
 ```bash
 set BASE_PATH=
 set PORT=4173
 npm start
-# http://127.0.0.1:4173/
 npm test
 ```
-
-GitHub Pages-preview (submap): `set BASE_PATH=/praktijkannemieke` — **let op:** interne links zijn root-absoluut voor Strato; submap-preview kan dan afwijken.
