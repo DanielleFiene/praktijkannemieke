@@ -56,7 +56,8 @@
     "perf:images": "node scripts/optimize-lighthouse-images.mjs && node scripts/apply-webp-paths.mjs",
     "perf:markup": "node scripts/apply-perf-markup.mjs",
     "perf:lighthouse": "npm run perf:fonts && npm run perf:images && npm run perf:markup",
-    "perf:heroes": "node scripts/optimize-hero-images.mjs && node scripts/apply-hero-webp-css.mjs && node scripts/apply-hero-preload.mjs"
+    "perf:heroes": "node scripts/optimize-hero-images.mjs && node scripts/apply-hero-webp-css.mjs && node scripts/apply-hero-preload.mjs",
+    "fix:csp-manifest": "node scripts/fix-csp-manifest.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.0",

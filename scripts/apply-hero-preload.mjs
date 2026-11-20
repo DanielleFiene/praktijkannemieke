@@ -58,6 +58,22 @@ function heroFromIndex(html) {
 	return m ? toAbsoluteAsset(m[1]) : null;
 }
 
+const CRITICAL_RE =
+	/\t<style id="site-critical-css">[^<]*<\/style>\n?/;
+
+function insertCriticalHero(html, href) {
+	const rule = `.hero.hero-title,.hero.hero-cover,section.sec.sec-hero-cover{background-image:url(${href})!important}`;
+	const block = `\t<style id="site-critical-css">${rule}</style>\n`;
+	let next = html.replace(CRITICAL_RE, '');
+	const sitePage = next.match(/<link rel="stylesheet" id="site-page-css"/);
+	const anchor = sitePage
+		? '<link rel="stylesheet" id="site-page-css"'
+		: '<link rel="stylesheet" href="/assets/css/a11y.css"';
+	if (!next.includes(anchor)) return html;
+	if (next.includes('id="site-critical-css"')) return next;
+	return next.replace(anchor, `${block}${anchor}`);
+}
+
 function insertPreload(html, href) {
 	const mime = href.endsWith('.webp') ? 'image/webp' : 'image/jpeg';
 	const tag = `\t<link rel="preload" as="image" href="${href}" fetchpriority="high" type="${mime}" />\n`;
@@ -65,9 +81,11 @@ function insertPreload(html, href) {
 	const anchor = '<meta charset="UTF-8" />';
 	if (!next.includes(anchor)) return html;
 	if (next.includes(`href="${href}"`)) {
-		return next.includes('fetchpriority="high"') ? next : next.replace(anchor, `${anchor}\n${tag}`);
+		next = next.includes('fetchpriority="high"') ? next : next.replace(anchor, `${anchor}\n${tag}`);
+	} else {
+		next = next.replace(anchor, `${anchor}\n${tag}`);
 	}
-	return next.replace(anchor, `${anchor}\n${tag}`);
+	return next;
 }
 
 let changed = 0;
@@ -79,8 +97,8 @@ for (const file of listHtmlFiles()) {
 	if (fs.existsSync(cssFile)) {
 		hero = extractHeroAssetPath(fs.readFileSync(cssFile, 'utf8'));
 	}
-	if (!hero && file.endsWith('index.html') && !file.includes(path.sep + 'index.html')) {
-		hero = heroFromIndex(html);
+	if (!hero && (file.endsWith(`${path.sep}index.html`) || file === path.join(root, 'index.html'))) {
+		if (file === path.join(root, 'index.html')) hero = heroFromIndex(html);
 	}
 	if (!hero) {
 		const next = html.replace(PRELOAD_RE, '');
@@ -90,7 +108,10 @@ for (const file of listHtmlFiles()) {
 		}
 		continue;
 	}
-	const next = insertPreload(html, hero);
+	let next = insertPreload(html, hero);
+	if (hero && file !== path.join(root, 'index.html')) {
+		next = insertCriticalHero(next, hero);
+	}
 	if (next !== html) {
 		fs.writeFileSync(file, next);
 		changed++;

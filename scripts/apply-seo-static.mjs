@@ -14,8 +14,9 @@ const LOCAL_BUSINESS_DESC =
 	'Praktijk voor energetisch werk in Beneden-Leeuwen (Gelderland). NEI-therapie, Reiki, Access Bars en meer; NEI ook op afstand.';
 const SKIP_DIRS = new Set(['node_modules', 'tests', 'playwright-report', 'test-results', '.git']);
 
+// frame-ancestors werkt niet in <meta>; clickjacking via .htaccess (X-Frame-Options).
 const CSP =
-	"default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; " +
+	"default-src 'self'; base-uri 'self'; object-src 'none'; " +
 	"style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; font-src 'self'; " +
 	"connect-src 'self'; media-src 'self'; form-action 'self' mailto:;";
 
