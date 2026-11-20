@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP_DIRS = new Set(['node_modules', 'tests', 'playwright-report', 'test-results', '.git']);
 
-const EARLY_JS = '<script src="/assets/js/document-js.js"></script>';
+const EARLY_JS =
+	'<script>document.documentElement.classList.add(\'js\');</script>';
 
 const FONT_PRELOADS = [
 	'<link rel="preload" href="/assets/fonts/gstatic/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVI.woff2" as="font" type="font/woff2" crossorigin />',
@@ -26,10 +27,14 @@ function listHtmlFiles() {
 }
 
 function patchEarlyJs(html) {
-	if (html.includes('document-js.js')) return html;
+	let next = html.replace(
+		/<script src="\/assets\/js\/document-js\.js"><\/script>\s*/g,
+		'',
+	);
+	if (next.includes("classList.add('js')")) return next;
 	const anchor = '<meta charset="UTF-8" />';
-	if (!html.includes(anchor)) return html;
-	return html.replace(anchor, `${anchor}\n\t${EARLY_JS}`);
+	if (!next.includes(anchor)) return next;
+	return next.replace(anchor, `${anchor}\n\t${EARLY_JS}`);
 }
 
 function patchFooterImages(html) {
